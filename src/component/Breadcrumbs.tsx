@@ -1,0 +1,49 @@
+import React, { useEffect } from 'react';
+import { Breadcrumb } from 'antd';
+import { Link, useLocation } from 'react-router-dom';
+
+const Breadcrumbs = () => {
+  const location = useLocation();
+
+  // Tách đường dẫn thành mảng các phần tử, loại bỏ chuỗi rỗng
+  const pathSnippets = location.pathname.split('/').filter((i) => i);
+
+  // Map tên đường dẫn sang tiếng Việt (bạn có thể thêm các route khác vào đây)
+  const breadcrumbNameMap: Record<string, string> = {
+    'news': 'Tin tức',
+    'industrial-machinery': 'Máy công nghiệp',
+    'agricultural-machinery': 'Máy nông nghiệp',
+    'san-pham': 'Sản phẩm',
+    'lien-he': 'Liên hệ',
+    'checkout': 'Thanh toán',
+    'cart': 'Giỏ hàng',
+    'search': 'Tìm kiếm'
+  };
+
+  // Tạo danh sách items cho Breadcrumb
+  const breadcrumbItems = [
+    {
+      title: <Link to="/">Trang chủ</Link>,
+    },
+    ...pathSnippets.map((snippet, index) => {
+      const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+      // Lấy tên từ map hoặc viết hoa chữ cái đầu nếu không tìm thấy
+      const name = breadcrumbNameMap[snippet] || snippet.charAt(0).toUpperCase() + snippet.slice(1);
+
+      return {
+        title: <Link to={url}>{name}</Link>,
+      };
+    }),
+  ];
+
+  // Ẩn breadcrumb nếu đang ở trang chủ (chỉ có 1 cấp)
+  if (location.pathname === '/') return null;
+
+  return (
+    <div className="w-full py-4 text-left">
+      <Breadcrumb items={breadcrumbItems} />
+    </div>
+  );
+};
+
+export default Breadcrumbs;

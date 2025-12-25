@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    // ... các tùy chọn khác
+    "baseUrl": ".",
+    "paths": {
+      // Thiết lập alias "@" trỏ đến thư mục "src"
+      "@/*": ["./src/*"]
+    }
+    // ... các tùy chọn khác
+  }
+  // ...
+}

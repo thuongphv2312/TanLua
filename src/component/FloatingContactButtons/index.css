@@ -1,0 +1,48 @@
+/* Container cho nút hotline để chứa các vòng sóng */
+.hotline-pulse-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Hiệu ứng sóng tỏa */
+.hotline-pulse-wrapper::before,
+.hotline-pulse-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ff4d4f; /* Màu đỏ của nút gọi */
+  opacity: 0.6;
+  zIndex: -1;
+  animation: pulse-wave 2s infinite;
+}
+
+.hotline-pulse-wrapper::after {
+  animation-delay: 1s; /* Vòng sóng thứ 2 trễ hơn 1 giây */
+}
+
+@keyframes pulse-wave {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5); /* Độ tỏa rộng của sóng */
+    opacity: 0;
+  }
+}
+
+/* Giữ hiệu ứng rung đã làm ở bước trước */
+.shake-animation {
+  animation: shake 2s infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  10%, 30%, 50% { transform: rotate(-10deg); }
+  20%, 40%, 60% { transform: rotate(10deg); }
+}
