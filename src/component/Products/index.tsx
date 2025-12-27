@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ShoppingCartOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
 import { Card, Badge, Button, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { newsList } from '../NewsPage/constants';
+import { CATEGORIES, newsList } from '../NewsPage/constants';
 
 
 interface Product {
@@ -24,7 +24,7 @@ interface ProductsProps {
 }
 
 const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], bannerImage, cartCounts = {}, onAddToCart = () => {} }) => {
-  const [activeCategory, setActiveCategory] = useState('Đầu Bơm Xịt Rửa Xe');
+  const [activeCategory, setActiveCategory] = useState(CATEGORIES[0].id);
   const [addingId, setAddingId] = useState<number | null>(null);
   const navigate = useNavigate();
 
@@ -43,18 +43,6 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
       setAddingId(null);
     }, 400);
   };
-
-  const categories = [
-    'Đầu Bơm Xịt Rửa Xe',
-    'Máy Xới Đất',
-    'Máy Cưa Xích',
-    'Máy Khoan Đất',
-    'Bình Xịt Điện',
-    'Dây Phun Áp Lực',
-    'Máy Bơm Nước',
-    'Máy Nổ',
-    'Máy Cắt Cỏ'
-  ];
 
   const dataToDisplay = lstProducts.length > 0 ? lstProducts : newsList;
 
@@ -103,16 +91,16 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
 
       {/* Category Navigation */}
       <div className="flex gap-2 mb-6 overflow-x-auto pb-2 custom-scrollbar">
-        {categories.map((category) => (
+        {CATEGORIES.map((category) => (
           <Button
-            key={category}
-            type={activeCategory === category ? 'primary' : 'default'}
-            danger={activeCategory === category}
+            key={category.id}
+            type={activeCategory === category.id ? 'primary' : 'default'}
+            danger={activeCategory === category.id}
             shape="round"
-            onClick={() => setActiveCategory(category)}
+            onClick={() => setActiveCategory(category.id)}
             className="whitespace-nowrap"
           >
-            {category}
+            {category.name}
           </Button>
         ))}
       </div>

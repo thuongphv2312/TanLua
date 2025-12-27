@@ -1,17 +1,20 @@
 // constants/newsCategory.ts
-import TL35X_1 from '../../assets/Máy cắt cỏ/TL35X/TL35X_1.png';
-import TL35X_2 from '../../assets/Máy cắt cỏ/TL35X/TL35X_2.png';
-import TL35X_3 from '../../assets/Máy cắt cỏ/TL35X/TL35X_3.png';
-import TL35X_4 from '../../assets/Máy cắt cỏ/TL35X/TL35X_4.png';
-import TL35X_5 from '../../assets/Máy cắt cỏ/TL35X/TL35X_5.png';
+import { TL35X_IMAGES } from './images';
 
-const TL35X_IMAGES = [TL35X_1, TL35X_2, TL35X_3, TL35X_4, TL35X_5];
+const MACHINE_NAME = {
+  MAY_CONG_NGHIEP: "Máy Công Nghiệp",
+  MAY_PHAT_DIEN: "Máy Phát Điện",
+  MAY_NONG_NGHIEP: "Máy Nông Nghiệp",
+  THIET_BI_XIT_RUA: "Thiết Bị Xịt Rửa",
+  MAY_BAN_COT: "Máy bắn cốt"
+}
 
-export const NEWS_CATEGORIES = [
-  { id: 1, name: "Máy Nông Nghiệp", slug: "may-nong-nghiep" },
-  { id: 2, name: "Máy Công Nghiệp", slug: "may-cong-nghiep" },
-  { id: 3, name: "Thiết Bị Xịt Rửa", slug: "thiet-bi-xit-rua" },
-  { id: 4, name: "Máy Phát Điện", slug: "may-phat-dien" },
+export const CATEGORIES = [
+  { id: 1, name: MACHINE_NAME.MAY_NONG_NGHIEP, slug: "may-nong-nghiep" },
+  { id: 2, name: MACHINE_NAME.MAY_CONG_NGHIEP, slug: "may-cong-nghiep" },
+  { id: 3, name: MACHINE_NAME.THIET_BI_XIT_RUA, slug: "thiet-bi-xit-rua" },
+  { id: 4, name: MACHINE_NAME.MAY_PHAT_DIEN, slug: "may-phat-dien" },
+  { id: 5, name: MACHINE_NAME.MAY_BAN_COT, slug: "may-ban-cot" },
 ];
 
 

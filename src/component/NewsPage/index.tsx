@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Breadcrumb, Pagination, Divider, List } from 'antd';
 import { HomeOutlined, RightOutlined } from '@ant-design/icons';
-import { NEWS_CATEGORIES, newsList } from './constants';
+import { CATEGORIES, newsList } from './constants';
 import { filterByCategory } from './utils';
 
 // --- Sub-Component: Thẻ bài viết ---
@@ -93,7 +93,7 @@ const NewsPage: React.FC = () => {
           <div>
             <h2 className="text-sm font-bold tracking-widest uppercase mb-4 border-b pb-2">Danh mục tin tức</h2>
             <ul className="space-y-2">
-              {NEWS_CATEGORIES.map((cat, idx) => (
+              {CATEGORIES.slice(0, 4).map((cat, idx) => (
                 <li onClick={() => hanlderCategory(cat)} key={idx} className="flex justify-between items-center text-sm text-gray-700 hover:text-red-600 cursor-pointer py-1">
                   {cat.name}
                   {/* {idx < 4 && <RightOutlined className="text-[10px]" />} */}
