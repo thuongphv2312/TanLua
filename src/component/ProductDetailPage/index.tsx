@@ -35,13 +35,13 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
         <div className="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition-colors" onClick={() => navigate(-1)}>
           <ArrowLeftOutlined /> <span>Quay lại</span>
         </div>
-        <Breadcrumb
+        {/* <Breadcrumb
           items={[
             { title: <a href="/">Trang chủ</a> },
             { title: 'Sản phẩm' },
             { title: product.name },
           ]}
-        />
+        /> */}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white p-6 rounded-xl shadow-sm">

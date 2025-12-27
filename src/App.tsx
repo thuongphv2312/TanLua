@@ -71,7 +71,7 @@ const App = () => {
   };
 
   const headerStyle = {
-    backgroundColor: '#fff',
+    backgroundColor: '#cb2b2b',
     height: '100px',
     padding: '0 50px',
     display: 'flex',

@@ -1,4 +1,12 @@
 // constants/newsCategory.ts
+import TL35X_1 from '../../assets/Máy cắt cỏ/TL35X/TL35X_1.png';
+import TL35X_2 from '../../assets/Máy cắt cỏ/TL35X/TL35X_2.png';
+import TL35X_3 from '../../assets/Máy cắt cỏ/TL35X/TL35X_3.png';
+import TL35X_4 from '../../assets/Máy cắt cỏ/TL35X/TL35X_4.png';
+import TL35X_5 from '../../assets/Máy cắt cỏ/TL35X/TL35X_5.png';
+
+const TL35X_IMAGES = [TL35X_1, TL35X_2, TL35X_3, TL35X_4, TL35X_5];
+
 export const NEWS_CATEGORIES = [
   { id: 1, name: "Máy Nông Nghiệp", slug: "may-nong-nghiep" },
   { id: 2, name: "Máy Công Nghiệp", slug: "may-cong-nghiep" },
@@ -146,6 +154,20 @@ export const newsList = [
     price: "5,600,000₫",
     oldPrice: "6,500,000₫",
     discount: "-14%",
+    url: "WWW.TANLUAVIETNAM.COM",
+  },
+  {
+    id: 11,
+    title: "Máy cắt cỏ TL35X 4 thì xăng riêng nhớt riêng",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy cắt cỏ TL35X 4 thì xăng riêng nhớt riêng",
+    images: TL35X_IMAGES,
+    categories: [1],
+    name: "Máy cắt cỏ TL35X 4 thì xăng riêng nhớt riêng",
+    price: "2,500,000₫",
+    oldPrice: "3,000,000₫",
+    discount: "-17%",
     url: "WWW.TANLUAVIETNAM.COM",
   },
 ];

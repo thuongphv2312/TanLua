@@ -146,10 +146,12 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
                 )}
 
                 {/* Product Image Placeholder */}
-                {product.images[0] && product.images[0].startsWith('http') ? (
+                {product.images?.[0] ? (
                   <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />
                 ) : (
-                  <div className="text-6xl">{product.images[0]}</div>
+                  <div className="flex items-center justify-center w-full h-full bg-gray-100 text-gray-300">
+                    <SearchOutlined style={{ fontSize: '32px' }} />
+                  </div>
                 )}
 
                 {/* Watermark */}
