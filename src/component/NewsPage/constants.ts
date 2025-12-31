@@ -1,10 +1,11 @@
 // constants/newsCategory.ts
-import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES } from './images';
+import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES } from './images';
 
 const MACHINE_NAME = {
   MAY_CONG_NGHIEP: "Máy Công Nghiệp",
-  MAY_PHAT_DIEN: "Máy Phát Điện",
   MAY_NONG_NGHIEP: "Máy Nông Nghiệp",
+  DUNG_CU_CAM_TAY: "Dụng cụ cầm tay",
+  MAY_PHAT_DIEN: "Máy Phát Điện",
   THIET_BI_XIT_RUA: "Thiết Bị Xịt Rửa",
   MAY_BAN_COT: "Máy bắn cốt",
   MAY_CAT_CO: "Máy cắt cỏ",
@@ -18,6 +19,7 @@ export const HOTLINE = '0833.090.186';
 export const CATEGORIES = [
   { id: 1, name: MACHINE_NAME.MAY_NONG_NGHIEP, slug: "may-nong-nghiep", img: SLIDER_IMAGES[0] },
   { id: 2, name: MACHINE_NAME.MAY_CONG_NGHIEP, slug: "may-cong-nghiep",img: SLIDER_IMAGES[1] },
+  { id: 11, name: MACHINE_NAME.DUNG_CU_CAM_TAY, slug: "dung-cu-cam-tay", img: SLIDER_IMAGES[0] },
   { id: 3, name: MACHINE_NAME.THIET_BI_XIT_RUA, slug: "thiet-bi-xit-rua", img: SLIDER_IMAGES[2] },
   { id: 4, name: MACHINE_NAME.MAY_PHAT_DIEN, slug: "may-phat-dien", img: SLIDER_IMAGES[3] },
   { id: 5, name: MACHINE_NAME.MAY_BAN_COT, slug: "may-ban-cot", img: SLIDER_IMAGES[4] },
@@ -117,13 +119,13 @@ export const newsList = [
   },
   {
     id: 7,
-    title: "Máy băm thái chuối đa năng Bình Phước",
+    title: "Thân máy thổi G2-TPLF1",
     author: "Tấn Lụa",
     date: "12/01/2021",
-    description: "Máy nén khí có công dụng như thế nào với các garage xe...",
-    images: ["https://picsum.photos/400/300?1"],
-    categories: [1, 3], // 👈 quan trọng
-    name: "Máy băm thái chuối đa năng Bình Phước",
+    description: "Thân máy thổi G2-TPLF1 có công dụng như thế nào với công việc của bạn...",
+    images: G2TPLF1_IMAGES,
+    categories: [11],
+    name: "Thân máy thổi G2-TPLF1",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
     url: "WWW.TANLUAVIETNAM.COM",

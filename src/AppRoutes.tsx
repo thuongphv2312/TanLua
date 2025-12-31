@@ -49,7 +49,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
         <Products
           title='DỤNG CỤ CẦM TAY'
           bannerImage={banner}
-          lstProducts={newsList.filter(item => item.categories.includes(3)) as any}
+          lstProducts={newsList.filter(item => item.categories.includes(11)) as any}
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
         />

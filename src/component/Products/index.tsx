@@ -134,7 +134,7 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
             />
           </div>
         )}
-        {(bannerImage ? dataToDisplay.slice(2, 10) : dataToDisplay.slice(0, 10)).map((product) => (
+        {(bannerImage ? dataToDisplay : dataToDisplay).map((product) => (
           <Card
             key={product.id}
             hoverable

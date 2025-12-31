@@ -12,7 +12,16 @@ import img2 from '../../assets/sliders/slider_2.jpg';
 import img3 from '../../assets/sliders/slider_3.jpg';
 import img4 from '../../assets/sliders/right_banner_1.jpg';
 import img5 from '../../assets/sliders/right_banner_2.jpg';
+import G2TPLF1 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1.png';
+import G2TPLF1_1 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_1.png';
+import G2TPLF1_2 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_2.png';
+import G2TPLF1_3 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_3.png';
+import G2TPLF1_4 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_4.png';
+import G2TPLF1_5 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_5.png';
+import G2TPLF1_6 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_6.png';
+import G2TPLF1_7 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_7.png';
 
 export const TL35X_IMAGES = [TL35X_1, TL35X_2, TL35X_3, TL35X_4, TL35X_5];
 export const TJ35_IMAGES = [TJ35_1, TJ35_2, TJ35_3, TJ35_4];
 export const SLIDER_IMAGES = [img1, img2, img3, img4, img5];
+export const G2TPLF1_IMAGES = [G2TPLF1, G2TPLF1_1, G2TPLF1_2, G2TPLF1_3, G2TPLF1_4, G2TPLF1_5, G2TPLF1_6, G2TPLF1_7];
