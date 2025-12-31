@@ -37,6 +37,7 @@ const AppFooter = () => {
               src="/src/assets/logo.png"
               alt="Tấn Lụa Logo"
               style={{ maxWidth: '80%', marginBottom: '15px' }}
+              loading='lazy'
             />
             <br />
             <Text strong style={{ fontSize: '14px' }}>
@@ -108,10 +109,10 @@ const AppFooter = () => {
           <Title level={4} style={{ fontSize: '18px' }}>Phương thức thanh toán</Title>
           <div style={{ backgroundColor: '#fff', padding: '10px', borderRadius: '8px', display: 'inline-block' }}>
             <Space size="middle">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" width="40" />
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" width="40" />
-              <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" width="30" />
-              <img src="https://media.loveitopcdn.com/3807/logo-zalopay1-compressed.jpg" alt="VNPay" width="60" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" width="40" loading='lazy'/>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" width="40" loading='lazy'/>
+              <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" width="30" loading='lazy'/>
+              <img src="https://media.loveitopcdn.com/3807/logo-zalopay1-compressed.jpg" alt="VNPay" width="60" loading='lazy'/>
             </Space>
           </div>
 
@@ -120,6 +121,7 @@ const AppFooter = () => {
               src="/src/assets/logo_bct.png"
               alt="Đã thông báo bộ công thương"
               style={{ height: '80px' }}
+              loading='lazy'
             />
           </div>
         </Col>

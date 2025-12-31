@@ -22,10 +22,12 @@ interface ProductsProps {
   bannerImage?: string;
   cartCounts?: { [key: number]: number };
   onAddToCart?: (id: number) => void;
+  categoryId?: number;
 }
 
-const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], bannerImage, cartCounts = {}, onAddToCart = () => {} }) => {
+const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], bannerImage, cartCounts = {}, onAddToCart = () => {}, categoryId }) => {
   const [activeCategory, setActiveCategory] = useState(() => {
+    if (categoryId) return categoryId;
     if (lstProducts.length > 0) {
       const firstItem = lstProducts[0];
       const match = CATEGORIES.find(c => firstItem.categories?.includes(c.id));
@@ -37,14 +39,16 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (lstProducts.length > 0) {
+    if (categoryId) {
+      setActiveCategory(categoryId);
+    } else if (lstProducts.length > 0) {
       const firstItem = lstProducts[0];
       const match = CATEGORIES.find(c => firstItem.categories?.includes(c.id));
       if (match) {
         setActiveCategory(match.id);
       }
     }
-  }, [title]);
+  }, [title, categoryId, lstProducts]);
 
   const handleAddToCart = (e: React.MouseEvent, product: Product) => {
     e.stopPropagation(); // Ngăn sự kiện click lan ra Card
@@ -131,6 +135,7 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
               src={bannerImage}
               alt="Banner"
               className="w-full h-full object-cover rounded-lg shadow-sm"
+              loading='lazy'
             />
           </div>
         )}
@@ -153,7 +158,7 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
 
                 {/* Product Image Placeholder */}
                 {product.images?.[0] ? (
-                  <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />
+                  <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" loading='lazy' />
                 ) : (
                   <div className="flex items-center justify-center w-full h-full bg-gray-100 text-gray-300">
                     <SearchOutlined style={{ fontSize: '32px' }} />

@@ -124,7 +124,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ cartCounts, productList, on
               <div key={item.id} className="flex justify-between items-center border-b pb-4 last:border-0">
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <img src={item.images[0]} alt={item.name} className="w-16 h-16 object-cover rounded" />
+                    <img src={item.images[0]} alt={item.name} className="w-16 h-16 object-cover rounded" loading='lazy'/>
                     <span className="absolute -top-2 -right-2 bg-gray-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
                       {item.quantity}
                     </span>

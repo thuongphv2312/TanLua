@@ -13,6 +13,7 @@ const NewsCard = ({ images, title, author, date, description, onClick }: any) =>
         src={images?.[0]}
         alt={title}
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        loading='lazy'
       />
     </div>
     <h3 className="text-[15px] font-bold leading-tight mb-2 line-clamp-2 group-hover:text-red-600">
@@ -110,7 +111,7 @@ const NewsPage: React.FC = () => {
             <div className="space-y-4">
               {newsList.slice(0, 4).map((news, idx) => (
                 <div key={idx} className="flex gap-3 items-start group cursor-pointer" onClick={() => navigate(`/news/${news.id}`)}>
-                  <img src={news.images[0]} className="w-16 h-16 object-cover rounded shadow-sm" alt="" />
+                  <img src={news.images[0]} className="w-16 h-16 object-cover rounded shadow-sm" alt="" loading='lazy'/>
                   <h4 className="text-left text-[13px] font-semibold leading-snug group-hover:text-red-600 line-clamp-3">
                     {news.title}
                   </h4>

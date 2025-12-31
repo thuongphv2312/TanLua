@@ -19,15 +19,14 @@ export const HOTLINE = '0833.090.186';
 export const CATEGORIES = [
   { id: 1, name: MACHINE_NAME.MAY_NONG_NGHIEP, slug: "may-nong-nghiep", img: SLIDER_IMAGES[0] },
   { id: 2, name: MACHINE_NAME.MAY_CONG_NGHIEP, slug: "may-cong-nghiep",img: SLIDER_IMAGES[1] },
-  { id: 11, name: MACHINE_NAME.DUNG_CU_CAM_TAY, slug: "dung-cu-cam-tay", img: SLIDER_IMAGES[0] },
+  { id: 10, name: MACHINE_NAME.DUNG_CU_CAM_TAY, slug: "dung-cu-cam-tay", img: SLIDER_IMAGES[0] },
   { id: 3, name: MACHINE_NAME.THIET_BI_XIT_RUA, slug: "thiet-bi-xit-rua", img: SLIDER_IMAGES[2] },
   { id: 4, name: MACHINE_NAME.MAY_PHAT_DIEN, slug: "may-phat-dien", img: SLIDER_IMAGES[3] },
   { id: 5, name: MACHINE_NAME.MAY_BAN_COT, slug: "may-ban-cot", img: SLIDER_IMAGES[4] },
   { id: 6, name: MACHINE_NAME.MAY_CAT_CO, slug: "may-cat-co", img: SLIDER_IMAGES[0] },
   { id: 7, name: MACHINE_NAME.MAY_XOI_DAT, slug: "may-xoi-dat", img: SLIDER_IMAGES[1] },
   { id: 8, name: MACHINE_NAME.MAY_BOM_NUOC, slug: "may-bom-nuoc",img: SLIDER_IMAGES[2] },
-  { id: 9, name: MACHINE_NAME.MAY_BOM_NUOC, slug: "may-bom-nuoc", img: SLIDER_IMAGES[3] },
-  { id: 10, name: MACHINE_NAME.MAY_NEN_KHI, slug: "may-nen-khi", img: SLIDER_IMAGES[4] },
+  { id: 9, name: MACHINE_NAME.MAY_NEN_KHI, slug: "may-nen-khi", img: SLIDER_IMAGES[4] },
 ];
 
 const calculateDiscount = (price: string, oldPrice: string) => {
@@ -124,7 +123,7 @@ export const newsList = [
     date: "12/01/2021",
     description: "Thân máy thổi G2-TPLF1 có công dụng như thế nào với công việc của bạn...",
     images: G2TPLF1_IMAGES,
-    categories: [11],
+    categories: [10],
     name: "Thân máy thổi G2-TPLF1",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",

@@ -89,7 +89,7 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
       <div style={{ display: 'flex', alignItems: 'center', flex: 1, maxWidth: '800px' }}>
         {screens.md &&
           <Space className='cursor-pointer' style={{ margin: '0 25px' }}>
-            <img src="/src/assets/logo.png" alt="logo" style={{ height: '80px', maxWidth: '300px' }} onClick={() => navigate('/')}/>
+            <img src="/src/assets/logo.png" loading='lazy' alt="logo" style={{ height: '80px', maxWidth: '300px' }} onClick={() => navigate('/')}/>
           </Space>
         }
         <div style={{

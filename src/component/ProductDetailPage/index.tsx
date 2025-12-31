@@ -62,7 +62,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
                 className={`w-20 h-20 border rounded cursor-pointer flex-shrink-0 overflow-hidden ${mainImage === img ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200'}`}
                 onClick={() => setMainImage(img)}
               >
-                <img src={img} alt={`Thumbnail ${index}`} className="w-full h-full object-cover" />
+                <img src={img} alt={`Thumbnail ${index}`} className="w-full h-full object-cover" loading='lazy'/>
               </div>
             ))}
           </div>

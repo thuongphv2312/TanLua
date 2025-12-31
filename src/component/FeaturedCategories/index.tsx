@@ -1,10 +1,12 @@
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { CATEGORIES } from "../NewsPage/constants";
 
 export default function FeaturedCategories() {
   const [index, setIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(6);
+  const navigate = useNavigate();
   const maxIndex = Math.max(0, CATEGORIES.length - itemsPerView);
 
   useEffect(() => {
@@ -58,12 +60,14 @@ export default function FeaturedCategories() {
               key={i}
               className="flex-shrink-0 flex flex-col items-center cursor-pointer"
               style={{ width: `${100 / itemsPerView}%` }}
+              onClick={() => navigate(`/${item.slug}`)}
             >
               <div className="xs:w-10 xs:h-10 sm:w-15 sm:h-15 md:w-25 md:h-25 rounded-full border-2 border-amber-500 flex items-center justify-center hover:scale-104 transition overflow-hidden">
                 <img
                   src={item.img}
                   alt={item.name}
                   className="w-full h-full object-fill"
+                  loading="lazy"
                 />
               </div>
               <p className="mt-2 text-sm font-medium text-center">

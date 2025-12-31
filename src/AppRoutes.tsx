@@ -39,19 +39,22 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           lstProducts={newsList.filter(item => item.categories.includes(1)) as any}
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
+          categoryId={1}
         />
         <Products
           title='MÁY CÔNG NGHIỆP'
           lstProducts={newsList.filter(item => item.categories.includes(2)) as any}
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
+          categoryId={2}
         />
         <Products
           title='DỤNG CỤ CẦM TAY'
           bannerImage={banner}
-          lstProducts={newsList.filter(item => item.categories.includes(11)) as any}
+          lstProducts={newsList.filter(item => item.categories.includes(10)) as any}
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
+          categoryId={10}
         />
         <NewsPage/>
         <AboutSection/>
@@ -94,6 +97,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           lstProducts={newsList.filter(item => item.categories.includes(category.id)) as any}
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
+          categoryId={category.id}
         />} />
       ))}
     </Routes>

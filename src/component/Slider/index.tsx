@@ -43,6 +43,7 @@ const Slider: React.FC = () => {
                     src={img.src}
                     alt={img.title}
                     className="w-full h-full object-fill"
+                    loading='lazy'
                   />
                 </div>
               </div>
@@ -60,6 +61,7 @@ const Slider: React.FC = () => {
                 src={img4}
                 // alt={img.title}
                 className="w-full h-full object-fill"
+                loading='lazy'
               />
             </div>
           </div>
@@ -71,6 +73,7 @@ const Slider: React.FC = () => {
                 src={img5}
                 // alt={img.title}
                 className="w-full h-full object-fill"
+                loading='lazy'
               />
             </div>
           </div>

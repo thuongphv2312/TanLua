@@ -13,6 +13,7 @@ const Breadcrumbs = () => {
     'news': 'Tin tức',
     'may-cong-nghiep': 'Máy công nghiệp',
     'may-nong-nghiep': 'Máy nông nghiệp',
+    'may-cat-co': 'Máy cắt cỏ',
     'san-pham': 'Sản phẩm',
     'lien-he': 'Liên hệ',
     'checkout': 'Thanh toán',

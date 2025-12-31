@@ -58,7 +58,7 @@ const NewsDetailPage: React.FC = () => {
                 {newsList.filter(n => n.id !== newsItem.id).slice(0, 4).map(item => (
                   <div key={item.id} className="flex gap-3 cursor-pointer group" onClick={() => navigate(`/news/${item.id}`)}>
                     <div className="w-20 h-16 flex-shrink-0 overflow-hidden rounded-md">
-                        <img src={item.images[0]} className="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="" />
+                        <img src={item.images[0]} className="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="" loading='lazy'/>
                     </div>
                     <div>
                       <h4 className="text-sm font-medium group-hover:text-red-600 line-clamp-2 leading-snug">{item.title}</h4>

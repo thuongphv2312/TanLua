@@ -64,6 +64,7 @@ const AboutSection = () => {
             src={banner}
             // alt={img.title}
             className="w-full h-full object-fill"
+            loading='lazy'
           />
         </div>
       </div>

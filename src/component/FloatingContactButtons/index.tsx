@@ -31,12 +31,12 @@ export const FloatingContactButtons = () => {
 
       {/* Các nút mạng xã hội */}
       <FloatButton
-        icon={<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" style={iconStyle} />}
+        icon={<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" style={iconStyle} loading='lazy' />}
         href={`https://zalo.me/${HOTLINE}`}
         target="_blank"
       />
       <FloatButton
-        icon={<img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="Messenger" style={iconStyle} />}
+        icon={<img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="Messenger" style={iconStyle} loading='lazy'/>}
         href="https://www.facebook.com"
         target="_blank"
       />
@@ -44,7 +44,7 @@ export const FloatingContactButtons = () => {
       {/* Nút Hotline với hiệu ứng Sóng Tỏa và Rung */}
       <FloatButton
         className="hotline-pulse-wrapper shake-animation"
-        icon={<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={iconStyle} />}
+        icon={<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={iconStyle} loading='lazy'/>}
         style={{ border: '1px solid #ff4d4f' }}
         href={`tel:${HOTLINE}`}
       />
