@@ -5,7 +5,7 @@ import HeaderContainer from './component/header';
 import ClickSpark from './component/ClickSpark';
 import AppFooter from './component/footer';
 import { FloatingContactButtons } from './component/FloatingContactButtons';
-import MenuContainer from './component/MenuContainer';
+import MenuContainer, { MobileMenu } from './component/MenuContainer';
 import Breadcrumbs from './component/Breadcrumbs';
 import { newsList } from './component/NewsPage/constants';
 import AppRoutes from './AppRoutes';
@@ -157,6 +157,7 @@ const App = () => {
         duration={400}
       >
         <Layout style={layoutStyle}>
+          <MobileMenu isSticky={isSticky} />
           <HeaderContainer
             headerStyle={headerStyle}
             mainColor={mainColor}
