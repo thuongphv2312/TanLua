@@ -1,5 +1,5 @@
 // constants/newsCategory.ts
-import { TL35X_IMAGES } from './images';
+import { TL35X_IMAGES, TJ35_IMAGES } from './images';
 
 const MACHINE_NAME = {
   MAY_CONG_NGHIEP: "Máy Công Nghiệp",
@@ -17,6 +17,13 @@ export const CATEGORIES = [
   { id: 5, name: MACHINE_NAME.MAY_BAN_COT, slug: "may-ban-cot" },
 ];
 
+const calculateDiscount = (price: string, oldPrice: string) => {
+  if (!oldPrice) return "";
+  const priceNumber = parseInt(price.replace(/\D/g, ''));
+  const oldPriceNumber = parseInt(oldPrice.replace(/\D/g, ''));
+  if (!oldPriceNumber || priceNumber >= oldPriceNumber) return "";
+  return `-${Math.round(((oldPriceNumber - priceNumber) / oldPriceNumber) * 100)}%`;
+};
 
 export const newsList = [
   {
@@ -30,7 +37,6 @@ export const newsList = [
     name: "Máy băm thái chuối đa năng Bình Phước",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    discount: "-17%",
     url: "WWW.TANLUAVIETNAM.COM",
   },
   {
@@ -58,7 +64,6 @@ export const newsList = [
     name: "Máy phát điện công nghiệp 50kVA",
     price: "150,000,000₫",
     oldPrice: "",
-    discount: "",
     url: "WWW.TANLUAVIETNAM.COM",
   },
   {
@@ -86,7 +91,6 @@ export const newsList = [
     name: "Máy phun xịt rửa áp lực cao",
     price: "1,800,000₫",
     oldPrice: "2,200,000₫",
-    discount: "-18%",
     url: "WWW.TANLUAVIETNAM.COM",
   },
   {
@@ -114,7 +118,6 @@ export const newsList = [
     name: "Máy băm thái chuối đa năng Bình Phước",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    discount: "-17%",
     url: "WWW.TANLUAVIETNAM.COM",
   },
   {
@@ -142,7 +145,6 @@ export const newsList = [
     name: "Máy phát điện công nghiệp 50kVA",
     price: "150,000,000₫",
     oldPrice: "",
-    discount: "",
     url: "WWW.TANLUAVIETNAM.COM",
   },
   {
@@ -170,7 +172,22 @@ export const newsList = [
     name: "Máy cắt cỏ TL35X 4 thì xăng riêng nhớt riêng",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    discount: "-17%",
     url: "WWW.TANLUAVIETNAM.COM",
   },
-];
+  {
+    id: 12,
+    title: "Máy cắt cỏ TJ35 4 thì xăng riêng nhớt riêng",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy cắt cỏ TJ35 4 thì xăng riêng nhớt riêng",
+    images: TJ35_IMAGES,
+    categories: [1],
+    name: "Máy cắt cỏ TJ35 4 thì xăng riêng nhớt riêng",
+    price: "1,890,000₫",
+    oldPrice: "3,000,000₫",
+    url: "WWW.TANLUAVIETNAM.COM",
+  },
+].map(item => ({
+  ...item,
+  discount: calculateDiscount(item.price, item.oldPrice)
+}));

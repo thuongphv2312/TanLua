@@ -1,24 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Layout, Typography, ConfigProvider } from 'antd';
 import HeaderContainer from './component/header';
 import ClickSpark from './component/ClickSpark';
 import AppFooter from './component/footer';
 import { FloatingContactButtons } from './component/FloatingContactButtons';
 import MenuContainer from './component/MenuContainer';
-import Slider from './component/Slider';
-import FeaturedCategories from './component/FeaturedCategories';
-import NewsPage from './component/NewsPage';
 import Breadcrumbs from './component/Breadcrumbs';
-import { ROUTE_MAP } from './constants';
-import AboutSection from './component/About';
-import Products from './component/Products';
-import banner from '../src/assets/section_hot.jpg';
 import { newsList } from './component/NewsPage/constants';
-import CartPage from './component/CartPage';
-import CheckoutPage from './component/CheckoutPage';
-import SearchResults from './component/SearchResults';
-import ProductDetailPage from './component/ProductDetailPage';
+import AppRoutes from './AppRoutes';
 
 
 const { Header, Content, Footer } = Layout;
@@ -176,73 +166,13 @@ const App = () => {
           <Content style={contentStyle}>
             <MenuContainer />
             <Breadcrumbs />
-            <Routes>
-              <Route path="/" element={<>
-                <Slider />
-                <FeaturedCategories/>
-                <Products
-                  title='MÁY NÔNG NGHIỆP'
-                  lstProducts={newsList.filter(item => item.categories.includes(1)) as any}
-                  cartCounts={cartCounts}
-                  onAddToCart={handleUpdateCart}
-                />
-                <Products
-                  title='MÁY CÔNG NGHIỆP'
-                  lstProducts={newsList.filter(item => item.categories.includes(2)) as any}
-                  cartCounts={cartCounts}
-                  onAddToCart={handleUpdateCart}
-                />
-                <Products
-                  title='DỤNG CỤ CẦM TAY'
-                  bannerImage={banner}
-                  lstProducts={newsList.filter(item => item.categories.includes(3)) as any}
-                  cartCounts={cartCounts}
-                  onAddToCart={handleUpdateCart}
-                />
-                <NewsPage/>
-                <AboutSection/>
-              </>} />
-              <Route path={ROUTE_MAP['NEWS']} element={<NewsPage />} />
-              <Route path={ROUTE_MAP['CART']} element={
-                <CartPage
-                  cartCounts={cartCounts}
-                  productList={newsList}
-                  onIncrease={handleUpdateCart}
-                  onDecrease={handleDecreaseCart}
-                  onRemove={handleRemoveFromCart}
-                />
-              } />
-              <Route path="/cart/checkout" element={
-                <CheckoutPage
-                  cartCounts={cartCounts}
-                  productList={newsList}
-                  onClearCart={handleClearCart}
-                />
-              } />
-              <Route path={ROUTE_MAP['SEARCH']} element={
-                <SearchResults
-                  cartCounts={cartCounts}
-                  onAddToCart={handleUpdateCart}
-                />
-              } />
-              <Route path="/product/:id" element={
-                <ProductDetailPage
-                  onAddToCart={handleUpdateCart}
-                />
-              } />
-              <Route path={ROUTE_MAP['AGRICULTURAL_MACHINERY']} element={<Products
-                  title='MÁY NÔNG NGHIỆP'
-                  lstProducts={newsList.filter(item => item.categories.includes(1)) as any}
-                  cartCounts={cartCounts}
-                  onAddToCart={handleUpdateCart}
-                />} />
-                <Route path={ROUTE_MAP['INDUSTRIAL_MACHINERY']} element={<Products
-                  title='MÁY CÔNG NGHIỆP'
-                  lstProducts={newsList.filter(item => item.categories.includes(2)) as any}
-                  cartCounts={cartCounts}
-                  onAddToCart={handleUpdateCart}
-                />} />
-            </Routes>
+            <AppRoutes
+              cartCounts={cartCounts}
+              onUpdateCart={handleUpdateCart}
+              onDecreaseCart={handleDecreaseCart}
+              onRemoveFromCart={handleRemoveFromCart}
+              onClearCart={handleClearCart}
+            />
           </Content>
           <FloatingContactButtons/>
           <AppFooter/>

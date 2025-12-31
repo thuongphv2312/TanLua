@@ -59,7 +59,7 @@ const AboutSection = () => {
       </div>
 
       <div className="flex overflow-hidden transition">
-        <div className="relative h-[190px]"> {/* Khóa chiều cao cố định */}
+        <div className="relative h-[190px] w-full"> {/* Khóa chiều cao cố định */}
           <img
             src={banner}
             // alt={img.title}
