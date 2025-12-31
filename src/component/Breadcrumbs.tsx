@@ -11,8 +11,8 @@ const Breadcrumbs = () => {
   // Map tên đường dẫn sang tiếng Việt (bạn có thể thêm các route khác vào đây)
   const breadcrumbNameMap: Record<string, string> = {
     'news': 'Tin tức',
-    'industrial-machinery': 'Máy công nghiệp',
-    'agricultural-machinery': 'Máy nông nghiệp',
+    'may-cong-nghiep': 'Máy công nghiệp',
+    'may-nong-nghiep': 'Máy nông nghiệp',
     'san-pham': 'Sản phẩm',
     'lien-he': 'Liên hệ',
     'checkout': 'Thanh toán',

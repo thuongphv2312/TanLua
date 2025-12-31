@@ -12,8 +12,8 @@ export const PARAMETERS = {
 // Định nghĩa các hằng số route để tránh gõ nhầm chữ (typo)
 export const ROUTE_MAP: Record<string, string> = {
   [PARAMETERS["NEWS"]]: "/news",
-  [PARAMETERS["INDUSTRIAL_MACHINERY"]]: "/industrial-machinery",
-  [PARAMETERS["AGRICULTURAL_MACHINERY"]]: "/agricultural-machinery",
+  [PARAMETERS["INDUSTRIAL_MACHINERY"]]: "/may-cong-nghiep",
+  [PARAMETERS["AGRICULTURAL_MACHINERY"]]: "/may-nong-nghiep",
   [PARAMETERS["ABOUT"]]: "/about-us",
   [PARAMETERS["CONTACT"]]: "/contact",
   [PARAMETERS["CHECKOUT"]]: "/checkout",
