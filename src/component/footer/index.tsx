@@ -7,6 +7,7 @@ import {
   FacebookFilled,
   InstagramOutlined,
 } from '@ant-design/icons';
+import { HOTLINE } from '../NewsPage/constants';
 
 const { Footer } = Layout;
 const { Title, Text } = Typography;
@@ -49,7 +50,7 @@ const AppFooter = () => {
             </Space>
             <Space>
               <PhoneOutlined style={{ color: '#000' }} />
-              <Text>Số điện thoại: 0833.090.186</Text>
+              <Text>Số điện thoại: {HOTLINE}</Text>
             </Space>
             <Space>
               <MailOutlined style={{ color: '#000' }} />

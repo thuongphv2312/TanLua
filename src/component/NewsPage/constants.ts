@@ -13,6 +13,8 @@ const MACHINE_NAME = {
   MAY_NEN_KHI: "Máy nén khí"
 }
 
+export const HOTLINE = '0833.090.186';
+
 export const CATEGORIES = [
   { id: 1, name: MACHINE_NAME.MAY_NONG_NGHIEP, slug: "may-nong-nghiep", img: SLIDER_IMAGES[0] },
   { id: 2, name: MACHINE_NAME.MAY_CONG_NGHIEP, slug: "may-cong-nghiep",img: SLIDER_IMAGES[1] },
@@ -193,5 +195,10 @@ export const newsList = [
   },
 ].map(item => ({
   ...item,
-  discount: calculateDiscount(item.price, item.oldPrice)
+  discount: calculateDiscount(item.price, item.oldPrice),
+  content: `
+    <p>Sản phẩm <strong>${item.name}</strong> hiện đang được phân phối chính hãng tại Tấn Lụa Việt Nam với mức giá ưu đãi.</p>
+    <p><strong>Giá bán: <span style="color: #d32f2f; font-size: 1.2em;">${item.price}</span></strong> ${item.oldPrice ? `<span style="text-decoration: line-through; color: #999; margin-left: 10px;">${item.oldPrice}</span>` : ''}</p>
+    <p>Để biết thêm thông tin chi tiết về sản phẩm và các chương trình khuyến mãi, quý khách vui lòng liên hệ hotline: <b>${HOTLINE}</b> hoặc đến trực tiếp cửa hàng để được tư vấn tốt nhất.</p>
+  `
 }));

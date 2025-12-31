@@ -9,6 +9,7 @@ import {
 import TextType from '../TextType';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { HOTLINE } from '../NewsPage/constants';
 const { Header } = Layout;
 const { useBreakpoint } = Grid;
 const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cartCounts = {}, productList = [] }: any) => {
@@ -136,7 +137,7 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
             <PhoneOutlined style={{ fontSize: '26px', color: '#f08a8a' }} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <Text style={{ fontSize: '12px', color: 'white' }}>Hỗ trợ khách hàng</Text>
-              <Text strong style={{ color: 'white' }}>0833.090.186</Text>
+              <Text strong style={{ color: 'white' }}>{HOTLINE}</Text>
             </div>
           </Space>
         }

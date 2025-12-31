@@ -1,12 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Breadcrumb, Pagination, Divider, List } from 'antd';
 import { HomeOutlined, RightOutlined } from '@ant-design/icons';
 import { CATEGORIES, newsList } from './constants';
 import { filterByCategory } from './utils';
 
 // --- Sub-Component: Thẻ bài viết ---
-const NewsCard = ({ images, title, author, date, description }: any) => (
-  <div className="flex flex-col group cursor-pointer">
+const NewsCard = ({ images, title, author, date, description, onClick }: any) => (
+  <div className="flex flex-col group cursor-pointer" onClick={onClick}>
     <div className="overflow-hidden rounded-md mb-3 aspect-[4/3]">
       <img
         src={images?.[0]}
@@ -30,6 +31,7 @@ const NewsCard = ({ images, title, author, date, description }: any) => (
 // --- Component Chính ---
 const NewsPage: React.FC = () => {
 
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
 
   const filteredNews = filterByCategory(newsList, activeCategory);
@@ -67,7 +69,7 @@ const NewsPage: React.FC = () => {
         <div className="w-full md:w-[75%]">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
             {paginatedNews.map((news) => (
-              <NewsCard key={news.id} {...news} />
+              <NewsCard key={news.id} {...news} onClick={() => navigate(`/news/${news.id}`)} />
             ))}
           </div>
 
@@ -107,7 +109,7 @@ const NewsPage: React.FC = () => {
             <h2 className="text-sm font-bold tracking-widest uppercase mb-4 border-b pb-2">Tin nổi bật</h2>
             <div className="space-y-4">
               {newsList.slice(0, 4).map((news, idx) => (
-                <div key={idx} className="flex gap-3 items-start group cursor-pointer">
+                <div key={idx} className="flex gap-3 items-start group cursor-pointer" onClick={() => navigate(`/news/${news.id}`)}>
                   <img src={news.images[0]} className="w-16 h-16 object-cover rounded shadow-sm" alt="" />
                   <h4 className="text-left text-[13px] font-semibold leading-snug group-hover:text-red-600 line-clamp-3">
                     {news.title}

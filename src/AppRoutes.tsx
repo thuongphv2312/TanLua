@@ -12,6 +12,7 @@ import ProductDetailPage from './component/ProductDetailPage';
 import { ROUTE_MAP } from './constants';
 import { newsList, CATEGORIES } from './component/NewsPage/constants';
 import banner from '../src/assets/section_hot.jpg';
+import NewsDetailPage from './component/NewsPage/NewsDetailPage';
 
 interface AppRoutesProps {
   cartCounts: { [key: number]: number };
@@ -56,6 +57,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
         <AboutSection/>
       </>} />
       <Route path={ROUTE_MAP['NEWS']} element={<NewsPage />} />
+      <Route path="/news/:id" element={<NewsDetailPage />} />
       <Route path={ROUTE_MAP['CART']} element={
         <CartPage
           cartCounts={cartCounts}

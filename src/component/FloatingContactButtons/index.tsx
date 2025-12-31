@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FloatButton } from 'antd';
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import './index.css';
+import { HOTLINE } from '../NewsPage/constants';
 
 export const FloatingContactButtons = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -31,7 +32,7 @@ export const FloatingContactButtons = () => {
       {/* Các nút mạng xã hội */}
       <FloatButton
         icon={<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" style={iconStyle} />}
-        href="https://zalo.me/0833090186"
+        href={`https://zalo.me/${HOTLINE}`}
         target="_blank"
       />
       <FloatButton
@@ -45,7 +46,7 @@ export const FloatingContactButtons = () => {
         className="hotline-pulse-wrapper shake-animation"
         icon={<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={iconStyle} />}
         style={{ border: '1px solid #ff4d4f' }}
-        href="tel:0833090186"
+        href={`tel:${HOTLINE}`}
       />
     </FloatButton.Group>
   );
