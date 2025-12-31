@@ -111,7 +111,7 @@ const AppFooter = () => {
             <Space size="middle">
               <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" width="40" loading='lazy'/>
               <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" width="40" loading='lazy'/>
-              <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" width="30" loading='lazy'/>
+              <img src="https://i.ibb.co/RTWJtVbF/images.png" alt="Momo" width="30" loading='lazy'/>
               <img src="https://media.loveitopcdn.com/3807/logo-zalopay1-compressed.jpg" alt="VNPay" width="60" loading='lazy'/>
             </Space>
           </div>

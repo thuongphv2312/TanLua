@@ -9,6 +9,7 @@ import MenuContainer from './component/MenuContainer';
 import Breadcrumbs from './component/Breadcrumbs';
 import { newsList } from './component/NewsPage/constants';
 import AppRoutes from './AppRoutes';
+import RecentPurchaseNotification from './component/RecentPurchaseNotification';
 
 
 const { Header, Content, Footer } = Layout;
@@ -175,6 +176,7 @@ const App = () => {
             />
           </Content>
           <FloatingContactButtons/>
+          <RecentPurchaseNotification />
           <AppFooter/>
         </Layout>
       </ClickSpark>
