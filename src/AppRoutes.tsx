@@ -10,7 +10,7 @@ import CheckoutPage from './component/CheckoutPage';
 import SearchResults from './component/SearchResults';
 import ProductDetailPage from './component/ProductDetailPage';
 import { ROUTE_MAP } from './constants';
-import { newsList } from './component/NewsPage/constants';
+import { newsList, CATEGORIES } from './component/NewsPage/constants';
 import banner from '../src/assets/section_hot.jpg';
 
 interface AppRoutesProps {
@@ -83,18 +83,17 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           onAddToCart={onUpdateCart}
         />
       } />
-      <Route path={ROUTE_MAP['AGRICULTURAL_MACHINERY']} element={<Products
-          title='MÁY NÔNG NGHIỆP'
-          lstProducts={newsList.filter(item => item.categories.includes(1)) as any}
+      {CATEGORIES.map((category) => (
+        <Route
+          key={category.id}
+          path={`/${category.slug}`}
+          element={<Products
+          title={category.name.toUpperCase()}
+          lstProducts={newsList.filter(item => item.categories.includes(category.id)) as any}
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
         />} />
-        <Route path={ROUTE_MAP['INDUSTRIAL_MACHINERY']} element={<Products
-          title='MÁY CÔNG NGHIỆP'
-          lstProducts={newsList.filter(item => item.categories.includes(2)) as any}
-          cartCounts={cartCounts}
-          onAddToCart={onUpdateCart}
-        />} />
+      ))}
     </Routes>
   );
 };

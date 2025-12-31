@@ -130,13 +130,13 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
       </div>
 
       {/* 2. Hotline & Account & Cart*/}
-      <Space size={20} style={{ margin: screens.md ? '0 50px' : '0 25px' }} >
+      <Space size={20} style={{ margin: screens.md ? '0 50px' : '0 25px'}} >
         {screens.md &&
           <Space size="middle" style={{minWidth: '150px'}}>
             <PhoneOutlined style={{ fontSize: '26px', color: '#f08a8a' }} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <Text type="secondary" style={{ fontSize: '12px' }}>Hỗ trợ khách hàng</Text>
-              <Text strong>0833.090.186</Text>
+              <Text style={{ fontSize: '12px', color: 'white' }}>Hỗ trợ khách hàng</Text>
+              <Text strong style={{ color: 'white' }}>0833.090.186</Text>
             </div>
           </Space>
         }
@@ -145,8 +145,8 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
           <Space size="middle" style={{minWidth: '120px'}}>
             <UserOutlined style={{ fontSize: '26px', color: '#f08a8a' }} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <Text strong>Tài khoản</Text>
-              <Text type="secondary" style={{ fontSize: '12px' }}>Đăng nhập</Text>
+              <Text strong style={{ color: 'white' }}>Tài khoản</Text>
+              <Text style={{ fontSize: '12px', color: 'white' }}>Đăng nhập</Text>
             </div>
           </Space>
         }

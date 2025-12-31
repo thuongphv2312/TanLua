@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ShoppingCartOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
 import { Card, Badge, Button, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
@@ -13,6 +13,7 @@ interface Product {
   oldPrice?: string;
   discount?: string;
   url?: string;
+  categories?: number[];
 }
 
 interface ProductsProps {
@@ -24,9 +25,26 @@ interface ProductsProps {
 }
 
 const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], bannerImage, cartCounts = {}, onAddToCart = () => {} }) => {
-  const [activeCategory, setActiveCategory] = useState(CATEGORIES[0].id);
+  const [activeCategory, setActiveCategory] = useState(() => {
+    if (lstProducts.length > 0) {
+      const firstItem = lstProducts[0];
+      const match = CATEGORIES.find(c => firstItem.categories?.includes(c.id));
+      if (match) return match.id;
+    }
+    return CATEGORIES[0].id;
+  });
   const [addingId, setAddingId] = useState<number | null>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (lstProducts.length > 0) {
+      const firstItem = lstProducts[0];
+      const match = CATEGORIES.find(c => firstItem.categories?.includes(c.id));
+      if (match) {
+        setActiveCategory(match.id);
+      }
+    }
+  }, [title]);
 
   const handleAddToCart = (e: React.MouseEvent, product: Product) => {
     e.stopPropagation(); // Ngăn sự kiện click lan ra Card
@@ -44,10 +62,10 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
     }, 400);
   };
 
-  const dataToDisplay = lstProducts.length > 0 ? lstProducts : newsList;
+  const dataToDisplay = newsList.filter(item => item.categories.includes(activeCategory));
 
   return (
-    <div className="w-full mx-auto">
+    <div className="w-full mx-auto mb-8">
       <style>{`
         @keyframes fire {
           0% { text-shadow: 0 0 2px #fff, 0 -1px 2px #ffeb3b, 0 -2px 4px #ff5722; }
@@ -188,17 +206,20 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
       </div>
 
       {/* Load More Button */}
-      <div className="text-center mt-8 mb-8">
-        <Button
-          type="default"
-          size="large"
-          shape="round"
-          className="px-8"
-          onClick={() => message.info('Tính năng đang được cập nhật...')}
-        >
-          Xem thêm sản phẩm
-        </Button>
-      </div>
+      {
+        dataToDisplay.length > 10 &&
+        <div className="text-center mt-8">
+          <Button
+            type="default"
+            size="large"
+            shape="round"
+            className="px-8"
+            onClick={() => message.info('Tính năng đang được cập nhật...')}
+          >
+            Xem thêm sản phẩm
+          </Button>
+        </div>
+      }
     </div>
   );
 };
