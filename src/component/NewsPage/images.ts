@@ -14,19 +14,19 @@ export const TJ35_IMAGES = [
 ];
 
 export const SLIDER_IMAGES = [
-  "https://ibb.co/ycwz2zFg",
-  "https://ibb.co/pjwVJyyF",
-  "https://ibb.co/HT19yfGx",
-  "https://ibb.co/nMLBYfc5",
-  "https://ibb.co/DDcCmgFM",
+  "https://i.ibb.co/FLSQpQ48/G2TPL-F1.png",
+  "https://i.ibb.co/gZ9qzVVK/G2-TPL-F1-1.png",
+  "https://i.ibb.co/DfsjFHw8/G2-TPL-F1-2.png",
+  "https://i.ibb.co/jkrzQGM1/G2-TPL-F1-3.png",
+  "https://i.ibb.co/JR678FTp/G2-TPL-F1-4.png",
 ];
 export const G2TPLF1_IMAGES = [
-"https://ibb.co/ycwz2zFg",
-"https://ibb.co/pjwVJyyF",
-"https://ibb.co/HT19yfGx",
-"https://ibb.co/nMLBYfc5",
-"https://ibb.co/DDcCmgFM",
-"https://ibb.co/fGK3SsHz",
-"https://ibb.co/Nd3SbRZf",
-"https://ibb.co/PGywxqLT",
+"https://i.ibb.co/FLSQpQ48/G2TPL-F1.png",
+"https://i.ibb.co/gZ9qzVVK/G2-TPL-F1-1.png",
+"https://i.ibb.co/DfsjFHw8/G2-TPL-F1-2.png",
+"https://i.ibb.co/jkrzQGM1/G2-TPL-F1-3.png",
+"https://i.ibb.co/JR678FTp/G2-TPL-F1-4.png",
+"https://i.ibb.co/TqnQTstx/G2-TPL-F1-5.png",
+"https://i.ibb.co/cSvLVqDR/G2-TPL-F1-6.png",
+"https://i.ibb.co/JjT5nD1x/G2-TPL-F1-7.png",
 ];
