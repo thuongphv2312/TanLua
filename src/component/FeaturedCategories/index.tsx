@@ -1,28 +1,11 @@
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
-import img1 from '../../assets/sliders/slider_1.jpg';
-import img2 from '../../assets/sliders/slider_2.jpg';
-import img3 from '../../assets/sliders/slider_3.jpg';
-import img4 from '../../assets/sliders/right_banner_1.jpg';
-import img5 from '../../assets/sliders/right_banner_2.jpg';
-
-const categories = [
-  { name: "Bình Xịt Điện", img: img1 },
-  { name: "Máy Hàn", img: img2 },
-  { name: "Máy Cắt Cỏ", img: img3 },
-  { name: "Dây Hơi", img: img4 },
-  { name: "Máy Xới Đất", img: img5 },
-  { name: "Máy Khoan Đất", img: img1 },
-  { name: "Máy Cưa Xích", img: img2 },
-  { name: "Máy Nén Khí", img: img3 },
-  { name: "Máy Bơm Nước", img: img4 },
-  { name: "Máy Nổ", img: img5 },
-];
+import { CATEGORIES } from "../NewsPage/constants";
 
 export default function FeaturedCategories() {
   const [index, setIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(6);
-  const maxIndex = Math.max(0, categories.length - itemsPerView);
+  const maxIndex = Math.max(0, CATEGORIES.length - itemsPerView);
 
   useEffect(() => {
   if (maxIndex === 0) return;
@@ -70,7 +53,7 @@ export default function FeaturedCategories() {
             transform: `translateX(-${index * (100 / itemsPerView)}%)`,
           }}
         >
-          {categories.map((item, i) => (
+          {CATEGORIES.map((item, i) => (
             <div
               key={i}
               className="flex-shrink-0 flex flex-col items-center cursor-pointer"
