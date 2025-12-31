@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCartOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
-import { Card, Badge, Button, message } from 'antd';
+import { Card, Badge, Button, message, Empty } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { CATEGORIES, newsList } from '../NewsPage/constants';
 
@@ -128,6 +128,11 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
       </div>
 
       {/* Product Grid */}
+      {dataToDisplay.length === 0 ? (
+        <div className="py-10">
+          <Empty description="Không tìm thấy sản phẩm" />
+        </div>
+      ) : (
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {bannerImage && (
           <div className="col-span-2 h-full ransition-transform duration-300 hover:scale-[1.04]">
@@ -139,7 +144,7 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
             />
           </div>
         )}
-        {(bannerImage ? dataToDisplay : dataToDisplay).map((product) => (
+        {dataToDisplay.map((product) => (
           <Card
             key={product.id}
             hoverable
@@ -209,6 +214,7 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
           </Card>
         ))}
       </div>
+      )}
 
       {/* Load More Button */}
       {
