@@ -1,27 +1,32 @@
-import TL35X_1 from '../../assets/Máy cắt cỏ/TL35X/TL35X_1.png';
-import TL35X_2 from '../../assets/Máy cắt cỏ/TL35X/TL35X_2.png';
-import TL35X_3 from '../../assets/Máy cắt cỏ/TL35X/TL35X_3.png';
-import TL35X_4 from '../../assets/Máy cắt cỏ/TL35X/TL35X_4.png';
-import TL35X_5 from '../../assets/Máy cắt cỏ/TL35X/TL35X_5.png';
-import TJ35_1 from '../../assets/Máy cắt cỏ/TJ35/tojiko_tj35_1.png';
-import TJ35_2 from '../../assets/Máy cắt cỏ/TJ35/tojiko_tj35_2.png';
-import TJ35_3 from '../../assets/Máy cắt cỏ/TJ35/tojiko_tj35_3.png';
-import TJ35_4 from '../../assets/Máy cắt cỏ/TJ35/tojiko_tj35_4.png';
-import img1 from '../../assets/sliders/slider_1.jpg';
-import img2 from '../../assets/sliders/slider_2.jpg';
-import img3 from '../../assets/sliders/slider_3.jpg';
-import img4 from '../../assets/sliders/right_banner_1.jpg';
-import img5 from '../../assets/sliders/right_banner_2.jpg';
-import G2TPLF1 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1.png';
-import G2TPLF1_1 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_1.png';
-import G2TPLF1_2 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_2.png';
-import G2TPLF1_3 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_3.png';
-import G2TPLF1_4 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_4.png';
-import G2TPLF1_5 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_5.png';
-import G2TPLF1_6 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_6.png';
-import G2TPLF1_7 from '../../assets/Dụng cụ cầm tay/Thân máy thổi G2-TPLF1/G2TPL-F1_7.png';
+export const TL35X_IMAGES = [
+  "https://i.ibb.co/krN8wL8/TL35X-1.png",
+  "https://i.ibb.co/5CNKf5c/TL35X-2.png",
+  "https://i.ibb.co/6cFJJp58/TL35X-3.png",
+  "https://i.ibb.co/Df06Xf11/TL35X-4.png",
+  "https://i.ibb.co/4nzHvkDf/TL35X-5.png",
+];
 
-export const TL35X_IMAGES = [TL35X_1, TL35X_2, TL35X_3, TL35X_4, TL35X_5];
-export const TJ35_IMAGES = [TJ35_1, TJ35_2, TJ35_3, TJ35_4];
-export const SLIDER_IMAGES = [img1, img2, img3, img4, img5];
-export const G2TPLF1_IMAGES = [G2TPLF1, G2TPLF1_1, G2TPLF1_2, G2TPLF1_3, G2TPLF1_4, G2TPLF1_5, G2TPLF1_6, G2TPLF1_7];
+export const TJ35_IMAGES = [
+  "https://i.ibb.co/jk0fKZwL/tojiko-tj35-1.png",
+  "https://i.ibb.co/gL5nBfNR/tojiko-tj35-2.png",
+  "https://i.ibb.co/fdrFq2c0/tojiko-tj35-3.png",
+  "https://i.ibb.co/kVNhPjL0/tojiko-tj35-4.png",
+];
+
+export const SLIDER_IMAGES = [
+  "https://ibb.co/ycwz2zFg",
+  "https://ibb.co/pjwVJyyF",
+  "https://ibb.co/HT19yfGx",
+  "https://ibb.co/nMLBYfc5",
+  "https://ibb.co/DDcCmgFM",
+];
+export const G2TPLF1_IMAGES = [
+"https://ibb.co/ycwz2zFg",
+"https://ibb.co/pjwVJyyF",
+"https://ibb.co/HT19yfGx",
+"https://ibb.co/nMLBYfc5",
+"https://ibb.co/DDcCmgFM",
+"https://ibb.co/fGK3SsHz",
+"https://ibb.co/Nd3SbRZf",
+"https://ibb.co/PGywxqLT",
+];
