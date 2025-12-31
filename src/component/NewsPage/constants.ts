@@ -1,5 +1,5 @@
 // constants/newsCategory.ts
-import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES } from './images';
+import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226 } from './images';
 
 const MACHINE_NAME = {
   MAY_CONG_NGHIEP: "Máy Công Nghiệp",
@@ -190,6 +190,32 @@ export const newsList = [
     images: TJ35_IMAGES,
     categories: [1, 6],
     name: "Máy cắt cỏ TJ35 4 thì xăng riêng nhớt riêng",
+    price: "1,890,000₫",
+    oldPrice: "3,000,000₫",
+    url: "WWW.TANLUAVIETNAM.COM",
+  },
+  {
+    id: 13,
+    title: "Máy cắt cỏ CS260 2 thì xăng pha nhớt",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy cắt cỏ CS260 2 thì xăng pha nhớt",
+    images: CS260,
+    categories: [1, 6],
+    name: "Máy cắt cỏ CS260 2 thì xăng pha nhớt",
+    price: "1,890,000₫",
+    oldPrice: "3,000,000₫",
+    url: "WWW.TANLUAVIETNAM.COM",
+  },
+  {
+    id: 14,
+    title: "Máy cắt cỏ CS226 2 thì xăng pha nhớt",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy cắt cỏ CS226 2 thì xăng pha nhớt",
+    images: CS226,
+    categories: [1, 6],
+    name: "Máy cắt cỏ CS226 2 thì xăng pha nhớt",
     price: "1,890,000₫",
     oldPrice: "3,000,000₫",
     url: "WWW.TANLUAVIETNAM.COM",

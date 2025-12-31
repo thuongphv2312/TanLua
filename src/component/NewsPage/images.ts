@@ -30,3 +30,20 @@ export const G2TPLF1_IMAGES = [
 "https://i.ibb.co/cSvLVqDR/G2-TPL-F1-6.png",
 "https://i.ibb.co/JjT5nD1x/G2-TPL-F1-7.png",
 ];
+
+export const CS260 = [
+  "https://i.ibb.co/JW3K2w8v/huqama260-3.png",
+  "https://i.ibb.co/QvmK0Ghs/huqama260-4.png",
+  "https://i.ibb.co/MDHYm2mW/huqama260-5.png",
+  "https://i.ibb.co/d4fdFgHf/huqama260.png",
+  "https://i.ibb.co/60njCxYN/huqama260-2.png",
+];
+
+export const CS226 = [
+  "https://i.ibb.co/fdYzGQ8K/z7060934406947-6f086aae3c0e62397370ff8f64f4fcc9.jpg",
+  "https://i.ibb.co/GvbPqGRH/z7060934406943-f9b1ab3dd7985f0b3cbe012e6294af9f.jpg",
+  "https://i.ibb.co/Y7YzkTqY/z7060934406948-2cd7d1fecc44d8fa9b3bf21e943e0533.jpg",
+  "https://i.ibb.co/YTRqZt0D/z7060934406905-96eb7eadc52da41f76e35bcec3775df3.jpg",
+"https://i.ibb.co/jk0V75sR/z7060934406952-238588ea08d6bb197c91e41709016e9a.jpg",
+"https://i.ibb.co/bRKgfnb4/z7060934406953-6e48e305ed557a4cd28640a26fb28e32.jpg"
+]
