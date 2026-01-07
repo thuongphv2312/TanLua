@@ -58,15 +58,15 @@ export default function FeaturedCategories() {
           {CATEGORIES.map((item, i) => (
             <div
               key={i}
-              className="flex-shrink-0 flex flex-col items-center cursor-pointer"
+              className="flex-shrink-0 flex flex-col items-center cursor-pointer px-2"
               style={{ width: `${100 / itemsPerView}%` }}
               onClick={() => navigate(`/${item.slug}`)}
             >
-              <div className="xs:w-10 xs:h-10 sm:w-15 sm:h-15 md:w-25 md:h-25 rounded-full border-2 border-amber-500 flex items-center justify-center hover:scale-104 transition overflow-hidden">
+              <div className="w-16 h-16 sm:w-40 sm:h-40 md:w-24 md:h-24 flex-shrink-0 rounded-full border-2 border-amber-500 flex items-center justify-center hover:scale-104 transition overflow-hidden bg-white">
                 <img
                   src={item.img}
                   alt={item.name}
-                  className="w-full h-full object-fill"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>

@@ -10,6 +10,8 @@ import TextType from '../TextType';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HOTLINE } from '../NewsPage/constants';
+import brand1 from '../../assets/tojiko.png';
+import brand2 from '../../assets/TALU.png';
 const { Header } = Layout;
 const { useBreakpoint } = Grid;
 const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cartCounts = {}, productList = [] }: any) => {
@@ -129,6 +131,13 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
         </div>
 
       </div>
+
+      {screens.md && (
+        <Space style={{ margin: '0 15px' }}>
+          <img src={brand1} alt="Brand 1" style={{ height: '80px', paddingBottom: '10px', borderRadius: '5px', cursor: 'pointer'}} />
+          <img src={brand2} alt="Brand 2" style={{ height: '80px', cursor: 'pointer', borderRadius: '5px' }} />
+        </Space>
+      )}
 
       {/* 2. Hotline & Account & Cart*/}
       <Space size={20} style={{ margin: screens.md ? '0 50px' : '0 25px'}} >
