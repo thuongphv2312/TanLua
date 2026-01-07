@@ -134,8 +134,8 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
 
       {screens.md && (
         <Space style={{ margin: '0 15px' }}>
-          <img src={brand1} alt="Brand 1" style={{ height: '80px', paddingBottom: '10px', borderRadius: '5px', cursor: 'pointer'}} />
-          <img src={brand2} alt="Brand 2" style={{ height: '80px', cursor: 'pointer', borderRadius: '5px' }} />
+          <img src={brand1} alt="Brand 1" style={{ maxWidth: '100%', height: 'auto', maxHeight: '80px', paddingBottom: '10px', borderRadius: '5px', cursor: 'pointer', objectFit: 'contain' }} />
+          <img src={brand2} alt="Brand 2" style={{ maxWidth: '100%', height: 'auto', maxHeight: '80px', cursor: 'pointer', borderRadius: '5px', objectFit: 'contain' }} />
         </Space>
       )}
 
