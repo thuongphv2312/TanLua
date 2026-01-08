@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Row, Col, Typography, Input, Button, Space, Divider, Grid } from 'antd';
+import { Layout, Row, Col, Typography, Input, Button, Space, Divider, Grid, Modal } from 'antd';
 import {
   EnvironmentOutlined,
   PhoneOutlined,
@@ -8,12 +8,20 @@ import {
   InstagramOutlined,
 } from '@ant-design/icons';
 import { HOTLINE } from '../NewsPage/constants';
+import GoogleMap from '../GoogleMap';
 
 const { Footer } = Layout;
 const { Title, Text } = Typography;
 const { useBreakpoint } = Grid;
 
 const AppFooter = () => {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const mainColor = '#daca72';
   const screen = useBreakpoint();
 
@@ -74,8 +82,8 @@ const AppFooter = () => {
           <a href="#" style={footerLinkStyle}>Giới thiệu về TẤN LỤA VIỆT NAM</a>
           <a href="#" style={footerLinkStyle}>Cơ hội việc làm tại TẤN LỤA VIỆT NAM</a>
           <a href="#" style={footerLinkStyle}>Liên hệ quảng cáo tại TẤN LỤA VIỆT NAM</a>
-          <a href="#" style={footerLinkStyle}>Trở thành đối tác của TẤN LỤA VIỆT NAM</a>
-          <a href="#" style={footerLinkStyle}>Đường đến TẤN LỤA VIỆT NAM</a>
+          <a href="/tro-thanh-doi-tac" style={footerLinkStyle}>Trở thành đối tác của TẤN LỤA VIỆT NAM</a>
+          <a href="#" style={footerLinkStyle} onClick={(e) => { e.preventDefault(); showModal(); }}>Đường đến TẤN LỤA VIỆT NAM</a>
         </Col>
 
         {/* CỘT 3: HỖ TRỢ KHÁCH HÀNG */}
@@ -109,10 +117,10 @@ const AppFooter = () => {
           <Title level={4} style={{ fontSize: '18px' }}>Phương thức thanh toán</Title>
           <div style={{ backgroundColor: '#fff', padding: '10px', borderRadius: '8px', display: 'inline-block' }}>
             <Space size="middle">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" width="40" loading='lazy'/>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" width="40" loading='lazy'/>
-              <img src="https://i.ibb.co/RTWJtVbF/images.png" alt="Momo" width="30" loading='lazy'/>
-              <img src="https://media.loveitopcdn.com/3807/logo-zalopay1-compressed.jpg" alt="VNPay" width="60" loading='lazy'/>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" width="40" loading='lazy' />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" width="40" loading='lazy' />
+              <img src="https://i.ibb.co/RTWJtVbF/images.png" alt="Momo" width="30" loading='lazy' />
+              <img src="https://media.loveitopcdn.com/3807/logo-zalopay1-compressed.jpg" alt="VNPay" width="60" loading='lazy' />
             </Space>
           </div>
 
@@ -132,6 +140,14 @@ const AppFooter = () => {
       <div style={{ textAlign: 'center', color: '#888' }}>
         © Bản quyền thuộc về TẤN LỤA VIỆT NAM | TanLua.com
       </div>
+      <Modal title="Địa chỉ công ty" open={isModalOpen} onCancel={handleCancel} footer={null} width={800}>
+        <div style={{ marginBottom: '16px' }}>
+          <p><strong>Địa chỉ:</strong> Nghĩa Thái, Nghĩa Hưng, Nam Định</p>
+        </div>
+        <div style={{ width: '100%', height: '450px' }}>
+          <GoogleMap />
+        </div>
+      </Modal>
     </Footer>
   );
 };

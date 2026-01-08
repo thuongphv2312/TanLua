@@ -13,6 +13,7 @@ import { ROUTE_MAP } from './constants';
 import { newsList, CATEGORIES } from './component/NewsPage/constants';
 import banner from '../src/assets/section_hot.jpg';
 import NewsDetailPage from './component/NewsPage/NewsDetailPage';
+import PartnerPage from './component/Partner';
 
 interface AppRoutesProps {
   cartCounts: { [key: number]: number };
@@ -33,7 +34,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
     <Routes>
       <Route path="/" element={<>
         <Slider />
-        <FeaturedCategories/>
+        <FeaturedCategories />
         <Products
           title='MÁY NÔNG NGHIỆP'
           lstProducts={newsList.filter(item => item.categories.includes(1)) as any}
@@ -56,11 +57,12 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           onAddToCart={onUpdateCart}
           categoryId={10}
         />
-        <NewsPage/>
-        <AboutSection/>
+        <NewsPage />
+        <AboutSection />
       </>} />
       <Route path={ROUTE_MAP['NEWS']} element={<NewsPage />} />
       <Route path="/news/:id" element={<NewsDetailPage />} />
+      <Route path="/tro-thanh-doi-tac" element={<PartnerPage />} />
       <Route path={ROUTE_MAP['CART']} element={
         <CartPage
           cartCounts={cartCounts}
@@ -93,12 +95,12 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           key={category.id}
           path={`/${category.slug}`}
           element={<Products
-          title={category.name.toUpperCase()}
-          lstProducts={newsList.filter(item => item.categories.includes(category.id)) as any}
-          cartCounts={cartCounts}
-          onAddToCart={onUpdateCart}
-          categoryId={category.id}
-        />} />
+            title={category.name.toUpperCase()}
+            lstProducts={newsList.filter(item => item.categories.includes(category.id)) as any}
+            cartCounts={cartCounts}
+            onAddToCart={onUpdateCart}
+            categoryId={category.id}
+          />} />
       ))}
     </Routes>
   );
