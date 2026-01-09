@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Typography, Card, Divider } from 'antd';
+import { Divider } from 'antd';
 import {
     CheckCircleOutlined,
     CloseCircleOutlined,
@@ -8,32 +8,7 @@ import {
 } from '@ant-design/icons';
 import ContactInfoSection from '../ContactInfoSection';
 
-const { Content } = Layout;
-const { Title, Text } = Typography;
-
-// --- 1. Constants & Styles ---
-const COLORS = {
-    primary: '#d32f2f', // Màu đỏ chủ đạo
-    text: '#333',
-    textSecondary: '#444',
-    textLight: '#666',
-    link: '#1890ff',
-    bg: '#f5f5f5',
-    cardBg: '#fff',
-    contactBg: '#fffaf0',
-    contactBorder: '#ffe7ba',
-};
-
-const STYLES = {
-    icon: { color: COLORS.primary, fontSize: '20px' },
-    highlight: { color: COLORS.primary, fontWeight: 'bold' as const },
-    sectionTitle: { fontSize: '20px', fontWeight: 'bold', color: COLORS.text, marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' },
-    list: { fontSize: '15px', lineHeight: '1.8', color: COLORS.textSecondary, listStyleType: 'none', padding: 0, textAlign: 'left' as const, width: '100%' },
-    listItem: { display: 'flex', alignItems: 'flex-start', marginBottom: '15px' },
-    bullet: { color: COLORS.primary, marginRight: '8px', lineHeight: '1.8', flexShrink: 0 },
-};
-
-// --- 2. Data Structure ---
+// --- Types ---
 interface PolicyItem {
     content: React.ReactNode;
 }
@@ -45,10 +20,11 @@ interface PolicySection {
     footer?: React.ReactNode;
 }
 
+// --- Data ---
 const POLICY_DATA: PolicySection[] = [
     {
         title: 'Quy định chung',
-        icon: <InfoCircleOutlined style={STYLES.icon} />,
+        icon: <InfoCircleOutlined className="text-red-600 text-xl" />,
         items: [
             {
                 content: (
@@ -68,26 +44,26 @@ const POLICY_DATA: PolicySection[] = [
     },
     {
         title: '1. Trường hợp được bảo hành',
-        icon: <CheckCircleOutlined style={STYLES.icon} />,
+        icon: <CheckCircleOutlined className="text-red-600 text-xl" />,
         items: [
             {
                 content: (
                     <>
-                        Trong trường hợp sự cố hư hỏng được xác định do <Text style={STYLES.highlight}>lỗi của nhà sản xuất</Text> và vẫn còn thời hạn bảo hành.
+                        Trong trường hợp sự cố hư hỏng được xác định do <span className="text-red-600 font-bold">lỗi của nhà sản xuất</span> và vẫn còn thời hạn bảo hành.
                     </>
                 )
             },
             {
                 content: (
                     <>
-                        Sản phẩm <Text strong>không có dấu hiệu can thiệp của bên thứ 03</Text> (sửa chữa ngoài).
+                        Sản phẩm <span className="font-bold text-gray-800">không có dấu hiệu can thiệp của bên thứ 03</span> (sửa chữa ngoài).
                     </>
                 )
             },
             {
                 content: (
                     <>
-                        Số series, tem niêm phong trên sản phẩm và phiếu bảo hành phải <Text style={STYLES.highlight}>giống nhau, nguyên vẹn</Text>, không rách mất hoặc bị cạo sửa.
+                        Số series, tem niêm phong trên sản phẩm và phiếu bảo hành phải <span className="text-red-600 font-bold">giống nhau, nguyên vẹn</span>, không rách mất hoặc bị cạo sửa.
                     </>
                 )
             },
@@ -102,7 +78,7 @@ const POLICY_DATA: PolicySection[] = [
     },
     {
         title: '2. Những trường hợp không được bảo hành',
-        icon: <CloseCircleOutlined style={STYLES.icon} />,
+        icon: <CloseCircleOutlined className="text-red-600 text-xl" />,
         items: [
             {
                 content: (
@@ -114,7 +90,7 @@ const POLICY_DATA: PolicySection[] = [
             {
                 content: (
                     <>
-                        Sản phẩm đã <Text style={STYLES.highlight}>quá thời hạn</Text> ghi trên Phiếu bảo hành hoặc <Text style={STYLES.highlight}>mất Phiếu bảo hành</Text>.
+                        Sản phẩm đã <span className="text-red-600 font-bold">quá thời hạn</span> ghi trên Phiếu bảo hành hoặc <span className="text-red-600 font-bold">mất Phiếu bảo hành</span>.
                     </>
                 )
             },
@@ -171,12 +147,12 @@ const POLICY_DATA: PolicySection[] = [
     },
     {
         title: '3. Những trường hợp sửa chữa tính phí',
-        icon: <ToolOutlined style={STYLES.icon} />,
+        icon: <ToolOutlined className="text-red-600 text-xl" />,
         items: [
             {
                 content: (
                     <>
-                        Trường hợp hàng hóa Quý khách mua tại Tấn Lụa Việt Nam nhưng nằm trong <b>Những trường hợp không được bảo hành</b> nêu ở trên thì chúng tôi sẽ nhận sửa chữa có tính phí (nếu Quý khách yêu cầu).
+                        Trường hợp hàng hóa Quý khách mua tại Tấn Lụa Việt Nam nhưng nằm trong <span className="font-bold text-gray-800">Những trường hợp không được bảo hành</span> nêu ở trên thì chúng tôi sẽ nhận sửa chữa có tính phí (nếu Quý khách yêu cầu).
                     </>
                 )
             },
@@ -198,52 +174,52 @@ const POLICY_DATA: PolicySection[] = [
     }
 ];
 
-// --- 3. Main Component ---
+// --- Main Component ---
 const WarrantyPolicyPage: React.FC = () => {
     return (
-        <Layout style={{ minHeight: '100vh', backgroundColor: COLORS.bg }}>
-            <Content style={{ padding: '40px 20px', maxWidth: '1000px', margin: '0 auto' }}>
-                <Card style={{ borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', backgroundColor: COLORS.cardBg }}>
-                    <Title level={1} style={{ color: COLORS.text, fontSize: '28px', marginBottom: '40px', textAlign: 'left' }}>
-                        CHÍNH SÁCH BẢO HÀNH
-                    </Title>
+        <div className="w-full min-h-screen bg-gray-100 font-sans py-10 px-4">
+            <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-sm p-8 sm:p-10">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-left uppercase border-b pb-4 border-gray-100">
+                    CHÍNH SÁCH BẢO HÀNH
+                </h1>
 
+                <div className="rounded-lg overflow-hidden mb-8 w-full">
                     <img
-                        src="https://i.ibb.co/B5BYrZzw/https-lap-637595425811313703.jpg"
+                        src="https://i.ibb.co/s9w02K0F/chinh-sach-bao-hanh.jpg"
                         alt="Chính sách bảo hành"
-                        style={{ width: '100%', height: 'auto', marginBottom: '30px', borderRadius: '8px' }}
+                        className="w-full h-auto object-cover"
+                        loading="lazy"
                     />
+                </div>
 
-                    {POLICY_DATA.map((section, index) => (
-                        <div key={index} style={{ marginBottom: '40px' }}>
-                            <Title level={3} style={STYLES.sectionTitle}>
-                                {section.icon} {section.title}
-                            </Title>
+                {POLICY_DATA.map((section, index) => (
+                    <div key={index} className="mb-10">
+                        <h3 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-3">
+                            {section.icon} {section.title}
+                        </h3>
 
-                            <ul style={STYLES.list}>
-                                {section.items.map((item, idx) => (
-                                    <li key={idx} style={STYLES.listItem}>
-                                        <span style={STYLES.bullet}>•</span>
-                                        <div style={{ flex: 1 }}>{item.content}</div>
-                                    </li>
-                                ))}
-                            </ul>
+                        <ul className="space-y-4">
+                            {section.items.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-3 text-base text-gray-600 leading-relaxed text-left">
+                                    <span className="text-red-600 text-xl flex-shrink-0 leading-7">•</span>
+                                    <div className="flex-1">{item.content}</div>
+                                </li>
+                            ))}
+                        </ul>
 
-                            {section.footer}
+                        {section.footer}
 
-                            {index < POLICY_DATA.length - 1 && <Divider />}
-                        </div>
-                    ))}
+                        {index < POLICY_DATA.length - 1 && <Divider className="my-8" />}
+                    </div>
+                ))}
 
-                    {/* Thông tin liên hệ */}
-                    <ContactInfoSection
-                        title="TRUNG TÂM BẢO HÀNH & HỖ TRỢ KỸ THUẬT"
-                        hotlineLabel="Hotline kỹ thuật"
-                        timeLabel="Thời gian tiếp nhận bảo hành"
-                    />
-                </Card>
-            </Content>
-        </Layout>
+                <ContactInfoSection
+                    title="TRUNG TÂM BẢO HÀNH & HỖ TRỢ KỸ THUẬT"
+                    hotlineLabel="Hotline kỹ thuật"
+                    timeLabel="Thời gian tiếp nhận bảo hành"
+                />
+            </div>
+        </div>
     );
 };
 

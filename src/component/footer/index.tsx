@@ -1,5 +1,5 @@
-import React from 'react';
-import { Layout, Row, Col, Typography, Input, Button, Space, Divider, Grid, Modal } from 'antd';
+import React, { useState } from 'react';
+import { Modal, Divider, Input, Button } from 'antd'; // Giữ lại AntD Component phức tạp nếu cần, hoặc thay Input bằng HTML thường
 import {
   EnvironmentOutlined,
   PhoneOutlined,
@@ -10,20 +10,10 @@ import {
 import { HOTLINE, ADDRESS, EMAIL } from '../NewsPage/constants';
 import GoogleMap from '../GoogleMap';
 
-const { Footer } = Layout;
-const { Title, Text } = Typography;
-const { useBreakpoint } = Grid;
-
 const AppFooter = () => {
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-  const mainColor = '#daca72';
-  const screen = useBreakpoint();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => setIsModalOpen(true);
+  const handleCancel = () => setIsModalOpen(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -32,139 +22,149 @@ const AppFooter = () => {
     }
   };
 
-  const footerLinkStyle = {
-    display: 'block',
-    marginBottom: '8px',
-    color: '#333',
-    fontSize: '14px'
-  };
+  const LinkItem = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: React.MouseEventHandler }) => (
+    <a
+      href={href}
+      onClick={onClick}
+      className="block mb-2 text-gray-600 text-sm hover:text-red-600 transition-colors duration-200"
+    >
+      {children}
+    </a>
+  );
 
   return (
-    <Footer style={{ backgroundColor: '#f5f5f5', padding: `60px ${screen.md ? '100px' : '10px'}` }}>
-      <Row gutter={[40, 40]}>
+    <footer className="bg-gray-100 pt-16 pb-8 px-5 md:px-10 lg:px-24 font-sans border-t border-gray-200">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
         {/* CỘT 1: VỀ CHÚNG TÔI */}
-        <Col xs={24} sm={24} md={8} lg={8}>
-          <Title level={4} style={{ fontSize: '18px' }}>Về chúng tôi</Title>
-          <div style={{ marginBottom: '20px' }}>
-            {/* Thay src bằng link logo thực tế của bạn */}
+        <div className="flex flex-col items-start text-left">
+          <h4 className="text-lg font-bold mb-5 text-gray-800 uppercase">Về chúng tôi</h4>
+          <div className="mb-5 w-full">
             <img
               src="/src/assets/logo.png"
               alt="Tấn Lụa Logo"
-              style={{ maxWidth: '80%', marginBottom: '15px' }}
+              className="max-w-[80%] mb-4 h-auto"
               loading='lazy'
             />
-            <br />
-            <Text strong style={{ fontSize: '14px' }}>
+            <p className="text-sm font-semibold text-gray-700">
               Cung cấp sản phẩm chất lượng từ các thương hiệu hàng đầu.
-            </Text>
+            </p>
           </div>
-          <Space direction="vertical" size="small">
-            <Space align="start">
-              <EnvironmentOutlined style={{ color: '#000', marginTop: '5px' }} />
-              <Text>Địa chỉ: {ADDRESS}</Text>
-            </Space>
-            <Space>
-              <PhoneOutlined style={{ color: '#000' }} />
-              <Text>Số điện thoại: {HOTLINE}</Text>
-            </Space>
-            <Space>
-              <MailOutlined style={{ color: '#000' }} />
-              <Text>Email: {EMAIL}</Text>
-            </Space>
-          </Space>
-          <div style={{ marginTop: '20px' }}>
-            <Space size="large">
-              <FacebookFilled style={{ fontSize: '24px', color: '#3b5998', cursor: 'pointer' }} />
-              {/* Zalo Icon giả lập hoặc dùng img */}
-              <div style={{ width: '24px', height: '24px', backgroundColor: '#0068ff', borderRadius: '4px', color: '#fff', textAlign: 'center', fontWeight: 'bold', fontSize: '12px', lineHeight: '24px', cursor: 'pointer' }}>Z</div>
-              <InstagramOutlined style={{ fontSize: '24px', color: '#e4405f', cursor: 'pointer' }} />
-            </Space>
+
+          <div className="space-y-3 text-sm text-gray-600 w-full">
+            <div className="flex items-start gap-3">
+              <EnvironmentOutlined className="text-gray-800 mt-1 flex-shrink-0" />
+              <span><span className="font-semibold text-gray-800">Địa chỉ:</span> {ADDRESS}</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <PhoneOutlined className="text-gray-800 flex-shrink-0" />
+              <span><span className="font-semibold text-gray-800">Số điện thoại:</span> {HOTLINE}</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <MailOutlined className="text-gray-800 flex-shrink-0" />
+              <span><span className="font-semibold text-gray-800">Email:</span> {EMAIL}</span>
+            </div>
           </div>
-        </Col>
+
+          <div className="mt-6 flex gap-4">
+            <FacebookFilled className="text-2xl text-[#3b5998] cursor-pointer hover:opacity-80 transition-opacity" />
+            <div className="w-6 h-6 bg-[#0068ff] rounded text-white text-center font-bold text-xs flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity">
+              Z
+            </div>
+            <InstagramOutlined className="text-2xl text-[#e4405f] cursor-pointer hover:opacity-80 transition-opacity" />
+          </div>
+        </div>
 
         {/* CỘT 2: CHÍNH SÁCH */}
-        <Col xs={24} sm={24} md={8} lg={4}>
-          <Title level={4} style={{ fontSize: '18px' }}>Chính sách</Title>
-          <a
+        <div className="flex flex-col items-start text-left">
+          <h4 className="text-lg font-bold mb-5 text-gray-800 uppercase">Chính sách</h4>
+          <LinkItem
             href="#about-section"
-            style={footerLinkStyle}
             onClick={(e) => {
               e.preventDefault();
               scrollToSection('about-section');
             }}
           >
             Giới thiệu về TẤN LỤA VIỆT NAM
-          </a>
-          <a href="/tuyen-dung" style={footerLinkStyle}>Cơ hội việc làm tại TẤN LỤA VIỆT NAM</a>
-          <a href="/lien-he-quang-cao" style={footerLinkStyle}>Liên hệ quảng cáo tại TẤN LỤA VIỆT NAM</a>
-          <a href="/tro-thanh-doi-tac" style={footerLinkStyle}>Trở thành đối tác của TẤN LỤA VIỆT NAM</a>
-          <a href="#" style={footerLinkStyle} onClick={(e) => { e.preventDefault(); showModal(); }}>Đường đến TẤN LỤA VIỆT NAM</a>
-        </Col>
+          </LinkItem>
+          <LinkItem href="/tuyen-dung">Cơ hội việc làm tại TẤN LỤA VIỆT NAM</LinkItem>
+          <LinkItem href="/lien-he-quang-cao">Liên hệ quảng cáo tại TẤN LỤA VIỆT NAM</LinkItem>
+          <LinkItem href="/tro-thanh-doi-tac">Trở thành đối tác của TẤN LỤA VIỆT NAM</LinkItem>
+          <LinkItem href="#" onClick={(e) => { e.preventDefault(); showModal(); }}>Đường đến TẤN LỤA VIỆT NAM</LinkItem>
+        </div>
 
         {/* CỘT 3: HỖ TRỢ KHÁCH HÀNG */}
-        <Col xs={24} sm={24} md={8} lg={4}>
-          <Title level={4} style={{ fontSize: '18px' }}>Hỗ trợ khách hàng</Title>
-          <a href="/chinh-sach-giao-hang" style={footerLinkStyle}>Chính sách giao hàng</a>
-          <a href="/chinh-sach-bao-mat" style={footerLinkStyle}>Chính sách bảo mật</a>
-          <a href="/chinh-sach-bao-hanh" style={footerLinkStyle}>Chính sách bảo hành</a>
-          <a href="/chinh-sach-doi-tra-hang" style={footerLinkStyle}>Chính sách đổi trả hàng</a>
-          <a href="/huong-dan-thanh-toan" style={footerLinkStyle}>Hướng dẫn thanh toán</a>
-        </Col>
+        <div className="flex flex-col items-start text-left">
+          <h4 className="text-lg font-bold mb-5 text-gray-800 uppercase">Hỗ trợ khách hàng</h4>
+          <LinkItem href="/chinh-sach-giao-hang">Chính sách giao hàng</LinkItem>
+          <LinkItem href="/chinh-sach-bao-mat">Chính sách bảo mật</LinkItem>
+          <LinkItem href="/chinh-sach-bao-hanh">Chính sách bảo hành</LinkItem>
+          <LinkItem href="/chinh-sach-doi-tra-hang">Chính sách đổi trả hàng</LinkItem>
+          <LinkItem href="/huong-dan-thanh-toan">Hướng dẫn thanh toán</LinkItem>
+        </div>
 
         {/* CỘT 4: ĐĂNG KÝ NHẬN TIN & THANH TOÁN */}
-        <Col xs={24} sm={24} md={8} lg={8}>
-          <Title level={4} style={{ fontSize: '18px' }}>Đăng ký nhận tin</Title>
-          <div style={{ display: 'flex', marginBottom: '30px' }}>
-            <Input placeholder="Nhập địa chỉ email" style={{ borderRadius: '4px 0 0 4px' }} />
+        <div className="flex flex-col items-start text-left">
+          <h4 className="text-lg font-bold mb-5 text-gray-800 uppercase">Đăng ký nhận tin</h4>
+          <div style={{ display: 'flex', marginBottom: '30px', width: '100%' }}>
+            <Input placeholder="Nhập địa chỉ email" style={{ borderRadius: '4px 0 0 4px', height: '40px' }} />
             <Button
               style={{
-                backgroundColor: mainColor,
-                borderColor: mainColor,
+                backgroundColor: '#daca72',
+                borderColor: '#daca72',
                 color: '#000',
                 borderRadius: '0 4px 4px 0',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                height: '40px'
               }}
             >
               Đăng ký
             </Button>
           </div>
 
-          <Title level={4} style={{ fontSize: '18px' }}>Phương thức thanh toán</Title>
-          <div style={{ backgroundColor: '#fff', padding: '10px', borderRadius: '8px', display: 'inline-block' }}>
-            <Space size="middle">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" width="40" loading='lazy' />
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" width="40" loading='lazy' />
-              <img src="https://i.ibb.co/RTWJtVbF/images.png" alt="Momo" width="30" loading='lazy' />
-              <img src="https://media.loveitopcdn.com/3807/logo-zalopay1-compressed.jpg" alt="VNPay" width="60" loading='lazy' />
-            </Space>
+          <h4 className="text-lg font-bold mb-5 text-gray-800 uppercase">Phương thức thanh toán</h4>
+          <div className="bg-white p-3 rounded-lg shadow-sm inline-block w-full sm:w-auto">
+            <div className="flex gap-3 flex-wrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" className="h-6 w-auto" loading='lazy' />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-6 w-auto" loading='lazy' />
+              <img src="https://i.ibb.co/RTWJtVbF/images.png" alt="Momo" className="h-6 w-auto" loading='lazy' />
+              <img src="https://media.loveitopcdn.com/3807/logo-zalopay1-compressed.jpg" alt="VNPay" className="h-6 w-auto" loading='lazy' />
+            </div>
           </div>
 
-          <div style={{ marginTop: '20px' }}>
+          <div className="mt-6">
             <img
               src="/src/assets/logo_bct.png"
               alt="Đã thông báo bộ công thương"
-              style={{ height: '80px' }}
+              className="h-16 w-auto object-contain"
               loading='lazy'
             />
           </div>
-        </Col>
-      </Row>
+        </div>
+      </div>
 
-      <Divider />
+      <Divider className="my-8 border-gray-300" />
 
-      <div style={{ textAlign: 'center', color: '#888' }}>
+      <div className="text-center text-gray-500 text-sm">
         © Bản quyền thuộc về TẤN LỤA VIỆT NAM | TanLua.com
       </div>
-      <Modal title="Địa chỉ công ty" open={isModalOpen} onCancel={handleCancel} footer={null} width={800}>
-        <div style={{ marginBottom: '16px' }}>
-          <p><strong>Địa chỉ:</strong> {ADDRESS}</p>
+
+      <Modal
+        title={<span className="text-lg font-bold">Địa chỉ công ty</span>}
+        open={isModalOpen}
+        onCancel={handleCancel}
+        footer={null}
+        width={800}
+        className="font-sans"
+      >
+        <div className="mb-4 text-base">
+          <p><strong className="font-semibold">Địa chỉ:</strong> {ADDRESS}</p>
         </div>
-        <div style={{ width: '100%', height: '450px' }}>
+        <div className="w-full h-[450px]">
           <GoogleMap />
         </div>
       </Modal>
-    </Footer>
+    </footer>
   );
 };
 

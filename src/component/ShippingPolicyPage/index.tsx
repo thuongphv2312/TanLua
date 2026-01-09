@@ -1,40 +1,14 @@
 import React from 'react';
-import { Layout, Typography, Card, Divider } from 'antd';
+import { Divider } from 'antd';
 import {
     CarOutlined,
     InfoCircleOutlined,
-    SafetyCertificateOutlined
+    SafetyCertificateOutlined,
 } from '@ant-design/icons';
 import { EMAIL } from '../NewsPage/constants';
 import ContactInfoSection from '../ContactInfoSection';
 
-const { Content } = Layout;
-const { Title, Paragraph, Text } = Typography;
-
-// --- 1. Constants & Styles ---
-const COLORS = {
-    primary: '#d32f2f', // Màu đỏ chủ đạo
-    text: '#333',
-    textSecondary: '#444',
-    textLight: '#666',
-    link: '#1890ff',
-    bg: '#f5f5f5',
-    cardBg: '#fff',
-    contactBg: '#fffaf0',
-    contactBorder: '#ffe7ba',
-};
-
-const STYLES = {
-    icon: { color: COLORS.primary, fontSize: '20px' },
-    highlight: { color: COLORS.primary, fontWeight: 'bold' as const },
-    sectionTitle: { fontSize: '20px', fontWeight: 'bold', color: COLORS.text, marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' },
-    list: { fontSize: '15px', lineHeight: '1.8', color: COLORS.textSecondary, listStyleType: 'none', padding: 0, textAlign: 'left' as const, width: '100%' },
-    listItem: { display: 'flex', alignItems: 'flex-start', marginBottom: '15px' },
-    bullet: { color: COLORS.primary, marginRight: '8px', lineHeight: '1.8', flexShrink: 0 },
-};
-
-// --- 2. Data Structure ---
-// Định nghĩa nội dung text ở đây để dễ dàng thay đổi sau này
+// --- Types ---
 interface PolicyItem {
     content: React.ReactNode;
 }
@@ -46,53 +20,52 @@ interface PolicySection {
     footer?: React.ReactNode;
 }
 
-// https://i.ibb.co/mCnKfPpx/giao-hang.jpg
-
+// --- Data ---
 const POLICY_DATA: PolicySection[] = [
     {
         title: '1. Chính sách vận chuyển',
-        icon: <CarOutlined style={STYLES.icon} />,
+        icon: <CarOutlined className="text-red-600 text-xl" />,
         items: [
             {
                 content: (
                     <>
-                        <Text style={STYLES.highlight}>Miễn phí giao hàng</Text> trong phạm vi <Text strong>nội thành Hà Nội</Text> và <Text strong>TP.Hồ Chí Minh</Text>.
-                        Trường hợp Quý khách đề nghị giao hàng tận nơi <Text style={STYLES.highlight}>ngoại thành</Text> hoặc <Text style={STYLES.highlight}>liên tỉnh</Text> vui lòng
-                        liên hệ với nhân viên kinh doanh hoặc qua email: <a href={`mailto:${EMAIL}`} style={{ color: COLORS.link }}>{EMAIL}</a>
+                        <span className="text-red-600 font-bold">Miễn phí giao hàng</span> trong phạm vi <span className="font-bold text-gray-800">nội thành Hà Nội</span> và <span className="font-bold text-gray-800">TP.Hồ Chí Minh</span>.
+                        Trường hợp Quý khách đề nghị giao hàng tận nơi <span className="text-red-600 font-bold">ngoại thành</span> hoặc <span className="text-red-600 font-bold">liên tỉnh</span> vui lòng
+                        liên hệ với nhân viên kinh doanh hoặc qua email: <a href={`mailto:${EMAIL}`} className="text-blue-600 hover:underline">{EMAIL}</a>
                     </>
                 )
             },
             {
                 content: (
                     <>
-                        <Text style={STYLES.highlight}>Chuyển phát nhanh (đảm bảo):</Text> Hàng hóa được gửi nhanh thông qua nhà cung cấp dịch vụ EMS.
-                        Thời gian quý khách nhận được hàng thông thường trong khoảng từ <Text style={STYLES.highlight}>2 đến 4 ngày</Text>,
-                        <Text style={STYLES.highlight}> hỏa tốc trong vòng 1 ngày</Text>.
+                        <span className="text-red-600 font-bold">Chuyển phát nhanh (đảm bảo):</span> Hàng hóa được gửi nhanh thông qua nhà cung cấp dịch vụ EMS.
+                        Thời gian quý khách nhận được hàng thông thường trong khoảng từ <span className="text-red-600 font-bold">2 đến 4 ngày</span>,
+                        <span className="text-red-600 font-bold"> hỏa tốc trong vòng 1 ngày</span>.
                     </>
                 )
             },
-            { content: <><Text strong>Chuyển hàng bằng xe ô tô</Text> theo các tuyến liên tỉnh.</> },
-            { content: <><Text strong>Chuyển hàng bằng đường tàu hỏa.</Text></> },
+            { content: <><span className="font-bold text-gray-800">Chuyển hàng bằng xe ô tô</span> theo các tuyến liên tỉnh.</> },
+            { content: <><span className="font-bold text-gray-800">Chuyển hàng bằng đường tàu hỏa.</span></> },
             {
                 content: (
                     <>
-                        <Text strong>Chuyển thường qua bưu điện:</Text> Hàng hóa được gửi theo đường bưu điện.
-                        Với cách này, quý khách sẽ nhận được hàng trong khoảng thời gian từ <Text strong>3 đến 7 ngày</Text>.
+                        <span className="font-bold text-gray-800">Chuyển thường qua bưu điện:</span> Hàng hóa được gửi theo đường bưu điện.
+                        Với cách này, quý khách sẽ nhận được hàng trong khoảng thời gian từ <span className="font-bold text-gray-800">3 đến 7 ngày</span>.
                     </>
                 )
             },
-            { content: <><Text strong>Các phương thức khác</Text> do khách hàng yêu cầu.</> },
+            { content: <><span className="font-bold text-gray-800">Các phương thức khác</span> do khách hàng yêu cầu.</> },
         ]
     },
     {
         title: '2. Một số lưu ý',
-        icon: <InfoCircleOutlined style={STYLES.icon} />,
+        icon: <InfoCircleOutlined className="text-red-600 text-xl" />,
         items: [
             {
                 content: (
                     <>
-                        Chính sách vận chuyển miễn phí <Text style={STYLES.highlight}>không áp dụng</Text> với những sản phẩm được mua trong
-                        chương trình <Text strong>khuyến mại, giảm giá</Text>… hoặc những sản phẩm <Text strong>thanh lý</Text>.
+                        Chính sách vận chuyển miễn phí <span className="text-red-600 font-bold">không áp dụng</span> với những sản phẩm được mua trong
+                        chương trình <span className="font-bold text-gray-800">khuyến mại, giảm giá</span>… hoặc những sản phẩm <span className="font-bold text-gray-800">thanh lý</span>.
                     </>
                 )
             },
@@ -100,22 +73,22 @@ const POLICY_DATA: PolicySection[] = [
                 content: (
                     <>
                         Trong trường hợp địa chỉ nhận hàng của Quý khách trong ngõ ngách, vùng sâu vùng xa hiểm trở đi lại khó khăn,
-                        Tấn Lụa Việt Nam có quyền <Text style={STYLES.highlight}>từ chối vận chuyển</Text> và giao hàng tại nơi Quý khách yêu cầu.
+                        Tấn Lụa Việt Nam có quyền <span className="text-red-600 font-bold">từ chối vận chuyển</span> và giao hàng tại nơi Quý khách yêu cầu.
                     </>
                 )
             },
             {
                 content: (
                     <>
-                        Trong trường hợp hàng đã vận chuyển đến địa điểm yêu cầu, nhưng vì một lý do nào đó khách hàng yêu cầu <Text style={STYLES.highlight}>trả lại hàng</Text>,
-                        lúc đó khách hàng sẽ <Text style={STYLES.highlight}>chịu toàn bộ chi phí vận chuyển</Text> và các chi phí phát sinh khác.
+                        Trong trường hợp hàng đã vận chuyển đến địa điểm yêu cầu, nhưng vì một lý do nào đó khách hàng yêu cầu <span className="text-red-600 font-bold">trả lại hàng</span>,
+                        lúc đó khách hàng sẽ <span className="text-red-600 font-bold">chịu toàn bộ chi phí vận chuyển</span> và các chi phí phát sinh khác.
                     </>
                 )
             },
             {
                 content: (
                     <>
-                        Nếu người nhận không phải người mua, khách hàng cần <Text strong>ủy quyền</Text> thông qua văn bản hoặc Email.
+                        Nếu người nhận không phải người mua, khách hàng cần <span className="font-bold text-gray-800">ủy quyền</span> thông qua văn bản hoặc Email.
                         Nếu không có xác nhận, chúng tôi có quyền từ chối giao hàng.
                     </>
                 )
@@ -123,33 +96,33 @@ const POLICY_DATA: PolicySection[] = [
             {
                 content: (
                     <>
-                        Trường hợp đặc biệt như <Text strong>thiên tai, lũ lụt</Text>... dẫn đến giao hàng chậm trễ,
+                        Trường hợp đặc biệt như <span className="font-bold text-gray-800">thiên tai, lũ lụt</span>... dẫn đến giao hàng chậm trễ,
                         chúng tôi sẽ cùng khách hàng giải quyết trên tinh thần hợp tác.
                     </>
                 )
             }
         ],
         footer: (
-            <Paragraph style={{ fontSize: '15px', color: COLORS.textLight, marginTop: '20px', fontStyle: 'italic', borderLeft: `4px solid ${COLORS.primary}`, paddingLeft: '15px' }}>
+            <div className="mt-5 text-gray-500 italic border-l-4 border-red-600 pl-4 py-2 bg-gray-50 rounded-r">
                 Quý khách vui lòng liên hệ trực tiếp với nhân viên kinh doanh để được hướng dẫn cụ thể hơn.
-            </Paragraph>
+            </div>
         )
     },
     {
         title: '3. Trách nhiệm các bên',
-        icon: <SafetyCertificateOutlined style={STYLES.icon} />,
+        icon: <SafetyCertificateOutlined className="text-red-600 text-xl" />,
         items: [
             {
                 content: (
                     <>
-                        <Text strong>Tấn Lụa Việt Nam</Text> chịu trách nhiệm xử lý đơn hàng và đảm bảo khách hàng nhận được hàng <Text style={STYLES.highlight}>đúng như đã đặt mua</Text> theo thời gian cam kết.
+                        <span className="font-bold text-gray-800">Tấn Lụa Việt Nam</span> chịu trách nhiệm xử lý đơn hàng và đảm bảo khách hàng nhận được hàng <span className="text-red-600 font-bold">đúng như đã đặt mua</span> theo thời gian cam kết.
                     </>
                 )
             },
             {
                 content: (
                     <>
-                        Nếu khách hàng <Text style={STYLES.highlight}>tự ý hủy đơn hàng</Text> hoặc không thể liên lạc được để giao hàng,
+                        Nếu khách hàng <span className="text-red-600 font-bold">tự ý hủy đơn hàng</span> hoặc không thể liên lạc được để giao hàng,
                         đơn hàng sẽ bị hủy bỏ.
                     </>
                 )
@@ -159,50 +132,51 @@ const POLICY_DATA: PolicySection[] = [
 ];
 
 
-// --- 3. Main Component ---
+// --- Main Component ---
 const ShippingPolicyPage: React.FC = () => {
     return (
-        <Layout style={{ minHeight: '100vh', backgroundColor: COLORS.bg }}>
-            <Content style={{ padding: '40px 20px', maxWidth: '1000px', margin: '0 auto' }}>
-                <Card style={{ borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', backgroundColor: COLORS.cardBg }}>
-                    <Title level={1} style={{ color: COLORS.text, fontSize: '28px', marginBottom: '40px', textAlign: 'left' }}>
-                        CHÍNH SÁCH GIAO VÀ NHẬN HÀNG
-                    </Title>
+        <div className="w-full min-h-screen bg-gray-100 font-sans py-10 px-4">
+            <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-sm p-8 sm:p-10">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-left uppercase border-b pb-4 border-gray-100">
+                    CHÍNH SÁCH GIAO VÀ NHẬN HÀNG
+                </h1>
+
+                <div className="rounded-lg overflow-hidden mb-8 w-full">
                     <img
                         src="https://i.ibb.co/dw94rwXv/giao-hang-toan-quoc-aid-vn.webp"
-                        alt="Banner Tuyển Dụng"
-                        style={{ width: '100%', height: 'auto', marginBottom: '20px' }}
+                        alt="Banner Giao Hàng"
+                        className="w-full h-auto object-cover"
+                        loading="lazy"
                     />
+                </div>
 
-                    {POLICY_DATA.map((section, index) => (
-                        <div key={index} style={{ marginBottom: '40px' }}>
-                            <Title level={3} style={STYLES.sectionTitle}>
-                                {section.icon} {section.title}
-                            </Title>
+                {POLICY_DATA.map((section, index) => (
+                    <div key={index} className="mb-10">
+                        <h3 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-3">
+                            {section.icon} {section.title}
+                        </h3>
 
-                            <ul style={STYLES.list}>
-                                {section.items.map((item, idx) => (
-                                    <li key={idx} style={STYLES.listItem}>
-                                        <span style={STYLES.bullet}>•</span>
-                                        <div style={{ flex: 1 }}>{item.content}</div>
-                                    </li>
-                                ))}
-                            </ul>
+                        <ul className="space-y-4">
+                            {section.items.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-3 text-base text-gray-600 leading-relaxed text-left">
+                                    <span className="text-red-600 text-xl flex-shrink-0 leading-7">•</span>
+                                    <div className="flex-1">{item.content}</div>
+                                </li>
+                            ))}
+                        </ul>
 
-                            {section.footer}
+                        {section.footer}
 
-                            {index < POLICY_DATA.length - 1 && <Divider />}
-                        </div>
-                    ))}
+                        {index < POLICY_DATA.length - 1 && <Divider className="my-8" />}
+                    </div>
+                ))}
 
-                    {/* Thông tin liên hệ */}
-                    <ContactInfoSection
-                        title="LIÊN HỆ HỖ TRỢ GIAO HÀNG"
-                        timeLabel="Thời gian làm việc"
-                    />
-                </Card>
-            </Content>
-        </Layout>
+                <ContactInfoSection
+                    title="LIÊN HỆ HỖ TRỢ GIAO HÀNG"
+                    timeLabel="Thời gian làm việc"
+                />
+            </div>
+        </div>
     );
 };
 
