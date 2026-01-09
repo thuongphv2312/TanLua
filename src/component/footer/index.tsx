@@ -41,7 +41,7 @@ const AppFooter = () => {
           <h4 className="text-lg font-bold mb-5 text-gray-800 uppercase">Về chúng tôi</h4>
           <div className="mb-5 w-full">
             <img
-              src="/src/assets/logo.png"
+              src="https://i.ibb.co/YF9VJFMg/logo.png/src/assets/logo.png"
               alt="Tấn Lụa Logo"
               className="max-w-[80%] mb-4 h-auto"
               loading='lazy'
