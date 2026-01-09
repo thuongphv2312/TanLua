@@ -1,14 +1,15 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { PhoneOutlined, HomeOutlined, DownOutlined, UpOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import banner from '../../assets/banner-tanlua_2048x2048.png';
+import { EMAIL, HOTLINE } from '../NewsPage/constants';
 
 const AboutSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="w-full mx-auto" ref={containerRef}>
+    <div id="about-section" className="w-full mx-auto" ref={containerRef}>
       {/* Header */}
       <h2 className="text-xl font-bold mb-5 text-left">GIỚI THIỆU</h2>
 
@@ -26,7 +27,7 @@ const AboutSection = () => {
             <br />
             <span className="">
               <PhoneOutlined className="mr-1" />
-              Điện thoại: 0913992182  Thời gian phục vụ: Từ 8h - 18h30 hàng ngày
+              Điện thoại: {HOTLINE}  Thời gian phục vụ: Từ 8h - 18h30 hàng ngày
             </span>
           </div>
 
@@ -53,7 +54,7 @@ const AboutSection = () => {
 
         {/* Contact Info */}
         <div className="mt-2 text-md">
-          <span>+) Email: <a href="mailto:info@oshima.com.vn" className="text-blue-600">info@tanlua.com.vn</a></span>
+          <span>+) Email: <a href={`mailto:${EMAIL}`} className="text-blue-600">{EMAIL}</a></span>
           <span className="ml-3">+) Website: <a href="http://www.tanlua.com.vn" className="text-blue-600">www.tanlua.com.vn</a> / <a href="http://www.tanluavietnam.com" className="text-blue-600">www.tanlua.com</a></span>
         </div>
       </div>

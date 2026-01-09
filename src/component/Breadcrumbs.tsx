@@ -18,7 +18,15 @@ const Breadcrumbs = () => {
     'lien-he': 'Liên hệ',
     'checkout': 'Thanh toán',
     'cart': 'Giỏ hàng',
-    'search': 'Tìm kiếm'
+    'search': 'Tìm kiếm',
+    'tro-thanh-doi-tac': 'Trở thành đối tác',
+    'lien-he-quang-cao': 'Liên hệ quảng cáo',
+    'tuyen-dung': 'Tuyển dụng',
+    'chinh-sach-giao-hang': 'Chính sách giao hàng',
+    'chinh-sach-bao-mat': 'Chính sách bảo mật',
+    'chinh-sach-bao-hanh': 'Chính sách bảo hành',
+    'chinh-sach-doi-tra-hang': 'Chính sách đổi trả hàng',
+    'huong-dan-thanh-toan': 'Hướng dẫn thanh toán',
   };
 
   // Tạo danh sách items cho Breadcrumb

@@ -14,6 +14,12 @@ import { newsList, CATEGORIES } from './component/NewsPage/constants';
 import banner from '../src/assets/section_hot.jpg';
 import NewsDetailPage from './component/NewsPage/NewsDetailPage';
 import PartnerPage from './component/Partner';
+import CareersPage from './component/CareersPage';
+import ShippingPolicyPage from './component/ShippingPolicyPage';
+import PrivacyPolicyPage from './component/PrivacyPolicyPage';
+import WarrantyPolicyPage from './component/WarrantyPolicyPage';
+import ReturnPolicyPage from './component/ReturnPolicyPage';
+import PaymentSupportPage from './component/PaymentSupportPage';
 
 interface AppRoutesProps {
   cartCounts: { [key: number]: number };
@@ -62,7 +68,14 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
       </>} />
       <Route path={ROUTE_MAP['NEWS']} element={<NewsPage />} />
       <Route path="/news/:id" element={<NewsDetailPage />} />
+      <Route path="/tuyen-dung" element={<CareersPage />} />
+      <Route path="/chinh-sach-giao-hang" element={<ShippingPolicyPage />} />
+      <Route path="/chinh-sach-bao-mat" element={<PrivacyPolicyPage />} />
+      <Route path="/chinh-sach-bao-hanh" element={<WarrantyPolicyPage />} />
+      <Route path="/chinh-sach-doi-tra-hang" element={<ReturnPolicyPage />} />
+      <Route path="/huong-dan-thanh-toan" element={<PaymentSupportPage />} />
       <Route path="/tro-thanh-doi-tac" element={<PartnerPage />} />
+      <Route path="/lien-he-quang-cao" element={<PartnerPage />} />
       <Route path={ROUTE_MAP['CART']} element={
         <CartPage
           cartCounts={cartCounts}

@@ -14,18 +14,22 @@ const MACHINE_NAME = {
   MAY_NEN_KHI: "Máy nén khí"
 }
 
+// Thông tin liên hệ công ty
 export const HOTLINE = '0833.090.186';
+export const EMAIL = 'info@tanlua.com';
+export const RECRUITMENT_EMAIL = 'tuyendung@tanlua.com.vn';
+export const ADDRESS = 'Nghĩa Thái, Nghĩa Hưng, Nam Định';
 
 export const CATEGORIES = [
   { id: 1, name: MACHINE_NAME.MAY_NONG_NGHIEP, slug: "may-nong-nghiep", img: SLIDER_IMAGES[0] },
-  { id: 2, name: MACHINE_NAME.MAY_CONG_NGHIEP, slug: "may-cong-nghiep",img: SLIDER_IMAGES[1] },
+  { id: 2, name: MACHINE_NAME.MAY_CONG_NGHIEP, slug: "may-cong-nghiep", img: SLIDER_IMAGES[1] },
   { id: 10, name: MACHINE_NAME.DUNG_CU_CAM_TAY, slug: "dung-cu-cam-tay", img: SLIDER_IMAGES[2] },
   { id: 3, name: MACHINE_NAME.THIET_BI_XIT_RUA, slug: "thiet-bi-xit-rua", img: SLIDER_IMAGES[3] },
   { id: 4, name: MACHINE_NAME.MAY_PHAT_DIEN, slug: "may-phat-dien", img: SLIDER_IMAGES[4] },
   { id: 5, name: MACHINE_NAME.MAY_BAN_COT, slug: "may-ban-cot", img: SLIDER_IMAGES[5] },
   { id: 6, name: MACHINE_NAME.MAY_CAT_CO, slug: "may-cat-co", img: SLIDER_IMAGES[6] },
   { id: 7, name: MACHINE_NAME.MAY_XOI_DAT, slug: "may-xoi-dat", img: SLIDER_IMAGES[7] },
-  { id: 8, name: MACHINE_NAME.MAY_BOM_NUOC, slug: "may-bom-nuoc",img: SLIDER_IMAGES[8] },
+  { id: 8, name: MACHINE_NAME.MAY_BOM_NUOC, slug: "may-bom-nuoc", img: SLIDER_IMAGES[8] },
   { id: 9, name: MACHINE_NAME.MAY_NEN_KHI, slug: "may-nen-khi", img: SLIDER_IMAGES[9] },
 ];
 

@@ -7,7 +7,7 @@ import {
   FacebookFilled,
   InstagramOutlined,
 } from '@ant-design/icons';
-import { HOTLINE } from '../NewsPage/constants';
+import { HOTLINE, ADDRESS, EMAIL } from '../NewsPage/constants';
 import GoogleMap from '../GoogleMap';
 
 const { Footer } = Layout;
@@ -24,6 +24,13 @@ const AppFooter = () => {
   };
   const mainColor = '#daca72';
   const screen = useBreakpoint();
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const footerLinkStyle = {
     display: 'block',
@@ -55,7 +62,7 @@ const AppFooter = () => {
           <Space direction="vertical" size="small">
             <Space align="start">
               <EnvironmentOutlined style={{ color: '#000', marginTop: '5px' }} />
-              <Text>Địa chỉ: Nghĩa Thái, Nghĩa Hưng, Nam Định</Text>
+              <Text>Địa chỉ: {ADDRESS}</Text>
             </Space>
             <Space>
               <PhoneOutlined style={{ color: '#000' }} />
@@ -63,7 +70,7 @@ const AppFooter = () => {
             </Space>
             <Space>
               <MailOutlined style={{ color: '#000' }} />
-              <Text>Email: info@tanlua.com</Text>
+              <Text>Email: {EMAIL}</Text>
             </Space>
           </Space>
           <div style={{ marginTop: '20px' }}>
@@ -79,9 +86,18 @@ const AppFooter = () => {
         {/* CỘT 2: CHÍNH SÁCH */}
         <Col xs={24} sm={24} md={8} lg={4}>
           <Title level={4} style={{ fontSize: '18px' }}>Chính sách</Title>
-          <a href="#" style={footerLinkStyle}>Giới thiệu về TẤN LỤA VIỆT NAM</a>
-          <a href="#" style={footerLinkStyle}>Cơ hội việc làm tại TẤN LỤA VIỆT NAM</a>
-          <a href="#" style={footerLinkStyle}>Liên hệ quảng cáo tại TẤN LỤA VIỆT NAM</a>
+          <a
+            href="#about-section"
+            style={footerLinkStyle}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('about-section');
+            }}
+          >
+            Giới thiệu về TẤN LỤA VIỆT NAM
+          </a>
+          <a href="/tuyen-dung" style={footerLinkStyle}>Cơ hội việc làm tại TẤN LỤA VIỆT NAM</a>
+          <a href="/lien-he-quang-cao" style={footerLinkStyle}>Liên hệ quảng cáo tại TẤN LỤA VIỆT NAM</a>
           <a href="/tro-thanh-doi-tac" style={footerLinkStyle}>Trở thành đối tác của TẤN LỤA VIỆT NAM</a>
           <a href="#" style={footerLinkStyle} onClick={(e) => { e.preventDefault(); showModal(); }}>Đường đến TẤN LỤA VIỆT NAM</a>
         </Col>
@@ -89,11 +105,11 @@ const AppFooter = () => {
         {/* CỘT 3: HỖ TRỢ KHÁCH HÀNG */}
         <Col xs={24} sm={24} md={8} lg={4}>
           <Title level={4} style={{ fontSize: '18px' }}>Hỗ trợ khách hàng</Title>
-          <a href="#" style={footerLinkStyle}>Chính sách giao hàng</a>
-          <a href="#" style={footerLinkStyle}>Chính sách bảo mật</a>
-          <a href="#" style={footerLinkStyle}>Chính sách bảo hành</a>
-          <a href="#" style={footerLinkStyle}>Chính sách đổi trả hàng</a>
-          <a href="#" style={footerLinkStyle}>Hướng dẫn thanh toán</a>
+          <a href="/chinh-sach-giao-hang" style={footerLinkStyle}>Chính sách giao hàng</a>
+          <a href="/chinh-sach-bao-mat" style={footerLinkStyle}>Chính sách bảo mật</a>
+          <a href="/chinh-sach-bao-hanh" style={footerLinkStyle}>Chính sách bảo hành</a>
+          <a href="/chinh-sach-doi-tra-hang" style={footerLinkStyle}>Chính sách đổi trả hàng</a>
+          <a href="/huong-dan-thanh-toan" style={footerLinkStyle}>Hướng dẫn thanh toán</a>
         </Col>
 
         {/* CỘT 4: ĐĂNG KÝ NHẬN TIN & THANH TOÁN */}
@@ -142,7 +158,7 @@ const AppFooter = () => {
       </div>
       <Modal title="Địa chỉ công ty" open={isModalOpen} onCancel={handleCancel} footer={null} width={800}>
         <div style={{ marginBottom: '16px' }}>
-          <p><strong>Địa chỉ:</strong> Nghĩa Thái, Nghĩa Hưng, Nam Định</p>
+          <p><strong>Địa chỉ:</strong> {ADDRESS}</p>
         </div>
         <div style={{ width: '100%', height: '450px' }}>
           <GoogleMap />
