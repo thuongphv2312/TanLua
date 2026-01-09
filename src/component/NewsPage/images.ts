@@ -221,9 +221,9 @@ export const SACDOIG2S20X2 = [
   "https://i.ibb.co/BVt67srb/s-c-G2-S20-X2-4.png",
 ]
 export const THANMAYKHOANG1D55 = [
+  "https://i.ibb.co/RXY8j00/M-y-khoan-G1-D55.png",
   "https://i.ibb.co/RpnFJm5m/M-y-khoan-G1-D55-1.png",
   "https://i.ibb.co/CcMXShn/M-y-khoan-G1-D55-2.png",
   "https://i.ibb.co/YBQNG5Dy/M-y-khoan-G1-D55-3.png",
   "https://i.ibb.co/qXjFRYs/M-y-khoan-G1-D55-4.png",
-  "https://i.ibb.co/RXY8j00/M-y-khoan-G1-D55.png"
 ]
