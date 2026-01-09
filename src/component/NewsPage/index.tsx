@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Breadcrumb, Pagination, Divider, List } from 'antd';
-import { HomeOutlined, RightOutlined } from '@ant-design/icons';
+import { Breadcrumb, Pagination, Divider, List, Button } from 'antd';
+import { HomeOutlined, RightOutlined, DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
 import { CATEGORIES, newsList } from './constants';
 import { filterByCategory } from './utils';
 
@@ -55,9 +55,9 @@ const NewsPage: React.FC = () => {
     // window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [currentPage])
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: 'smooth' })
+  // }, [currentPage])
 
   return (
     <div className="w-full mx-auto font-sans">
@@ -76,13 +76,32 @@ const NewsPage: React.FC = () => {
 
           {/* Pagination */}
           {dataSource.length > PAGE_SIZE && (
-            <div className="mt-12 flex justify-center">
+            <div className="mt-12 flex justify-center items-center gap-2">
+              <Button
+                icon={<DoubleLeftOutlined />}
+                onClick={() => setCurrentPage(1)}
+                disabled={currentPage === 1}
+                type="text"
+              />
               <Pagination
                 current={currentPage}
                 pageSize={PAGE_SIZE}
                 total={dataSource.length}
                 showSizeChanger={false}
                 onChange={(page) => setCurrentPage(page)}
+                itemRender={(page, type, originalElement) => {
+                  if (type === 'prev' || type === 'next') {
+                    return null; // Tắt nút prev/next mặc định của Antd vì đã có nút custom bên ngoài (nếu muốn) hoặc để mặc định
+                  }
+                  return originalElement;
+                }}
+                showLessItems={true} // Tự động hiện ... khi nhiều trang
+              />
+              <Button
+                icon={<DoubleRightOutlined />}
+                onClick={() => setCurrentPage(Math.ceil(dataSource.length / PAGE_SIZE))}
+                disabled={currentPage === Math.ceil(dataSource.length / PAGE_SIZE)}
+                type="text"
               />
             </div>
           )}
