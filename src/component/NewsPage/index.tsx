@@ -52,7 +52,7 @@ const NewsPage: React.FC = () => {
   const hanlderCategory = (cat: any) => {
     setActiveCategory(cat.id);
     setCurrentPage(1);
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    // window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   useEffect(() => {
@@ -97,7 +97,7 @@ const NewsPage: React.FC = () => {
             <h2 className="text-sm font-bold tracking-widest uppercase mb-4 border-b pb-2">Danh mục tin tức</h2>
             <ul className="space-y-2">
               {CATEGORIES.slice(0, 4).map((cat, idx) => (
-                <li onClick={() => hanlderCategory(cat)} key={idx} className="flex justify-between items-center text-sm text-gray-700 hover:text-red-600 cursor-pointer py-1">
+                <li onClick={() => hanlderCategory(cat)} key={idx} className={`flex justify-between items-center text-sm ${activeCategory === cat.id ? 'text-red-600 font-bold' : 'text-gray-700'} hover:text-red-600 cursor-pointer py-1`}>
                   {cat.name}
                   {/* {idx < 4 && <RightOutlined className="text-[10px]" />} */}
                 </li>
@@ -111,7 +111,7 @@ const NewsPage: React.FC = () => {
             <div className="space-y-4">
               {newsList.slice(0, 4).map((news, idx) => (
                 <div key={idx} className="flex gap-3 items-start group cursor-pointer" onClick={() => navigate(`/news/${news.id}`)}>
-                  <img src={news.images[0]} className="w-16 h-16 object-cover rounded shadow-sm" alt="" loading='lazy'/>
+                  <img src={news.images[0]} className="w-16 h-16 object-cover rounded shadow-sm" alt="" loading='lazy' />
                   <h4 className="text-left text-[13px] font-semibold leading-snug group-hover:text-red-600 line-clamp-3">
                     {news.title}
                   </h4>

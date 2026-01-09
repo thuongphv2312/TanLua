@@ -35,12 +35,14 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
     }
     return CATEGORIES[0].id;
   });
+  const [visibleCount, setVisibleCount] = useState(10);
   const [addingId, setAddingId] = useState<number | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (categoryId) {
       setActiveCategory(categoryId);
+      setVisibleCount(10);
     } else if (lstProducts.length > 0) {
       const firstItem = lstProducts[0];
       const match = CATEGORIES.find(c => firstItem.categories?.includes(c.id));
@@ -67,6 +69,7 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
   };
 
   const dataToDisplay = lstProducts.filter(item => item.categories?.includes(activeCategory));
+  const visibleData = dataToDisplay.slice(0, visibleCount);
 
   return (
     <div className="w-full mx-auto mb-8">
@@ -119,7 +122,10 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
             type={activeCategory === category.id ? 'primary' : 'default'}
             danger={activeCategory === category.id}
             shape="round"
-            onClick={() => setActiveCategory(category.id)}
+            onClick={() => {
+              setActiveCategory(category.id);
+              setVisibleCount(10);
+            }}
             className="whitespace-nowrap"
           >
             {category.name}
@@ -144,7 +150,7 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
               />
             </div>
           )}
-          {dataToDisplay.map((product) => (
+          {visibleData.map((product) => (
             <Card
               key={product.id}
               hoverable
@@ -218,18 +224,31 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
 
       {/* Load More Button */}
       {
-        dataToDisplay.length > 10 &&
-        <div className="text-center mt-8">
-          <Button
-            type="default"
-            size="large"
-            shape="round"
-            className="px-8"
-            onClick={() => message.info('Tính năng đang được cập nhật...')}
-          >
-            Xem thêm sản phẩm
-          </Button>
-        </div>
+        dataToDisplay.length > 10 && (
+          <div className="text-center mt-8">
+            {visibleCount < dataToDisplay.length ? (
+              <Button
+                type="default"
+                size="large"
+                shape="round"
+                className="px-8"
+                onClick={() => setVisibleCount(prev => prev + 10)}
+              >
+                Xem thêm sản phẩm
+              </Button>
+            ) : (
+              <Button
+                type="default"
+                size="large"
+                shape="round"
+                className="px-8"
+                onClick={() => setVisibleCount(10)}
+              >
+                Thu gọn
+              </Button>
+            )}
+          </div>
+        )
       }
     </div>
   );
