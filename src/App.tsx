@@ -10,6 +10,7 @@ import Breadcrumbs from './component/Breadcrumbs';
 import { newsList } from './component/NewsPage/constants';
 import AppRoutes from './AppRoutes';
 import RecentPurchaseNotification from './component/RecentPurchaseNotification';
+import NetworkStatus from './component/NetworkStatus';
 
 
 const { Header, Content, Footer } = Layout;
@@ -149,6 +150,7 @@ const App = () => {
           }
         `}
       </style>
+      <NetworkStatus />
       <ClickSpark
         sparkColor={mainColor}
         sparkSize={10}

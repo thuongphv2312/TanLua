@@ -117,4 +117,7 @@ export const DAMDUIDIEN7508501000W = [
   "https://i.ibb.co/mCC9BG2s/TALU-750-ORA.png"
 ]
 
+export const DAYXITTANGAP10M = [
+  "https://i.ibb.co/Hp9KLr9L/10M-1.png"
+]
 

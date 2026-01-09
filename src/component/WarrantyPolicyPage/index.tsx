@@ -185,7 +185,7 @@ const WarrantyPolicyPage: React.FC = () => {
 
                 <div className="rounded-lg overflow-hidden mb-8 w-full">
                     <img
-                        src="https://i.ibb.co/s9w02K0F/chinh-sach-bao-hanh.jpg"
+                        src="https://i.ibb.co/VW5rcBh7/chinh-sach-bao-hanh.jpg"
                         alt="Chính sách bảo hành"
                         className="w-full h-auto object-cover"
                         loading="lazy"

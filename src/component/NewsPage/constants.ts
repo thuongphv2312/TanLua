@@ -1,5 +1,5 @@
 // constants/newsCategory.ts
-import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W } from './images';
+import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M } from './images';
 
 const MACHINE_NAME = {
   MAY_CONG_NGHIEP: "Máy Công Nghiệp",
@@ -39,6 +39,12 @@ const calculateDiscount = (price: string, oldPrice: string) => {
   const oldPriceNumber = parseInt(oldPrice.replace(/\D/g, ''));
   if (!oldPriceNumber || priceNumber >= oldPriceNumber) return "";
   return `-${Math.round(((oldPriceNumber - priceNumber) / oldPriceNumber) * 100)}%`;
+};
+
+// Cấu hình giảm giá ưu tiên theo danh mục (Category ID -> % Giảm)
+// Nếu sản phẩm thuộc danh mục có trong này, hệ thống sẽ tự động tính toán giá giảm dựa trên % được cấu hình, ưu tiên hơn giá thủ công.
+const CATEGORY_DISCOUNTS: { [key: number]: number } = {
+  // 10: 15, // Ví dụ: Bỏ comment dòng này để giảm 15% cho tất cả sản phẩm thuộc danh mục ID 10 (Dụng cụ cầm tay)
 };
 
 export const newsList = [
@@ -315,12 +321,53 @@ export const newsList = [
     oldPrice: "3,000,000₫",
     url: "WWW.TANLUAVIETNAM.COM",
   },
-].map(item => ({
-  ...item,
-  discount: calculateDiscount(item.price, item.oldPrice),
-  content: `
+  {
+    id: 22,
+    title: "Dây xịt tăng áp ANOVI 10M 230BAR Loại xịn",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Dây xịt tăng áp ANOVI 10M 230BAR Loại xịn có công dụng như thế nào với công việc của bạn...",
+    images: DAYXITTANGAP10M,
+    categories: [3],
+    name: "Dây xịt tăng áp ANOVI 10M 230BAR Loại xịn",
+    price: "2,500,000₫",
+    oldPrice: "3,000,000₫",
+    url: "WWW.TANLUAVIETNAM.COM",
+  },
+].map(item => {
+  let { price, oldPrice } = item;
+  let discount = "";
+
+  // Tính giảm giá ưu tiên theo danh mục
+  const categoryDiscount = item.categories.reduce((max, catId) => {
+    return Math.max(max, CATEGORY_DISCOUNTS[catId] || 0);
+  }, 0);
+
+  if (categoryDiscount > 0) {
+    // Logic: Nếu có cấu hình giảm giá danh mục -> Tự động tính giá mới từ giá gốc (ưu tiên oldPrice nếu có)
+    const originalPriceStr = (oldPrice && oldPrice.trim() !== "") ? oldPrice : price;
+    const originalPrice = parseInt(originalPriceStr.replace(/\D/g, ''));
+
+    if (originalPrice) {
+      const newPrice = originalPrice * (1 - categoryDiscount / 100);
+      price = Math.round(newPrice).toLocaleString('en-US') + '₫';
+      oldPrice = originalPriceStr;
+      discount = `-${categoryDiscount}%`;
+    }
+  } else {
+    // Mặc định: Tính % giảm dựa trên price và oldPrice có sẵn
+    discount = calculateDiscount(price, oldPrice || "");
+  }
+
+  return {
+    ...item,
+    price,
+    oldPrice,
+    discount,
+    content: `
     <p>Sản phẩm <strong>${item.name}</strong> hiện đang được phân phối chính hãng tại Tấn Lụa Việt Nam với mức giá ưu đãi.</p>
-    <p><strong>Giá bán: <span style="color: #d32f2f; font-size: 1.2em;">${item.price}</span></strong> ${item.oldPrice ? `<span style="text-decoration: line-through; color: #999; margin-left: 10px;">${item.oldPrice}</span>` : ''}</p>
+    <p><strong>Giá bán: <span style="color: #d32f2f; font-size: 1.2em;">${price}</span></strong> ${oldPrice ? `<span style="text-decoration: line-through; color: #999; margin-left: 10px;">${oldPrice}</span>` : ''}</p>
     <p>Để biết thêm thông tin chi tiết về sản phẩm và các chương trình khuyến mãi, quý khách vui lòng liên hệ hotline: <b>${HOTLINE}</b> hoặc đến trực tiếp cửa hàng để được tư vấn tốt nhất.</p>
   `
-}));
+  };
+});
