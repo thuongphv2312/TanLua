@@ -176,9 +176,9 @@ const App = () => {
               onClearCart={handleClearCart}
             />
           </Content>
-          <FloatingContactButtons/>
+          <FloatingContactButtons />
           <RecentPurchaseNotification />
-          <AppFooter/>
+          <AppFooter />
         </Layout>
       </ClickSpark>
     </ConfigProvider>

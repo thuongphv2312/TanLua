@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ShoppingCartOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
 import { Card, Badge, Button, message, Empty } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { CATEGORIES, newsList } from '../NewsPage/constants';
+import { CATEGORIES } from '../NewsPage/constants';
 
 
 interface Product {
@@ -25,7 +25,7 @@ interface ProductsProps {
   categoryId?: number;
 }
 
-const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], bannerImage, cartCounts = {}, onAddToCart = () => {}, categoryId }) => {
+const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], bannerImage, cartCounts = {}, onAddToCart = () => { }, categoryId }) => {
   const [activeCategory, setActiveCategory] = useState(() => {
     if (categoryId) return categoryId;
     if (lstProducts.length > 0) {
@@ -66,7 +66,7 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
     }, 400);
   };
 
-  const dataToDisplay = newsList.filter(item => item.categories.includes(activeCategory));
+  const dataToDisplay = lstProducts.filter(item => item.categories?.includes(activeCategory));
 
   return (
     <div className="w-full mx-auto mb-8">
@@ -133,87 +133,87 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
           <Empty description="Không tìm thấy sản phẩm" />
         </div>
       ) : (
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {bannerImage && (
-          <div className="col-span-2 h-full ransition-transform duration-300 hover:scale-[1.04]">
-            <img
-              src={bannerImage}
-              alt="Banner"
-              className="w-full h-full object-cover rounded-lg shadow-sm"
-              loading='lazy'
-            />
-          </div>
-        )}
-        {dataToDisplay.map((product) => (
-          <Card
-            key={product.id}
-            hoverable
-            className="relative overflow-hidden transition-transform duration-300 hover:scale-[1.04]"
-            onClick={() => navigate(`/product/${product.id}`)}
-            cover={
-              <div className="relative bg-gradient-to-br from-green-100 to-green-50 h-48 flex items-center justify-center">
-                {/* Discount Badge */}
-                {product.discount && (
-                  <Badge.Ribbon
-                    text={<span className="fire-text">{product.discount}</span>}
-                    color="transparent"
-                    className="text-xs font-bold"
-                  />
-                )}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {bannerImage && (
+            <div className="col-span-2 h-full ransition-transform duration-300 hover:scale-[1.04]">
+              <img
+                src={bannerImage}
+                alt="Banner"
+                className="w-full h-full object-cover rounded-lg shadow-sm"
+                loading='lazy'
+              />
+            </div>
+          )}
+          {dataToDisplay.map((product) => (
+            <Card
+              key={product.id}
+              hoverable
+              className="relative overflow-hidden transition-transform duration-300 hover:scale-[1.04]"
+              onClick={() => navigate(`/product/${product.id}`)}
+              cover={
+                <div className="relative bg-gradient-to-br from-green-100 to-green-50 h-48 flex items-center justify-center">
+                  {/* Discount Badge */}
+                  {product.discount && (
+                    <Badge.Ribbon
+                      text={<span className="fire-text">{product.discount}</span>}
+                      color="transparent"
+                      className="text-xs font-bold"
+                    />
+                  )}
 
-                {/* Product Image Placeholder */}
-                {product.images?.[0] ? (
-                  <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" loading='lazy' />
-                ) : (
-                  <div className="flex items-center justify-center w-full h-full bg-gray-100 text-gray-300">
-                    <SearchOutlined style={{ fontSize: '32px' }} />
+                  {/* Product Image Placeholder */}
+                  {product.images?.[0] ? (
+                    <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" loading='lazy' />
+                  ) : (
+                    <div className="flex items-center justify-center w-full h-full bg-gray-100 text-gray-300">
+                      <SearchOutlined style={{ fontSize: '32px' }} />
+                    </div>
+                  )}
+
+                  {/* Watermark */}
+                  <div className="absolute bottom-2 left-2 text-xs text-gray-400 font-mono">
+                    {product.url}
                   </div>
-                )}
 
-                {/* Watermark */}
-                <div className="absolute bottom-2 left-2 text-xs text-gray-400 font-mono">
-                  {product.url}
-                </div>
-
-                {/* Quick View Icon */}
-                {/* <div className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-md cursor-pointer hover:bg-gray-100">
+                  {/* Quick View Icon */}
+                  {/* <div className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-md cursor-pointer hover:bg-gray-100">
                   <SearchOutlined className="text-gray-600" />
                 </div> */}
-              </div>
-            }
-            bodyStyle={{ padding: '12px' }}
-          >
-            {/* Product Info */}
-            <div className="space-y-2">
-              <p className="text-xs text-gray-500 uppercase">{product.url}</p>
-              <h3 className="text-sm font-medium line-clamp-2 h-10">{product.name}</h3>
-
-              {/* Price Section */}
-              <div className="flex items-center justify-between">
-                <div className="flex flex-col">
-                  <span className="text-red-600 font-bold text-base">{product.price}</span>
-                  {product.oldPrice && (
-                    <span className="text-gray-400 line-through text-xs">{product.oldPrice}</span>
-                  )}
                 </div>
+              }
+              bodyStyle={{ padding: '12px' }}
+            >
+              {/* Product Info */}
+              <div className="space-y-2">
+                <p className="text-xs text-gray-500 uppercase">{product.url}</p>
+                <h3 className="text-sm font-medium line-clamp-2 h-10">{product.name}</h3>
 
-                {/* Add to Cart Button */}
-                <Button
-                  type="primary"
-                  danger
-                  icon={cartCounts[product.id] ? null : <PlusOutlined />}
-                  shape="circle"
-                  size="middle"
-                  className={addingId === product.id ? 'btn-adding' : ''}
-                  onClick={(e) => handleAddToCart(e, product)}
-                >
-                  {cartCounts[product.id] ? <span className="font-bold">{cartCounts[product.id]}</span> : null}
-                </Button>
+                {/* Price Section */}
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-col">
+                    <span className="text-red-600 font-bold text-base">{product.price}</span>
+                    {product.oldPrice && (
+                      <span className="text-gray-400 line-through text-xs">{product.oldPrice}</span>
+                    )}
+                  </div>
+
+                  {/* Add to Cart Button */}
+                  <Button
+                    type="primary"
+                    danger
+                    icon={cartCounts[product.id] ? null : <PlusOutlined />}
+                    shape="circle"
+                    size="middle"
+                    className={addingId === product.id ? 'btn-adding' : ''}
+                    onClick={(e) => handleAddToCart(e, product)}
+                  >
+                    {cartCounts[product.id] ? <span className="font-bold">{cartCounts[product.id]}</span> : null}
+                  </Button>
+                </div>
               </div>
-            </div>
-          </Card>
-        ))}
-      </div>
+            </Card>
+          ))}
+        </div>
       )}
 
       {/* Load More Button */}
