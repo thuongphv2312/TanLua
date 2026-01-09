@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import type { CarouselProps } from 'antd';
+import React from 'react';
+// import type { CarouselProps } from 'antd';
 import { Carousel } from 'antd';
 import img1 from '../../assets/sliders/slider_1.jpg';
 import img2 from '../../assets/sliders/slider_2.jpg';
@@ -7,20 +7,12 @@ import img3 from '../../assets/sliders/slider_3.jpg';
 import img4 from '../../assets/sliders/right_banner_1.jpg';
 import img5 from '../../assets/sliders/right_banner_2.jpg';
 
-type DotPlacement = CarouselProps['dotPlacement'];
+// type DotPlacement = CarouselProps['dotPlacement'];
 
-const contentStyle: React.CSSProperties = {
-  margin: 0,
-  height: '400px', // Tăng chiều cao để cân xứng với 2 hàng bên cạnh
-  color: '#fff',
-  lineHeight: '400px',
-  textAlign: 'center',
-  background: '#364d79',
-  borderRadius: '8px',
-};
+
 
 const Slider: React.FC = () => {
-  const [dotPlacement] = useState<DotPlacement>('bottom');
+  // const [dotPlacement] = useState<DotPlacement>('bottom');
 
   const sliderData = [
     { id: 1, src: img1, title: 'Khám phá thiên nhiên' },

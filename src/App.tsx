@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Layout, Typography, ConfigProvider } from 'antd';
+import { useEffect, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+import { Layout, ConfigProvider } from 'antd';
 import HeaderContainer from './component/header';
 import ClickSpark from './component/ClickSpark';
 import AppFooter from './component/footer';
@@ -13,11 +13,11 @@ import RecentPurchaseNotification from './component/RecentPurchaseNotification';
 import NetworkStatus from './component/NetworkStatus';
 
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
 const App = () => {
   const [isSticky, setIsSticky] = useState(false);
-  const navigate = useNavigate();
+
   const mainColor = '#daca72';
 
   // Khởi tạo giỏ hàng từ LocalStorage

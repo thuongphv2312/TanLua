@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Breadcrumb, Pagination, Divider, List, Button } from 'antd';
-import { HomeOutlined, RightOutlined, DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
+import { Pagination, Button } from 'antd';
+import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
 import { CATEGORIES, newsList } from './constants';
 import { filterByCategory } from './utils';
 
@@ -89,7 +89,7 @@ const NewsPage: React.FC = () => {
                 total={dataSource.length}
                 showSizeChanger={false}
                 onChange={(page) => setCurrentPage(page)}
-                itemRender={(page, type, originalElement) => {
+                itemRender={(_page, type, originalElement) => {
                   if (type === 'prev' || type === 'next') {
                     return null; // Tắt nút prev/next mặc định của Antd vì đã có nút custom bên ngoài (nếu muốn) hoặc để mặc định
                   }

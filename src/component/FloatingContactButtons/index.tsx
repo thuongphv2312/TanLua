@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FloatButton } from 'antd';
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import './index.css';
@@ -36,7 +36,7 @@ export const FloatingContactButtons = () => {
         target="_blank"
       />
       <FloatButton
-        icon={<img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="Messenger" style={iconStyle} loading='lazy'/>}
+        icon={<img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="Messenger" style={iconStyle} loading='lazy' />}
         href="https://www.facebook.com"
         target="_blank"
       />
@@ -44,7 +44,7 @@ export const FloatingContactButtons = () => {
       {/* Nút Hotline với hiệu ứng Sóng Tỏa và Rung */}
       <FloatButton
         className="hotline-pulse-wrapper shake-animation"
-        icon={<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={iconStyle} loading='lazy'/>}
+        icon={<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" style={iconStyle} loading='lazy' />}
         style={{ border: '1px solid #ff4d4f' }}
         href={`tel:${HOTLINE}`}
       />

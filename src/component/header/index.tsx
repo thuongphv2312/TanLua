@@ -1,10 +1,9 @@
-import { Input, Badge, Space, Typography, Layout, Grid, Button, Popover, List, Avatar, Empty, Divider } from 'antd';
+import { Input, Badge, Space, Typography, Layout, Grid, Button, Popover, List, Avatar, Empty } from 'antd';
 import {
   SearchOutlined,
   PhoneOutlined,
   UserOutlined,
-  ShoppingCartOutlined,
-  MenuOutlined
+  ShoppingCartOutlined
 } from '@ant-design/icons';
 import TextType from '../TextType';
 import React, { useState } from 'react';
@@ -91,7 +90,7 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
       <div style={{ display: 'flex', alignItems: 'center', flex: 1, maxWidth: '800px' }}>
         {screens.md &&
           <Space className='cursor-pointer' style={{ margin: '0 25px' }}>
-            <img src="/src/assets/logo.png" loading='lazy' alt="logo" style={{ height: '80px', maxWidth: '300px' }} onClick={() => navigate('/')}/>
+            <img src="/src/assets/logo.png" loading='lazy' alt="logo" style={{ height: '80px', maxWidth: '300px' }} onClick={() => navigate('/')} />
           </Space>
         }
         <div style={{
@@ -119,7 +118,7 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
           </div>
           <Input
             placeholder={''}
-            style={{minWidth: '120px', flex: 1}}
+            style={{ minWidth: '120px', flex: 1 }}
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -140,9 +139,9 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
       )}
 
       {/* 2. Hotline & Account & Cart*/}
-      <Space size={20} style={{ margin: screens.md ? '0 50px' : '0 25px'}} >
+      <Space size={20} style={{ margin: screens.md ? '0 50px' : '0 25px' }} >
         {screens.md &&
-          <Space size="middle" style={{minWidth: '150px'}}>
+          <Space size="middle" style={{ minWidth: '150px' }}>
             <PhoneOutlined style={{ fontSize: '26px', color: '#f08a8a' }} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <Text style={{ fontSize: '12px', color: 'white' }}>Hỗ trợ khách hàng</Text>
@@ -152,7 +151,7 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
         }
 
         {screens.md &&
-          <Space size="middle" style={{minWidth: '120px'}}>
+          <Space size="middle" style={{ minWidth: '120px' }}>
             <UserOutlined style={{ fontSize: '26px', color: '#f08a8a' }} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <Text strong style={{ color: 'white' }}>Tài khoản</Text>
@@ -174,10 +173,10 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
             justifyContent: 'center',
             alignItems: 'center',
             cursor: 'pointer',
-            margin:'0 0'
+            margin: '0 0'
           }}>
             <Badge count={cartCount} showZero color="#ff4d4f">
-              <ShoppingCartOutlined style={{ fontSize: '35px', color: '#333'}} />
+              <ShoppingCartOutlined style={{ fontSize: '35px', color: '#333' }} />
             </Badge>
           </div>
         </Popover>

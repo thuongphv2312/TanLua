@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AppstoreOutlined, DockerOutlined, RedditOutlined, MenuOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Menu, Input, Grid, Button, Drawer } from 'antd';
+import { Menu, Grid, Button, Drawer } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { PARAMETERS, ROUTE_MAP } from '../../constants';
 import { CATEGORIES } from '../NewsPage/constants';
@@ -99,7 +99,7 @@ const MenuContainer: React.FC = () => {
   const [current, setCurrent] = useState('mail');
   const navigate = useNavigate()
   const location = useLocation();
-  const { Search } = Input;
+  // const { Search } = Input;
   const { useBreakpoint } = Grid;
   const screens = useBreakpoint();
 
@@ -132,11 +132,11 @@ const MenuContainer: React.FC = () => {
     }
   };
 
-  const onSearch = (value: string) => {
-    if (value.trim()) {
-      navigate(`/search?q=${encodeURIComponent(value.trim())}`);
-    }
-  };
+  // const onSearch = (value: string) => {
+  //   if (value.trim()) {
+  //     navigate(`/search?q=${encodeURIComponent(value.trim())}`);
+  //   }
+  // };
 
   // Ẩn menu ngang trên Mobile
   if (!screens.md) return null;

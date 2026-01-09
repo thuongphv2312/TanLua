@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Typography, Button, Rate, Divider, Image, message, Breadcrumb } from 'antd';
+import { Typography, Button, Rate, Divider, Image, message } from 'antd';
 import { ShoppingCartOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { newsList } from '../NewsPage/constants';
 
@@ -62,7 +62,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
                 className={`w-20 h-20 border rounded cursor-pointer flex-shrink-0 overflow-hidden ${mainImage === img ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200'}`}
                 onClick={() => setMainImage(img)}
               >
-                <img src={img} alt={`Thumbnail ${index}`} className="w-full h-full object-cover" loading='lazy'/>
+                <img src={img} alt={`Thumbnail ${index}`} className="w-full h-full object-cover" loading='lazy' />
               </div>
             ))}
           </div>
