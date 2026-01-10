@@ -11,7 +11,8 @@ const MACHINE_NAME = {
   MAY_CAT_CO: "Máy cắt cỏ",
   MAY_XOI_DAT: "Máy xới đất",
   MAY_BOM_NUOC: "Máy bơm nước",
-  MAY_NEN_KHI: "Máy nén khí"
+  MAY_NEN_KHI: "Máy nén khí",
+  HANG_THANH_LY: "Hàng thanh lý"
 }
 
 // Thông tin liên hệ công ty
@@ -20,7 +21,7 @@ export const HOTLINE = '0833.090.186';
 export const EMAIL = 'tl0913992182@gmail.com';
 export const RECRUITMENT_EMAIL = 'tuyendung@tanlua.com.vn';
 export const ADDRESS = 'Nghĩa Thái, Nghĩa Hưng, Nam Định';
-export const HOST = 'https://tan-lua.vercel.app/'
+export const HOST = 'tan-lua.vercel.app'
 
 export const CATEGORIES = [
   { id: 1, name: MACHINE_NAME.MAY_NONG_NGHIEP, slug: "may-nong-nghiep", img: SLIDER_IMAGES[0] },
@@ -33,6 +34,7 @@ export const CATEGORIES = [
   { id: 7, name: MACHINE_NAME.MAY_XOI_DAT, slug: "may-xoi-dat", img: SLIDER_IMAGES[7] },
   { id: 8, name: MACHINE_NAME.MAY_BOM_NUOC, slug: "may-bom-nuoc", img: SLIDER_IMAGES[8] },
   { id: 9, name: MACHINE_NAME.MAY_NEN_KHI, slug: "may-nen-khi", img: SLIDER_IMAGES[9] },
+  { id: 99, name: MACHINE_NAME.HANG_THANH_LY, slug: "hang-thanh-ly", img: SLIDER_IMAGES[10] },
 ];
 
 const calculateDiscount = (price: string, oldPrice: string) => {
@@ -202,7 +204,7 @@ export const newsList = [
     images: TJ35_IMAGES,
     categories: [1, 6],
     name: "Máy cắt cỏ TJ35 4 thì xăng riêng nhớt riêng",
-    price: "1,890,000₫",
+    price: "1,790,000₫",
     oldPrice: "3,000,000₫",
     url: HOST
   },
@@ -215,7 +217,7 @@ export const newsList = [
     images: CS260,
     categories: [1, 6],
     name: "Máy cắt cỏ CS260 2 thì xăng pha nhớt",
-    price: "1,890,000₫",
+    price: "1,790,000₫",
     oldPrice: "3,000,000₫",
     url: HOST
   },
@@ -228,7 +230,7 @@ export const newsList = [
     images: CS226,
     categories: [1, 6],
     name: "Máy cắt cỏ CS226 2 thì xăng pha nhớt",
-    price: "1,890,000₫",
+    price: "1,790,000₫",
     oldPrice: "3,000,000₫",
     url: HOST
   },
@@ -372,7 +374,7 @@ export const newsList = [
     categories: [2],
     name: "Đầm thước xăng TAL DTX-T35PRO",
     price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    oldPrice: "5,000,000₫",
     url: HOST
   },
   {
@@ -502,6 +504,14 @@ export const newsList = [
   } else {
     // Mặc định: Tính % giảm dựa trên price và oldPrice có sẵn
     discount = calculateDiscount(price, oldPrice || "");
+  }
+
+  // Tự động thêm vào danh mục "Hàng thanh lý" (ID: 99) nếu giảm giá >= 40%
+  if (discount) {
+    const discountValue = parseInt(discount.replace(/\D/g, ''));
+    if (discountValue >= 40 && !item.categories.includes(99)) {
+      item.categories.push(99);
+    }
   }
 
   return {

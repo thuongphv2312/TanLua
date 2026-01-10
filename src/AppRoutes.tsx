@@ -42,6 +42,14 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
         <Slider />
         <FeaturedCategories />
         <Products
+          title='🔥 HÀNG THANH LÝ - XẢ KHO GIÁ SỐC'
+          bannerImage="https://i.ibb.co/Xr4XDRHp/giai-phong-hang-ton-xa-hang-trung-bay-50-5505f49b.webp"
+          lstProducts={newsList}
+          cartCounts={cartCounts}
+          onAddToCart={onUpdateCart}
+          categoryId={99}
+        />
+        <Products
           title='MÁY NÔNG NGHIỆP'
           lstProducts={newsList}
           cartCounts={cartCounts}

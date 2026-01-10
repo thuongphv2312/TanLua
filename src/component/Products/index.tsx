@@ -111,7 +111,9 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
       `}</style>
       {/* Header with Title */}
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-left">{title}</h2>
+        <h2 className={`text-xl font-bold text-left ${title.includes('THANH LÝ') ? 'fire-text !text-2xl uppercase' : ''}`}>
+          {title}
+        </h2>
       </div>
 
       {/* Category Navigation */}
@@ -161,10 +163,16 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
                   {/* Discount Badge */}
                   {product.discount && (
                     <Badge.Ribbon
-                      text={<span className="fire-text">{product.discount}</span>}
+                      text={<span className={parseInt(product.discount.replace(/\D/g, '')) >= 40 ? "fire-text text-sm scale-125" : "fire-text"}>{product.discount}</span>}
                       color="transparent"
                       className="text-xs font-bold"
                     />
+                  )}
+
+                  {activeCategory === 99 && (
+                    <div className="absolute top-0 left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10 animate-pulse">
+                      XẢ KHO
+                    </div>
                   )}
 
                   {/* Product Image Placeholder */}
