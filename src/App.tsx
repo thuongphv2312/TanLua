@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
-import { Layout, ConfigProvider } from 'antd';
+import { Layout, ConfigProvider, Grid } from 'antd';
+const { useBreakpoint } = Grid;
 import HeaderContainer from './component/header';
 import ClickSpark from './component/ClickSpark';
 import AppFooter from './component/footer';
@@ -17,6 +18,7 @@ const { Content } = Layout;
 
 const App = () => {
   const [isSticky, setIsSticky] = useState(false);
+  const screens = useBreakpoint();
 
   const mainColor = '#daca72';
 
@@ -83,7 +85,7 @@ const App = () => {
 
   const contentStyle = {
     textAlign: 'center',
-    padding: '0 10vw 50px 10vw',
+    padding: screens.md ? '0 10vw 50px 10vw' : '0 5vw 50px 5vw',
     minHeight: '50px 100px',
     backgroundColor: '#f5f5f5',
   } as any;
