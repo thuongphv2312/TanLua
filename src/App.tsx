@@ -12,6 +12,7 @@ import { newsList } from './component/NewsPage/constants';
 import AppRoutes from './AppRoutes';
 import RecentPurchaseNotification from './component/RecentPurchaseNotification';
 import NetworkStatus from './component/NetworkStatus';
+import MarqueeBanner from './component/MarqueeBanner';
 
 
 const { Content } = Layout;
@@ -161,6 +162,7 @@ const App = () => {
         duration={400}
       >
         <Layout style={layoutStyle}>
+          <MarqueeBanner />
           <MobileMenu isSticky={isSticky} />
           <HeaderContainer
             headerStyle={headerStyle}
