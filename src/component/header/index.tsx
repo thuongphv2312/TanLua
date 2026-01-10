@@ -36,6 +36,7 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
   const cartContent = (
     <div style={{ width: 350 }}>
       <List
+        className="thin-scrollbar"
         itemLayout="horizontal"
         dataSource={cartItems}
         renderItem={(item: any) => (

@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Table, Typography, Image, Card, Empty, Divider, Tooltip } from 'antd';
 import { DeleteOutlined, MinusOutlined, PlusOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const { Title, Text } = Typography;
 
@@ -130,7 +131,7 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, productList, onIncrease
 
       <div className="flex flex-col lg:flex-row gap-8 items-start">
         {/* Danh sách sản phẩm */}
-        <div className="w-full">
+        <div className="w-full lg:flex-1">
           <Table
             columns={columns as any}
             dataSource={cartItems}
@@ -141,9 +142,14 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, productList, onIncrease
           />
         </div>
 
-        {/* Tổng đơn hàng */}
-        <div className="w-full">
-          <Card className="shadow-sm sticky top-28 border-gray-200">
+        {/* Tổng đơn hàng - Sticky Sidebar */}
+        <motion.div
+          className="w-full lg:w-[400px] lg:sticky lg:top-32 transition-all duration-300"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Card className="shadow-sm border-gray-200 hover:shadow-md transition-shadow">
             <Title level={4} className="!mb-0">Cộng giỏ hàng</Title>
             <Divider className="my-4" />
 
@@ -176,9 +182,9 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, productList, onIncrease
               </Text>
             </div>
           </Card>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </div >
   );
 };
 

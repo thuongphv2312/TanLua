@@ -86,17 +86,11 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
           animation: fire 0.3s ease-in-out infinite alternate;
         }
         .custom-scrollbar::-webkit-scrollbar {
-          height: 4px;
+          display: none; /* Hide scrollbar for category horizontal nav to keep it clean */
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(0, 0, 0, 0.1);
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(0, 0, 0, 0.2);
+        .custom-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
         @keyframes click-bounce {
           0% { transform: scale(1); }
