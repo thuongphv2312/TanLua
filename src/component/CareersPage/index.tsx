@@ -1,9 +1,9 @@
 import React from 'react';
 import { Layout, Typography } from 'antd';
-import { HOTLINE, ADDRESS, RECRUITMENT_EMAIL } from '../NewsPage/constants';
+import { HOTLINE, ADDRESS, RECRUITMENT_EMAIL, EMAIL, HOST } from '../NewsPage/constants';
 
 const { Content } = Layout;
-const { Title, Text, Paragraph } = Typography;
+const { Title, Paragraph, Link } = Typography;
 
 const CareersPage: React.FC = () => {
     // Lấy ngày cuối cùng của năm hiện tại (31/12/YYYY)
@@ -15,7 +15,7 @@ const CareersPage: React.FC = () => {
     const jobData = {
         title: 'TUYỂN DỤNG NHÂN VIÊN NỘI DUNG (CONTENT EDITOR)',
         company: 'Tấn Lụa',
-        website: 'TanLua.com.vn',
+        website: HOST,
         description: `Công ty Cổ phần OSHIMA VIỆT NAM là một trong những thương hiệu hàng đầu tại Việt Nam trong lĩnh vực phân phối các sản phẩm máy móc thiết bị công nghiệp, nông nghiệp và dụng cụ cầm tay chuyên dụng. Với hơn 10 năm kinh nghiệm, chúng tôi tự hào là đối tác tin cậy của hàng ngàn khách hàng trên toàn quốc.
 
 Để đáp ứng nhu cầu phát triển ngày càng cao của công ty, chúng tôi đang tìm kiếm những ứng viên tài năng, nhiệt huyết để gia nhập đội ngũ của mình.`,
@@ -50,7 +50,7 @@ const CareersPage: React.FC = () => {
             deadline: getEndOfYear(),
             address: ADDRESS,
             phone: HOTLINE,
-            email: RECRUITMENT_EMAIL,
+            email: EMAIL,
         },
     };
 
@@ -84,7 +84,9 @@ const CareersPage: React.FC = () => {
                                 }}>
                                     {jobData.company}
                                 </span>
-                                <Text style={{ fontSize: '14px', color: '#666' }}>{jobData.website}</Text>
+                                <Link href={jobData.website} target="_blank" rel="noopener noreferrer" style={{ fontSize: '14px' }}>
+                                    {jobData.website}
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -164,7 +166,8 @@ const CareersPage: React.FC = () => {
                         </p>
 
                         <p style={{ marginBottom: '8px' }}>
-                            <strong>Hồ sơ gửi về (bản mềm hoặc bản cứng):</strong> {jobData.contact.email}
+                            <strong>Hồ sơ gửi về (bản mềm hoặc bản cứng):</strong>{' '}
+                            <Link href={`mailto:${jobData.contact.email}`}>{jobData.contact.email}</Link>
                         </p>
 
                         <p style={{ marginBottom: '8px' }}>
@@ -172,18 +175,20 @@ const CareersPage: React.FC = () => {
                         </p>
 
                         <p style={{ marginBottom: '8px' }}>
-                            <strong>Điện thoại:</strong> {jobData.contact.phone}
+                            <strong>Điện thoại:</strong>{' '}
+                            <Link href={`tel:${jobData.contact.phone.replace(/\./g, '')}`}>{jobData.contact.phone}</Link>
                         </p>
 
                         <p style={{ marginBottom: '0' }}>
-                            <strong>Email:</strong> {jobData.contact.email}
+                            <strong>Email:</strong>{' '}
+                            <Link href={`mailto:${jobData.contact.email}`}>{jobData.contact.email}</Link>
                         </p>
                     </div>
                 </div>
 
                 <div style={{ fontSize: '13px', color: '#666', lineHeight: '1.6', textAlign: 'center' }}>
-                    <p>Nếu bạn quan tâm đến vị trí này, vui lòng gửi CV của bạn về email: <strong>{jobData.contact.email}</strong></p>
-                    <p>Hoặc liên hệ trực tiếp qua hotline: <strong>{jobData.contact.phone}</strong></p>
+                    <p>Nếu bạn quan tâm đến vị trí này, vui lòng gửi CV của bạn về email: <Link href={`mailto:${jobData.contact.email}`} strong>{jobData.contact.email}</Link></p>
+                    <p>Hoặc liên hệ trực tiếp qua hotline: <Link href={`tel:${jobData.contact.phone.replace(/\./g, '')}`} strong>{jobData.contact.phone}</Link></p>
                 </div>
             </Content>
         </Layout>

@@ -3,8 +3,9 @@
 import { Typography, Space } from 'antd';
 import { HomeOutlined, PhoneOutlined, MailOutlined, GlobalOutlined } from '@ant-design/icons';
 import GoogleMap from '../GoogleMap';
+import { EMAIL, HOST, HOTLINE } from '../NewsPage/constants';
 
-const { Title, Text, Paragraph } = Typography;
+const { Title, Text, Paragraph, Link } = Typography;
 
 const PartnerPage = () => {
   return (
@@ -31,41 +32,9 @@ const PartnerPage = () => {
             <Space align="center" style={{ marginTop: '8px' }}>
               <PhoneOutlined style={{ color: '#daca72', fontSize: '18px' }} />
               <div>
-                <Text>Điện thoại: 024.3838.3456</Text> <Text type="secondary">(Thời gian phục vụ: Từ 8h - 18h30 hàng ngày)</Text>
-              </div>
-            </Space>
-          </div>
-
-          {/* Tân Phú */}
-          <div>
-            <Space align="start">
-              <HomeOutlined style={{ color: '#daca72', fontSize: '18px', marginTop: '4px' }} />
-              <div>
-                <Text strong>Địa chỉ Tại Quận Tân Phú, Tp.Hồ Chí Minh:</Text> 539/47C Lũy Bán Bích, Phường Phú Thạnh, Quận Tân Phú, Tp. Hồ Chí Minh
-              </div>
-            </Space>
-            <br />
-            <Space align="center" style={{ marginTop: '8px' }}>
-              <PhoneOutlined style={{ color: '#daca72', fontSize: '18px' }} />
-              <div>
-                <Text>Điện thoại: 028.3606.0006</Text> <Text type="secondary">(Thời gian phục vụ: Từ 8h - 20h hàng ngày)</Text>
-              </div>
-            </Space>
-          </div>
-
-          {/* Bình Tân */}
-          <div>
-            <Space align="start">
-              <HomeOutlined style={{ color: '#daca72', fontSize: '18px', marginTop: '4px' }} />
-              <div>
-                <Text strong>Địa chỉ Tại Quận Bình Tân, Tp. Hồ Chí Minh:</Text> 98 Đường 5A, Phường Bình Hưng Hòa A, Quận Bình Tân, Tp. Hồ Chí Minh
-              </div>
-            </Space>
-            <br />
-            <Space align="center" style={{ marginTop: '8px' }}>
-              <PhoneOutlined style={{ color: '#daca72', fontSize: '18px' }} />
-              <div>
-                <Text>Điện thoại: 028.3973.7777</Text> <Text type="secondary">(Thời gian phục vụ: Từ 8h - 20h hàng ngày)</Text>
+                <Text>Điện thoại: </Text>
+                <Link href={`tel:${HOTLINE.replace(/\./g, '')}`}>{HOTLINE}</Link>
+                <Text type="secondary"> (Thời gian phục vụ: Từ 7h30 - 17h30 hàng ngày)</Text>
               </div>
             </Space>
           </div>
@@ -75,11 +44,15 @@ const PartnerPage = () => {
             <Space size="large" wrap>
               <Space>
                 <MailOutlined style={{ color: '#daca72' }} />
-                <Text>Email: info@oshima.com.vn</Text>
+                <Text>Email: </Text>
+                <Link href={`mailto:${EMAIL}`}>{EMAIL}</Link>
               </Space>
               <Space>
                 <GlobalOutlined style={{ color: '#daca72' }} />
-                <Text>Website: www.Oshima.com.vn / www.Oshimavietnam.com</Text>
+                <Text>Website: </Text>
+                <Link href={HOST} target="_blank" rel="noopener noreferrer">
+                  {HOST}
+                </Link>
               </Space>
             </Space>
           </div>
