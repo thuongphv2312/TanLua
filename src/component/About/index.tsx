@@ -11,7 +11,7 @@ const AboutSection = () => {
   return (
     <div id="about-section" className="w-full mx-auto" ref={containerRef}>
       {/* Header */}
-      <h2 className="text-xl font-bold mb-5 text-left">GIỚI THIỆU</h2>
+      <h2 className="text-xl font-bold mb-5 mt-10 text-left">GIỚI THIỆU</h2>
 
       {/* Company Info */}
       <div className="mb-4 text-left">

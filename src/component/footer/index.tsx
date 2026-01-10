@@ -134,7 +134,7 @@ const AppFooter = () => {
 
           <div className="mt-6">
             <img
-              src="/src/assets/logo_bct.png"
+              src="https://i.ibb.co/pB4gs0Nz/logo-bct.png"
               alt="Đã thông báo bộ công thương"
               className="h-16 w-auto object-contain"
               loading='lazy'
