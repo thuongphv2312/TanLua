@@ -139,7 +139,7 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
       )}
 
       {/* 2. Hotline & Account & Cart*/}
-      <Space size={20} style={{ margin: screens.md ? '0 50px' : '0 25px' }} >
+      <Space size={20} style={{ margin: screens.md ? '0 50px' : '0 10px' }} >
         {screens.md &&
           <Space size="middle" style={{ minWidth: '150px' }}>
             <PhoneOutlined style={{ fontSize: '26px', color: '#f08a8a' }} />
