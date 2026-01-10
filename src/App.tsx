@@ -13,6 +13,7 @@ import AppRoutes from './AppRoutes';
 import RecentPurchaseNotification from './component/RecentPurchaseNotification';
 import NetworkStatus from './component/NetworkStatus';
 import MarqueeBanner from './component/MarqueeBanner';
+import ScrollToTop from './component/ScrollToTop';
 
 
 const { Content } = Layout;
@@ -154,6 +155,7 @@ const App = () => {
         `}
       </style>
       <NetworkStatus />
+      <ScrollToTop />
       <ClickSpark
         sparkColor={mainColor}
         sparkSize={10}
