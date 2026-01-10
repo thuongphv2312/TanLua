@@ -9,6 +9,7 @@ import TextType from '../TextType';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HOTLINE } from '../NewsPage/constants';
+import { MobileMenu } from '../MenuContainer';
 import brand1 from '../../assets/tojiko.png';
 import brand2 from '../../assets/TALU.png';
 const { Header } = Layout;
@@ -86,6 +87,7 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
 
   return (<>
     <Header style={headerStyle} >
+      <MobileMenu />
 
       {/* 1. Search Bar & Category */}
       <div style={{ display: 'flex', alignItems: 'center', flex: 1, maxWidth: '800px' }}>
@@ -101,7 +103,7 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
           borderRadius: '25px',
           overflow: 'hidden',
           width: '100%',
-          minWidth: '300px'
+          minWidth: screens.md ? '300px' : '150px'
         }}>
           <div style={{ padding: '0 10px', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
             {/* <MenuOutlined /> */}

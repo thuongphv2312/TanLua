@@ -37,7 +37,7 @@ const items: MenuItem[] = [
   },
 ];
 
-export const MobileMenu: React.FC<{ isSticky: boolean }> = ({ isSticky }) => {
+export const MobileMenu: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
   const { useBreakpoint } = Grid;
@@ -67,13 +67,12 @@ export const MobileMenu: React.FC<{ isSticky: boolean }> = ({ isSticky }) => {
         icon={<MenuOutlined style={{ fontSize: '24px', color: '#fff' }} />}
         onClick={() => setDrawerOpen(true)}
         type="text"
+        className="flex items-center justify-center"
         style={{
-          position: isSticky ? 'fixed' : 'absolute',
-          top: '30px', // Căn giữa theo chiều cao Header 100px
-          left: '10px',
           zIndex: 1000,
           height: '40px',
           width: '40px',
+          marginRight: '8px',
         }}
       />
       <Drawer

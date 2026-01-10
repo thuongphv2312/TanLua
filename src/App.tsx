@@ -6,7 +6,7 @@ import HeaderContainer from './component/header';
 import ClickSpark from './component/ClickSpark';
 import AppFooter from './component/footer';
 import { FloatingContactButtons } from './component/FloatingContactButtons';
-import MenuContainer, { MobileMenu } from './component/MenuContainer';
+import MenuContainer from './component/MenuContainer';
 import Breadcrumbs from './component/Breadcrumbs';
 import { newsList } from './component/NewsPage/constants';
 import AppRoutes from './AppRoutes';
@@ -68,17 +68,17 @@ const App = () => {
   const headerStyle = {
     backgroundColor: '#cb2b2b',
     height: '100px',
-    padding: '0 50px',
+    padding: screens.md ? '0 50px' : '0 15px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     lineHeight: 'normal', // Reset line-height mặc định của antd header
     boxShadow: isSticky ? '0 4px 12px rgba(0,0,0,0.1)' : '0 2px 8px rgba(0,0,0,0.05)',
-    position: isSticky ? 'fixed' : 'static',
+    position: isSticky ? 'fixed' : 'relative',
     top: 0,
     left: 0,
     width: '100%',
-    zIndex: 1,
+    zIndex: 100, // Increase Z-index to be above other content
     // Hiệu ứng trượt xuống khi xuất hiện
     animation: isSticky ? 'slideDown 0.4s ease-out' : 'none',
     transition: 'background-color 0.3s, box-shadow 0.3s',
@@ -163,13 +163,13 @@ const App = () => {
       >
         <Layout style={layoutStyle}>
           <MarqueeBanner />
-          <MobileMenu isSticky={isSticky} />
           <HeaderContainer
             headerStyle={headerStyle}
             mainColor={mainColor}
             cartCount={totalCartItems}
             cartCounts={cartCounts}
             productList={newsList}
+            isSticky={isSticky}
           />
           <Content style={contentStyle}>
             <MenuContainer />
