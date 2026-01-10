@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Table, Typography, Image, Card, Empty, Divider } from 'antd';
+import { Button, Table, Typography, Image, Card, Empty, Divider, Tooltip } from 'antd';
 import { DeleteOutlined, MinusOutlined, PlusOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 
@@ -41,10 +41,16 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, productList, onIncrease
       dataIndex: 'name',
       key: 'name',
       render: (text: string, record: any) => (
-        <div className="flex items-center gap-4">
-          <Image src={record.images[0]} width={80} height={80} className="object-cover rounded-md" preview={false} />
-          <div className="flex flex-col">
-            <Text strong className="text-base line-clamp-2">{text}</Text>
+        <div className="flex items-center gap-4 overflow-hidden">
+          <div style={{ width: 80, height: 80, minWidth: 80 }} className="flex-shrink-0 cursor-pointer">
+            <Image src={record.images[0]} width={80} height={80} className="object-cover rounded-md" />
+          </div>
+          <div className="flex flex-col min-w-0">
+            <Tooltip title={text}>
+              <Text strong className="text-base line-clamp-2 cursor-pointer hover:text-blue-600 transition-colors" onClick={() => navigate(`/product/${record.id}`)}>
+                {text}
+              </Text>
+            </Tooltip>
             <Text type="secondary" className="text-xs">Mã SP: {record.id}</Text>
           </div>
         </div>
@@ -63,20 +69,20 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, productList, onIncrease
       key: 'quantity',
       render: (quantity: number, record: any) => (
         <div className="flex items-center border border-gray-300 rounded-md w-fit">
-            <Button
-                type="text"
-                icon={<MinusOutlined />}
-                onClick={() => onDecrease(record.id)}
-                disabled={quantity <= 1}
-                className="flex items-center justify-center"
-            />
-            <span className="px-4 font-semibold min-w-[40px] text-center">{quantity}</span>
-            <Button
-                type="text"
-                icon={<PlusOutlined />}
-                onClick={() => onIncrease(record.id)}
-                className="flex items-center justify-center"
-            />
+          <Button
+            type="text"
+            icon={<MinusOutlined />}
+            onClick={() => onDecrease(record.id)}
+            disabled={quantity <= 1}
+            className="flex items-center justify-center"
+          />
+          <span className="px-4 font-semibold min-w-[40px] text-center">{quantity}</span>
+          <Button
+            type="text"
+            icon={<PlusOutlined />}
+            onClick={() => onIncrease(record.id)}
+            className="flex items-center justify-center"
+          />
         </div>
       ),
     },
@@ -94,10 +100,10 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, productList, onIncrease
       key: 'action',
       render: (_: any, record: any) => (
         <Button
-            type="text"
-            danger
-            icon={<DeleteOutlined />}
-            onClick={() => onRemove(record.id)}
+          type="text"
+          danger
+          icon={<DeleteOutlined />}
+          onClick={() => onRemove(record.id)}
         />
       ),
     },
@@ -125,51 +131,51 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, productList, onIncrease
       <div className="flex flex-col lg:flex-row gap-8 items-start">
         {/* Danh sách sản phẩm */}
         <div className="w-full">
-            <Table
-                columns={columns as any}
-                dataSource={cartItems}
-                rowKey="id"
-                pagination={false}
-                className="bg-white rounded-lg shadow-sm overflow-hidden"
-                scroll={{ x: 600 }}
-            />
+          <Table
+            columns={columns as any}
+            dataSource={cartItems}
+            rowKey="id"
+            pagination={false}
+            className="bg-white rounded-lg shadow-sm overflow-hidden"
+            scroll={{ x: 600 }}
+          />
         </div>
 
         {/* Tổng đơn hàng */}
         <div className="w-full">
-            <Card className="shadow-sm sticky top-28 border-gray-200">
-                <Title level={4} className="!mb-0">Cộng giỏ hàng</Title>
-                <Divider className="my-4" />
+          <Card className="shadow-sm sticky top-28 border-gray-200">
+            <Title level={4} className="!mb-0">Cộng giỏ hàng</Title>
+            <Divider className="my-4" />
 
-                <div className="flex justify-between mb-4">
-                    <Text className="text-gray-600">Tạm tính:</Text>
-                    <Text strong>{totalAmount.toLocaleString('vi-VN')}₫</Text>
-                </div>
+            <div className="flex justify-between mb-4">
+              <Text className="text-gray-600">Tạm tính:</Text>
+              <Text strong>{totalAmount.toLocaleString('vi-VN')}₫</Text>
+            </div>
 
-                <div className="flex justify-between mb-6">
-                    <Text strong className="text-lg">Tổng cộng:</Text>
-                    <Text type="danger" strong className="text-xl">
-                        {totalAmount.toLocaleString('vi-VN')}₫
-                    </Text>
-                </div>
+            <div className="flex justify-between mb-6">
+              <Text strong className="text-lg">Tổng cộng:</Text>
+              <Text type="danger" strong className="text-xl">
+                {totalAmount.toLocaleString('vi-VN')}₫
+              </Text>
+            </div>
 
-                <Button
-                  type="primary"
-                  danger
-                  block
-                  size="large"
-                  className="h-12 text-lg font-semibold shadow-md hover:shadow-lg transition-all"
-                  onClick={() => navigate('/cart/checkout')}
-                >
-                    TIẾN HÀNH THANH TOÁN
-                </Button>
+            <Button
+              type="primary"
+              danger
+              block
+              size="large"
+              className="h-12 text-lg font-semibold shadow-md hover:shadow-lg transition-all"
+              onClick={() => navigate('/cart/checkout')}
+            >
+              TIẾN HÀNH THANH TOÁN
+            </Button>
 
-                <div className="mt-4 text-center">
-                    <Text type="secondary" className="text-xs">
-                        Phí vận chuyển sẽ được tính ở trang thanh toán.
-                    </Text>
-                </div>
-            </Card>
+            <div className="mt-4 text-center">
+              <Text type="secondary" className="text-xs">
+                Phí vận chuyển sẽ được tính ở trang thanh toán.
+              </Text>
+            </div>
+          </Card>
         </div>
       </div>
     </div>

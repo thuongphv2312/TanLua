@@ -54,15 +54,27 @@ const AppFooter = () => {
           <div className="space-y-3 text-sm text-gray-600 w-full">
             <div className="flex items-start gap-3">
               <EnvironmentOutlined className="text-gray-800 mt-1 flex-shrink-0" />
-              <span><span className="font-semibold text-gray-800">Địa chỉ:</span> {ADDRESS}</span>
+              <span className="cursor-pointer hover:text-red-600 transition-colors" onClick={showModal}>
+                <span className="font-semibold text-gray-800">Địa chỉ:</span> {ADDRESS}
+              </span>
             </div>
             <div className="flex items-center gap-3">
               <PhoneOutlined className="text-gray-800 flex-shrink-0" />
-              <span><span className="font-semibold text-gray-800">Số điện thoại:</span> {HOTLINE}</span>
+              <span>
+                <span className="font-semibold text-gray-800">Số điện thoại:</span>{' '}
+                <a href={`tel:${HOTLINE.replace(/\./g, '')}`} className="hover:text-red-600 transition-colors">
+                  {HOTLINE}
+                </a>
+              </span>
             </div>
             <div className="flex items-center gap-3">
               <MailOutlined className="text-gray-800 flex-shrink-0" />
-              <span><span className="font-semibold text-gray-800">Email:</span> {EMAIL}</span>
+              <span>
+                <span className="font-semibold text-gray-800">Email:</span>{' '}
+                <a href={`mailto:${EMAIL}`} className="hover:text-red-600 transition-colors">
+                  {EMAIL}
+                </a>
+              </span>
             </div>
           </div>
 
@@ -146,7 +158,7 @@ const AppFooter = () => {
       <Divider className="my-8 border-gray-300" />
 
       <div className="text-center text-gray-500 text-sm">
-        © Bản quyền thuộc về TẤN LỤA VIỆT NAM | TanLua.com
+        © Bản quyền thuộc về TẤN LỤA VIỆT NAM
       </div>
 
       <Modal
