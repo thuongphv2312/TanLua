@@ -5,13 +5,12 @@ import {
   UserOutlined,
   ShoppingCartOutlined
 } from '@ant-design/icons';
-import TextType from '../TextType';
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HOTLINE } from '../NewsPage/constants';
 import { MobileMenu } from '../MenuContainer';
 import brand1 from '../../assets/tojiko.png';
 import brand2 from '../../assets/TALU.png';
+import React, { useState, useEffect, useMemo } from 'react';
 const { Header } = Layout;
 const { useBreakpoint } = Grid;
 const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cartCounts = {}, productList = [] }: any) => {
@@ -19,6 +18,46 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
   const [searchValue, setSearchValue] = useState('');
   const screens = useBreakpoint();
   const navigate = useNavigate();
+
+  // Logic typing placeholder
+  const placeholderTexts = useMemo(() => [
+    "Tìm theo thương hiệu...",
+    "Tìm theo tên sản phẩm...",
+    "Gõ bất cứ gì bạn muốn tìm..."
+  ], []);
+
+  const [currentPlaceholder, setCurrentPlaceholder] = useState("");
+  const [textIndex, setTextIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentFullText = placeholderTexts[textIndex];
+    let timeout: any;
+
+    if (!isDeleting) {
+      if (charIndex < currentFullText.length) {
+        timeout = setTimeout(() => {
+          setCurrentPlaceholder(currentFullText.slice(0, charIndex + 1));
+          setCharIndex(charIndex + 1);
+        }, 100);
+      } else {
+        timeout = setTimeout(() => setIsDeleting(true), 1500);
+      }
+    } else {
+      if (charIndex > 0) {
+        timeout = setTimeout(() => {
+          setCurrentPlaceholder(currentFullText.slice(0, charIndex - 1));
+          setCharIndex(charIndex - 1);
+        }, 50);
+      } else {
+        setIsDeleting(false);
+        setTextIndex((textIndex + 1) % placeholderTexts.length);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, isDeleting, textIndex, placeholderTexts]);
 
   // Xử lý dữ liệu giỏ hàng
   const cartItems = Object.keys(cartCounts).map((key) => {
@@ -107,20 +146,9 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
         }}>
           <div style={{ padding: '0 10px', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
             {/* <MenuOutlined /> */}
-            {
-              (!searchValue) &&
-              <TextType
-                text={["Tìm theo thương hiệu...", "Tìm theo tên sản phẩm...", "Gõ bất cứ gì bạn muốn tìm..."]}
-                typingSpeed={75}
-                pauseDuration={1500}
-                showCursor={true}
-                cursorCharacter="|"
-                textColors={['gray']}
-              />
-            }
           </div>
           <Input
-            placeholder={''}
+            placeholder={currentPlaceholder}
             style={{ minWidth: '120px', flex: 1 }}
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
