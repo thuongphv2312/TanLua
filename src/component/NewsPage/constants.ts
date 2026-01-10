@@ -60,7 +60,7 @@ export const newsList = [
     name: "Dây xịt tăng áp ANOVI 15M 230BAR Loại xịn",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 2,
@@ -73,7 +73,7 @@ export const newsList = [
     name: "Đầu xịt Talu TL22-TH xilanh 22mm ty inox",
     price: "1,800,000₫",
     oldPrice: "2,200,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 3,
@@ -86,7 +86,7 @@ export const newsList = [
     name: "Đầu xịt Talu TL22T xilanh 22mm ty inox",
     price: "150,000,000₫",
     oldPrice: "",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 4,
@@ -99,7 +99,7 @@ export const newsList = [
     name: "Dây xịt tăng áp ANOVI 20M 230BAR Loại xịn",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 5,
@@ -112,7 +112,7 @@ export const newsList = [
     name: "Đầu xịt Talu TL30T xilanh 30mm ty inox",
     price: "1,800,000₫",
     oldPrice: "2,200,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 6,
@@ -125,7 +125,7 @@ export const newsList = [
     name: "Thân máy khoan G1-D55",
     price: "150,000,000₫",
     oldPrice: "",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 7,
@@ -138,7 +138,7 @@ export const newsList = [
     name: "Thân máy thổi G2-TPLF1",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 8,
@@ -151,7 +151,7 @@ export const newsList = [
     name: "Đầu xịt Talu TL30STH xilanh 30mm ty inox",
     price: "1,800,000₫",
     oldPrice: "2,200,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 9,
@@ -164,7 +164,7 @@ export const newsList = [
     name: "Sạc đôi HUKAN G2-S20X2",
     price: "150,000,000₫",
     oldPrice: "",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 10,
@@ -177,7 +177,7 @@ export const newsList = [
     name: "Dây xịt tăng áp ANOVI 50M 230BAR Loại xịn",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 11,
@@ -190,7 +190,7 @@ export const newsList = [
     name: "Máy cắt cỏ TL35X 4 thì xăng riêng nhớt riêng",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 12,
@@ -203,7 +203,7 @@ export const newsList = [
     name: "Máy cắt cỏ TJ35 4 thì xăng riêng nhớt riêng",
     price: "1,890,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 13,
@@ -216,7 +216,7 @@ export const newsList = [
     name: "Máy cắt cỏ CS260 2 thì xăng pha nhớt",
     price: "1,890,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 14,
@@ -229,7 +229,7 @@ export const newsList = [
     name: "Máy cắt cỏ CS226 2 thì xăng pha nhớt",
     price: "1,890,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 15,
@@ -242,7 +242,7 @@ export const newsList = [
     name: "Bộ chuyển đổi nguồn G1-BCN0214",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 16,
@@ -255,7 +255,7 @@ export const newsList = [
     name: "Bộ lam cưa xích 12inch",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 21,
@@ -268,7 +268,7 @@ export const newsList = [
     name: "Combo pin sạc G1-P0805 20cell 8Ah 21V 1.5A",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 17,
@@ -281,7 +281,7 @@ export const newsList = [
     name: "Combo pin sạc G1-CBP4505 15cell 4.5Ah 21V 1.5A",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 18,
@@ -294,7 +294,7 @@ export const newsList = [
     name: "Combo chuyên vít HM21-G2CVX230N",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 19,
@@ -307,7 +307,7 @@ export const newsList = [
     name: "Combo chuyên vít OSHIMA SV21V-NG230N-D1",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 20,
@@ -320,7 +320,7 @@ export const newsList = [
     name: "Đầm dùi TALU 750W 850W 1000W",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 22,
@@ -333,7 +333,7 @@ export const newsList = [
     name: "Dây xịt tăng áp ANOVI 10M 230BAR Loại xịn",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 23,
@@ -346,7 +346,7 @@ export const newsList = [
     name: "Thân Đầm dùi PIN TALU DV01 450W",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 24,
@@ -359,7 +359,7 @@ export const newsList = [
     name: "Đầm thước điện TAL DTD-220",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 25,
@@ -372,7 +372,7 @@ export const newsList = [
     name: "Đầm thước xăng TAL DTX-T35PRO",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 26,
@@ -385,7 +385,7 @@ export const newsList = [
     name: "Đầu xịt Talu TL22S-TH xilanh 22mm ty sứ",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 27,
@@ -398,7 +398,7 @@ export const newsList = [
     name: "Thân Đầm dùi PIN TALU DV01 450W",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 28,
@@ -411,7 +411,7 @@ export const newsList = [
     name: "Thân Đầm dùi PIN TALU DV01 450W",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 29,
@@ -424,7 +424,7 @@ export const newsList = [
     name: "Thân Đầm dùi PIN TALU DV01 450W",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 30,
@@ -437,7 +437,7 @@ export const newsList = [
     name: "Thân Đầm dùi PIN TALU DV01 450W",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 31,
@@ -450,7 +450,7 @@ export const newsList = [
     name: "Thân Đầm dùi PIN TALU DV01 450W",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 32,
@@ -463,7 +463,7 @@ export const newsList = [
     name: "Thân Đầm dùi PIN TALU DV01 450W",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
   {
     id: 33,
@@ -476,7 +476,7 @@ export const newsList = [
     name: "Thân Đầm dùi PIN TALU DV01 450W",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: "WWW.TANLUAVIETNAM.COM",
+    url: HOST
   },
 ].map(item => {
   let { price, oldPrice } = item;

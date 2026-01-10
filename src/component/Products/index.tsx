@@ -191,7 +191,7 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
             >
               {/* Product Info */}
               <div className="space-y-2">
-                <p className="text-xs text-gray-500 uppercase">{product.url}</p>
+                {/* <p className="text-xs text-gray-500 uppercase">{product.url}</p> */}
                 <h3 className="text-sm font-medium line-clamp-2 h-10">{product.name}</h3>
 
                 {/* Price Section */}
