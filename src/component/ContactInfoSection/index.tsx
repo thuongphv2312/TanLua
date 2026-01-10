@@ -6,7 +6,7 @@ import {
     MailOutlined,
     ClockCircleOutlined
 } from '@ant-design/icons';
-import { HOTLINE, ADDRESS, EMAIL } from '../NewsPage/constants';
+import { HOTLINE, ADDRESS, EMAIL, COMPANY_NAME } from '../NewsPage/constants';
 
 interface ContactInfoSectionProps {
     title?: string;
@@ -27,7 +27,7 @@ const ContactInfoSection: React.FC<ContactInfoSectionProps> = ({
 
             <div className="w-full text-left">
                 <span className="block text-lg font-bold text-red-600 mb-3">
-                    CÔNG TY CỔ PHẦN TẤN LỤA VIỆT NAM
+                    {COMPANY_NAME}
                 </span>
 
                 <Space direction="vertical" size="middle" className="items-start text-base">

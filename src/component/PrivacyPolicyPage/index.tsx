@@ -8,7 +8,7 @@ import {
     ToolOutlined,
     LockOutlined
 } from '@ant-design/icons';
-import { HOTLINE, ADDRESS, EMAIL } from '../NewsPage/constants';
+import { HOTLINE, ADDRESS, EMAIL, COMPANY_NAME } from '../NewsPage/constants';
 import ContactInfoSection from '../ContactInfoSection';
 
 // --- Types ---
@@ -31,7 +31,7 @@ const POLICY_DATA: PolicySection[] = [
                 content: (
                     <>
                         Việc thu thập dữ liệu chủ yếu bao gồm: <span className="font-bold text-gray-800">email, điện thoại, tên đăng nhập, mật khẩu đăng nhập, địa chỉ khách hàng</span> (thành viên).
-                        Đây là các thông tin mà Tấn Lụa Việt Nam cần thành viên cung cấp bắt buộc khi đăng ký sử dụng dịch vụ và để chúng tôi liên hệ xác nhận nhằm đảm bảo quyền lợi cho người tiêu dùng.
+                        Đây là các thông tin mà {COMPANY_NAME} cần thành viên cung cấp bắt buộc khi đăng ký sử dụng dịch vụ và để chúng tôi liên hệ xác nhận nhằm đảm bảo quyền lợi cho người tiêu dùng.
                     </>
                 )
             },
@@ -74,7 +74,7 @@ const POLICY_DATA: PolicySection[] = [
             {
                 content: (
                     <>
-                        Không sử dụng thông tin cá nhân của thành viên ngoài mục đích xác nhận và liên hệ có liên quan đến giao dịch tại Tấn Lụa Việt Nam.
+                        Không sử dụng thông tin cá nhân của thành viên ngoài mục đích xác nhận và liên hệ có liên quan đến giao dịch tại {COMPANY_NAME}.
                     </>
                 )
             },
@@ -94,7 +94,7 @@ const POLICY_DATA: PolicySection[] = [
             {
                 content: (
                     <>
-                        Dữ liệu cá nhân của Thành viên sẽ được lưu trữ cho đến khi có yêu cầu hủy bỏ hoặc tự thành viên đăng nhập và thực hiện hủy bỏ. Còn lại trong mọi trường hợp thông tin cá nhân thành viên sẽ được <span className="text-red-600 font-bold">bảo mật tuyệt đối</span> trên máy chủ của Tấn Lụa Việt Nam.
+                        Dữ liệu cá nhân của Thành viên sẽ được lưu trữ cho đến khi có yêu cầu hủy bỏ hoặc tự thành viên đăng nhập và thực hiện hủy bỏ. Còn lại trong mọi trường hợp thông tin cá nhân thành viên sẽ được <span className="text-red-600 font-bold">bảo mật tuyệt đối</span> trên máy chủ của {COMPANY_NAME}.
                     </>
                 )
             }
@@ -104,7 +104,7 @@ const POLICY_DATA: PolicySection[] = [
         title: '4. Địa chỉ của đơn vị thu thập và quản lý thông tin',
         icon: <EnvironmentOutlined className="text-red-600 text-xl" />,
         items: [
-            { content: <><span className="font-bold text-gray-800">CÔNG TY CỔ PHẦN TẤN LỤA VIỆT NAM</span></> },
+            { content: <><span className="font-bold text-gray-800 uppercase">{COMPANY_NAME}</span></> },
             { content: <>Địa chỉ: {ADDRESS}</> },
             { content: <>Hotline: {HOTLINE}</> },
             { content: <>Email: {EMAIL}</> },

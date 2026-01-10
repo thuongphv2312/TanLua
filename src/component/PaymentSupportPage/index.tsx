@@ -8,7 +8,7 @@ import {
     InfoCircleOutlined
 } from '@ant-design/icons';
 import ContactInfoSection from '../ContactInfoSection';
-import { EMAIL } from '../NewsPage/constants';
+import { EMAIL, COMPANY_NAME } from '../NewsPage/constants';
 
 // --- Types ---
 interface PolicyItem {
@@ -31,7 +31,7 @@ const POLICY_DATA: PolicySection[] = [
             {
                 content: (
                     <>
-                        Quý khách có thể đến xem và mua hàng trực tiếp tại các văn phòng của Tấn Lụa Việt Nam.
+                        Quý khách có thể đến xem và mua hàng trực tiếp tại các văn phòng của {COMPANY_NAME}.
                     </>
                 )
             },

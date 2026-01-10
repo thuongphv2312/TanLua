@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { PhoneOutlined, HomeOutlined, DownOutlined, UpOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import banner from '../../assets/banner-tanlua_2048x2048.png';
-import { EMAIL, HOTLINE } from '../NewsPage/constants';
+import { EMAIL, HOTLINE, COMPANY_NAME, ADDRESS } from '../NewsPage/constants';
 
 const AboutSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,15 +15,15 @@ const AboutSection = () => {
 
       {/* Company Info */}
       <div className="mb-4 text-left">
-        <h2 className="text-base font-bold mb-3">
-          CÔNG TY CỔ PHẦN TẤN LỤA VIỆT NAM
+        <h2 className="text-base font-bold mb-3 uppercase">
+          {COMPANY_NAME}
         </h2>
 
         {/* Locations - compact format */}
         <div className="space-y-2 text-md leading-relaxed">
           <div>
             <HomeOutlined className="text-red-600 mr-1" />
-            <span className="font-semibold">Địa chỉ Tại Hà Nội:</span> Số 10C11 Ngõ 261 Trần Quốc Hoàn, Q. Cầu Giấy, Tp. Hà Nội
+            <span className="font-semibold">Địa chỉ:</span> {ADDRESS}
             <br />
             <span className="">
               <PhoneOutlined className="mr-1" />
@@ -74,11 +74,11 @@ const AboutSection = () => {
       <div className={`relative ${isExpanded ? '' : 'max-h-[200px] overflow-hidden'}`}>
         <div className="text-md leading-relaxed space-y-3 text-left">
           <p>
-            <strong>CÔNG TY CỔ PHẦN TẤN LỤA VIỆT NAM</strong> là công ty hàng đầu cả nước về cung cấp những sản phẩm chính hãng như các loại máy chuyên dụng, nông cụ, công cụ, các sản phẩm điện cơ, điện lực. Chúng tôi tự hào là đơn vị tin cậy hàng đầu của nhiều gia đình và doanh nghiệp tại Việt Nam.
+            <strong>{COMPANY_NAME}</strong> là công ty hàng đầu cả nước về cung cấp những sản phẩm chính hãng như các loại máy chuyên dụng, nông cụ, công cụ, các sản phẩm điện cơ, điện lực. Chúng tôi tự hào là đơn vị tin cậy hàng đầu của nhiều gia đình và doanh nghiệp tại Việt Nam.
           </p>
 
           <p>
-            Hệ thống sản xuất tập trung được công nghệ mới, cùng với công tác kiểm soát chất lượng nghiêm ngặt tại từng công đoạn sản xuất đã cho ra những sản phẩm có chất lượng ổn định và bền vững. Về sản phẩm dễ sử dụng, phạm vi ứng dụng đa dạng, sản phẩm nhiều loại, có tính cạnh tranh cao về giá cả trên thị trường. Về hình thức bên ngoài đẹp, cấu tạo chặt chẽ khoa học với tính hợp lý, thiết kế kín có bộ làm mát cao cấp và giảm được tiếng ồn. Điều đó làm cho hiệu quả công tác tăng nhiều với cường độ lao động thấp hơn đồng thời tăng khả năng ứng dụng công nghệ, mỗi việc, cuối cùng sản phẩm đã được sự chấp nhận đáng giá của người tiêu dùng. Những ưu điểm hữu ích trên mà chúng tôi đã tạo ra là rất hài lòng với chất lượng của CÔNG TY CỔ PHẦN TẤN LỤA VIỆT NAM.
+            Hệ thống sản xuất tập trung được công nghệ mới, cùng với công tác kiểm soát chất lượng nghiêm ngặt tại từng công đoạn sản xuất đã cho ra những sản phẩm có chất lượng ổn định và bền vững. Về sản phẩm dễ sử dụng, phạm vi ứng dụng đa dạng, sản phẩm nhiều loại, có tính cạnh tranh cao về giá cả trên thị trường. Về hình thức bên ngoài đẹp, cấu tạo chặt chẽ khoa học với tính hợp lý, thiết kế kín có bộ làm mát cao cấp và giảm được tiếng ồn. Điều đó làm cho hiệu quả công tác tăng nhiều với cường độ lao động thấp hơn đồng thời tăng khả năng ứng dụng công nghệ, mỗi việc, cuối cùng sản phẩm đã được sự chấp nhận đáng giá của người tiêu dùng. Những ưu điểm hữu ích trên mà chúng tôi đã tạo ra là rất hài lòng với chất lượng của {COMPANY_NAME}.
           </p>
 
           <p className="font-semibold">Tầm nhìn và sứ mệnh:</p>
@@ -86,7 +86,7 @@ const AboutSection = () => {
 
           <p className="font-semibold">Tầm nhìn:</p>
           <p>
-            <strong>CÔNG TY CỔ PHẦN TẤN LỤA VIỆT NAM</strong> là hội viên của HỘI THƯƠNG MẠI VÀ CHUYÊN GIA ĐIỆN TỬ THÔNG TIN VÀ ĐIỆN LỰC CỦ CHI MINH. NHỮNG THỰC PHẨM HÀNG HÓA CHỦ YẾU THÔNG QINH TÀI VỀ TẠI MÁY VỚI MÁY SINH CƠN BẾN VỚI MÁI LƯU TIÊ.
+            <strong>{COMPANY_NAME}</strong> là hội viên của HỘI THƯƠNG MẠI VÀ CHUYÊN GIA ĐIỆN TỬ THÔNG TIN VÀ ĐIỆN LỰC CỦ CHI MINH. NHỮNG THỰC PHẨM HÀNG HÓA CHỦ YẾU THÔNG QINH TÀI VỀ TẠI MÁY VỚI MÁY SINH CƠN BẾN VỚI MÁI LƯU TIÊ.
           </p>
 
           <div className="space-y-2 mt-3">

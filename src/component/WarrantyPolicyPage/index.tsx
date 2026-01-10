@@ -6,6 +6,7 @@ import {
     ToolOutlined,
     InfoCircleOutlined
 } from '@ant-design/icons';
+import { COMPANY_NAME } from '../NewsPage/constants';
 import ContactInfoSection from '../ContactInfoSection';
 
 // --- Types ---
@@ -83,7 +84,7 @@ const POLICY_DATA: PolicySection[] = [
             {
                 content: (
                     <>
-                        Những sản phẩm không thể xác định được nguồn gốc mua tại Tấn Lụa Việt Nam, chúng tôi có quyền từ chối bảo hành.
+                        Những sản phẩm không thể xác định được nguồn gốc mua tại {COMPANY_NAME}, chúng tôi có quyền từ chối bảo hành.
                     </>
                 )
             },
@@ -152,14 +153,14 @@ const POLICY_DATA: PolicySection[] = [
             {
                 content: (
                     <>
-                        Trường hợp hàng hóa Quý khách mua tại Tấn Lụa Việt Nam nhưng nằm trong <span className="font-bold text-gray-800">Những trường hợp không được bảo hành</span> nêu ở trên thì chúng tôi sẽ nhận sửa chữa có tính phí (nếu Quý khách yêu cầu).
+                        Trường hợp hàng hóa Quý khách mua tại {COMPANY_NAME} nhưng nằm trong <span className="font-bold text-gray-800">Những trường hợp không được bảo hành</span> nêu ở trên thì chúng tôi sẽ nhận sửa chữa có tính phí (nếu Quý khách yêu cầu).
                     </>
                 )
             },
             {
                 content: (
                     <>
-                        Những sản phẩm được mua tại Tấn Lụa Việt Nam nhưng đã quá thời hạn bảo hành, Công ty chúng tôi sẽ cung cấp dịch vụ sửa chữa tính phí cho Quý khách.
+                        Những sản phẩm được mua tại {COMPANY_NAME} nhưng đã quá thời hạn bảo hành, Công ty chúng tôi sẽ cung cấp dịch vụ sửa chữa tính phí cho Quý khách.
                     </>
                 )
             },

@@ -7,7 +7,7 @@ import {
   FacebookFilled,
   InstagramOutlined,
 } from '@ant-design/icons';
-import { HOTLINE, ADDRESS, EMAIL } from '../NewsPage/constants';
+import { HOTLINE, ADDRESS, EMAIL, COMPANY_NAME } from '../NewsPage/constants';
 import GoogleMap from '../GoogleMap';
 
 const AppFooter = () => {
@@ -97,12 +97,12 @@ const AppFooter = () => {
               scrollToSection('about-section');
             }}
           >
-            Giới thiệu về TẤN LỤA VIỆT NAM
+            Giới thiệu về {COMPANY_NAME}
           </LinkItem>
-          <LinkItem href="/tuyen-dung">Cơ hội việc làm tại TẤN LỤA VIỆT NAM</LinkItem>
-          <LinkItem href="/lien-he-quang-cao">Liên hệ quảng cáo tại TẤN LỤA VIỆT NAM</LinkItem>
-          <LinkItem href="/tro-thanh-doi-tac">Trở thành đối tác của TẤN LỤA VIỆT NAM</LinkItem>
-          <LinkItem href="#" onClick={(e) => { e.preventDefault(); showModal(); }}>Đường đến TẤN LỤA VIỆT NAM</LinkItem>
+          <LinkItem href="/tuyen-dung">Cơ hội việc làm tại {COMPANY_NAME}</LinkItem>
+          <LinkItem href="/lien-he-quang-cao">Liên hệ quảng cáo tại {COMPANY_NAME}</LinkItem>
+          <LinkItem href="/doi-tac">Hợp tác cùng {COMPANY_NAME}</LinkItem>
+          <LinkItem href="#" onClick={(e) => { e.preventDefault(); showModal(); }}>Đường đến {COMPANY_NAME}</LinkItem>
         </div>
 
         {/* CỘT 3: HỖ TRỢ KHÁCH HÀNG */}
@@ -157,8 +157,8 @@ const AppFooter = () => {
 
       <Divider className="my-8 border-gray-300" />
 
-      <div className="text-center text-gray-500 text-sm">
-        © Bản quyền thuộc về TẤN LỤA VIỆT NAM
+      <div className="text-center text-gray-500 text-sm italic">
+        © Bản quyền thuộc về {COMPANY_NAME}
       </div>
 
       <Modal

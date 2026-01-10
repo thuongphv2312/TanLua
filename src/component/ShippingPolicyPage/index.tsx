@@ -5,7 +5,7 @@ import {
     InfoCircleOutlined,
     SafetyCertificateOutlined,
 } from '@ant-design/icons';
-import { EMAIL } from '../NewsPage/constants';
+import { EMAIL, COMPANY_NAME } from '../NewsPage/constants';
 import ContactInfoSection from '../ContactInfoSection';
 
 // --- Types ---
@@ -73,7 +73,7 @@ const POLICY_DATA: PolicySection[] = [
                 content: (
                     <>
                         Trong trường hợp địa chỉ nhận hàng của Quý khách trong ngõ ngách, vùng sâu vùng xa hiểm trở đi lại khó khăn,
-                        Tấn Lụa Việt Nam có quyền <span className="text-red-600 font-bold">từ chối vận chuyển</span> và giao hàng tại nơi Quý khách yêu cầu.
+                        {COMPANY_NAME} có quyền <span className="text-red-600 font-bold">từ chối vận chuyển</span> và giao hàng tại nơi Quý khách yêu cầu.
                     </>
                 )
             },
@@ -115,7 +115,7 @@ const POLICY_DATA: PolicySection[] = [
             {
                 content: (
                     <>
-                        <span className="font-bold text-gray-800">Tấn Lụa Việt Nam</span> chịu trách nhiệm xử lý đơn hàng và đảm bảo khách hàng nhận được hàng <span className="text-red-600 font-bold">đúng như đã đặt mua</span> theo thời gian cam kết.
+                        <span className="font-bold text-gray-800">{COMPANY_NAME}</span> chịu trách nhiệm xử lý đơn hàng và đảm bảo khách hàng nhận được hàng <span className="text-red-600 font-bold">đúng như đã đặt mua</span> theo thời gian cam kết.
                     </>
                 )
             },

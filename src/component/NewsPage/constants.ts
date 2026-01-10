@@ -15,6 +15,7 @@ const MACHINE_NAME = {
 }
 
 // Thông tin liên hệ công ty
+export const COMPANY_NAME = 'Công ty TNHH thương mại và dịch vụ Sang Phát';
 export const HOTLINE = '0833.090.186';
 export const EMAIL = 'tl0913992182@gmail.com';
 export const RECRUITMENT_EMAIL = 'tuyendung@tanlua.com.vn';
@@ -509,7 +510,7 @@ export const newsList = [
     oldPrice,
     discount,
     content: `
-    <p>Sản phẩm <strong>${item.name}</strong> hiện đang được phân phối chính hãng tại Tấn Lụa Việt Nam với mức giá ưu đãi.</p>
+    <p>Sản phẩm <strong>${item.name}</strong> hiện đang được phân phối chính hãng tại ${COMPANY_NAME} với mức giá ưu đãi.</p>
     <p><strong>Giá bán: <span style="color: #d32f2f; font-size: 1.2em;">${price}</span></strong> ${oldPrice ? `<span style="text-decoration: line-through; color: #999; margin-left: 10px;">${oldPrice}</span>` : ''}</p>
     <p>Để biết thêm thông tin chi tiết về sản phẩm và các chương trình khuyến mãi, quý khách vui lòng liên hệ hotline: <b>${HOTLINE}</b> hoặc đến trực tiếp cửa hàng để được tư vấn tốt nhất.</p>
   `

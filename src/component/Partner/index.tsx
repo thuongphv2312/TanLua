@@ -3,19 +3,19 @@
 import { Typography, Space } from 'antd';
 import { HomeOutlined, PhoneOutlined, MailOutlined, GlobalOutlined } from '@ant-design/icons';
 import GoogleMap from '../GoogleMap';
-import { EMAIL, HOST, HOTLINE } from '../NewsPage/constants';
+import { EMAIL, HOST, HOTLINE, COMPANY_NAME, ADDRESS } from '../NewsPage/constants';
 
 const { Title, Text, Paragraph, Link } = Typography;
 
 const PartnerPage = () => {
   return (
     <div style={{ padding: '40px 20px', maxWidth: '1200px', margin: '0 auto', backgroundColor: '#fff' }}>
-      <Title level={2} style={{ textAlign: 'left', marginBottom: '40px' }}>Trở Thành Đối Tác Của TẤN LỤA</Title>
+      <Title level={2} style={{ textAlign: 'left', marginBottom: '40px' }}>Trở Thành Đối Tác Của {COMPANY_NAME}</Title>
 
       <div style={{ marginBottom: '40px', textAlign: 'left' }}>
         <Paragraph>
           Mọi thông tin liên hệ xin gửi về:<br />
-          <strong>CÔNG TY CỔ PHẦN TẤN LỤA VIỆT NAM</strong>
+          <strong>{COMPANY_NAME}</strong>
         </Paragraph>
 
         <Space direction="vertical" size="large" style={{ width: '100%' }}>
@@ -25,7 +25,7 @@ const PartnerPage = () => {
             <Space align="start">
               <HomeOutlined style={{ color: '#daca72', fontSize: '18px', marginTop: '4px' }} />
               <div>
-                <Text strong>Địa chỉ Tại Hà Nội:</Text> Số 10C11 Ngõ 261 Trần Quốc Hoàn, Q. Cầu Giấy, Tp. Hà Nội
+                <Text strong>Địa chỉ:</Text> {ADDRESS}
               </div>
             </Space>
             <br />

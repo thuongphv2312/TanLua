@@ -141,21 +141,28 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
       {/* 2. Hotline & Account & Cart*/}
       <Space size={20} style={{ margin: screens.md ? '0 50px' : '0 10px' }} >
         {screens.md &&
-          <Space size="middle" style={{ minWidth: '150px' }}>
-            <PhoneOutlined style={{ fontSize: '26px', color: '#f08a8a' }} />
+          <Space size="middle" style={{ minWidth: '150px' }} className="cursor-pointer group transition-all">
+            <PhoneOutlined className="group-hover:scale-110 transition-transform" style={{ fontSize: '26px', color: '#f08a8a' }} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <Text style={{ fontSize: '12px', color: 'white' }}>Hỗ trợ khách hàng</Text>
-              <Text strong style={{ color: 'white' }}>{HOTLINE}</Text>
+              <Text style={{ fontSize: '12px', color: 'white' }} className="group-hover:text-red-200">Hỗ trợ khách hàng</Text>
+              <Typography.Link
+                href={`tel:${HOTLINE.replace(/\./g, '')}`}
+                strong
+                style={{ color: 'white' }}
+                className="group-hover:text-yellow-300 transition-colors"
+              >
+                {HOTLINE}
+              </Typography.Link>
             </div>
           </Space>
         }
 
         {screens.md &&
-          <Space size="middle" style={{ minWidth: '120px' }}>
-            <UserOutlined style={{ fontSize: '26px', color: '#f08a8a' }} />
+          <Space size="middle" style={{ minWidth: '120px' }} className="cursor-pointer group transition-all">
+            <UserOutlined className="group-hover:scale-110 transition-transform" style={{ fontSize: '26px', color: '#f08a8a' }} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <Text strong style={{ color: 'white' }}>Tài khoản</Text>
-              <Text style={{ fontSize: '12px', color: 'white' }}>Đăng nhập</Text>
+              <Text strong style={{ color: 'white' }} className="group-hover:text-yellow-300 transition-colors">Tài khoản</Text>
+              <Text style={{ fontSize: '12px', color: 'white' }} className="group-hover:text-red-200">Đăng nhập</Text>
             </div>
           </Space>
         }
