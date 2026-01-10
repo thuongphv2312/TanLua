@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Typography } from 'antd';
-import { HOTLINE, ADDRESS, RECRUITMENT_EMAIL, EMAIL, HOST } from '../NewsPage/constants';
+import { HOTLINE, ADDRESS, EMAIL, HOST } from '../NewsPage/constants';
 
 const { Content } = Layout;
 const { Title, Paragraph, Link } = Typography;
