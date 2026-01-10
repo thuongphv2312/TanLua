@@ -1,92 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { Avatar } from 'antd';
-import { UserOutlined, CloseOutlined } from '@ant-design/icons';
+import { UserOutlined, CloseOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { newsList } from '../NewsPage/constants';
+import { motion, AnimatePresence } from 'motion/react';
 
 const NAMES = [
-  "Nguyễn Văn An",
-  "Trần Thị Bích",
-  "Lê Minh Châu",
-  "Phạm Quốc Dũng",
-  "Hoàng Thị Hà",
-  "Vũ Thanh Hùng",
-  "Đặng Ngọc Khánh",
-  "Bùi Thị Lan",
-  "Đỗ Đức Long",
-  "Hồ Minh Nam",
-  "Ngô Thị Oanh",
-  "Dương Quốc Phong",
-  "Lý Thanh Quân",
-  "Mai Thị Trang",
-  "Tạ Minh Tuấn",
-  "Trịnh Ngọc Uyên",
-  "Cao Văn Vinh",
-  "Phan Thị Xuân",
-  "Lưu Minh Yến",
-  "Quách Quốc Anh",
-  "Nguyễn Thị Ánh",
-  "Trần Văn Bình",
-  "Lê Thị Cẩm",
-  "Phạm Minh Đạt",
-  "Hoàng Văn Em",
-  "Vũ Thị Giang",
-  "Đặng Quốc Hải",
-  "Bùi Minh Khoa",
-  "Đỗ Thị Liên",
-  "Hồ Văn Mạnh",
-  "Ngô Minh Ngọc",
-  "Dương Thị Phương",
-  "Lý Văn Quang",
-  "Mai Minh Sang",
-  "Tạ Thị Thảo",
-  "Trịnh Văn Trung",
-  "Cao Thị Uyên",
-  "Phan Minh Vũ",
-  "Lưu Thị Xinh",
-  "Quách Văn Yên",
-  "Nguyễn Quốc Bảo",
-  "Trần Thị Chi",
-  "Lê Văn Đông",
-  "Phạm Thị Hạnh",
-  "Hoàng Minh Hòa",
-  "Vũ Văn Khải",
-  "Đặng Thị Linh",
-  "Bùi Quốc Minh",
-  "Đỗ Văn Nghĩa",
-  "Hồ Thị Oanh",
-  "Ngô Văn Phúc",
-  "Dương Minh Quỳnh",
-  "Lý Thị Mai",
-  "Mai Văn Nam",
-  "Tạ Minh Phong",
-  "Trịnh Thị Quỳnh",
-  "Cao Văn Sơn",
-  "Phan Thị Thu",
-  "Lưu Văn Tài",
-  "Quách Thị Uyển",
-  "Nguyễn Minh Vân",
-  "Trần Văn Xuyên",
-  "Lê Thị Yến",
-  "Phạm Văn Zũng",
-  "Hoàng Thị An",
-  "Vũ Minh Bắc",
-  "Đặng Văn Cường",
-  "Bùi Thị Diễm",
-  "Đỗ Minh Đức",
-  "Hồ Thị Hương",
-  "Ngô Quốc Khôi",
-  "Dương Thị Lệ",
-  "Lý Minh Long",
-  "Mai Thị My",
-  "Tạ Văn Nghĩa",
-  "Trịnh Minh Phát",
-  "Cao Thị Quyên",
-  "Phan Văn Tín",
-  "Lưu Minh Trí",
-  "Quách Thị Vân",
-  "Nguyễn Văn Xuân",
-  "Trần Minh Y",
-  "Lê Thị Zinh"
+  "Nguyễn Văn An", "Trần Thị Bích", "Lê Minh Châu", "Phạm Quốc Dũng", "Hoàng Thị Hà",
+  "Vũ Thanh Hùng", "Đặng Ngọc Khánh", "Bùi Thị Lan", "Đỗ Đức Long", "Hồ Minh Nam",
+  "Ngô Thị Oanh", "Dương Quốc Phong", "Lý Thanh Quân", "Mai Thị Trang", "Tạ Minh Tuấn",
+  "Trịnh Ngọc Uyên", "Cao Văn Vinh", "Phan Thị Xuân", "Lưu Minh Yến", "Quách Quốc Anh",
+  "Nguyễn Thị Ánh", "Trần Văn Bình", "Lê Thị Cẩm", "Phạm Minh Đạt", "Hoàng Văn Em",
+  "Vũ Thị Giang", "Đặng Quốc Hải", "Bùi Minh Khoa", "Đỗ Thị Liên", "Hồ Văn Mạnh",
+  "Ngô Minh Ngọc", "Dương Thị Phương", "Lý Văn Quang", "Mai Minh Sang", "Tạ Thị Thảo",
+  "Trịnh Văn Trung", "Cao Thị Uyên", "Phan Minh Vũ", "Lưu Thị Xinh", "Quách Văn Yên",
+  "Nguyễn Quốc Bảo", "Trần Thị Chi", "Lê Văn Đông", "Phạm Thị Hạnh", "Hoàng Minh Hòa",
+  "Vũ Văn Khải", "Đặng Thị Linh", "Bùi Quốc Minh", "Đỗ Văn Nghĩa", "Hồ Thị Oanh",
+  "Ngô Văn Phúc", "Dương Minh Quỳnh", "Lý Thị Mai", "Mai Văn Nam", "Tạ Minh Phong",
+  "Trịnh Thị Quỳnh", "Cao Văn Sơn", "Phan Thị Thu", "Lưu Văn Tài", "Quách Thị Uyển",
+  "Nguyễn Minh Vân", "Trần Văn Xuyên", "Lê Thị Yến", "Phạm Văn Zũng", "Hoàng Thị An",
+  "Vũ Minh Bắc", "Đặng Văn Cường", "Bùi Thị Diễm", "Đỗ Minh Đức", "Hồ Thị Hương",
+  "Ngô Quốc Khôi", "Dương Thị Lệ", "Lý Minh Long", "Mai Thị My", "Tạ Văn Nghĩa",
+  "Trịnh Minh Phát", "Cao Thị Quyên", "Phan Văn Tín", "Lưu Minh Trí", "Quách Thị Vân",
+  "Nguyễn Văn Xuân", "Trần Minh Y", "Lê Thị Zinh"
 ];
 
 interface NotificationItem {
@@ -99,106 +34,145 @@ interface NotificationItem {
 const RecentPurchaseNotification: React.FC = () => {
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
   const [isHovered, setIsHovered] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(() => {
+    return localStorage.getItem('purchase_notifications_disabled') === 'true';
+  });
+  const timeoutRef = useRef<any>(null);
+
+  const addNotification = useCallback(() => {
+    if (isDisabled) return;
+
+    const randomName = NAMES[Math.floor(Math.random() * NAMES.length)];
+    let randomProduct = "Sản phẩm cao cấp";
+    if (newsList && newsList.length > 0) {
+      const randomItem = newsList[Math.floor(Math.random() * newsList.length)];
+      randomProduct = randomItem.name;
+    }
+    const middlePart = Math.floor(Math.random() * 100000).toString().padStart(5, '0');
+    const phoneNumber = `09${middlePart}xxx`;
+
+    const newItem = {
+      id: Date.now(),
+      name: randomName,
+      product: randomProduct,
+      phone: phoneNumber,
+    };
+
+    setNotifications((prev) => {
+      // Giữ tối đa 3 cái để stack đẹp và không quá rối
+      const newState = [...prev, newItem];
+      if (newState.length > 3) return newState.slice(newState.length - 3);
+      return newState;
+    });
+
+    // Tự động xóa sau 5s
+    setTimeout(() => {
+      setNotifications((prev) => prev.filter((n) => n.id !== newItem.id));
+    }, 5000);
+
+    // Lên lịch thông báo tiếp theo ngẫu nhiên từ 2-5s
+    const nextDelay = Math.floor(Math.random() * 3000) + 2000;
+    timeoutRef.current = setTimeout(addNotification, nextDelay);
+  }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const randomName = NAMES[Math.floor(Math.random() * NAMES.length)];
-      let randomProduct = "Sản phẩm cao cấp";
-      if (newsList && newsList.length > 0) {
-        const randomItem = newsList[Math.floor(Math.random() * newsList.length)];
-        randomProduct = randomItem.name;
-      }
-      const middlePart = Math.floor(Math.random() * 100000).toString().padStart(5, '0');
-      const phoneNumber = `09${middlePart}xxx`;
+    // Khởi chạy vòng lặp thông báo
+    const startDelay = Math.floor(Math.random() * 3000) + 2000;
+    timeoutRef.current = setTimeout(addNotification, startDelay);
 
-      const newItem = {
-        id: Date.now(),
-        name: randomName,
-        product: randomProduct,
-        phone: phoneNumber,
-      };
-
-      setNotifications((prev) => {
-        const newState = [...prev, newItem];
-        // Giới hạn hiển thị tối đa 4 thông báo để tạo hiệu ứng stack đẹp
-        if (newState.length > 4) return newState.slice(newState.length - 4);
-        return newState;
-      });
-
-      // Tự động xóa sau 8s (lâu hơn để kịp nhìn thấy hiệu ứng stack)
-      setTimeout(() => {
-        setNotifications((prev) => prev.filter((item) => item.id !== newItem.id));
-      }, 8000);
-    }, 8000); // Xuất hiện mỗi 8s
-
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [addNotification]);
 
   const handleClose = (id: number) => {
     setNotifications((prev) => prev.filter((item) => item.id !== id));
   };
 
-  // Đảo ngược mảng để hiển thị: Mới nhất (index 0) sẽ ở dưới cùng (hoặc trên cùng tùy z-index)
-  const itemsToDisplay = [...notifications].reverse();
+  const disableNotifications = () => {
+    setIsDisabled(true);
+    localStorage.setItem('purchase_notifications_disabled', 'true');
+    setNotifications([]);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  };
+
+  if (isDisabled) return null;
 
   return (
     <div
-      className="fixed bottom-5 left-5 z-50 flex flex-col-reverse items-start transition-all duration-300"
+      className="fixed bottom-5 left-5 z-[200] flex flex-col-reverse items-start"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => setIsHovered(!isHovered)}
-      style={{ pointerEvents: 'none' }} // Container không chặn click, chỉ chặn ở card
+      style={{ pointerEvents: 'none' }}
     >
-      <style>{`
-        @keyframes slideInUp {
-          from { opacity: 0; transform: translateY(20px) scale(0.95); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        .notification-card {
-          animation: slideInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-      `}</style>
-      {itemsToDisplay.map((item, index) => {
-        // Logic tính toán style cho hiệu ứng stack
-        const isCollapsed = !isHovered;
-        // Khi collapsed: các item cũ hơn (index > 0) sẽ bị kéo xuống và nhỏ đi
-        const translateY = 0;
-        const scale = isCollapsed ? 1 - index * 0.05 : 1;
-        const marginBottom = isCollapsed && index !== 0 ? '-70px' : '10px'; // Overlap mạnh để hở ~10px
-        const opacity = isCollapsed ? 1 - index * 0.1 : 1;
+      <AnimatePresence mode="popLayout">
+        {notifications.map((item, index) => {
+          // Tính toán vị trí cho hiệu ứng Stack (index 0 là cũ nhất, cuối mảng là mới nhất)
+          const reverseIndex = notifications.length - 1 - index;
+          const isFirst = reverseIndex === 0;
 
-        return (
-          <div
-            key={item.id}
-            className="notification-card bg-white shadow-lg border-l-4 border-green-500 rounded-r-lg p-3 flex items-center gap-3 w-[320px] relative group pointer-events-auto cursor-pointer"
-            style={{
-              zIndex: 50 - index, // Item mới nhất (index 0) nằm trên cùng
-              transform: `scale(${scale}) translateY(${translateY}px)`,
-              marginBottom: marginBottom,
-              opacity: opacity,
-              transition: 'all 0.4s ease',
-            }}
-          >
-            <button
-              onClick={(e) => { e.stopPropagation(); handleClose(item.id); }}
-              className="absolute -top-2 -right-2 bg-white rounded-full shadow-md w-5 h-5 flex items-center justify-center text-gray-400 hover:text-red-500 hover:bg-red-50 opacity-0 group-hover:opacity-100 transition-all z-10 border border-gray-100"
-              title="Đóng thông báo"
+          return (
+            <motion.div
+              layout
+              key={item.id}
+              initial={{ opacity: 0, y: 50, scale: 0.3 }}
+              animate={{
+                opacity: 1,
+                y: isHovered ? 0 : reverseIndex * -12, // Khi không hover thì lồng vào nhau
+                scale: isHovered ? 1 : 1 - reverseIndex * 0.05,
+                zIndex: 100 - reverseIndex,
+              }}
+              exit={{ opacity: 0, x: -100, scale: 0.5, transition: { duration: 0.3 } }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className={`bg-white shadow-2xl border border-gray-100 rounded-2xl p-4 flex items-center gap-4 w-[340px] relative pointer-events-auto cursor-pointer mb-3 ${!isHovered && !isFirst ? 'absolute bottom-0' : ''}`}
+              style={{
+                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+                backdropFilter: 'blur(10px)',
+                background: 'rgba(255, 255, 255, 0.95)'
+              }}
             >
-              <CloseOutlined style={{ fontSize: '10px' }} />
-            </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); handleClose(item.id); }}
+                className="absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-colors"
+                title="Đóng"
+              >
+                <CloseOutlined style={{ fontSize: '12px' }} />
+              </button>
 
-            <Avatar style={{ backgroundColor: '#f6ffed', color: '#52c41a' }} icon={<UserOutlined />} />
-            <div className="flex flex-col flex-1 overflow-hidden">
-              <div className="flex justify-between items-center">
-                <span className="text-xs text-green-600 font-bold">Vừa mới mua hàng</span>
-                <span className="text-[10px] text-gray-400 whitespace-nowrap ml-2">vừa xong</span>
+              <div className="relative">
+                <Avatar
+                  size={48}
+                  className="shadow-sm border-2 border-green-100"
+                  style={{ backgroundColor: '#f6ffed', color: '#52c41a' }}
+                  icon={<UserOutlined />}
+                />
+                <div className="absolute -bottom-1 -right-1 bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] border-2 border-white">
+                  <ShoppingCartOutlined />
+                </div>
               </div>
-              <div className="font-semibold text-gray-800 text-sm truncate">{item.name} <span className="text-gray-500 font-normal text-xs">({item.phone})</span></div>
-              <div className="text-gray-500 text-xs line-clamp-1">Đã mua {item.product}</div>
-            </div>
-          </div>
-        );
-      })}
+
+              <div className="flex flex-col flex-1 overflow-hidden">
+                <div className="flex justify-between items-center mb-0.5">
+                  <span className="text-[10px] font-bold text-green-600 uppercase tracking-wider">Khách hàng vừa mua</span>
+                  <span className="text-[10px] text-gray-400 italic">vừa xong</span>
+                </div>
+                <div className="font-bold text-gray-800 text-sm">{item.name}</div>
+                <div className="text-gray-500 text-[11px] truncate mt-0.5">
+                  <span className="text-green-600 font-medium">{item.phone}</span> • {item.product}
+                </div>
+                {isHovered && isFirst && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); disableNotifications(); }}
+                    className="text-[9px] text-gray-400 hover:text-red-500 mt-1 text-left w-fit underline decoration-dotted transition-colors"
+                  >
+                    Tắt thông báo này
+                  </button>
+                )}
+              </div>
+            </motion.div>
+          );
+        })}
+      </AnimatePresence>
     </div>
   );
 };
