@@ -70,20 +70,24 @@ const RecentPurchaseNotification: React.FC = () => {
       setNotifications((prev) => prev.filter((n) => n.id !== newItem.id));
     }, 5000);
 
-    // Lên lịch thông báo tiếp theo ngẫu nhiên từ 2-5s
-    const nextDelay = Math.floor(Math.random() * 3000) + 2000;
+    // Logic: 20% cơ hội nổ "burst" (dồn dập 1-2s), còn lại là chế độ chậm rãi (8-10s)
+    const isBurst = Math.random() < 0.2;
+    const nextDelay = isBurst
+      ? Math.floor(Math.random() * 1000) + 1000  // 1000ms - 2000ms
+      : Math.floor(Math.random() * 2000) + 8000; // 8000ms - 10000ms
+
     timeoutRef.current = setTimeout(addNotification, nextDelay);
-  }, []);
+  }, [isDisabled]); // Removed addNotification from dependencies to avoid circularity
 
   useEffect(() => {
-    // Khởi chạy vòng lặp thông báo
-    const startDelay = Math.floor(Math.random() * 3000) + 2000;
-    timeoutRef.current = setTimeout(addNotification, startDelay);
+    if (isDisabled) return;
+
+    timeoutRef.current = setTimeout(addNotification, 2000);
 
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [addNotification]);
+  }, [addNotification, isDisabled]);
 
   const handleClose = (id: number) => {
     setNotifications((prev) => prev.filter((item) => item.id !== id));
