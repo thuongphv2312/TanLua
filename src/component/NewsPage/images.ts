@@ -536,3 +536,47 @@ export const PHUNXA3WF3A43 = [
   "https://i.ibb.co/Nd1gtfDy/M-y-phun-h-t-2-th-1.png",
   "https://i.ibb.co/tp8wb1pS/M-y-phun-h-t-2-th-2.png",
 ]
+
+export const MAYRUAXE1215C1 = [
+  "https://i.ibb.co/pjgVpdL0/M-y-r-a-xe-Cali-1215-C1-O-1.png",
+  "https://i.ibb.co/5WTtxv5k/M-y-r-a-xe-Cali-1215-C1-O-2.png",
+  "https://i.ibb.co/39LVqnFq/M-y-r-a-xe-Cali-1215-C1-O-3.png",
+  "https://i.ibb.co/DfgtKgm9/M-y-r-a-xe-Cali-1215-C1-O-4.png",
+  "https://i.ibb.co/60659Fjq/M-y-r-a-xe-Cali-1215-C1-O-5.png",
+  "https://i.ibb.co/TxRp8sqJ/M-y-r-a-xe-Cali-1215-C1-O.png",
+]
+
+export const MAYRUAXE151801 = [
+  "https://i.ibb.co/nqwJg3sb/M-y-r-a-xe-Cali-1518-C1-1518-O1-O-4.png",
+  "https://i.ibb.co/MDCP74m7/M-y-r-a-xe-Cali-1518-C1-1518-O1-O-1.png",
+  "https://i.ibb.co/BHzZ8MHX/M-y-r-a-xe-Cali-1518-C1-1518-O1-O-2.png",
+  "https://i.ibb.co/LXBm9TBB/M-y-r-a-xe-Cali-1518-C1-1518-O1-O-3.png",
+  "https://i.ibb.co/nqwJg3sb/M-y-r-a-xe-Cali-1518-C1-1518-O1-O-5.png",
+  "https://i.ibb.co/gLqrbQvr/M-y-r-a-xe-Cali-1518-C1-1518-O1-O-6.png",
+]
+
+export const MAYRUAXE0812K2 = [
+  "https://i.ibb.co/Fq0C23xd/M-y-r-a-xe-Cali-0812-k2-1.png",
+  "https://i.ibb.co/HDk5MvmF/M-y-r-a-xe-Cali-0812-k2-2.png",
+  "https://i.ibb.co/W4CzKhBJ/M-y-r-a-xe-Cali-0812-k2-3.png",
+  "https://i.ibb.co/kgxTX9gT/M-y-r-a-xe-Cali-0812-k2-4.png",
+  "https://i.ibb.co/C35D5tfH/M-y-r-a-xe-Cali-0812-k2-5.png",
+  "https://i.ibb.co/rRPxrmCD/M-y-r-a-xe-Cali-0812-k2.png",
+]
+
+export const MAYRUAXEJZ300C = [
+  "https://i.ibb.co/cSzWngS6/M-y-r-a-xe-oshima-JZ300-C.png",
+  "https://i.ibb.co/67Jhm6pY/M-y-r-a-xe-oshima-JZ300-C-1.png",
+  "https://i.ibb.co/JRtMjfdD/M-y-r-a-xe-oshima-JZ300-C-2.png",
+  "https://i.ibb.co/nNGCBkN2/M-y-r-a-xe-oshima-JZ300-C-3.png",
+  "https://i.ibb.co/WN6b7FYp/M-y-r-a-xe-oshima-JZ300-C-4.png",
+  "https://i.ibb.co/rN5CChJ/M-y-r-a-xe-oshima-JZ300-C-5.png",
+  "https://i.ibb.co/rW2zK9Q/M-y-r-a-xe-oshima-JZ300-C-6.png",
+]
+
+export const MAYRUAXEJZ900A2 = [
+  "https://i.ibb.co/Q7qV0M4Q/M-y-r-a-xe-oshima-900-A2-2.png",
+  "https://i.ibb.co/1JXYJZqJ/M-y-r-a-xe-oshima-900-A2-3.png",
+  "https://i.ibb.co/cStDwYm6/M-y-r-a-xe-oshima-900-A2.png",
+  "https://i.ibb.co/fV5dsSH6/M-y-r-a-xe-oshima-900-A2-1.png",
+]

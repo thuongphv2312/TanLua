@@ -1,5 +1,5 @@
 // constants/newsCategory.ts
-import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300, GIABATCOBANHXE, HANCOHK30ST2HP, KHOANBETONGK90, KHOANBETONGK96, MAYBOMTANGAPMINIG1B001TB, MAYBOMTANGAPMININK159A20M3H220V125MM, MAYMAIAG5055CT, MAYCATSATBAN2400S, MAYCATSATBANOS2000, MAYCANMUCCM5X1, MAYCANMUCCM5X2, MAYCANMUCCM5X2LS, MAYCANMUCCM5XLS, MAYCANMUCCM5XSS, MAYCANMUCCM5XCS, MAYCANMUCCM5XSPX, COMBOCVGRCV381, COMBOCVGRCV173, G3HUK35, GRMMAMMA200EMINI, MKSMMA200EMINI, MKSMMA200EV2, OSHIMAMMA200A, OSHIMAMMA250A, G2RH2601, K2626P, RH2066X, RH2900BL, G3STOM02, AG6101J, TLP35, PHUNXA3WF3A43 } from './images';
+import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300, GIABATCOBANHXE, HANCOHK30ST2HP, KHOANBETONGK90, KHOANBETONGK96, MAYBOMTANGAPMINIG1B001TB, MAYBOMTANGAPMININK159A20M3H220V125MM, MAYMAIAG5055CT, MAYCATSATBAN2400S, MAYCATSATBANOS2000, MAYCANMUCCM5X1, MAYCANMUCCM5X2, MAYCANMUCCM5X2LS, MAYCANMUCCM5XLS, MAYCANMUCCM5XSS, MAYCANMUCCM5XCS, MAYCANMUCCM5XSPX, COMBOCVGRCV381, COMBOCVGRCV173, G3HUK35, GRMMAMMA200EMINI, MKSMMA200EMINI, MKSMMA200EV2, OSHIMAMMA200A, OSHIMAMMA250A, G2RH2601, K2626P, RH2066X, RH2900BL, G3STOM02, AG6101J, TLP35, PHUNXA3WF3A43, MAYRUAXE1215C1, MAYRUAXE151801, MAYRUAXE0812K2, MAYRUAXEJZ300C, MAYRUAXEJZ900A2 } from './images';
 
 const MACHINE_NAME = {
   MAY_CONG_NGHIEP: "Máy Công Nghiệp",
@@ -815,8 +815,99 @@ export const newsList = [
     images: PHUNXA3WF3A43,
     categories: [1],
     name: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
-    price: "3,360,000đ",
-    oldPrice: "6,250,000đ",
+    price: "3,510,000đ",
+    oldPrice: "6,450,000đ",
+    url: HOST
+  },
+  {
+    id: 60,
+    title: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì có công dụng như thế nào với công việc của bạn...",
+    images: PHUNXA3WF3A43,
+    categories: [1],
+    name: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
+    price: "3,510,000đ",
+    oldPrice: "6,450,000đ",
+    url: HOST
+  },
+  {
+    id: 61,
+    title: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì có công dụng như thế nào với công việc của bạn...",
+    images: PHUNXA3WF3A43,
+    categories: [1],
+    name: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
+    price: "3,510,000đ",
+    oldPrice: "6,450,000đ",
+    url: HOST
+  },
+  {
+    id: 62,
+    title: "Máy rửa xe OSHIMA 1215-C1 2800W 12L/ phút áp lực phun 0-150Kg/cm3 trọng lượng 10Kg",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy rửa xe OSHIMA 1215-C1 2800W 12L/ phút áp lực phun 0-150Kg/cm3 trọng lượng 10Kg có công dụng như thế nào với công việc của bạn...",
+    images: MAYRUAXE1215C1,
+    categories: [2, 3],
+    name: "Máy rửa xe OSHIMA 1215-C1 2800W 12L/ phút áp lực phun 0-150Kg/cm3 trọng lượng 10Kg",
+    price: "2,450,000đ",
+    oldPrice: "2,890,000đ",
+    url: HOST
+  },
+  {
+    id: 63,
+    title: "Máy rửa xe OSHIMA 1518-O1 3100W 15L/ phút 40-180Kg/cm3 trọng lượng 20Kg",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy rửa xe OSHIMA 1518-O1 3100W 15L/ phút 40-180Kg/cm3 trọng lượng 20Kg có công dụng như thế nào với công việc của bạn...",
+    images: MAYRUAXE151801,
+    categories: [2, 3],
+    name: "Máy rửa xe OSHIMA 1518-O1 3100W 15L/ phút 40-180Kg/cm3 trọng lượng 20Kg",
+    price: "4,080,000đ",
+    oldPrice: "4,500,000đ",
+    url: HOST
+  },
+  {
+    id: 64,
+    title: "Máy rửa xe CALI 0812-K2 2500W 8L/ phút áp lực phun 117Bar trọng lượng 7.2Kg",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy rửa xe CALI 0812-K2 2500W 8L/ phút áp lực phun 117Bar trọng lượng 7.2Kg có công dụng như thế nào với công việc của bạn...",
+    images: MAYRUAXE0812K2,
+    categories: [2, 3],
+    name: "Máy rửa xe CALI 0812-K2 2500W 8L/ phút áp lực phun 117Bar trọng lượng 7.2Kg",
+    price: "1,450,000đ",
+    oldPrice: "1,780,000đ",
+    url: HOST
+  },
+  {
+    id: 65,
+    title: "Máy rửa xe OSHIMA JZ300C 2800W 8L/ phút 4-15Mpa trọng lượng 8Kg",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy rửa xe OSHIMA JZ300C 2800W 8L/ phút 4-15Mpa trọng lượng 8Kg có công dụng như thế nào với công việc của bạn...",
+    images: MAYRUAXEJZ300C,
+    categories: [2, 3],
+    name: "Máy rửa xe OSHIMA JZ300C 2800W 8L/ phút 4-15Mpa trọng lượng 8Kg",
+    price: "1,650,000đ",
+    oldPrice: "1,780,000đ",
+    url: HOST
+  },
+  {
+    id: 66,
+    title: "Máy rửa xe JZ900A2 2500W 8L/ phút 4-12Mpa trọng lượng 8Kg",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy rửa xe JZ900A2 2500W 8L/ phút 4-12Mpa trọng lượng 8Kg có công dụng như thế nào với công việc của bạn...",
+    images: MAYRUAXEJZ900A2,
+    categories: [2, 3],
+    name: "Máy rửa xe JZ900A2 2500W 8L/ phút 4-12Mpa trọng lượng 8Kg",
+    price: "2,100,000đ",
+    oldPrice: "2,450,000đ",
     url: HOST
   },
 ].map(item => {
