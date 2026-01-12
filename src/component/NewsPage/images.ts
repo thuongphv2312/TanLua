@@ -228,3 +228,11 @@ export const THANMAYKHOANG1D55 = [
   "https://i.ibb.co/YBQNG5Dy/M-y-khoan-G1-D55-3.png",
   "https://i.ibb.co/qXjFRYs/M-y-khoan-G1-D55-4.png",
 ]
+
+export const THANMAYKHOANGG2Z1300 = [
+  "https://i.ibb.co/jvRvR5Jj/M-y-khoan-G2-Z1300.png",
+  "https://i.ibb.co/HD5DP3LB/M-y-khoan-G2-Z1300-2.png",
+  "https://i.ibb.co/27QJ8gPs/M-y-khoan-G2-Z1300-3.png",
+  "https://i.ibb.co/xSzZCnWy/M-y-khoan-G2-Z1300-4.png",
+  "https://i.ibb.co/pvh4Wvnj/M-y-khoan-G2-Z1300-1.png"
+]

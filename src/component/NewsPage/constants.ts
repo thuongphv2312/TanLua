@@ -1,5 +1,5 @@
 // constants/newsCategory.ts
-import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55 } from './images';
+import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300 } from './images';
 
 const MACHINE_NAME = {
   MAY_CONG_NGHIEP: "Máy Công Nghiệp",
@@ -61,8 +61,8 @@ export const newsList = [
     images: DAYXITTANGAP15M,
     categories: [1, 3],
     name: "Dây xịt tăng áp ANOVI 15M 230BAR Loại xịn",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "260,000₫",
+    oldPrice: "390,000₫",
     url: HOST
   },
   {
@@ -74,8 +74,8 @@ export const newsList = [
     images: DAUXITTL22TH,
     categories: [1, 3],
     name: "Đầu xịt Talu TL22-TH xilanh 22mm ty inox",
-    price: "1,800,000₫",
-    oldPrice: "2,200,000₫",
+    price: "1,100,000₫",
+    oldPrice: "2,250,000₫",
     url: HOST
   },
   {
@@ -87,8 +87,8 @@ export const newsList = [
     images: DAUXITTL22T,
     categories: [1, 3],
     name: "Đầu xịt Talu TL22T xilanh 22mm ty inox",
-    price: "150,000,000₫",
-    oldPrice: "",
+    price: "1,050,000₫",
+    oldPrice: "1,950,000đ",
     url: HOST
   },
   {
@@ -100,8 +100,8 @@ export const newsList = [
     images: DAYXITTANGAP20M,
     categories: [1, 3],
     name: "Dây xịt tăng áp ANOVI 20M 230BAR Loại xịn",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "320,000₫",
+    oldPrice: "590,000₫",
     url: HOST
   },
   {
@@ -113,8 +113,8 @@ export const newsList = [
     images: DAUXITTL30T,
     categories: [1, 3],
     name: "Đầu xịt Talu TL30T xilanh 30mm ty inox",
-    price: "1,800,000₫",
-    oldPrice: "2,200,000₫",
+    price: "1,350,000₫",
+    oldPrice: "1,780,000₫",
     url: HOST
   },
   {
@@ -126,8 +126,8 @@ export const newsList = [
     images: THANMAYKHOANG1D55,
     categories: [10],
     name: "Thân máy khoan G1-D55",
-    price: "150,000,000₫",
-    oldPrice: "",
+    price: "550,000₫",
+    oldPrice: "620,000₫",
     url: HOST
   },
   {
@@ -139,8 +139,8 @@ export const newsList = [
     images: G2TPLF1_IMAGES,
     categories: [10],
     name: "Thân máy thổi G2-TPLF1",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "850,000₫",
+    oldPrice: "980,000₫",
     url: HOST
   },
   {
@@ -152,8 +152,8 @@ export const newsList = [
     images: DAUXITTL30STH,
     categories: [1, 3],
     name: "Đầu xịt Talu TL30STH xilanh 30mm ty inox",
-    price: "1,800,000₫",
-    oldPrice: "2,200,000₫",
+    price: "2,200,000₫",
+    oldPrice: "2,870,000₫",
     url: HOST
   },
   {
@@ -165,8 +165,8 @@ export const newsList = [
     images: SACDOIG2S20X2,
     categories: [10],
     name: "Sạc đôi HUKAN G2-S20X2",
-    price: "150,000,000₫",
-    oldPrice: "",
+    price: "560,000₫",
+    oldPrice: "620,000₫",
     url: HOST
   },
   {
@@ -178,8 +178,8 @@ export const newsList = [
     images: DAYXITTANGAP50M,
     categories: [1, 3],
     name: "Dây xịt tăng áp ANOVI 50M 230BAR Loại xịn",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "590,000₫",
+    oldPrice: "980,000₫",
     url: HOST
   },
   {
@@ -191,8 +191,8 @@ export const newsList = [
     images: TL35X_IMAGES,
     categories: [1, 6],
     name: "Máy cắt cỏ TL35X 4 thì xăng riêng nhớt riêng",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "1,980,000₫",
+    oldPrice: "3,050,000₫",
     url: HOST
   },
   {
@@ -204,8 +204,8 @@ export const newsList = [
     images: TJ35_IMAGES,
     categories: [1, 6],
     name: "Máy cắt cỏ TJ35 4 thì xăng riêng nhớt riêng",
-    price: "1,790,000₫",
-    oldPrice: "3,000,000₫",
+    price: "2,850,000₫",
+    oldPrice: "4,750,000₫",
     url: HOST
   },
   {
@@ -217,8 +217,8 @@ export const newsList = [
     images: CS260,
     categories: [1, 6],
     name: "Máy cắt cỏ CS260 2 thì xăng pha nhớt",
-    price: "1,790,000₫",
-    oldPrice: "3,000,000₫",
+    price: "1,700,000₫",
+    oldPrice: "2,850,000₫",
     url: HOST
   },
   {
@@ -230,8 +230,8 @@ export const newsList = [
     images: CS226,
     categories: [1, 6],
     name: "Máy cắt cỏ CS226 2 thì xăng pha nhớt",
-    price: "1,790,000₫",
-    oldPrice: "3,000,000₫",
+    price: "3,780,000đ",
+    oldPrice: "4,725,000₫",
     url: HOST
   },
   {
@@ -243,8 +243,8 @@ export const newsList = [
     images: G1BCN02147,
     categories: [10],
     name: "Bộ chuyển đổi nguồn G1-BCN0214",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "310,000₫",
+    oldPrice: "480,000₫",
     url: HOST
   },
   {
@@ -256,8 +256,8 @@ export const newsList = [
     images: LAMCX12INCH,
     categories: [10],
     name: "Bộ lam cưa xích 12inch",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "230,000₫",
+    oldPrice: "295,000₫",
     url: HOST
   },
   {
@@ -269,8 +269,8 @@ export const newsList = [
     images: COMBOPIN0805,
     categories: [10],
     name: "Combo pin sạc G1-P0805 20cell 8Ah 21V 1.5A",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "1,250,000₫",
+    oldPrice: "1,980,000₫",
     url: HOST
   },
   {
@@ -282,8 +282,8 @@ export const newsList = [
     images: COMBOPIN4505,
     categories: [10],
     name: "Combo pin sạc G1-CBP4505 15cell 4.5Ah 21V 1.5A",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "795,000₫",
+    oldPrice: "920,000₫",
     url: HOST
   },
   {
@@ -295,8 +295,8 @@ export const newsList = [
     images: COMBOCVHM21G2CVX230N,
     categories: [10],
     name: "Combo chuyên vít HM21-G2CVX230N",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "2,150,000₫",
+    oldPrice: "3,080,000₫",
     url: HOST
   },
   {
@@ -308,8 +308,8 @@ export const newsList = [
     images: SV21VNG230ND1,
     categories: [10],
     name: "Combo chuyên vít OSHIMA SV21V-NG230N-D1",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "1,750,000₫",
+    oldPrice: "2,500,000₫",
     url: HOST
   },
   {
@@ -321,8 +321,8 @@ export const newsList = [
     images: DAMDUIDIEN7508501000W,
     categories: [10],
     name: "Đầm dùi TALU 750W 850W 1000W",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "650,000₫",
+    oldPrice: "680,000₫",
     url: HOST
   },
   {
@@ -334,8 +334,8 @@ export const newsList = [
     images: DAYXITTANGAP10M,
     categories: [1, 3],
     name: "Dây xịt tăng áp ANOVI 10M 230BAR Loại xịn",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "190,000₫",
+    oldPrice: "230,000₫",
     url: HOST
   },
   {
@@ -347,8 +347,8 @@ export const newsList = [
     images: DAMDUIPINDV01,
     categories: [10],
     name: "Thân Đầm dùi PIN TALU DV01 450W",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "810,000₫",
+    oldPrice: "960,000₫",
     url: HOST
   },
   {
@@ -360,8 +360,8 @@ export const newsList = [
     images: DAMTHUOCDIENTALDTD220,
     categories: [2],
     name: "Đầm thước điện TAL DTD-220",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "1,820,000₫",
+    oldPrice: "3,050,000₫",
     url: HOST
   },
   {
@@ -373,8 +373,8 @@ export const newsList = [
     images: DAMTHUOCXANGDTXT35PRO,
     categories: [2],
     name: "Đầm thước xăng TAL DTX-T35PRO",
-    price: "2,500,000₫",
-    oldPrice: "5,000,000₫",
+    price: "3,045,000₫",
+    oldPrice: "6,000,000₫",
     url: HOST
   },
   {
@@ -386,21 +386,21 @@ export const newsList = [
     images: DAUXITTL22STH,
     categories: [1, 3],
     name: "Đầu xịt Talu TL22S-TH xilanh 22mm ty sứ",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    price: "1,780,000₫",
+    oldPrice: "3,500,000₫",
     url: HOST
   },
   {
     id: 27,
-    title: "Thân Đầm dùi PIN TALU DV01 450W",
+    title: "Thân máy khoan G2-Z1300 chính hãng hukan 60N.M 3 chế độ",
     author: "Tấn Lụa",
     date: "12/01/2021",
-    description: "Thân Đầm dùi PIN TALU DV01 450W có công dụng như thế nào với công việc của bạn...",
-    images: DAMDUIPINDV01,
+    description: "Thân máy khoan G2-Z1300 chính hãng hukan 60N.M 3 chế độ có công dụng như thế nào với công việc của bạn...",
+    images: THANMAYKHOANGG2Z1300,
     categories: [10],
-    name: "Thân Đầm dùi PIN TALU DV01 450W",
-    price: "2,500,000₫",
-    oldPrice: "3,000,000₫",
+    name: "Thân máy khoan G2-Z1300 chính hãng hukan 60N.M 3 chế độ",
+    price: "690,000₫",
+    oldPrice: "820,000₫",
     url: HOST
   },
   {
