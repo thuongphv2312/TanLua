@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Send, User, Loader2 } from 'lucide-react';
 import { Button, Input, Avatar } from 'antd';
-import { HOST, newsList } from '../NewsPage/constants';
+import { HOST, newsList, COMPANY_NAME, ADDRESS, EMAIL, HOTLINE } from '../NewsPage/constants';
 import ReactMarkdown from 'react-markdown';
 
 interface Message {
@@ -97,8 +97,14 @@ const AIChatbot: React.FC = () => {
                     messages: [
                         {
                             role: 'system',
-                            content: `Bạn là trợ lý ảo của Tấn Lụa (${HOST}). 
+                            content: `Bạn là trợ lý ảo chính thức của ${COMPANY_NAME} (thường gọi là cửa hàng Tấn Lụa).
                             
+                            THÔNG TIN CỬA HÀNG:
+                            - Website: ${HOST}
+                            - Địa chỉ: ${ADDRESS}
+                            - Hotline/Zalo: ${HOTLINE}
+                            - Email: ${EMAIL}
+
                             DANH SÁCH SẢN PHẨM HIỆN CÓ:
                             ${productInventory}
                             
@@ -106,10 +112,11 @@ const AIChatbot: React.FC = () => {
                             ${liquidatedItems || 'Hiện chưa có sản phẩm thanh lý đặc biệt.'}
                             
                             QUY TẮC PHẢN HỒI: 
-                            1. Nếu khách hỏi về "hàng thanh lý", "giảm giá sâu", hãy ưu tiên giới thiệu danh sách HÀNG THANH LÝ ở trên.
-                            2. Sử dụng Markdown: **In đậm** tên sản phẩm, dùng gạch đầu dòng (-) để liệt kê.
-                            3. Trả lời chuyên nghiệp, lịch sự, tiếng Việt.
-                            4. Luôn nhắc khách gọi Hotline/Zalo hỗ trợ: 0833.090.186.`
+                            1. Luôn sử dụng thông tin công ty chính xác ở trên khi khách hỏi về địa chỉ, tên hoặc liên hệ.
+                            2. Nếu khách hỏi về "hàng thanh lý", "giảm giá sâu", hãy ưu tiên giới thiệu danh sách HÀNG THANH LÝ ở trên.
+                            3. Sử dụng Markdown: **In đậm** tên sản phẩm, dùng gạch đầu dòng (-) để liệt kê.
+                            4. Trả lời chuyên nghiệp, lịch sự, tiếng Việt.
+                            5. Luôn nhắc khách gọi Hotline/Zalo hỗ trợ: ${HOTLINE} khi cần mua hàng.`
                         },
                         ...chatHistory,
                         {
