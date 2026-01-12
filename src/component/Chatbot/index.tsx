@@ -257,14 +257,14 @@ const AIChatbot: React.FC = () => {
                     <img
                         src="https://i.ibb.co/F4f2mzq4/11184177.gif"
                         alt="Chatbot Icon"
-                        className="w-full h-full object-cover rounded-full p-0"
+                        className="absolute inset-0 w-full h-full object-cover rounded-full"
                         style={{ borderRadius: '50%' }}
                     />
                 )}
 
                 {/* Badge thông báo */}
                 {!isOpen && (
-                    <span className="absolute top-0 right-0 w-4 h-4 bg-[#daca72] border-2 border-white rounded-full animate-bounce" style={{ borderRadius: '50%' }}></span>
+                    <span className="absolute top-3 right-1 w-4 h-4 bg-[#daca72] border-2 border-white rounded-full animate-bounce" style={{ borderRadius: '50%' }}></span>
                 )}
             </motion.button>
 
