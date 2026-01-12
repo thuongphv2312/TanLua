@@ -65,7 +65,11 @@ const AIChatbot: React.FC = () => {
         setIsTyping(true);
 
         try {
-            const API_KEY = "AIzaSyCInAVXRQIPBkpjLrhZo1InbuZMuPkQFq4";
+            const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+
+            if (!API_KEY) {
+                throw new Error("API Key chưa được cấu hình. Vui lòng kiểm tra .env");
+            }
 
             // Lấy 4 tin nhắn gần nhất để làm ngữ cảnh (tránh quá dài tốn token)
             const chatHistory = messages.slice(-4).map(msg => ({

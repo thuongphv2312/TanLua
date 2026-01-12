@@ -236,3 +236,7 @@ export const THANMAYKHOANGG2Z1300 = [
   "https://i.ibb.co/xSzZCnWy/M-y-khoan-G2-Z1300-4.png",
   "https://i.ibb.co/pvh4Wvnj/M-y-khoan-G2-Z1300-1.png"
 ]
+
+export const GIABATCOBANHXE = [
+  "https://i.ibb.co/1GVsCJ3Z/Giabatcobanhxe.png"
+]
