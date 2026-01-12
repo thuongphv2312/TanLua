@@ -240,3 +240,39 @@ export const THANMAYKHOANGG2Z1300 = [
 export const GIABATCOBANHXE = [
   "https://i.ibb.co/1GVsCJ3Z/Giabatcobanhxe.png"
 ]
+
+export const HANCOHK30ST2HP = [
+  "https://i.ibb.co/yBWfGjmW/Hancock-30-ST.png",
+  "https://i.ibb.co/hJrCDPJK/Hancock-30-ST-1.png",
+  "https://i.ibb.co/Jwz5znrk/Hancock-30-ST-2.png",
+  "https://i.ibb.co/L2Kc0p3/Hancock-30-ST-3.png",
+  "https://i.ibb.co/C5sqNXxh/Hancock-30-ST-4.png"
+]
+
+export const KHOANBETONGK90 = [
+  "https://i.ibb.co/fYMkqzS4/M-y-khoan-b-t-ng-K90-1.png",
+  "https://i.ibb.co/bRLpKV2j/M-y-khoan-b-t-ng-K90.png"
+]
+
+export const KHOANBETONGK96 = [
+  "https://i.ibb.co/W432hzkC/M-y-khoan-b-t-ng-K96.png",
+  "https://i.ibb.co/1tGKfwNc/M-y-khoan-b-t-ng-K96-7.png",
+  "https://i.ibb.co/ymBtJcWS/M-y-khoan-b-t-ng-K96-8.png",
+  "https://i.ibb.co/pjbJx8Kq/M-y-khoan-b-t-ng-K96-1.png",
+  "https://i.ibb.co/CswTLhQF/M-y-khoan-b-t-ng-K96-2.png",
+  "https://i.ibb.co/fgv8Lw8/M-y-khoan-b-t-ng-K96-3.png",
+  "https://i.ibb.co/p60PcpRG/M-y-khoan-b-t-ng-K96-4.png",
+  "https://i.ibb.co/Q7Rn605Y/M-y-khoan-b-t-ng-K96-5.png",
+  "https://i.ibb.co/ZRb92tCj/M-y-khoan-b-t-ng-K96-6.png"
+]
+
+export const MAYBOMTANGAPMINIG1B001TB = [
+  "https://i.ibb.co/jPcbDd4f/M-y-b-m-t-ng-p-G1-B001-TB-1.png",
+  "https://i.ibb.co/H0bGS5N/M-y-b-m-t-ng-p-G1-B001-TB-2.png",
+  "https://i.ibb.co/jPb5xQVc/M-y-b-m-t-ng-p-G1-B001-TB-3.png",
+  "https://i.ibb.co/0y5kdWc8/M-y-b-m-t-ng-p-G1-B001-TB-4.png",
+  "https://i.ibb.co/0yDXk0dB/M-y-b-m-t-ng-p-G1-B001-TB-5.png",
+  "https://i.ibb.co/N2hN7KJt/M-y-b-m-t-ng-p-G1-B001-TB-6.png",
+  "https://i.ibb.co/TBHTfRG3/M-y-b-m-t-ng-p-G1-B001-TB-7.png",
+  "https://i.ibb.co/hxH4zgbQ/M-y-b-m-t-ng-p-G1-B001-TB.png"
+]

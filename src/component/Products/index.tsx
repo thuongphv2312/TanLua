@@ -96,11 +96,23 @@ const Products: React.FC<ProductsProps> = ({
           animation: fire 0.3s ease-in-out infinite alternate;
         }
         .custom-scrollbar::-webkit-scrollbar {
-          display: none; /* Hide scrollbar for category horizontal nav to keep it clean */
+          height: 4px;
+          display: block;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(0,0,0,0.05);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(203, 43, 43, 0.2);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(203, 43, 43, 0.5);
         }
         .custom-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+          -ms-overflow-style: auto;
+          scrollbar-width: thin;
         }
         @keyframes click-bounce {
           0% { transform: scale(1); }
