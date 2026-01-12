@@ -3,6 +3,7 @@ import { ShoppingCartOutlined, SearchOutlined, PlusOutlined } from '@ant-design/
 import { Card, Badge, Button, message, Empty } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { CATEGORIES } from '../NewsPage/constants';
+import { ProductGridSkeleton } from '../ui/SkeletonComponents';
 
 
 interface Product {
@@ -23,9 +24,18 @@ interface ProductsProps {
   cartCounts?: { [key: number]: number };
   onAddToCart?: (id: number) => void;
   categoryId?: number;
+  isLoading?: boolean;
 }
 
-const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], bannerImage, cartCounts = {}, onAddToCart = () => { }, categoryId }) => {
+const Products: React.FC<ProductsProps> = ({
+  title = '',
+  lstProducts = [],
+  bannerImage,
+  cartCounts = {},
+  onAddToCart = () => { },
+  categoryId,
+  isLoading = false
+}) => {
   const [activeCategory, setActiveCategory] = useState(() => {
     if (categoryId) return categoryId;
     if (lstProducts.length > 0) {
@@ -130,7 +140,9 @@ const Products: React.FC<ProductsProps> = ({ title = '', lstProducts = [], banne
       </div>
 
       {/* Product Grid */}
-      {dataToDisplay.length === 0 ? (
+      {isLoading ? (
+        <ProductGridSkeleton count={10} />
+      ) : dataToDisplay.length === 0 ? (
         <div className="py-10">
           <Empty description="Không tìm thấy sản phẩm" />
         </div>

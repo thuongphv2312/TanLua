@@ -14,13 +14,23 @@ import RecentPurchaseNotification from './component/RecentPurchaseNotification';
 import NetworkStatus from './component/NetworkStatus';
 import MarqueeBanner from './component/MarqueeBanner';
 import ScrollToTop from './component/ScrollToTop';
+import { FullPageSkeleton } from './component/ui/SkeletonComponents';
 
 
 const { Content } = Layout;
 
 const App = () => {
   const [isSticky, setIsSticky] = useState(false);
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
   const screens = useBreakpoint();
+
+  useEffect(() => {
+    // Giả lập thời gian load app ban đầu
+    const timer = setTimeout(() => {
+      setIsInitialLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const mainColor = '#daca72';
 
@@ -176,13 +186,17 @@ const App = () => {
           <Content style={contentStyle}>
             <MenuContainer />
             <Breadcrumbs />
-            <AppRoutes
-              cartCounts={cartCounts}
-              onUpdateCart={handleUpdateCart}
-              onDecreaseCart={handleDecreaseCart}
-              onRemoveFromCart={handleRemoveFromCart}
-              onClearCart={handleClearCart}
-            />
+            {isInitialLoading ? (
+              <FullPageSkeleton />
+            ) : (
+              <AppRoutes
+                cartCounts={cartCounts}
+                onUpdateCart={handleUpdateCart}
+                onDecreaseCart={handleDecreaseCart}
+                onRemoveFromCart={handleRemoveFromCart}
+                onClearCart={handleClearCart}
+              />
+            )}
           </Content>
           <FloatingContactButtons />
           <RecentPurchaseNotification />
