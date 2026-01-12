@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCartOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
-import { Card, Badge, Button, message, Empty } from 'antd';
+import { Card, Badge, Button, message, Empty, Tooltip } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { CATEGORIES } from '../NewsPage/constants';
 import { ProductGridSkeleton } from '../ui/SkeletonComponents';
@@ -218,7 +218,9 @@ const Products: React.FC<ProductsProps> = ({
               {/* Product Info */}
               <div className="space-y-2">
                 {/* <p className="text-xs text-gray-500 uppercase">{product.url}</p> */}
-                <h3 className="text-sm font-medium line-clamp-2 h-10">{product.name}</h3>
+                <Tooltip title={product.name}>
+                  <h3 className="text-sm font-medium line-clamp-2 h-10 cursor-help">{product.name}</h3>
+                </Tooltip>
 
                 {/* Price Section */}
                 <div className="flex items-center justify-between">

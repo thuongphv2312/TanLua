@@ -1,5 +1,5 @@
 // constants/newsCategory.ts
-import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300, GIABATCOBANHXE, HANCOHK30ST2HP, KHOANBETONGK90, KHOANBETONGK96, MAYBOMTANGAPMINIG1B001TB, MAYBOMTANGAPMININK159A20M3H220V125MM, MAYMAIAG5055CT, MAYCATSATBAN2400S, MAYCATSATBANOS2000, MAYCANMUCCM5X1, MAYCANMUCCM5X2, MAYCANMUCCM5X2LS, MAYCANMUCCM5XLS, MAYCANMUCCM5XSS, MAYCANMUCCM5XCS, MAYCANMUCCM5XSPX, COMBOCVGRCV381, COMBOCVGRCV173, G3HUK35, GRMMAMMA200EMINI, MKSMMA200EMINI, MKSMMA200EV2, OSHIMAMMA200A } from './images';
+import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300, GIABATCOBANHXE, HANCOHK30ST2HP, KHOANBETONGK90, KHOANBETONGK96, MAYBOMTANGAPMINIG1B001TB, MAYBOMTANGAPMININK159A20M3H220V125MM, MAYMAIAG5055CT, MAYCATSATBAN2400S, MAYCATSATBANOS2000, MAYCANMUCCM5X1, MAYCANMUCCM5X2, MAYCANMUCCM5X2LS, MAYCANMUCCM5XLS, MAYCANMUCCM5XSS, MAYCANMUCCM5XCS, MAYCANMUCCM5XSPX, COMBOCVGRCV381, COMBOCVGRCV173, G3HUK35, GRMMAMMA200EMINI, MKSMMA200EMINI, MKSMMA200EV2, OSHIMAMMA200A, OSHIMAMMA250A, G2RH2601, K2626P, RH2066X, RH2900BL, G3STOM02, AG6101J, TLP35, PHUNXA3WF3A43 } from './images';
 
 const MACHINE_NAME = {
   MAY_CONG_NGHIEP: "Máy Công Nghiệp",
@@ -700,6 +700,123 @@ export const newsList = [
     name: "Máy hàn OSHIMA MMA-200A 7.1KVA 20-200A 1.6-4.0MM 4.2KG",
     price: "2,710,000₫",
     oldPrice: "3,200,000₫",
+    url: HOST
+  },
+  {
+    id: 51,
+    title: "Máy hàn OSHIMA MMA-250A 9.6KVA 20-250A 1.6-5.0MM 5.5KG",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy hàn OSHIMA MMA-250A 9.6KVA 20-250A 1.6-5.0MM 5.5KG có công dụng như thế nào với công việc của bạn...",
+    images: OSHIMAMMA250A,
+    categories: [10],
+    name: "Máy hàn OSHIMA MMA-250A 9.6KVA 20-250A 1.6-5.0MM 5.5KG",
+    price: "3,450,000₫",
+    oldPrice: "5,200,000₫",
+    url: HOST
+  },
+  {
+    id: 52,
+    title: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAn",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAn có công dụng như thế nào với công việc của bạn...",
+    images: G2RH2601,
+    categories: [10],
+    name: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAn",
+    price: "2,280,000₫",
+    oldPrice: "3,200,000₫",
+    url: HOST
+  },
+  {
+    id: 53,
+    title: "Thân máy khoan GR-K2626P 2.8J 21V 5000BPM 0-980v/ phút chính hãng GREEKMAN",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Thân máy khoan GR-K2626P 2.8J 21V 5000BPM 0-980v/ phút chính hãng GREEKMAN có công dụng như thế nào với công việc của bạn...",
+    images: K2626P,
+    categories: [10],
+    name: "Thân máy khoan GR-K2626P 2.8J 21V 5000BPM 0-980v/ phút chính hãng GREEKMAN",
+    price: "580,000₫",
+    oldPrice: "620,000₫",
+    url: HOST
+  },
+  {
+    id: 54,
+    title: "Máy khoan bê tông G2-RH2066X 1020W 220V 3.5J 4400v/ phút tốc độ búa và 780V/ phút tốc độ không tải",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy khoan bê tông G2-RH2066X 1020W 220V 3.5J 4400v/ phút tốc độ búa và 780V/ phút tốc độ không tải có công dụng như thế nào với công việc của bạn...",
+    images: RH2066X,
+    categories: [10],
+    name: "Máy khoan bê tông G2-RH2066X 1020W 220V 3.5J 4400v/ phút tốc độ búa và 780V/ phút tốc độ không tải",
+    price: "1,400,000₫",
+    oldPrice: "1,580,000₫",
+    url: HOST
+  },
+  {
+    id: 55,
+    title: "Combo máy khoan đục HK-RH2900BL 26MM 21V 2.8J 4800v/ phút chính hãng HUKAN",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Combo máy khoan đục HK-RH2900BL 26MM 21V 2.8J 4800v/ phút chính hãng HUKAN có công dụng như thế nào với công việc của bạn...",
+    images: RH2900BL,
+    categories: [10],
+    name: "Combo máy khoan đục HK-RH2900BL 26MM 21V 2.8J 4800v/ phút chính hãng HUKAN",
+    price: "3,225,000₫",
+    oldPrice: "3,500,000₫",
+    url: HOST
+  },
+  {
+    id: 56,
+    title: "Máy khoan đục bê tông G3-STOM02 2.9J 22MM 5500v/ phút tần số tác động và 1700v/ phút tốc độ không tải",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy khoan đục bê tông G3-STOM02 2.9J 22MM 5500v/ phút tần số tác động và 1700v/ phút tốc độ không tải có công dụng như thế nào với công việc của bạn...",
+    images: G3STOM02,
+    categories: [10],
+    name: "Máy khoan đục bê tông G3-STOM02 2.9J 22MM 5500v/ phút tần số tác động và 1700v/ phút tốc độ không tải",
+    price: "3,190,000đ",
+    oldPrice: "3,500,000₫",
+    url: HOST
+  },
+  {
+    id: 57,
+    title: "Combo máy mài cắt HUKAN G1-AG6101J 21V 100MM 7300v/ phút chân pin phổ thông",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Combo máy mài cắt HUKAN G1-AG6101J 21V 100MM 7300v/ phút chân pin phổ thông có công dụng như thế nào với công việc của bạn...",
+    images: AG6101J,
+    categories: [10],
+    name: "Combo máy mài cắt HUKAN G1-AG6101J 21V 100MM 7300v/ phút chân pin phổ thông",
+    price: "1,250,000đ",
+    oldPrice: "1,468,000₫",
+    url: HOST
+  },
+  {
+    id: 58,
+    title: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng TLP35 chạy xăng 13.5Kg động cơ 4 thì chính hãng TALU",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng TLP35 chạy xăng 13.5Kg động cơ 4 thì chính hãng TALU có công dụng như thế nào với công việc của bạn...",
+    images: TLP35,
+    categories: [1],
+    name: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng TLP35 chạy xăng 13.5Kg động cơ 4 thì chính hãng TALU",
+    price: "3,360,000đ",
+    oldPrice: "6,250,000đ",
+    url: HOST
+  },
+  {
+    id: 59,
+    title: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì có công dụng như thế nào với công việc của bạn...",
+    images: PHUNXA3WF3A43,
+    categories: [1],
+    name: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
+    price: "3,360,000đ",
+    oldPrice: "6,250,000đ",
     url: HOST
   },
 ].map(item => {
