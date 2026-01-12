@@ -65,17 +65,11 @@ const AIChatbot: React.FC = () => {
         setIsTyping(true);
 
         try {
-            const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+            const API_KEY = import.meta.env.VITE_GROQ_API_KEY;
 
             if (!API_KEY) {
-                throw new Error("API Key chưa được cấu hình. Vui lòng kiểm tra .env");
+                throw new Error("Groq API Key chưa được cấu hình. Vui lòng kiểm tra .env");
             }
-
-            // Lấy 4 tin nhắn gần nhất để làm ngữ cảnh (tránh quá dài tốn token)
-            const chatHistory = messages.slice(-4).map(msg => ({
-                role: msg.sender === 'user' ? 'user' : 'model',
-                parts: [{ text: msg.text }]
-            }));
 
             // Tạo danh sách sản phẩm từ newsList
             const productInventory = newsList.map(p => `- ${p.title}: ${p.price}`).join('\n');
@@ -86,49 +80,55 @@ const AIChatbot: React.FC = () => {
                 .map(p => `- ${p.title}: ${p.price} (GIÁ THANH LÝ)`)
                 .join('\n');
 
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`, {
+            // Chuyển đổi lịch sử chat cho Groq (OpenAI format)
+            const chatHistory = messages.slice(-6).map(msg => ({
+                role: msg.sender === 'user' ? 'user' : 'assistant',
+                content: msg.text
+            }));
+
+            const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${API_KEY}`
+                },
                 body: JSON.stringify({
-                    contents: [
+                    model: "llama-3.3-70b-versatile",
+                    messages: [
                         {
-                            role: 'user',
-                            parts: [{
-                                text: `HỆ THỐNG: Bạn là trợ lý ảo của Tấn Lụa (${HOST}). 
-                                
-                                DANH SÁCH SẢN PHẨM HIỆN CÓ:
-                                ${productInventory}
-                                
-                                DANH SÁCH HÀNG THANH LÝ (GIẢM GIÁ TRÊN 40%):
-                                ${liquidatedItems || 'Hiện chưa có sản phẩm thanh lý đặc biệt.'}
-                                
-                                QUY TẮC PHẢN HỒI: 
-                                1. Nếu khách hỏi về "hàng thanh lý", "giảm giá sâu", hãy ưu tiên giới thiệu danh sách HÀNG THANH LÝ ở trên.
-                                2. Sử dụng Markdown: **In đậm** tên sản phẩm, dùng gạch đầu dòng (-) để liệt kê.
-                                3. Trả lời chuyên nghiệp, lịch sự, tiếng Việt.
-                                4. Hotline/Zalo hỗ trợ: 0833.090.186.`
-                            }]
-                        },
-                        {
-                            role: 'model',
-                            parts: [{ text: 'Đã rõ. Tôi sẽ ưu tiên tư vấn hàng thanh lý (giảm trên 40%) khi khách hàng yêu cầu.' }]
+                            role: 'system',
+                            content: `Bạn là trợ lý ảo của Tấn Lụa (${HOST}). 
+                            
+                            DANH SÁCH SẢN PHẨM HIỆN CÓ:
+                            ${productInventory}
+                            
+                            DANH SÁCH HÀNG THANH LÝ (GIẢM GIÁ TRÊN 40%):
+                            ${liquidatedItems || 'Hiện chưa có sản phẩm thanh lý đặc biệt.'}
+                            
+                            QUY TẮC PHẢN HỒI: 
+                            1. Nếu khách hỏi về "hàng thanh lý", "giảm giá sâu", hãy ưu tiên giới thiệu danh sách HÀNG THANH LÝ ở trên.
+                            2. Sử dụng Markdown: **In đậm** tên sản phẩm, dùng gạch đầu dòng (-) để liệt kê.
+                            3. Trả lời chuyên nghiệp, lịch sự, tiếng Việt.
+                            4. Luôn nhắc khách gọi Hotline/Zalo hỗ trợ: 0833.090.186.`
                         },
                         ...chatHistory,
                         {
                             role: 'user',
-                            parts: [{ text: inputValue }]
+                            content: inputValue
                         }
-                    ]
+                    ],
+                    temperature: 0.7,
+                    max_tokens: 1024
                 })
             });
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(`API Error ${response.status}: ${errorData.error?.message || 'Unknown error'}`);
+                throw new Error(`Groq Error ${response.status}: ${errorData.error?.message || 'Unknown error'}`);
             }
 
             const data = await response.json();
-            const botText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Tôi đang bận một chút, bạn thử lại nhé!";
+            const botText = data.choices?.[0]?.message?.content || "Tôi đang bận một chút, bạn thử lại nhé!";
 
             setMessages((prev) => [...prev, {
                 id: (Date.now() + 1).toString(),
@@ -137,10 +137,10 @@ const AIChatbot: React.FC = () => {
                 timestamp: new Date(),
             }]);
         } catch (error: any) {
-            console.error("Gemini Error:", error);
+            console.error("Groq Error:", error);
             setMessages((prev) => [...prev, {
                 id: (Date.now() + 1).toString(),
-                text: "Xin lỗi, tôi gặp chút trục trặc. Bạn nhắn Zalo hoặc gọi Hotline giúp tôi nhé!",
+                text: "Xin lỗi, tôi gặp chút trục trặc. Bạn vui lòng nhắn Zalo hoặc gọi Hotline 0833.090.186 giúp tôi nhé!",
                 sender: 'bot',
                 timestamp: new Date(),
             }]);
