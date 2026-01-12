@@ -104,7 +104,7 @@ const RecentPurchaseNotification: React.FC = () => {
 
   return (
     <div
-      className="fixed bottom-5 left-5 z-[200] flex flex-col-reverse items-start"
+      className="fixed bottom-24 left-5 z-[200] flex flex-col-reverse items-start"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{ pointerEvents: 'none' }}

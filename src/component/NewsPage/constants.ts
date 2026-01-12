@@ -21,7 +21,7 @@ export const HOTLINE = '0833.090.186';
 export const EMAIL = 'tl0913992182@gmail.com';
 export const RECRUITMENT_EMAIL = 'tuyendung@tanlua.com.vn';
 export const ADDRESS = 'Nghĩa Thái, Nghĩa Hưng, Nam Định';
-export const HOST = 'tan-lua.vercel.app'
+export const HOST = 'tanlua.vercel.app'
 
 export const CATEGORIES = [
   { id: 1, name: MACHINE_NAME.MAY_NONG_NGHIEP, slug: "may-nong-nghiep", img: SLIDER_IMAGES[0] },

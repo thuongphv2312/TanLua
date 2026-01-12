@@ -16,6 +16,7 @@ import MarqueeBanner from './component/MarqueeBanner';
 import ScrollToTop from './component/ScrollToTop';
 import { FullPageSkeleton } from './component/ui/SkeletonComponents';
 import StickyDecorations from './component/StickyDecorations';
+import AIChatbot from './component/Chatbot';
 
 
 const { Content } = Layout;
@@ -205,6 +206,7 @@ const App = () => {
           <AppFooter />
         </Layout>
         <StickyDecorations />
+        <AIChatbot />
       </ClickSpark>
     </ConfigProvider>
   );
