@@ -198,7 +198,6 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
           </Space>
         }
 
-
         {/* 3. Giỏ hàng */}
         <Popover content={cartContent} title="Giỏ hàng của bạn" trigger="hover" placement="bottomRight">
           <div style={{

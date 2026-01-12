@@ -15,6 +15,7 @@ import NetworkStatus from './component/NetworkStatus';
 import MarqueeBanner from './component/MarqueeBanner';
 import ScrollToTop from './component/ScrollToTop';
 import { FullPageSkeleton } from './component/ui/SkeletonComponents';
+import StickyDecorations from './component/StickyDecorations';
 
 
 const { Content } = Layout;
@@ -74,6 +75,7 @@ const App = () => {
   const layoutStyle = {
     // minHeight: '500vh', // Chiều cao tràn màn hình
     width: '99.2vw',    // Chiều rộng tràn màn hình
+    background: 'transparent',
   };
 
   const headerStyle = {
@@ -99,7 +101,7 @@ const App = () => {
     textAlign: 'center',
     padding: screens.md ? '0 10vw 50px 10vw' : '0 5vw 50px 5vw',
     minHeight: '50px 100px',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'transparent',
   } as any;
 
 
@@ -202,6 +204,7 @@ const App = () => {
           <RecentPurchaseNotification />
           <AppFooter />
         </Layout>
+        <StickyDecorations />
       </ClickSpark>
     </ConfigProvider>
   );
