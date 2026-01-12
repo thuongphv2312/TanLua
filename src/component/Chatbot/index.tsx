@@ -246,12 +246,46 @@ const AIChatbot: React.FC = () => {
                 )}
             </AnimatePresence>
 
+            {/* Greeting Bubble */}
+            <AnimatePresence>
+                {!isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{ delay: 1 }}
+                        className="absolute bottom-2 left-20 bg-white text-[#cb2b2b] px-4 py-3 rounded-2xl shadow-2xl border border-red-50 whitespace-nowrap text-sm font-bold flex items-center gap-2"
+                        style={{ filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.1))' }}
+                    >
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                        </span>
+                        Tôi có thể giúp gì cho bạn?
+                        {/* Triangle decorator */}
+                        <div className="absolute top-1/2 -translate-y-1/2 -left-2 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-r-8 border-r-white"></div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Pulsing Aura Style */}
+            <style>{`
+                @keyframes pulse-red {
+                    0% { box-shadow: 0 0 0 0 rgba(203, 43, 43, 0.7); }
+                    70% { box-shadow: 0 0 0 15px rgba(203, 43, 43, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(203, 43, 43, 0); }
+                }
+                .chatbot-pulse {
+                    animation: pulse-red 2s infinite;
+                }
+            `}</style>
+
             {/* Floating Toggle Button */}
             <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-16 h-16 bg-[#cb2b2b] rounded-full shadow-lg flex items-center justify-center relative overflow-hidden group border-2 border-white"
+                className={`w-16 h-16 bg-[#cb2b2b] rounded-full shadow-2xl flex items-center justify-center relative group border-2 border-white z-10 ${!isOpen ? 'chatbot-pulse' : ''}`}
                 style={{ borderRadius: '50%' }}
             >
                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
