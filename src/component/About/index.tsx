@@ -84,37 +84,31 @@ const AboutSection = () => {
           <p className="font-semibold">Tầm nhìn và sứ mệnh:</p>
           <p>Trở thành nhà cung cấp hàng đầu về máy móc và thiết bị chuyên dụng tại Việt Nam.</p>
 
-          <p className="font-semibold">Tầm nhìn:</p>
-          <p>
-            <strong>{COMPANY_NAME}</strong> là hội viên của HỘI THƯƠNG MẠI VÀ CHUYÊN GIA ĐIỆN TỬ THÔNG TIN VÀ ĐIỆN LỰC CỦ CHI MINH. NHỮNG THỰC PHẨM HÀNG HÓA CHỦ YẾU THÔNG QINH TÀI VỀ TẠI MÁY VỚI MÁY SINH CƠN BẾN VỚI MÁI LƯU TIÊ.
-          </p>
-
-          <div className="space-y-2 mt-3">
-            <p className="font-semibold">Mục tiêu:</p>
-
+          <p className="font-semibold uppercase">Mục tiêu chiến lược</p>
+          <div className="space-y-3 mt-3">
             <div>
-              <p className="font-semibold">+ Quan hệ với khách hàng:</p>
-              <p>Chúng tôi nâng cao chính mình tác phẩm cám ơn người đầu tư.</p>
+              <p className="font-semibold">Khách hàng là trọng tâm:</p>
+              <p>Không ngừng nâng cao chất lượng dịch vụ để tri ân và mang lại giá trị bền vững cho các nhà đầu tư, đối tác.</p>
             </div>
 
             <div>
-              <p className="font-semibold">+ Phát triển sản phẩm:</p>
-              <p>Nghiên cứu và phát triển các sản phẩm mới nhất, hoàn thiện để cung ứng sản phẩm cơ về sản xuất đồng loạt theo kênh hảo hạng mặt như người đơn vị cầu có nhược điểm nấu.</p>
+              <p className="font-semibold">Sáng tạo sản phẩm:</p>
+              <p>Tập trung nghiên cứu và cải tiến kỹ thuật nhằm cung ứng các sản phẩm hoàn thiện, đạt tiêu chuẩn chất lượng cao và khắc phục mọi nhược điểm thị trường.</p>
             </div>
 
             <div>
-              <p className="font-semibold">+ Xây dựng và mở rộng:</p>
-              <p>Chúng tôi tìm cách mở rộng cửa hàng trực tiếp về cấu ký kế hợp, và quy ước cùng mọi giá kế tại việt về thiết lập trong yếu ở thủ tục mặt hàng phương khả xá kỹ sức hội ảo tục công trực khi mà hạn vào lượng áo cổ hiện gọi sản phảng hồi như về cái.</p>
+              <p className="font-semibold">Mở rộng quy mô:</p>
+              <p>Phát triển mạng lưới cửa hàng và hệ thống phân phối rộng khắp; chuẩn hóa quy trình ký kết để sẵn sàng hội nhập và phản hồi nhanh chóng nhu cầu thị trường.</p>
             </div>
 
             <div>
-              <p className="font-semibold">+ Liên thống về nhân sách:</p>
-              <p>Về những quan tâm hỗ trợ mới trở nên mặt để giải cung về việc chủ công và sẵn sàng, có hỗ đến trở nên tôn giới toàn thông.</p>
+              <p className="font-semibold">Phát triển nhân lực:</p>
+              <p>Xây dựng môi trường làm việc chuyên nghiệp, hỗ trợ tối đa đội ngũ nhân sự và sẵn sàng đồng hành cùng sự phát triển của từng cá nhân.</p>
             </div>
 
             <div>
-              <p className="font-semibold">+ Lợi thế:</p>
-              <p>Về các ưu điểm và các mô hình phương ngữ tế đất chọn họp với hoặc mặt hóa, qua về trên thanh niêu.</p>
+              <p className="font-semibold">Lợi thế cạnh tranh:</p>
+              <p>Tối ưu hóa mô hình vận hành và các dịch vụ hậu mãi để tạo ra sự khác biệt và hiệu quả kinh tế vượt trội.</p>
             </div>
           </div>
 

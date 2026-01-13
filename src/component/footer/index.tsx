@@ -101,7 +101,7 @@ const AppFooter = () => {
           </LinkItem>
           <LinkItem href="/tuyen-dung">Cơ hội việc làm</LinkItem>
           <LinkItem href="/lien-he-quang-cao">Liên hệ quảng cáo</LinkItem>
-          <LinkItem href="/doi-tac">Hợp tác cùng công ty</LinkItem>
+          <LinkItem href="/tro-thanh-doi-tac">Hợp tác cùng công ty</LinkItem>
           <LinkItem href="#" onClick={(e) => { e.preventDefault(); showModal(); }}>Đường đến {COMPANY_NAME}</LinkItem>
         </div>
 
