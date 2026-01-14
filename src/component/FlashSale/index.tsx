@@ -172,7 +172,7 @@ const FlashSale: React.FC<FlashSaleProps> = ({
             </div>
 
             {/* Products Grid */}
-            <div className="bg-gradient-to-b from-red-50 to-white p-4 rounded-b-xl border border-t-0 border-red-200">
+            <div className="bg-gradient-to-b from-gray-50/50 to-white dark:from-gray-900/50 dark:to-[#141414] p-4 rounded-b-xl border border-t-0 border-red-200 dark:border-red-900/30">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                     {flashProducts.map((product) => (
                         <Card

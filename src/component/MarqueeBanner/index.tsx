@@ -16,7 +16,7 @@ const MarqueeBanner: React.FC = () => {
     const fullMessages = [...messages, ...messages, ...messages];
 
     return (
-        <div className="bg-gradient-to-r from-red-700 via-red-600 to-red-700 overflow-hidden py-2 border-b border-red-800 relative z-[101]">
+        <div className="bg-gradient-to-r from-red-700 via-red-600 to-red-700 dark:from-red-900 dark:via-red-800 dark:to-red-900 overflow-hidden py-2 border-b border-red-800 dark:border-red-950 relative z-[101]">
             <motion.div
                 className="flex whitespace-nowrap items-center hover:cursor-pointer"
                 animate={{

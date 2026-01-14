@@ -71,10 +71,10 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white p-6 rounded-xl shadow-sm">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white dark:bg-[#1f1f1f] p-6 rounded-xl shadow-sm border dark:border-gray-800">
         {/* Left: Image Gallery */}
         <div className="space-y-4">
-          <div className="border rounded-lg overflow-hidden h-[400px] flex items-center justify-center bg-gray-50">
+          <div className="border dark:border-gray-800 rounded-lg overflow-hidden h-[400px] flex items-center justify-center bg-gray-50 dark:bg-gray-900/50">
             <Image
               src={mainImage}
               alt={product.name}
@@ -86,7 +86,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
             {product.images.map((img: string, index: number) => (
               <div
                 key={index}
-                className={`w-20 h-20 border rounded cursor-pointer flex-shrink-0 overflow-hidden ${mainImage === img ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200'}`}
+                className={`w-20 h-20 border rounded cursor-pointer flex-shrink-0 overflow-hidden ${mainImage === img ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 dark:border-gray-700'}`}
                 onClick={() => setMainImage(img)}
               >
                 <img src={img} alt={`Thumbnail ${index}`} className="w-full h-full object-cover" loading='lazy' />

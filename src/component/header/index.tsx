@@ -12,9 +12,18 @@ import brand1 from '../../assets/tojiko.png';
 import brand2 from '../../assets/TALU.png';
 import React, { useState, useEffect, useMemo } from 'react';
 import LanguageSwitcher from '../LanguageSwitcher';
+import ThemeToggle from '../ThemeToggle';
 const { Header } = Layout;
 const { useBreakpoint } = Grid;
-const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cartCounts = {}, productList = [] }: any) => {
+const HeaderContainer = ({
+  headerStyle = {},
+  mainColor = '',
+  cartCount = 0,
+  cartCounts = {},
+  productList = [],
+  isDarkMode = false,
+  onToggleTheme = () => { }
+}: any) => {
   const { Text } = Typography;
   const [searchValue, setSearchValue] = useState('');
   const screens = useBreakpoint();
@@ -126,8 +135,8 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
   };
 
   return (<>
-    <Header style={headerStyle} >
-      <MobileMenu />
+    <Header style={{ ...headerStyle, boxShadow: isDarkMode ? '0 4px 20px rgba(0,0,0,0.5)' : '0 4px 10px rgba(0,0,0,0.05)' }} >
+      <MobileMenu isDarkMode={isDarkMode} onToggleTheme={onToggleTheme} />
 
       {/* 1. Search Bar & Category */}
       <div style={{ display: 'flex', alignItems: 'center', flex: 1, maxWidth: '800px' }}>
@@ -198,6 +207,11 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
             </div>
           </Space>
         }
+
+        {/* Theme Toggle - Desktop */}
+        {screens.md && (
+          <ThemeToggle isDarkMode={isDarkMode} onToggle={onToggleTheme} />
+        )}
 
         {/* Language Switcher - Desktop */}
         {screens.md && <LanguageSwitcher />}

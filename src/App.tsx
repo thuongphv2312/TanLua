@@ -19,12 +19,33 @@ import StickyDecorations from './component/StickyDecorations';
 import AIChatbot from './component/Chatbot';
 
 
+import { theme } from 'antd';
 const { Content } = Layout;
 
 const App = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const screens = useBreakpoint();
+
+  // Dark Mode state
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) return savedTheme === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDarkMode) {
+      root.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   useEffect(() => {
     // Giả lập thời gian load app ban đầu
@@ -190,6 +211,7 @@ const App = () => {
   return (
     <ConfigProvider
       theme={{
+        algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
         token: {
           colorPrimary: mainColor,
         },
@@ -200,6 +222,12 @@ const App = () => {
           @keyframes slideDown {
             from { transform: translateY(-100%); }
             to { transform: translateY(0); }
+          }
+          :root {
+            --main-color: ${mainColor};
+          }
+          [data-theme='dark'] .ant-layout-header {
+            background-color: #1a1a1a !important;
           }
         `}
       </style>
@@ -221,6 +249,8 @@ const App = () => {
             cartCounts={cartCounts}
             productList={newsList}
             isSticky={isSticky}
+            isDarkMode={isDarkMode}
+            onToggleTheme={toggleTheme}
           />
           <Content style={contentStyle}>
             <MenuContainer />

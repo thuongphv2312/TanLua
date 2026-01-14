@@ -92,7 +92,7 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, flashPrices = {}, produ
       dataIndex: 'quantity',
       key: 'quantity',
       render: (quantity: number, record: any) => (
-        <div className="flex items-center border border-gray-300 rounded-md w-fit">
+        <div className="flex items-center border border-gray-300 dark:border-gray-700 rounded-md w-fit">
           <Button
             type="text"
             icon={<MinusOutlined />}

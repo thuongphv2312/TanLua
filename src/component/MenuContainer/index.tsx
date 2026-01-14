@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { PARAMETERS, ROUTE_MAP } from '../../constants';
 import { CATEGORIES } from '../NewsPage/constants';
 import LanguageSwitcher from '../LanguageSwitcher';
+import ThemeToggle from '../ThemeToggle';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -38,7 +39,12 @@ const items: MenuItem[] = [
   },
 ];
 
-export const MobileMenu: React.FC = () => {
+interface MobileMenuProps {
+  isDarkMode?: boolean;
+  onToggleTheme?: () => void;
+}
+
+export const MobileMenu: React.FC<MobileMenuProps> = ({ isDarkMode = false, onToggleTheme = () => { } }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate();
   const { useBreakpoint } = Grid;
@@ -91,10 +97,19 @@ export const MobileMenu: React.FC = () => {
           style={{ borderRight: 'none' }}
         />
 
+        {/* Theme Toggle Section */}
+        <Divider style={{ margin: '12px 0' }} />
+        <div style={{ padding: '0 16px' }}>
+          <div style={{ marginBottom: '8px', fontWeight: 500, color: isDarkMode ? '#aaa' : '#666' }}>
+            🌓 Chế độ giao diện
+          </div>
+          <ThemeToggle isDarkMode={isDarkMode} onToggle={onToggleTheme} isMobile={true} />
+        </div>
+
         {/* Language Switcher Section */}
         <Divider style={{ margin: '12px 0' }} />
         <div style={{ padding: '0 16px 16px' }}>
-          <div style={{ marginBottom: '8px', fontWeight: 500, color: '#666' }}>
+          <div style={{ marginBottom: '8px', fontWeight: 500, color: isDarkMode ? '#aaa' : '#666' }}>
             🌐 Ngôn ngữ / Language
           </div>
           <LanguageSwitcher isMobile={true} />

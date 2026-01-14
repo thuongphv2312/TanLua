@@ -18,16 +18,16 @@ const NewsCard = ({ images, title, author, date, description, onClick }: any) =>
         loading='lazy'
       />
     </div>
-    <h3 className="text-[15px] font-bold leading-tight mb-2 line-clamp-2 group-hover:text-red-600">
+    <h3 className="text-[15px] font-bold leading-tight mb-2 line-clamp-2 group-hover:text-red-600 dark:text-white dark:group-hover:text-red-400">
       {title}
     </h3>
-    <div className="text-gray-400 text-[11px] mb-2">
+    <div className="text-gray-400 dark:text-gray-500 text-[11px] mb-2">
       <span>{author}</span> <span className="mx-1">-</span> <span>{date}</span>
     </div>
-    <p className="text-gray-600 text-sm line-clamp-3 mb-2">
+    <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-3 mb-2">
       {description}
     </p>
-    <a className="text-red-500 text-xs font-semibold hover:underline">Đọc tiếp</a>
+    <a className="text-red-500 dark:text-red-400 text-xs font-semibold hover:underline">Đọc tiếp</a>
   </div>
 );
 
@@ -130,12 +130,11 @@ const NewsPage: React.FC = () => {
             <>
               {/* Danh mục tin tức */}
               <div>
-                <h2 className="text-sm font-bold tracking-widest uppercase mb-4 border-b pb-2">Danh mục tin tức</h2>
+                <h2 className="text-sm font-bold tracking-widest uppercase mb-4 border-b dark:border-gray-800 pb-2">Danh mục tin tức</h2>
                 <ul className="space-y-2">
                   {CATEGORIES.slice(0, 4).map((cat, idx) => (
-                    <li onClick={() => hanlderCategory(cat)} key={idx} className={`flex justify-between items-center text-sm ${activeCategory === cat.id ? 'text-red-600 font-bold' : 'text-gray-700'} hover:text-red-600 cursor-pointer py-1`}>
+                    <li onClick={() => hanlderCategory(cat)} key={idx} className={`flex justify-between items-center text-sm ${activeCategory === cat.id ? 'text-red-600 font-bold' : 'text-gray-700 dark:text-gray-300'} hover:text-red-600 cursor-pointer py-1`}>
                       {cat.name}
-                      {/* {idx < 4 && <RightOutlined className="text-[10px]" />} */}
                     </li>
                   ))}
                 </ul>
