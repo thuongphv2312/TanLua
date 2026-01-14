@@ -140,31 +140,31 @@ const FlashSale: React.FC<FlashSaleProps> = ({
       `}</style>
 
             {/* Flash Sale Header */}
-            <div className="flash-header rounded-t-xl p-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                    <ThunderboltOutlined className="text-yellow-300 text-3xl lightning-icon" />
+            <div className="flash-header rounded-t-xl p-3 md:p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-2 md:gap-3 text-center sm:text-left">
+                    <ThunderboltOutlined className="text-yellow-300 text-2xl md:text-3xl lightning-icon" />
                     <div>
-                        <h2 className="text-white text-2xl font-bold flex items-center gap-2">
-                            ⚡ FLASH SALE HÔM NAY
-                            <FireOutlined className="text-yellow-300" />
+                        <h2 className="text-white text-lg md:text-2xl font-bold flex items-center justify-center sm:justify-start gap-2">
+                            FLASH SALE HÔM NAY
+                            <FireOutlined className="text-yellow-300 hidden sm:inline" />
                         </h2>
-                        <p className="text-white/80 text-sm">Giảm thêm 10% - Chỉ trong hôm nay!</p>
+                        <p className="text-white/80 text-xs md:text-sm">Giảm thêm 10% - Chỉ trong hôm nay!</p>
                     </div>
                 </div>
 
                 {/* Countdown Timer */}
-                <div className="flex items-center gap-2">
-                    <span className="text-white font-medium">Kết thúc sau:</span>
-                    <div className="flex gap-1">
-                        <div className="countdown-box text-white px-3 py-2 rounded-lg text-xl font-bold min-w-[50px] text-center">
+                <div className="flex flex-col sm:flex-row items-center gap-2 bg-black/20 sm:bg-transparent p-2 sm:p-0 rounded-lg w-full sm:w-auto">
+                    <span className="text-white text-[10px] md:text-sm font-medium uppercase tracking-wider opacity-90">Kết thúc sau:</span>
+                    <div className="flex gap-1 items-center">
+                        <div className="countdown-box text-white px-2 py-1 md:px-3 md:py-2 rounded-md md:rounded-lg text-lg md:text-xl font-bold min-w-[40px] md:min-w-[50px] text-center">
                             {formatTime(timeLeft.hours)}
                         </div>
-                        <span className="text-white text-xl font-bold self-center">:</span>
-                        <div className="countdown-box text-white px-3 py-2 rounded-lg text-xl font-bold min-w-[50px] text-center">
+                        <span className="text-white text-lg md:text-xl font-bold">:</span>
+                        <div className="countdown-box text-white px-2 py-1 md:px-3 md:py-2 rounded-md md:rounded-lg text-lg md:text-xl font-bold min-w-[40px] md:min-w-[50px] text-center">
                             {formatTime(timeLeft.minutes)}
                         </div>
-                        <span className="text-white text-xl font-bold self-center">:</span>
-                        <div className="countdown-box text-white px-3 py-2 rounded-lg text-xl font-bold min-w-[50px] text-center">
+                        <span className="text-white text-lg md:text-xl font-bold">:</span>
+                        <div className="countdown-box text-white px-2 py-1 md:px-3 md:py-2 rounded-md md:rounded-lg text-lg md:text-xl font-bold min-w-[40px] md:min-w-[50px] text-center">
                             {formatTime(timeLeft.seconds)}
                         </div>
                     </div>
@@ -172,26 +172,26 @@ const FlashSale: React.FC<FlashSaleProps> = ({
             </div>
 
             {/* Products Grid */}
-            <div className="bg-gradient-to-b from-gray-50/50 to-white dark:from-gray-900/50 dark:to-[#141414] p-4 rounded-b-xl border border-t-0 border-red-200 dark:border-red-900/30">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="bg-gradient-to-b from-gray-50/50 to-white dark:from-gray-900/50 dark:to-[#141414] p-2 md:p-4 rounded-b-xl border border-t-0 border-red-200 dark:border-red-900/30">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4">
                     {flashProducts.map((product) => (
                         <Card
                             key={product.id}
                             hoverable
-                            className="flash-card relative overflow-hidden transition-all duration-300"
+                            className="flash-card relative overflow-hidden transition-all duration-300 border-red-50 dark:border-gray-800"
                             onClick={() => navigate(`/product/${product.id}`)}
                             cover={
-                                <div className="relative bg-gradient-to-br from-orange-50 to-red-50 h-48 flex items-center justify-center">
+                                <div className="relative bg-gradient-to-br from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-900 h-32 sm:h-40 md:h-48 flex items-center justify-center overflow-hidden">
                                     {/* Flash Sale Badge */}
-                                    <div className="absolute top-0 left-0 flash-badge text-white text-xs font-bold px-3 py-1 rounded-br-lg z-10 flex items-center gap-1">
-                                        <ThunderboltOutlined /> FLASH
+                                    <div className="absolute top-0 left-0 flash-badge text-white text-[9px] md:text-xs font-bold px-1.5 py-0.5 md:px-3 md:py-1 rounded-br-lg z-10 flex items-center gap-0.5 md:gap-1">
+                                        <ThunderboltOutlined /> <span className="hidden xs:inline">FLASH</span>
                                     </div>
 
                                     {/* Extra Discount Badge */}
                                     <Badge.Ribbon
-                                        text={<span className="font-bold">{product.extraDiscount}</span>}
+                                        text={<span className="font-bold text-[10px] md:text-sm">{product.extraDiscount}</span>}
                                         color="volcano"
-                                        className="text-sm"
+                                        className="text-xs md:text-sm"
                                     />
 
                                     {/* Product Image */}
@@ -199,42 +199,40 @@ const FlashSale: React.FC<FlashSaleProps> = ({
                                         <img
                                             src={product.images[0]}
                                             alt={product.name}
-                                            className="w-full h-full object-cover"
+                                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                                             loading="lazy"
                                         />
                                     ) : (
-                                        <div className="flex items-center justify-center w-full h-full bg-gray-100 text-gray-300">
-                                            <ThunderboltOutlined style={{ fontSize: '32px' }} />
+                                        <div className="flex items-center justify-center w-full h-full bg-gray-100 dark:bg-gray-800 text-gray-300">
+                                            <ThunderboltOutlined className="text-2xl md:text-3xl" />
                                         </div>
                                     )}
                                 </div>
                             }
-                            bodyStyle={{ padding: '12px' }}
+                            bodyStyle={{ padding: '8px md:12px' }}
                         >
-                            <div className="space-y-2">
+                            <div className="space-y-1 md:space-y-2 text-left">
                                 <Tooltip title={product.name}>
-                                    <h3 className="text-sm font-medium line-clamp-2 h-10 cursor-help">{product.name}</h3>
+                                    <h3 className="text-[11px] md:text-sm font-medium line-clamp-2 h-8 md:h-10 cursor-help dark:text-gray-200">{product.name}</h3>
                                 </Tooltip>
 
                                 {/* Price Section */}
-                                <div className="flex items-center justify-between">
+                                <div className="flex items-center justify-between gap-1">
                                     <div className="flex flex-col">
-                                        <span className="text-red-600 font-bold text-base">{product.flashPrice}</span>
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-gray-400 line-through text-xs">{product.price}</span>
-                                        </div>
+                                        <span className="text-red-600 font-bold text-xs md:text-base leading-none">{product.flashPrice}</span>
+                                        <span className="text-gray-400 line-through text-[9px] md:text-xs">{product.price}</span>
                                     </div>
 
                                     {/* Add to Cart Button */}
                                     <Button
                                         type="primary"
-                                        icon={cartCounts[product.id] ? null : <PlusOutlined />}
+                                        icon={cartCounts[product.id] ? null : <PlusOutlined className="text-[10px] md:text-base" />}
                                         shape="circle"
-                                        size="middle"
-                                        className={`btn-flash ${addingId === product.id ? 'btn-adding' : ''}`}
+                                        size="small"
+                                        className={`btn-flash flex-shrink-0 w-6 h-6 md:w-8 md:h-8 min-w-0 ${addingId === product.id ? 'btn-adding' : ''}`}
                                         onClick={(e) => handleAddToCart(e, product)}
                                     >
-                                        {cartCounts[product.id] ? <span className="font-bold">{cartCounts[product.id]}</span> : null}
+                                        {cartCounts[product.id] ? <span className="font-bold text-[10px] md:text-sm">{cartCounts[product.id]}</span> : null}
                                     </Button>
                                 </div>
                             </div>
