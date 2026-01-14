@@ -62,6 +62,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           lstProducts={newsList}
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
+          onAddFlashSaleToCart={onAddFlashSaleToCart}
           categoryId={99}
         />
         <Products
@@ -69,6 +70,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           lstProducts={newsList}
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
+          onAddFlashSaleToCart={onAddFlashSaleToCart}
           categoryId={1}
         />
         <Products
@@ -76,6 +78,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           lstProducts={newsList}
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
+          onAddFlashSaleToCart={onAddFlashSaleToCart}
           categoryId={2}
         />
         <Products
@@ -84,6 +87,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           lstProducts={newsList}
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
+          onAddFlashSaleToCart={onAddFlashSaleToCart}
           categoryId={10}
         />
         <NewsPage />
@@ -121,11 +125,13 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
         <SearchResults
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
+          onAddFlashSaleToCart={onAddFlashSaleToCart}
         />
       } />
       <Route path="/product/:id" element={
         <ProductDetailPage
           onAddToCart={onUpdateCart}
+          onAddFlashSaleToCart={onAddFlashSaleToCart}
         />
       } />
       {CATEGORIES.map((category) => (
@@ -137,6 +143,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
             lstProducts={newsList}
             cartCounts={cartCounts}
             onAddToCart={onUpdateCart}
+            onAddFlashSaleToCart={onAddFlashSaleToCart}
             categoryId={category.id}
           />} />
       ))}

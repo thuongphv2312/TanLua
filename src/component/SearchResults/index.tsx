@@ -11,9 +11,10 @@ const { Title } = Typography;
 interface SearchResultsProps {
   cartCounts: { [key: number]: number };
   onAddToCart: (id: number) => void;
+  onAddFlashSaleToCart: (id: number, flashPrice: string) => void;
 }
 
-const SearchResults: React.FC<SearchResultsProps> = ({ cartCounts, onAddToCart }) => {
+const SearchResults: React.FC<SearchResultsProps> = ({ cartCounts, onAddToCart, onAddFlashSaleToCart }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
@@ -57,6 +58,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ cartCounts, onAddToCart }
           lstProducts={filteredProducts as any}
           cartCounts={cartCounts}
           onAddToCart={onAddToCart}
+          onAddFlashSaleToCart={onAddFlashSaleToCart}
         />
       ) : (
         <div className="flex flex-col items-center justify-center mt-20">

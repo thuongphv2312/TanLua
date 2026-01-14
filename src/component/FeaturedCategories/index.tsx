@@ -1,110 +1,151 @@
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { CATEGORIES } from "../NewsPage/constants";
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 export default function FeaturedCategories() {
-  const [index, setIndex] = useState(0);
-  const [itemsPerView, setItemsPerView] = useState(6);
   const navigate = useNavigate();
-  const maxIndex = Math.max(0, CATEGORIES.length - itemsPerView);
-
-  useEffect(() => {
-  if (maxIndex === 0) return;
-
-  const timer = setInterval(() => {
-    setIndex((prev) => {
-      if (prev >= maxIndex) return 0; // quay lại đầu
-      return prev + 1;
-    });
-  }, 3000);
-
-  return () => clearInterval(timer);
-}, [maxIndex]);
-
-  // Responsive items per view
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) setItemsPerView(3);
-      else if (window.innerWidth < 1024) setItemsPerView(5);
-      else setItemsPerView(8);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const next = () => {
-    if (index < maxIndex) setIndex(index + 1);
-  };
-
-  const prev = () => {
-    if (index > 0) setIndex(index - 1);
-  };
 
   return (
-    <div className="relative w-full py-10">
-      {/* Title */}
-      <h2 className="text-xl font-bold mb-10 text-left">DANH MỤC NỔI BẬT</h2>
+    <div className="relative w-full py-12 select-none overflow-hidden group/slider">
+      <style>{`
+        .categories-swiper {
+          padding-bottom: 50px !important;
+          padding-top: 10px !important;
+        }
+        .categories-swiper .swiper-pagination-bullet {
+          background: #f59e0b;
+          opacity: 0.3;
+        }
+        .categories-swiper .swiper-pagination-bullet-active {
+          background: #ef4444;
+          opacity: 1;
+          width: 24px;
+          border-radius: 4px;
+        }
+        
+        /* Custom Navigation Buttons */
+        .nav-btn {
+          position: absolute;
+          top: 45%;
+          transform: translateY(-50%);
+          z-index: 50;
+          cursor: pointer;
+          color: #ccc;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+        }
+        .nav-btn:hover {
+          color: #ef4444;
+          transform: translateY(-50%) scale(1.2);
+        }
+        .nav-btn.swiper-button-disabled {
+          opacity: 0;
+          pointer-events: none;
+        }
+        .nav-prev { left: 0px; }
+        .nav-next { right: 0px; }
 
-      {/* Slider */}
-      <div className="overflow-hidden">
-        <div
-          className="flex transition-transform duration-500"
-          style={{
-            transform: `translateX(-${index * (100 / itemsPerView)}%)`,
-          }}
-        >
-          {CATEGORIES.map((item, i) => (
-            <div
-              key={i}
-              className="flex-shrink-0 flex flex-col items-center cursor-pointer px-2"
-              style={{ width: `${100 / itemsPerView}%` }}
-              onClick={() => navigate(`/${item.slug}`)}
-            >
-              <div className="w-16 h-16 sm:w-40 sm:h-40 md:w-24 md:h-24 flex-shrink-0 rounded-full border-2 border-amber-500 flex items-center justify-center hover:scale-104 transition overflow-hidden bg-white">
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <p className="mt-2 text-sm font-medium text-center">
-                {item.name}
-              </p>
-            </div>
-          ))}
-        </div>
+        @media (max-width: 1024px) {
+          .nav-btn {
+            display: none !important;
+          }
+        }
+        .category-item:hover .img-container {
+          border-color: #ef4444;
+          box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+          transform: translateY(-8px);
+        }
+        .category-item:hover img {
+          transform: scale(1.1);
+        }
+      `}</style>
+
+      {/* Title */}
+      <div className="flex items-center justify-between mb-8 px-2 uppercase">
+        <h2 className="text-xl md:text-2xl font-black text-gray-800 dark:text-gray-100 flex items-center gap-3">
+          <span className="w-2 h-8 bg-red-600 rounded-full"></span>
+          DANH MỤC NỔI BẬT
+        </h2>
       </div>
 
-      {/* Prev Button – chỉ hiện mobile */}
-      <button
-        style={{ backgroundColor: 'transparent', padding: '10px', outline: 'none'}}
-        onClick={prev}
-        disabled={index === 0}
-        className="
-    flex lg:hidden
-    absolute left-2 top-40 -translate-y-1/2 z-20
-    disabled:opacity-30
-  "
-      >
-        <LeftOutlined style={{ fontSize: '18px', color: 'red', display: 'flex' }}/>
-      </button>
+      <div className="relative px-2">
+        {/* Custom Navigation Icons */}
+        <div className="nav-btn nav-prev custom-prev">
+          <LeftOutlined style={{ fontSize: '18px' }} />
+        </div>
+        <div className="nav-btn nav-next custom-next">
+          <RightOutlined style={{ fontSize: '18px' }} />
+        </div>
 
-      {/* Next Button – chỉ hiện mobile */}
-      <button
-        style={{ backgroundColor: 'transparent', padding: '10px', outline: 'none' }}
-        onClick={next}
-        disabled={index >= maxIndex}
-        className="
-    flex lg:hidden
-    absolute right-2 top-40 -translate-y-1/2 z-20
-    disabled:opacity-30
-  "
-      >
-        <RightOutlined style={{ fontSize: '18px', color: 'red', display: 'flex'}}/>
-      </button>
+        {/* Swiper Slider */}
+        <Swiper
+          modules={[Autoplay, Pagination, Navigation]}
+          spaceBetween={20}
+          slidesPerView={3}
+          navigation={{
+            prevEl: '.custom-prev',
+            nextEl: '.custom-next',
+          }}
+          pagination={{ clickable: true }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 5,
+              spaceBetween: 25,
+            },
+            1024: {
+              slidesPerView: 7,
+              spaceBetween: 30,
+            },
+            1280: {
+              slidesPerView: 8,
+              spaceBetween: 30,
+            },
+          }}
+          className="categories-swiper"
+        >
+          {CATEGORIES.map((item, i) => (
+            <SwiperSlide key={i}>
+              <div
+                className="category-item group flex flex-col items-center cursor-pointer transition-all duration-300"
+                onClick={() => navigate(`/${item.slug}`)}
+              >
+                <div className="img-container relative w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 flex-shrink-0 rounded-full border-2 border-orange-200 dark:border-gray-700 flex items-center justify-center transition-all duration-500 overflow-hidden bg-white dark:bg-gray-800 shadow-sm">
+                  <img
+                    src={item.img}
+                    alt={item.name}
+                    className="w-full h-full object-cover transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <p className="mt-4 text-[13px] md:text-sm font-bold text-center text-gray-700 dark:text-gray-300 group-hover:text-red-600 transition-colors line-clamp-2 px-1">
+                  {item.name}
+                </p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 }

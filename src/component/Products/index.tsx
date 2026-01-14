@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingCartOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, SearchOutlined, PlusOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { Card, Badge, Button, message, Empty, Tooltip } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { CATEGORIES, HOST } from '../NewsPage/constants';
 import { ProductGridSkeleton } from '../ui/SkeletonComponents';
 import SEO, { CATEGORY_SEO } from '../SEO';
+import { isProductInFlashSale } from '../../utils/flashSale';
 
 
 interface Product {
@@ -24,6 +25,7 @@ interface ProductsProps {
   bannerImage?: string;
   cartCounts?: { [key: number]: number };
   onAddToCart?: (id: number) => void;
+  onAddFlashSaleToCart?: (id: number, flashPrice: string) => void;
   categoryId?: number;
   isLoading?: boolean;
 }
@@ -34,6 +36,7 @@ const Products: React.FC<ProductsProps> = ({
   bannerImage,
   cartCounts = {},
   onAddToCart = () => { },
+  onAddFlashSaleToCart = () => { },
   categoryId,
   isLoading = false
 }) => {
@@ -73,9 +76,15 @@ const Products: React.FC<ProductsProps> = ({
     e.stopPropagation(); // Ngăn sự kiện click lan ra Card
     setAddingId(product.id);
 
+    const flashProduct = isProductInFlashSale(product.id);
+
     // Delay để chạy animation trước khi hiện thông báo
     setTimeout(() => {
-      onAddToCart(product.id);
+      if (flashProduct) {
+        onAddFlashSaleToCart(product.id, flashProduct.flashPrice);
+      } else {
+        onAddToCart(product.id);
+      }
 
       message.success({
         content: `Đã thêm ${product.name} vào giỏ hàng!`,
@@ -188,114 +197,122 @@ const Products: React.FC<ProductsProps> = ({
               />
             </div>
           )}
-          {visibleData.map((product) => (
-            <Card
-              key={product.id}
-              hoverable
-              className="relative overflow-hidden transition-transform duration-300 hover:scale-[1.04]"
-              onClick={() => navigate(`/product/${product.id}`)}
-              cover={
-                <div className="relative bg-gradient-to-br from-green-100 to-green-50 h-48 flex items-center justify-center">
-                  {/* Discount Badge */}
-                  {product.discount && (
-                    <Badge.Ribbon
-                      text={<span className={parseInt(product.discount.replace(/\D/g, '')) >= 40 ? "fire-text text-sm scale-125" : "fire-text"}>{product.discount}</span>}
-                      color="transparent"
-                      className="text-xs font-bold"
-                    />
-                  )}
+          {visibleData.map((product) => {
+            const flashProduct = isProductInFlashSale(product.id);
+            const displayPrice = flashProduct ? flashProduct.flashPrice : product.price;
+            const displayOldPrice = flashProduct ? (product.oldPrice || product.price) : product.oldPrice;
 
-                  {activeCategory === 99 && (
-                    <div className="absolute top-0 left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10 animate-pulse">
-                      XẢ KHO
-                    </div>
-                  )}
-
-                  {/* Product Image Placeholder */}
-                  {product.images?.[0] ? (
-                    <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" loading='lazy' />
-                  ) : (
-                    <div className="flex items-center justify-center w-full h-full bg-gray-100 text-gray-300">
-                      <SearchOutlined style={{ fontSize: '32px' }} />
-                    </div>
-                  )}
-
-                  {/* Watermark */}
-                  <div className="absolute bottom-2 left-2 text-xs text-gray-400 font-mono">
-                    {product.url}
-                  </div>
-
-                  {/* Quick View Icon */}
-                  {/* <div className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-md cursor-pointer hover:bg-gray-100">
-                  <SearchOutlined className="text-gray-600" />
-                </div> */}
-                </div>
-              }
-              bodyStyle={{ padding: '12px' }}
-            >
-              {/* Product Info */}
-              <div className="space-y-2">
-                {/* <p className="text-xs text-gray-500 uppercase">{product.url}</p> */}
-                <Tooltip title={product.name}>
-                  <h3 className="text-sm font-medium line-clamp-2 h-10 cursor-help">{product.name}</h3>
-                </Tooltip>
-
-                {/* Price Section */}
-                <div className="flex items-center justify-between">
-                  <div className="flex flex-col">
-                    <span className="text-red-600 font-bold text-base">{product.price}</span>
-                    {product.oldPrice && (
-                      <span className="text-gray-400 line-through text-xs">{product.oldPrice}</span>
+            return (
+              <Card
+                key={product.id}
+                hoverable
+                className="relative overflow-hidden transition-transform duration-300 hover:scale-[1.04]"
+                onClick={() => navigate(`/product/${product.id}`)}
+                cover={
+                  <div className={`relative h-48 flex items-center justify-center ${flashProduct ? 'bg-gradient-to-br from-red-50 to-orange-50' : 'bg-gradient-to-br from-green-100 to-green-50'}`}>
+                    {/* Flash Sale Badge */}
+                    {flashProduct && (
+                      <div className="absolute top-0 left-0 bg-gradient-to-r from-red-600 to-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10 flex items-center gap-1 animate-pulse">
+                        <ThunderboltOutlined /> FLASH SALE
+                      </div>
                     )}
-                  </div>
 
-                  {/* Add to Cart Button */}
-                  <Button
-                    type="primary"
-                    danger
-                    icon={cartCounts[product.id] ? null : <PlusOutlined />}
-                    shape="circle"
-                    size="middle"
-                    className={addingId === product.id ? 'btn-adding' : ''}
-                    onClick={(e) => handleAddToCart(e, product)}
-                  >
-                    {cartCounts[product.id] ? <span className="font-bold">{cartCounts[product.id]}</span> : null}
-                  </Button>
+                    {/* Discount Badge */}
+                    {product.discount && !flashProduct && (
+                      <Badge.Ribbon
+                        text={<span className={parseInt(product.discount.replace(/\D/g, '')) >= 40 ? "fire-text text-sm scale-125" : "fire-text"}>{product.discount}</span>}
+                        color="transparent"
+                        className="text-xs font-bold"
+                      />
+                    )}
+
+                    {activeCategory === 99 && (
+                      <div className="absolute top-0 left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10 animate-pulse">
+                        XẢ KHO
+                      </div>
+                    )}
+
+                    {/* Product Image Placeholder */}
+                    {product.images?.[0] ? (
+                      <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" loading='lazy' />
+                    ) : (
+                      <div className="flex items-center justify-center w-full h-full bg-gray-100 text-gray-300">
+                        <SearchOutlined style={{ fontSize: '32px' }} />
+                      </div>
+                    )}
+
+                    {/* Watermark */}
+                    <div className="absolute bottom-2 left-2 text-xs text-gray-400 font-mono">
+                      {product.url}
+                    </div>
+                  </div>
+                }
+                bodyStyle={{ padding: '12px' }}
+              >
+                {/* Product Info */}
+                <div className="space-y-2">
+                  <Tooltip title={product.name}>
+                    <h3 className="text-sm font-medium line-clamp-2 h-10 cursor-help">{product.name}</h3>
+                  </Tooltip>
+
+                  {/* Price Section */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-col">
+                      <span className={`font-bold text-base ${flashProduct ? 'text-red-600' : 'text-red-500'}`}>
+                        {flashProduct && <ThunderboltOutlined className="mr-1" />}
+                        {displayPrice}
+                      </span>
+                      {displayOldPrice && (
+                        <span className="text-gray-400 line-through text-xs font-normal">{displayOldPrice}</span>
+                      )}
+                    </div>
+
+                    {/* Add to Cart Button */}
+                    <Button
+                      type="primary"
+                      danger
+                      icon={cartCounts[product.id] ? null : <PlusOutlined />}
+                      shape="circle"
+                      size="middle"
+                      className={addingId === product.id ? 'btn-adding' : ''}
+                      onClick={(e) => handleAddToCart(e, product)}
+                    >
+                      {cartCounts[product.id] ? <span className="font-bold">{cartCounts[product.id]}</span> : null}
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </Card>
-          ))}
+              </Card>
+            );
+          })}
         </div>
       )}
 
       {/* Load More Button */}
-      {
-        dataToDisplay.length > 10 && (
-          <div className="text-center mt-8">
-            {visibleCount < dataToDisplay.length ? (
-              <Button
-                type="default"
-                size="large"
-                shape="round"
-                className="px-8"
-                onClick={() => setVisibleCount(prev => prev + 10)}
-              >
-                Xem thêm sản phẩm
-              </Button>
-            ) : (
-              <Button
-                type="default"
-                size="large"
-                shape="round"
-                className="px-8"
-                onClick={() => setVisibleCount(10)}
-              >
-                Thu gọn
-              </Button>
-            )}
-          </div>
-        )
-      }
+      {dataToDisplay.length > 10 && (
+        <div className="text-center mt-8">
+          {visibleCount < dataToDisplay.length ? (
+            <Button
+              type="default"
+              size="large"
+              shape="round"
+              className="px-8"
+              onClick={() => setVisibleCount(prev => prev + 10)}
+            >
+              Xem thêm sản phẩm
+            </Button>
+          ) : (
+            <Button
+              type="default"
+              size="large"
+              shape="round"
+              className="px-8"
+              onClick={() => setVisibleCount(10)}
+            >
+              Thu gọn
+            </Button>
+          )}
+        </div>
+      )}
     </div>
   );
 };
