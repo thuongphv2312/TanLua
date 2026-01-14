@@ -102,6 +102,17 @@ const FlashSale: React.FC<FlashSaleProps> = ({
           0%, 100% { opacity: 1; transform: translateY(0); }
           50% { opacity: 0.5; transform: translateY(-2px); }
         }
+        @keyframes fire-burning {
+          0% { transform: scale(1) translateY(0); filter: drop-shadow(0 0 2px #ff4b2b); }
+          25% { transform: scale(1.1) translateY(-1px) rotate(-2deg); filter: drop-shadow(0 0 5px #ff416c); }
+          50% { transform: scale(1.05) translateY(0) rotate(2deg); filter: drop-shadow(0 0 8px #f5af19); }
+          75% { transform: scale(1.15) translateY(-2px) rotate(-1deg); filter: drop-shadow(0 0 5px #ff4b2b); }
+          100% { transform: scale(1) translateY(0); filter: drop-shadow(0 0 2px #ff4b2b); }
+        }
+        .fire-icon {
+          animation: fire-burning 0.8s ease-in-out infinite;
+          color: #ffca28 !important;
+        }
         .flash-header {
           background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
           animation: flash-pulse 2s ease-in-out infinite;
@@ -146,7 +157,7 @@ const FlashSale: React.FC<FlashSaleProps> = ({
                     <div>
                         <h2 className="text-white text-lg md:text-2xl font-bold flex items-center justify-center sm:justify-start gap-2">
                             FLASH SALE HÔM NAY
-                            <FireOutlined className="text-yellow-300 hidden sm:inline" />
+                            <FireOutlined className="fire-icon hidden sm:inline" />
                         </h2>
                         <p className="text-white/80 text-xs md:text-sm">Giảm thêm 10% - Chỉ trong hôm nay!</p>
                     </div>
