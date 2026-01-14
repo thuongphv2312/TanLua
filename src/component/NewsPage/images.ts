@@ -831,3 +831,14 @@ export const G2TPLF1 = [
 export const THUOCDAM2M = [
   "https://i.ibb.co/gL4pz3xQ/Th-c-nh-m-m-t-m-2m.png",
 ]
+
+export const MAYXOIXDD178 = [
+  "https://i.ibb.co/JRNRYNJ8/M-y-x-i-t-XDD178.png",
+  "https://i.ibb.co/ns1FgHw9/M-y-x-i-t-XDD178-1.png",
+  "https://i.ibb.co/LzbHh9qm/M-y-x-i-t-XDD178-2.png",
+  "https://i.ibb.co/LhXSBgFc/M-y-x-i-t-XDD178-3.png",
+  "https://i.ibb.co/S4Hdmwrt/M-y-x-i-t-XDD178-4.png",
+  "https://i.ibb.co/mMjXxND/M-y-x-i-t-XDD178-5.png",
+  "https://i.ibb.co/C3FJ81Pw/M-y-x-i-t-XDD178-6.png",
+  "https://i.ibb.co/j94FND5y/M-y-x-i-t-XDD178-7.png",
+]
