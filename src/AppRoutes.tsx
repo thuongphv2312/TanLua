@@ -20,6 +20,7 @@ import PrivacyPolicyPage from './component/PrivacyPolicyPage';
 import WarrantyPolicyPage from './component/WarrantyPolicyPage';
 import ReturnPolicyPage from './component/ReturnPolicyPage';
 import PaymentSupportPage from './component/PaymentSupportPage';
+import SEO from './component/SEO';
 
 interface AppRoutesProps {
   cartCounts: { [key: number]: number };
@@ -39,6 +40,11 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
   return (
     <Routes>
       <Route path="/" element={<>
+        <SEO
+          title="Tấn Lụa - Máy móc Công Nông nghiệp | Máy hàn, Máy cắt cỏ, Dụng cụ cầm tay chính hãng"
+          description="Tấn Lụa (TanLua) - Chuyên phân phối máy móc công nông nghiệp chính hãng: Máy hàn, Máy cắt cỏ, Máy xới đất, Máy rửa xe, Máy khoan pin, Dụng cụ cầm tay. Giá tốt nhất - Bảo hành uy tín - Giao hàng toàn quốc."
+          keywords="tanlua, tấn lụa, máy hàn, máy cắt cỏ, máy xới đất, máy rửa xe, máy khoan pin, dụng cụ cầm tay, máy nông nghiệp, máy công nghiệp, HUKAN, OSHIMA, GREEKMAN"
+        />
         <Slider />
         <FeaturedCategories />
         <Products

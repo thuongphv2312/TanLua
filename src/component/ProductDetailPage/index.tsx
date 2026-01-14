@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Typography, Button, Rate, Divider, Image, message } from 'antd';
 import { ShoppingCartOutlined, ArrowLeftOutlined } from '@ant-design/icons';
-import { newsList } from '../NewsPage/constants';
+import { newsList, CATEGORIES, HOST } from '../NewsPage/constants';
+import SEO from '../SEO';
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -28,20 +29,46 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
     return <div className="text-center py-20">Không tìm thấy sản phẩm</div>;
   }
 
+  // Get category name for SEO
+  const productCategory = product.categories?.[0]
+    ? CATEGORIES.find(c => c.id === product.categories[0])?.name || 'Máy móc'
+    : 'Máy móc';
+
+  // Generate breadcrumbs for SEO
+  const breadcrumbs = [
+    { name: 'Trang chủ', url: `https://${HOST}` },
+    { name: productCategory, url: `https://${HOST}/${CATEGORIES.find(c => c.id === product.categories?.[0])?.slug || ''}` },
+    { name: product.name, url: `https://${HOST}/product/${product.id}` },
+  ];
+
   return (
     <div className="max-w-7xl mx-auto py-8 px-4">
+      {/* SEO Component */}
+      <SEO
+        title={`${product.name} - Giá tốt tại Tấn Lụa`}
+        description={`Mua ${product.name} chính hãng giá ${product.price}. ${product.description?.slice(0, 120)}... Bảo hành uy tín, giao hàng toàn quốc.`}
+        keywords={`${product.name}, tanlua, tấn lụa, ${productCategory}, máy móc chính hãng, giá tốt`}
+        image={product.images?.[0]}
+        url={`https://${HOST}/product/${product.id}`}
+        type="product"
+        product={{
+          name: product.name,
+          price: product.price,
+          oldPrice: product.oldPrice,
+          image: product.images?.[0],
+          description: product.description,
+          category: productCategory,
+          availability: 'InStock',
+          brand: product.author || 'Tấn Lụa',
+        }}
+        breadcrumbs={breadcrumbs}
+      />
+
       {/* Breadcrumb & Back Button */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2 cursor-pointer hover:text-blue-600 transition-colors" onClick={() => navigate(-1)}>
           <ArrowLeftOutlined /> <span>Quay lại</span>
         </div>
-        {/* <Breadcrumb
-          items={[
-            { title: <a href="/">Trang chủ</a> },
-            { title: 'Sản phẩm' },
-            { title: product.name },
-          ]}
-        /> */}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white p-6 rounded-xl shadow-sm">
@@ -130,7 +157,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
         <div className="prose max-w-none">
           <p>{product.description}</p>
           <p>Thông tin chi tiết đang được cập nhật...</p>
-          {/* Bạn có thể render nội dung HTML chi tiết ở đây nếu có */}
         </div>
       </div>
     </div>
@@ -138,3 +164,4 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
 };
 
 export default ProductDetailPage;
+

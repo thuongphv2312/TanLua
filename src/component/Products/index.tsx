@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { ShoppingCartOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons';
 import { Card, Badge, Button, message, Empty, Tooltip } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { CATEGORIES } from '../NewsPage/constants';
+import { CATEGORIES, HOST } from '../NewsPage/constants';
 import { ProductGridSkeleton } from '../ui/SkeletonComponents';
+import SEO, { CATEGORY_SEO } from '../SEO';
 
 
 interface Product {
@@ -49,6 +50,12 @@ const Products: React.FC<ProductsProps> = ({
   const [addingId, setAddingId] = useState<number | null>(null);
   const navigate = useNavigate();
 
+  // Get current category info for SEO
+  const currentCategory = CATEGORIES.find(c => c.id === activeCategory);
+  const categorySlug = currentCategory?.slug || '';
+  const categorySEO = CATEGORY_SEO[categorySlug as keyof typeof CATEGORY_SEO];
+
+
   useEffect(() => {
     if (categoryId) {
       setActiveCategory(categoryId);
@@ -83,6 +90,17 @@ const Products: React.FC<ProductsProps> = ({
 
   return (
     <div className="w-full mx-auto mb-8">
+      {/* SEO for Category Pages */}
+      {categoryId && categorySEO && (
+        <SEO
+          title={categorySEO.title}
+          description={categorySEO.description}
+          keywords={categorySEO.keywords}
+          url={`https://${HOST}/${categorySlug}`}
+          image={currentCategory?.img}
+        />
+      )}
+
       <style>{`
         @keyframes fire {
           0% { text-shadow: 0 0 2px #fff, 0 -1px 2px #ffeb3b, 0 -2px 4px #ff5722; }

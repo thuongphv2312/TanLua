@@ -1,0 +1,40 @@
+# Robots.txt for Tấn Lụa - TanLua
+# https://tanlua.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tanlua.vercel.app/sitemap.xml
+
+# Crawl-delay (optional - some bots respect this)
+Crawl-delay: 1
+
+# Disallow admin/private paths (if any)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow all images
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+
+# Yandex specific
+User-agent: Yandex
+Allow: /
+
+# Baidu specific
+User-agent: Baiduspider
+Allow: /
