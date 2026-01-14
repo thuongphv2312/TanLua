@@ -24,7 +24,8 @@ export const SLIDER_IMAGES = [
   "https://i.ibb.co/HLVk77sc/Mayxoidat.jpg",
   "https://i.ibb.co/9kMHvYRg/may-bom-nuoc-4-thi-oshima-152f-2.jpg",
   "https://i.ibb.co/Kj2zMYfr/may-nen-khi-oshima-2hp-30l-co-dau-truc-tiep-1-d2271544ec1043d0b6d7b9fa16b5f6e1.jpg",
-  "https://i.ibb.co/Xr4XDRHp/giai-phong-hang-ton-xa-hang-trung-bay-50-5505f49b.webp"
+  "https://i.ibb.co/Xr4XDRHp/giai-phong-hang-ton-xa-hang-trung-bay-50-5505f49b.webp",
+  "https://i.ibb.co/9kbrMtm4/vat-tu-tieu-hao.webp",
 ];
 export const G2TPLF1_IMAGES = [
   "https://i.ibb.co/FLSQpQ48/G2TPL-F1.png",
