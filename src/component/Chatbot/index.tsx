@@ -80,6 +80,23 @@ const AIChatbot: React.FC = () => {
                 .map(p => `- ${p.title}: ${p.price} (GIÁ THANH LÝ)`)
                 .join('\n');
 
+            // Tạo danh sách Flash Sale hôm nay (giảm thêm 10%)
+            const today = new Date();
+            const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+            const seededRandom = (s: number) => {
+                const x = Math.sin(s) * 10000;
+                return x - Math.floor(x);
+            };
+            const flashSaleItems = [...newsList]
+                .sort((a, b) => seededRandom(seed + a.id) - seededRandom(seed + b.id))
+                .slice(0, 10)
+                .map(p => {
+                    const currentPrice = parseInt(p.price.replace(/[^\d]/g, ''));
+                    const flashPrice = Math.round(currentPrice * 0.9);
+                    return `- ${p.title}: ${flashPrice.toLocaleString('vi-VN')}₫ (FLASH SALE -10%, giá gốc: ${p.price})`;
+                })
+                .join('\n');
+
             // Chuyển đổi lịch sử chat cho Groq (OpenAI format)
             const chatHistory = messages.slice(-6).map(msg => ({
                 role: msg.sender === 'user' ? 'user' : 'assistant',
@@ -105,6 +122,9 @@ const AIChatbot: React.FC = () => {
                             - Hotline/Zalo: ${HOTLINE}
                             - Email: ${EMAIL}
 
+                            ⚡ FLASH SALE HÔM NAY (GIẢM THÊM 10% - CHỈ TRONG HÔM NAY):
+                            ${flashSaleItems}
+
                             DANH SÁCH SẢN PHẨM HIỆN CÓ:
                             ${productInventory}
                             
@@ -113,10 +133,12 @@ const AIChatbot: React.FC = () => {
                             
                             QUY TẮC PHẢN HỒI: 
                             1. Luôn sử dụng thông tin công ty chính xác ở trên khi khách hỏi về địa chỉ, tên hoặc liên hệ.
-                            2. Nếu khách hỏi về "hàng thanh lý", "giảm giá sâu", hãy ưu tiên giới thiệu danh sách HÀNG THANH LÝ ở trên.
-                            3. Sử dụng Markdown: **In đậm** tên sản phẩm, dùng gạch đầu dòng (-) để liệt kê.
-                            4. Trả lời chuyên nghiệp, lịch sự, tiếng Việt.
-                            5. Luôn nhắc khách gọi Hotline/Zalo hỗ trợ: ${HOTLINE} khi cần mua hàng.`
+                            2. Nếu khách hỏi về "flash sale", "giảm giá hôm nay", "khuyến mãi hôm nay", hãy ưu tiên giới thiệu danh sách FLASH SALE HÔM NAY với giá đã giảm 10%.
+                            3. Nếu khách hỏi về "hàng thanh lý", "giảm giá sâu", hãy ưu tiên giới thiệu danh sách HÀNG THANH LÝ ở trên.
+                            4. Sử dụng Markdown: **In đậm** tên sản phẩm, dùng gạch đầu dòng (-) để liệt kê.
+                            5. Trả lời chuyên nghiệp, lịch sự, tiếng Việt.
+                            6. Luôn nhắc khách gọi Hotline/Zalo hỗ trợ: ${HOTLINE} khi cần mua hàng.
+                            7. Khi nói về giá Flash Sale, nhấn mạnh rằng đây là giá ĐẶC BIỆT chỉ trong HÔM NAY.`
                         },
                         ...chatHistory,
                         {

@@ -46,12 +46,28 @@ const App = () => {
     }
   });
 
+  // Lưu giá flash sale cho các sản phẩm được thêm từ Flash Sale
+  const [flashPrices, setFlashPrices] = useState<{ [key: number]: string }>(() => {
+    try {
+      const saved = localStorage.getItem('flashPrices');
+      return saved ? JSON.parse(saved) : {};
+    } catch (error) {
+      return {};
+    }
+  });
+
   // Lưu vào LocalStorage khi giỏ hàng thay đổi
   useEffect(() => {
     localStorage.setItem('cartCounts', JSON.stringify(cartCounts));
   }, [cartCounts]);
 
+  // Lưu flash prices vào LocalStorage
+  useEffect(() => {
+    localStorage.setItem('flashPrices', JSON.stringify(flashPrices));
+  }, [flashPrices]);
+
   const totalCartItems = Object.values(cartCounts).reduce((sum, count) => sum + count, 0);
+
 
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal");
@@ -128,6 +144,19 @@ const App = () => {
     }));
   };
 
+  // Thêm sản phẩm flash sale vào giỏ (có lưu giá flash)
+  const handleAddFlashSaleToCart = (productId: number, flashPrice: string) => {
+    setCartCounts((prev) => ({
+      ...prev,
+      [productId]: (prev[productId] || 0) + 1,
+    }));
+    // Lưu giá flash sale
+    setFlashPrices((prev) => ({
+      ...prev,
+      [productId]: flashPrice,
+    }));
+  };
+
   const handleDecreaseCart = (productId: number) => {
     setCartCounts((prev) => {
       const currentCount = prev[productId] || 0;
@@ -145,10 +174,17 @@ const App = () => {
       delete newState[productId];
       return newState;
     });
+    // Cũng xóa flash price nếu có
+    setFlashPrices((prev) => {
+      const newState = { ...prev };
+      delete newState[productId];
+      return newState;
+    });
   };
 
   const handleClearCart = () => {
     setCartCounts({});
+    setFlashPrices({});
   };
 
   return (
@@ -194,7 +230,9 @@ const App = () => {
             ) : (
               <AppRoutes
                 cartCounts={cartCounts}
+                flashPrices={flashPrices}
                 onUpdateCart={handleUpdateCart}
+                onAddFlashSaleToCart={handleAddFlashSaleToCart}
                 onDecreaseCart={handleDecreaseCart}
                 onRemoveFromCart={handleRemoveFromCart}
                 onClearCart={handleClearCart}

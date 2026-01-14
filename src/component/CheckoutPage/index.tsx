@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Card, Typography, Divider, message, Tooltip, Image } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { PhoneOutlined, UserOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { PhoneOutlined, UserOutlined, ArrowLeftOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { HashLoader } from 'react-spinners';
 
 const { Title, Text } = Typography;
@@ -10,24 +10,38 @@ const { TextArea } = Input;
 
 interface CheckoutPageProps {
   cartCounts: { [key: number]: number };
+  flashPrices?: { [key: number]: string };
   productList: any[];
   onClearCart: () => void;
 }
 
-const CheckoutPage: React.FC<CheckoutPageProps> = ({ cartCounts, productList, onClearCart }) => {
+const CheckoutPage: React.FC<CheckoutPageProps> = ({ cartCounts, flashPrices = {}, productList, onClearCart }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
 
-  // Tính toán lại giỏ hàng để hiển thị
+  // Tính toán lại giỏ hàng để hiển thị (với flash price nếu có)
   const cartItems = Object.keys(cartCounts).map((key) => {
     const id = Number(key);
     const product = productList.find((p: any) => p.id === id);
-    return product ? { ...product, quantity: cartCounts[id] } : null;
+    if (!product) return null;
+
+    // Sử dụng flash price nếu có, không thì dùng giá gốc
+    const effectivePrice = flashPrices[id] || product.price;
+    const isFlashSale = !!flashPrices[id];
+
+    return {
+      ...product,
+      quantity: cartCounts[id],
+      effectivePrice,
+      isFlashSale,
+      originalPrice: isFlashSale ? product.price : null
+    };
   }).filter((item: any) => item !== null);
 
+  // Tính tổng tiền sử dụng effectivePrice
   const totalAmount = cartItems.reduce((acc: number, item: any) => {
-    const price = parseInt(item.price.replace(/\D/g, ''), 10) || 0;
+    const price = parseInt(item.effectivePrice.replace(/\D/g, ''), 10) || 0;
     return acc + (price * item.quantity);
   }, 0);
 
@@ -35,12 +49,18 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ cartCounts, productList, on
     console.log('>>> BẮT ĐẦU GỬI ĐƠN HÀNG (onFinish fired)');
     setLoading(true);
 
+    // Sử dụng effectivePrice khi gửi lên Google Sheet
     const orderData = {
       fullName: values.fullName,
       phoneNumber: values.phoneNumber,
       address: values.address,
       note: values.note,
-      itemsList: cartItems.map(item => `${item.name} (SL: ${item.quantity}) - ${item.price}`).join('\n'),
+      itemsList: cartItems.map(item => {
+        const priceDisplay = item.isFlashSale
+          ? `${item.effectivePrice} (FLASH SALE, giá gốc: ${item.originalPrice})`
+          : item.effectivePrice;
+        return `${item.name} (SL: ${item.quantity}) - ${priceDisplay}`;
+      }).join('\n'),
       totalAmount: totalAmount.toLocaleString('vi-VN') + '₫',
       orderDate: new Date().toLocaleString('vi-VN')
     };
@@ -180,7 +200,17 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ cartCounts, productList, on
                       </Tooltip>
                     </div>
                   </div>
-                  <Text strong>{((parseInt(item.price.replace(/\D/g, ''), 10) || 0) * item.quantity).toLocaleString('vi-VN')}₫</Text>
+                  <div className="flex flex-col items-end">
+                    <Text strong className={item.isFlashSale ? 'text-red-600' : ''}>
+                      {item.isFlashSale && <ThunderboltOutlined className="text-orange-500 mr-1" />}
+                      {((parseInt(item.effectivePrice.replace(/\D/g, ''), 10) || 0) * item.quantity).toLocaleString('vi-VN')}₫
+                    </Text>
+                    {item.isFlashSale && (
+                      <Text className="text-gray-400 line-through text-xs">
+                        {((parseInt(item.originalPrice.replace(/\D/g, ''), 10) || 0) * item.quantity).toLocaleString('vi-VN')}₫
+                      </Text>
+                    )}
+                  </div>
                 </div>
               ))}
               <Divider />

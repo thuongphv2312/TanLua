@@ -21,10 +21,13 @@ import WarrantyPolicyPage from './component/WarrantyPolicyPage';
 import ReturnPolicyPage from './component/ReturnPolicyPage';
 import PaymentSupportPage from './component/PaymentSupportPage';
 import SEO from './component/SEO';
+import FlashSale from './component/FlashSale';
 
 interface AppRoutesProps {
   cartCounts: { [key: number]: number };
+  flashPrices: { [key: number]: string };
   onUpdateCart: (productId: number) => void;
+  onAddFlashSaleToCart: (productId: number, flashPrice: string) => void;
   onDecreaseCart: (productId: number) => void;
   onRemoveFromCart: (productId: number) => void;
   onClearCart: () => void;
@@ -32,7 +35,9 @@ interface AppRoutesProps {
 
 const AppRoutes: React.FC<AppRoutesProps> = ({
   cartCounts,
+  flashPrices,
   onUpdateCart,
+  onAddFlashSaleToCart,
   onDecreaseCart,
   onRemoveFromCart,
   onClearCart,
@@ -46,6 +51,10 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           keywords="tanlua, tấn lụa, máy hàn, máy cắt cỏ, máy xới đất, máy rửa xe, máy khoan pin, dụng cụ cầm tay, máy nông nghiệp, máy công nghiệp, HUKAN, OSHIMA, GREEKMAN"
         />
         <Slider />
+        <FlashSale
+          cartCounts={cartCounts}
+          onAddToCart={onAddFlashSaleToCart}
+        />
         <FeaturedCategories />
         <Products
           title='🔥 HÀNG THANH LÝ - XẢ KHO GIÁ SỐC'
@@ -93,6 +102,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
       <Route path={ROUTE_MAP['CART']} element={
         <CartPage
           cartCounts={cartCounts}
+          flashPrices={flashPrices}
           productList={newsList}
           onIncrease={onUpdateCart}
           onDecrease={onDecreaseCart}
@@ -102,6 +112,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
       <Route path="/cart/checkout" element={
         <CheckoutPage
           cartCounts={cartCounts}
+          flashPrices={flashPrices}
           productList={newsList}
           onClearCart={onClearCart}
         />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Table, Typography, Image, Card, Empty, Divider, Tooltip } from 'antd';
-import { DeleteOutlined, MinusOutlined, PlusOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { DeleteOutlined, MinusOutlined, PlusOutlined, ArrowLeftOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 
@@ -8,20 +8,33 @@ const { Title, Text } = Typography;
 
 interface CartPageProps {
   cartCounts: { [key: number]: number };
+  flashPrices?: { [key: number]: string };
   productList: any[];
   onIncrease: (id: number) => void;
   onDecrease: (id: number) => void;
   onRemove: (id: number) => void;
 }
 
-const CartPage: React.FC<CartPageProps> = ({ cartCounts, productList, onIncrease, onDecrease, onRemove }) => {
+const CartPage: React.FC<CartPageProps> = ({ cartCounts, flashPrices = {}, productList, onIncrease, onDecrease, onRemove }) => {
   const navigate = useNavigate();
 
   // Chuyển đổi cartCounts (object) thành mảng sản phẩm để hiển thị
   const cartItems = Object.keys(cartCounts).map((key) => {
     const id = Number(key);
     const product = productList.find((p: any) => p.id === id);
-    return product ? { ...product, quantity: cartCounts[id] } : null;
+    if (!product) return null;
+
+    // Nếu có flash price, sử dụng nó thay vì giá gốc
+    const effectivePrice = flashPrices[id] || product.price;
+    const isFlashSale = !!flashPrices[id];
+
+    return {
+      ...product,
+      quantity: cartCounts[id],
+      effectivePrice,
+      isFlashSale,
+      originalPrice: isFlashSale ? product.price : null
+    };
   }).filter((item: any) => item !== null);
 
   // Hàm tính thành tiền cho từng dòng
@@ -31,9 +44,9 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, productList, onIncrease
     return price * quantity;
   };
 
-  // Tính tổng tiền toàn bộ giỏ hàng
+  // Tính tổng tiền toàn bộ giỏ hàng (sử dụng effectivePrice)
   const totalAmount = cartItems.reduce((acc: number, item: any) => {
-    return acc + calculateTotal(item.price, item.quantity);
+    return acc + calculateTotal(item.effectivePrice, item.quantity);
   }, 0);
 
   const columns = [
@@ -59,10 +72,20 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, productList, onIncrease
     },
     {
       title: 'Đơn giá',
-      dataIndex: 'price',
+      dataIndex: 'effectivePrice',
       key: 'price',
       responsive: ['md'],
-      render: (price: string) => <Text strong className="whitespace-nowrap">{price}</Text>,
+      render: (_: string, record: any) => (
+        <div className="flex flex-col">
+          <Text strong className={`whitespace-nowrap ${record.isFlashSale ? 'text-red-600' : ''}`}>
+            {record.isFlashSale && <ThunderboltOutlined className="text-orange-500 mr-1" />}
+            {record.effectivePrice}
+          </Text>
+          {record.isFlashSale && record.originalPrice && (
+            <Text className="text-gray-400 line-through text-xs">{record.originalPrice}</Text>
+          )}
+        </div>
+      ),
     },
     {
       title: 'Số lượng',
@@ -92,7 +115,7 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, productList, onIncrease
       key: 'total',
       render: (_: any, record: any) => (
         <Text type="danger" strong className="whitespace-nowrap">
-          {calculateTotal(record.price, record.quantity).toLocaleString('vi-VN')}₫
+          {calculateTotal(record.effectivePrice, record.quantity).toLocaleString('vi-VN')}₫
         </Text>
       ),
     },
