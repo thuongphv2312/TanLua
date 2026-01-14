@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
@@ -6,8 +5,11 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { CATEGORIES } from "../NewsPage/constants";
 
 // Import Swiper styles
+// @ts-ignore
 import 'swiper/css';
+// @ts-ignore
 import 'swiper/css/pagination';
+// @ts-ignore
 import 'swiper/css/navigation';
 
 export default function FeaturedCategories() {
