@@ -11,6 +11,7 @@ import { MobileMenu } from '../MenuContainer';
 import brand1 from '../../assets/tojiko.png';
 import brand2 from '../../assets/TALU.png';
 import React, { useState, useEffect, useMemo } from 'react';
+import LanguageSwitcher from '../LanguageSwitcher';
 const { Header } = Layout;
 const { useBreakpoint } = Grid;
 const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cartCounts = {}, productList = [] }: any) => {
@@ -169,7 +170,7 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
         </Space>
       )}
 
-      {/* 2. Hotline & Account & Cart*/}
+      {/* 2. Hotline & Account & Language & Cart*/}
       <Space size={20} style={{ margin: screens.md ? '0 50px' : '0 10px' }} >
         {screens.md &&
           <Space size="middle" style={{ minWidth: '150px' }} className="cursor-pointer group transition-all">
@@ -197,6 +198,9 @@ const HeaderContainer = ({ headerStyle = {}, mainColor = '', cartCount = 0, cart
             </div>
           </Space>
         }
+
+        {/* Language Switcher - Desktop */}
+        {screens.md && <LanguageSwitcher />}
 
         {/* 3. Giỏ hàng */}
         <Popover content={cartContent} title="Giỏ hàng của bạn" trigger="hover" placement="bottomRight">

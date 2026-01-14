@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { AppstoreOutlined, DockerOutlined, RedditOutlined, MenuOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Menu, Grid, Button, Drawer } from 'antd';
+import { Menu, Grid, Button, Drawer, Divider } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { PARAMETERS, ROUTE_MAP } from '../../constants';
 import { CATEGORIES } from '../NewsPage/constants';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -89,6 +90,15 @@ export const MobileMenu: React.FC = () => {
           items={items}
           style={{ borderRight: 'none' }}
         />
+
+        {/* Language Switcher Section */}
+        <Divider style={{ margin: '12px 0' }} />
+        <div style={{ padding: '0 16px 16px' }}>
+          <div style={{ marginBottom: '8px', fontWeight: 500, color: '#666' }}>
+            🌐 Ngôn ngữ / Language
+          </div>
+          <LanguageSwitcher isMobile={true} />
+        </div>
       </Drawer>
     </>
   );
