@@ -43,7 +43,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
         <FeaturedCategories />
         <Products
           title='🔥 HÀNG THANH LÝ - XẢ KHO GIÁ SỐC'
-          bannerImage="https://i.ibb.co/Xr4XDRHp/giai-phong-hang-ton-xa-hang-trung-bay-50-5505f49b.webp"
+          bannerImage="https://i.ibb.co/8DGkmWJG/z7429088691186-0fcc4934dd141cccd0b59a3718d2b50d.jpg"
           lstProducts={newsList}
           cartCounts={cartCounts}
           onAddToCart={onUpdateCart}
