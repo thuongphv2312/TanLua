@@ -62,24 +62,18 @@ const calculateDiscount = (price: string, oldPrice: string) => {
   return `-${Math.round(((oldPriceNumber - priceNumber) / oldPriceNumber) * 100)}%`;
 };
 
+import type { NewsItem } from './type';
+
 const CATEGORY_DISCOUNTS: { [key: number]: number } = {};
 
-export interface NewsItem {
+// Type for the raw list where some fields can be omitted (they will be generated/calculated)
+type RawNewsItem = Omit<NewsItem, 'id' | 'discount' | 'content'> & {
   id?: string;
-  title: string;
-  author: string;
-  date: string;
-  description: string;
-  images: string[];
-  categories: number[];
-  name: string;
-  price: string;
-  oldPrice?: string;
-  url: string;
   discount?: string;
   content?: string;
-}
-export const rawNewsList: NewsItem[] = [
+};
+
+export const rawNewsList: RawNewsItem[] = [
   {
     title: "Dây xịt tăng áp ANOVI 15M 230BAR Loại xịn",
     author: "Tấn Lụa",
@@ -1312,6 +1306,7 @@ const generateStableId = (title: string): string => {
 export const newsList: NewsItem[] = rawNewsList.map((item) => {
   let { price, oldPrice } = item;
   let discount = "";
+  const id = item.id || generateStableId(item.title);
 
   // Tính giảm giá ưu tiên theo danh mục
   const categoryDiscount = item.categories.reduce((max, catId) => {
@@ -1347,12 +1342,12 @@ export const newsList: NewsItem[] = rawNewsList.map((item) => {
     price,
     oldPrice,
     discount,
-    id: item.id || generateStableId(item.title), // Sử dụng ID có sẵn hoặc tạo ID ổn định từ tên
+    id: id,
     content: `
   <p>Sản phẩm <strong>${item.name}</strong> hiện đang được phân phối chính hãng tại ${COMPANY_NAME} với mức giá ưu đãi.</p>
   <p><strong>Giá bán: <span style="color: #d32f2f; font-size: 1.2em;">${price}</span></strong> ${oldPrice ? `<span style="text-decoration: line-through; color: #999; margin-left: 10px;">${oldPrice}</span>` : ''}</p>
   <p>Để biết thêm thông tin chi tiết về sản phẩm và các chương trình khuyến mãi, quý khách vui lòng liên hệ hotline: <b>${HOTLINE}</b> hoặc đến trực tiếp cửa hàng để được tư vấn tốt nhất.</p>
     `
-  };
+  } as NewsItem;
 });
 

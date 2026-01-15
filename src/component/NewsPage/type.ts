@@ -6,9 +6,10 @@ export interface NewsItem {
   description: string;
   images: string[];
   categories: number[];
-  name?: string;
-  price?: string;
+  name: string;
+  price: string;
   oldPrice?: string;
   discount?: string;
-  url?: string;
+  url: string;
+  content?: string;
 }
