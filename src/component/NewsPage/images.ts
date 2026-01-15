@@ -932,3 +932,22 @@ export const MAYXOIXDD173 = [
   "https://i.ibb.co/XZC3Pg6Q/12784-z7166256629963-7044224d9b13e118d21318f461a66525.jpg",
   "https://i.ibb.co/JjpxCGyw/12784-z7166256640326-a97aa9736e6bc2323b74b0049648b146.jpg",
 ]
+
+export const MAYXOIXDXC = [
+  "https://i.ibb.co/yFJX6YBW/xdx-c2.webp",
+  "https://i.ibb.co/DDkjgYQY/xdx-c23.webp",
+  "https://i.ibb.co/bgsmhqCn/z5496529208164-2c29ee4b8b87d84b803786a1c4031760.webp",
+  "https://i.ibb.co/7d0zb48D/z5496529246992-60e2caa460a49e584f0b41816eac4e23.webp",
+  "https://i.ibb.co/mCbkM5bN/z5496529276336-bc5761bd3936ac0bab2ace0fb64cf744.webp",
+  "https://i.ibb.co/jP0GF2Nw/z5496529298092-7ecee929a6d50a1a2c32b740ab612b4d.webp",
+  "https://i.ibb.co/6JbMh0sT/z5496529315017-668ad4f1096ce9747f2c23adc408b95f.webp",
+  "https://i.ibb.co/6cm5H0rF/xdx-c.webp",
+]
+
+export const MAYXOIXDXR = [
+  "https://i.ibb.co/tTsjSwK5/1722354139-san-pham-1.jpg",
+  "https://i.ibb.co/vCwKYTps/17223541401-san-pham-1.jpg",
+  "https://i.ibb.co/DgH6bMqF/17223541402-san-pham-1.jpg",
+  "https://i.ibb.co/zWP1FWF2/17223541413-san-pham-1.jpg",
+  "https://i.ibb.co/QvBJ9f5N/17223541390-san-pham-1.jpg",
+]
