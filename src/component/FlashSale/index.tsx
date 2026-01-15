@@ -168,6 +168,15 @@ const FlashSale: React.FC<FlashSaleProps> = ({
                                         <ThunderboltOutlined /> <span className="hidden xs:inline">FLASH</span>
                                     </div>
 
+                                    {/* Liquidated Badge */}
+                                    {product.categories?.includes(99) && (
+                                        <div
+                                            className="absolute left-0 top-[18px] md:top-[28px] bg-red-600 text-white text-[9px] md:text-xs font-bold px-1.5 py-0.5 md:px-3 md:py-1 rounded-br-lg z-10 animate-pulse"
+                                        >
+                                            XẢ KHO
+                                        </div>
+                                    )}
+
                                     {/* Extra Discount Badge */}
                                     <Badge.Ribbon
                                         text={<span className="font-bold text-[10px] md:text-sm">{product.extraDiscount}</span>}

@@ -217,6 +217,15 @@ const Products: React.FC<ProductsProps> = ({
                       </div>
                     )}
 
+                    {/* Liquidated Badge */}
+                    {(activeCategory === 99 || product.categories?.includes(99)) && (
+                      <div
+                        className={`absolute left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10 animate-pulse ${flashProduct ? 'top-[26px]' : 'top-0'}`}
+                      >
+                        XẢ KHO
+                      </div>
+                    )}
+
                     {/* Discount Badge */}
                     {product.discount && !flashProduct && (
                       <Badge.Ribbon
@@ -224,12 +233,6 @@ const Products: React.FC<ProductsProps> = ({
                         color="transparent"
                         className="text-xs font-bold"
                       />
-                    )}
-
-                    {activeCategory === 99 && (
-                      <div className="absolute top-0 left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10 animate-pulse">
-                        XẢ KHO
-                      </div>
                     )}
 
                     {/* Product Image Placeholder */}
