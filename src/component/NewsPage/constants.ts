@@ -1,5 +1,6 @@
 // constants/newsCategory.ts
-import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300, GIABATCOBANHXE, HANCOHK30ST2HP, KHOANBETONGK90, KHOANBETONGK96, MAYBOMTANGAPMINIG1B001TB, MAYBOMTANGAPMININK159A20M3H220V125MM, MAYMAIAG5055CT, MAYCATSATBAN2400S, MAYCATSATBANOS2000, MAYCANMUCCM5X1, MAYCANMUCCM5X2, MAYCANMUCCM5X2LS, MAYCANMUCCM5XLS, MAYCANMUCCM5XSS, MAYCANMUCCM5XCS, MAYCANMUCCM5XSPX, COMBOCVGRCV381, COMBOCVGRCV173, G3HUK35, GRMMAMMA200EMINI, MKSMMA200EMINI, MKSMMA200EV2, OSHIMAMMA200A, OSHIMAMMA250A, G2RH2601, K2626P, RH2066X, RH2900BL, G3STOM02, AG6101J, TLP35, PHUNXA3WF3A43, MAYRUAXE1215C1, MAYRUAXE151801, MAYRUAXE0812K2, MAYRUAXEJZ300C, MAYRUAXEJZ900A2, MAYRUAXEMXR1213K1, MAYRUAXEMXR1215C2, MAYRUAXEMXR1418C1, THANMAYSIETBULONGBL0320, MAYTHOIBUIMSTB1001, MAYXOAVUADIENXVD220, MAYXOIDATXDX23, MAYXOIDATXDX18, NHOT2THI, PINCBP605020CELL, PHUKIENMAYCATCO, ROLETUNGAT, SACDON2AG3HUK020A, SACDON4AG3HUK040A, THANCUAXICH8INCHG2CX, THANCUAXICHG1C012BT, CVG2CV231, G1GS400, G2RGP190, IWB1034BL, G1X4, G1IWX2, G1MT024S, G2XVP360, THUOCDAM2M, MAYXOIXDD178 } from './images';
+import { nanoid } from 'nanoid';
+import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300, GIABATCOBANHXE, HANCOHK30ST2HP, KHOANBETONGK90, KHOANBETONGK96, MAYBOMTANGAPMINIG1B001TB, MAYBOMTANGAPMININK159A20M3H220V125MM, MAYMAIAG5055CT, MAYCATSATBAN2400S, MAYCATSATBANOS2000, MAYCANMUCCM5X1, MAYCANMUCCM5X2, MAYCANMUCCM5X2LS, MAYCANMUCCM5XLS, MAYCANMUCCM5XSS, MAYCANMUCCM5XCS, MAYCANMUCCM5XSPX, COMBOCVGRCV381, COMBOCVGRCV173, G3HUK35, GRMMAMMA200EMINI, MKSMMA200EMINI, MKSMMA200EV2, OSHIMAMMA200A, OSHIMAMMA250A, G2RH2601, K2626P, RH2066X, RH2900BL, G3STOM02, AG6101J, TLP35, PHUNXA3WF3A43, MAYRUAXE1215C1, MAYRUAXE151801, MAYRUAXE0812K2, MAYRUAXEJZ300C, MAYRUAXEJZ900A2, MAYRUAXEMXR1213K1, MAYRUAXEMXR1215C2, MAYRUAXEMXR1418C1, THANMAYSIETBULONGBL0320, MAYTHOIBUIMSTB1001, MAYXOAVUADIENXVD220, MAYXOIDATXDX23, MAYXOIDATXDX18, NHOT2THI, PINCBP605020CELL, PHUKIENMAYCATCO, ROLETUNGAT, SACDON2AG3HUK020A, SACDON4AG3HUK040A, THANCUAXICH8INCHG2CX, THANCUAXICHG1C012BT, CVG2CV231, G1GS400, G2RGP190, IWB1034BL, G1X4, G1IWX2, G1MT024S, G2XVP360, THUOCDAM2M, MAYXOIXDD178, G3CS1800, G2TH1003, G2TPLF1, DRAGOND30, MAYNENKHIOSHIMA1215KHONGDAU, MAYNENKHIKHONGDAUOSHIMA30L, MAYNENKHICODAUOSHIMA30L, KHOANDUCK3CN28, KHOANDUCK3CN26, MAYXOIXDD173 } from './images';
 
 const MACHINE_NAME = {
   MAY_CONG_NGHIEP: "Máy Công Nghiệp",
@@ -62,15 +63,25 @@ const calculateDiscount = (price: string, oldPrice: string) => {
   return `-${Math.round(((oldPriceNumber - priceNumber) / oldPriceNumber) * 100)}%`;
 };
 
-// Cấu hình giảm giá ưu tiên theo danh mục (Category ID -> % Giảm)
-// Nếu sản phẩm thuộc danh mục có trong này, hệ thống sẽ tự động tính toán giá giảm dựa trên % được cấu hình, ưu tiên hơn giá thủ công.
-const CATEGORY_DISCOUNTS: { [key: number]: number } = {
-  // [CATEGORY_ID.DUNG_CU_CAM_TAY]: 15, // Ví dụ: Bỏ comment dòng này để giảm 15% cho tất cả sản phẩm thuộc danh mục Dụng cụ cầm tay
-};
+const CATEGORY_DISCOUNTS: { [key: number]: number } = {};
 
-export const newsList = [
+export interface NewsItem {
+  id: string;
+  title: string;
+  author: string;
+  date: string;
+  description: string;
+  images: string[];
+  categories: number[];
+  name: string;
+  price: string;
+  oldPrice?: string;
+  url: string;
+  discount?: string;
+  content?: string;
+}
+export const newsList: NewsItem[] = [
   {
-    id: 1,
     title: "Dây xịt tăng áp ANOVI 15M 230BAR Loại xịn",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -83,7 +94,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 2,
     title: "Đầu xịt Talu TL22-TH xilanh 22mm ty inox",
     author: "Tấn Lụa",
     date: "13/01/2021",
@@ -96,7 +106,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 3,
     title: "Đầu xịt Talu TL22T xilanh 22mm ty inox",
     author: "Admin",
     date: "14/01/2021",
@@ -109,7 +118,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 4,
     title: "Dây xịt tăng áp ANOVI 20M 230BAR Loại xịn",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -122,7 +130,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 5,
     title: "Đầu xịt Talu TL30T xilanh 30mm ty inox",
     author: "Tấn Lụa",
     date: "13/01/2021",
@@ -135,7 +142,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 6,
     title: "Thân máy khoan G1-D55",
     author: "Admin",
     date: "14/01/2021",
@@ -148,7 +154,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 7,
     title: "Thân máy thổi G2-TPLF1",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -161,7 +166,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 8,
     title: "Đầu xịt Talu TL30STH xilanh 30mm ty inox",
     author: "Tấn Lụa",
     date: "13/01/2021",
@@ -174,7 +178,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 9,
     title: "Sạc đôi HUKAN G2-S20X2",
     author: "Admin",
     date: "14/01/2021",
@@ -187,7 +190,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 10,
     title: "Dây xịt tăng áp ANOVI 50M 230BAR Loại xịn",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -200,7 +202,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 11,
     title: "Máy cắt cỏ TL35X 4 thì xăng riêng nhớt riêng",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -213,7 +214,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 12,
     title: "Máy cắt cỏ TJ35 4 thì xăng riêng nhớt riêng",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -226,7 +226,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 13,
     title: "Máy cắt cỏ CS260 2 thì xăng pha nhớt",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -239,7 +238,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 14,
     title: "Máy cắt cỏ CS226 2 thì xăng pha nhớt",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -252,7 +250,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 15,
     title: "Bộ chuyển đổi nguồn G1-BCN0214",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -265,7 +262,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 16,
     title: "Bộ lam cưa xích 12inch",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -278,7 +274,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 21,
     title: "Combo pin sạc G1-P0805 20cell 8Ah 21V 1.5A",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -291,7 +286,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 17,
     title: "Combo pin sạc G1-CBP4505 15cell 4.5Ah 21V 1.5A",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -304,7 +298,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 18,
     title: "Combo chuyên vít HM21-G2CVX230N",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -317,7 +310,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 19,
     title: "Combo chuyên vít OSHIMA SV21V-NG230N-D1",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -330,7 +322,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 20,
     title: "Đầm dùi TALU 750W 850W 1000W",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -343,7 +334,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 22,
     title: "Dây xịt tăng áp ANOVI 10M 230BAR Loại xịn",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -356,7 +346,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 23,
     title: "Thân Đầm dùi PIN TALU DV01 450W",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -369,7 +358,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 24,
     title: "Đầm thước điện TAL DTD-220",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -382,7 +370,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 25,
     title: "Đầm thước xăng TAL DTX-T35PRO",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -395,7 +382,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 26,
     title: "Đầu xịt Talu TL22S-TH xilanh 22mm ty sứ",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -408,7 +394,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 27,
     title: "Thân máy khoan G2-Z1300 chính hãng hukan 60N.M 3 chế độ",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -421,7 +406,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 28,
     title: "Giá bắt có bánh xe khung inox",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -434,7 +418,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 29,
     title: "Đầu xịt rửa Hankock HK30ST 2HP hồi ngoài ty sứ",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -447,7 +430,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 30,
     title: "Khoan bê tông K90 chính hãng HUKAN 1020W 3.0J 3 chức năng",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -460,7 +442,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 31,
     title: "Khoan bê tông K96 chính hãng HUKAN 1050W 3.2J 3 chức năng",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -473,7 +454,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 32,
     title: "Máy bơm tăng áp mini G1-B001TB chính hãng HUKAN 30L/phút 220V 7400RPM",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -486,7 +466,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 33,
     title: "Máy bơm tăng áp mini NK 15-9A 2.0 M3/H 220V 12.5MM chính hãng NAKAWA",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -499,7 +478,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 34,
     title: "Máy mài chính hãng HUKAN G2-AG5055CT 900W 100MM 220V 11000RPM",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -512,7 +490,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 35,
     title: "Máy cắt sắt bàn G1-MCS2400S chính hãng HUKAN 2400W 3800v/phút 11kg",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -525,7 +502,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 36,
     title: "Máy cắt sắt bàn OS2000 2000W 220V 3800r/phút 16kg chính hãng OSHIMA",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -538,7 +514,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 37,
     title: "Máy cân mực OSHIMA CM5X-1 LD 532nm xanh 5 tia 30-50m",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -551,7 +526,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 38,
     title: "Máy cân mực OSHIMA CM5X-2 LD 532nm xanh 5 tia 30-50m",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -564,7 +538,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 39,
     title: "Máy cân mực OSHIMA CM5X-2LS LD 532nm xanh 5 tia 30-50m",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -577,7 +550,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 40,
     title: "Máy cân mực OSHIMA CM5X-LS bản cao cấp LD 532nm xanh 5 tia 40-60m",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -590,7 +562,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 41,
     title: "Máy cân mực OSHIMA CM5X-SS bản cao cấp LD 532nm xanh 5 tia 40-60m",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -603,7 +574,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 42,
     title: "Máy cân mực OSHIMA CM5X-CS bản cao cấp LD 532nm xanh 5 tia 40-60m",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -616,7 +586,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 43,
     title: "Máy cân mực OSHIMA CM5X-SP-X bản cao cấp LD 515nm xanh 5 tia 40-60m",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -629,7 +598,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 44,
     title: "Combo máy chuyên vít GR-CV381 330N.W 6.35MM chính hãng GREEKMAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -642,7 +610,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 45,
     title: "Combo máy chuyên vít GR-V173 200N.W 6.35MM 1600v/ phút chính hãng GREEKMAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -655,7 +622,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 46,
     title: "Máy đục bê tông G3-HUK35 16J 2900BPM 1600W 1150V/ phút chính hãng HUKAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -668,7 +634,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 47,
     title: "Máy hàn Greekman GR-MMA200E Mini 5.6KW 28V 1.6-3.2mm 35A chính hãng GREEkMAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -681,7 +646,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 48,
     title: "Máy hàn mitsukaisho MMA-200 Mini 5KVA 20-200A 1.6-3.2mm ARC chính hãng Mitsukaisho",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -694,7 +658,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 49,
     title: "Máy hàn mitsukaisho MMA-200 5KVA 20-200A 1.6-3.2mm ARC chính hãng Mitsukaisho",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -707,7 +670,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 50,
     title: "Máy hàn OSHIMA MMA-200A 7.1KVA 20-200A 1.6-4.0MM 4.2KG",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -720,7 +682,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 51,
     title: "Máy hàn OSHIMA MMA-250A 9.6KVA 20-250A 1.6-5.0MM 5.5KG",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -733,7 +694,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 52,
     title: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAn",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -746,7 +706,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 53,
     title: "Thân máy khoan GR-K2626P 2.8J 21V 5000BPM 0-980v/ phút chính hãng GREEKMAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -759,7 +718,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 54,
     title: "Máy khoan bê tông G2-RH2066X 1020W 220V 3.5J 4400v/ phút tốc độ búa và 780V/ phút tốc độ không tải",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -772,7 +730,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 55,
     title: "Combo máy khoan đục HK-RH2900BL 26MM 21V 2.8J 4800v/ phút chính hãng HUKAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -785,7 +742,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 56,
     title: "Máy khoan đục bê tông G3-STOM02 2.9J 22MM 5500v/ phút tần số tác động và 1700v/ phút tốc độ không tải",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -798,7 +754,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 57,
     title: "Combo máy mài cắt HUKAN G1-AG6101J 21V 100MM 7300v/ phút chân pin phổ thông",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -811,7 +766,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 58,
     title: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng TLP35 chạy xăng 13.5Kg động cơ 4 thì chính hãng TALU",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -824,7 +778,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 59,
     title: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -837,46 +790,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 60,
-    title: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
-    author: "Tấn Lụa",
-    date: "12/01/2021",
-    description: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì có công dụng như thế nào với công việc của bạn...",
-    images: PHUNXA3WF3A43,
-    categories: [CATEGORY_ID.MAY_NONG_NGHIEP],
-    name: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
-    price: "3,510,000đ",
-    oldPrice: "6,450,000đ",
-    url: HOST
-  },
-  {
-    id: 61,
-    title: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
-    author: "Tấn Lụa",
-    date: "12/01/2021",
-    description: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì có công dụng như thế nào với công việc của bạn...",
-    images: PHUNXA3WF3A43,
-    categories: [CATEGORY_ID.MAY_NONG_NGHIEP],
-    name: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
-    price: "3,510,000đ",
-    oldPrice: "6,450,000đ",
-    url: HOST
-  },
-  {
-    id: 62,
-    title: "Máy rửa xe OSHIMA 1215-C1 2800W 12L/ phút áp lực phun 0-150Kg/cm3 trọng lượng 10Kg",
-    author: "Tấn Lụa",
-    date: "12/01/2021",
-    description: "Máy rửa xe OSHIMA 1215-C1 2800W 12L/ phút áp lực phun 0-150Kg/cm3 trọng lượng 10Kg có công dụng như thế nào với công việc của bạn...",
-    images: MAYRUAXE1215C1,
-    categories: [CATEGORY_ID.MAY_CONG_NGHIEP, CATEGORY_ID.THIET_BI_XIT_RUA],
-    name: "Máy rửa xe OSHIMA 1215-C1 2800W 12L/ phút áp lực phun 0-150Kg/cm3 trọng lượng 10Kg",
-    price: "2,450,000đ",
-    oldPrice: "2,890,000đ",
-    url: HOST
-  },
-  {
-    id: 63,
     title: "Máy rửa xe OSHIMA 1518-O1 3100W 15L/ phút 40-180Kg/cm3 trọng lượng 20Kg",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -889,7 +802,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 64,
     title: "Máy rửa xe CALI 0812-K2 2500W 8L/ phút áp lực phun 117Bar trọng lượng 7.2Kg",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -902,7 +814,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 65,
     title: "Máy rửa xe OSHIMA JZ300C 2800W 8L/ phút 4-15Mpa trọng lượng 8Kg",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -915,7 +826,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 66,
     title: "Máy rửa xe JZ900A2 2500W 8L/ phút 4-12Mpa trọng lượng 8Kg",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -928,7 +838,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 67,
     title: "Máy rửa xe MXR-1213K1 2700W 12L/ phút 4-16Mpa trọng lượng 13Kg",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -941,7 +850,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 68,
     title: "Máy rửa xe MXR-1215C2 2800W 12L/ phút 4-15Mpa trọng lượng 10Kg",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -954,7 +862,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 69,
     title: "Máy rửa xe MXR-1418C1 3000W 14L/ phút 4-16Mpa trọng lượng 14Kg",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -967,7 +874,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 70,
     title: "Thân máy siết bulong G1-BL0320 320N.W 21V 2400IPM 1700v/ phút chính hãng HUKAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -980,7 +886,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 71,
     title: "Máy thổi bụi Mulinsen 700W 2.2Kg MS-TB1001 chính hãng",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -993,7 +898,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 72,
     title: "Máy xoa vữa điện TAL-XVD220 1680W 220V 6Kg 80-460v/ phút chính hãng TAL",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1006,7 +910,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 73,
     title: "Máy xới đất XDX23 4 thì 2.6KW trục xới 23 dung tích xilanh 55C 23Kg độ sâu xới 15-20Cm chính hãng OSHIMA",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1019,7 +922,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 74,
     title: "Máy xới đất XDX18 4 thì 2.6KW trục xới 18 dung tích xilanh 55C 22Kg độ sâu xới 15-20Cm chính hãng OSHIMA",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1032,7 +934,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 75,
     title: "Nhớt 2 thì chính hãng",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1045,7 +946,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 76,
     title: "Combo pin sạc 20Cells 6.0Ah, sạc 1.5AH G1-CBP6050 HUKAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1058,7 +958,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 77,
     title: "Phụ kiện máy cắt cỏ",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1071,7 +970,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 78,
     title: "Rơ Le tự ngắt",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1084,7 +982,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 79,
     title: "Sạc đơn 2A 21V G3-HUK020A chính hãng HUKAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1097,7 +994,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 80,
     title: "Sạc đơn 4A 21V G3-HUK040A chính hãng HUKAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1110,7 +1006,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 81,
     title: "Thân cưa xích 1.37Kg 21V G2-CX 8 inch",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1123,7 +1018,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 82,
     title: "Thân cưa xích G1-C012BT 12inch 1100W 21V 3000v/ phút chính hãng HUKAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1136,7 +1030,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 83,
     title: "Thân máy chuyên vít G2-CV231, lực siết 230N.m, đầu vít 1/4inch, động cơ không chổi than",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1149,7 +1042,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 84,
     title: "Máy cắt tỉa hàng rào pin HUKAN G1-GS400, Lưỡi cắt cỏ 16cm, Lưỡi cắt hàng rào 22cm, Kéo cắt vườn",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1162,7 +1054,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 85,
     title: "Thân máy rung gạch pin (GEN2) G2-RGP190 hukan chính hãng",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1175,7 +1066,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 86,
     title: "THÂN MÁY SIẾT BULONG PIN (GEN2) BODY HM21-G2-IWB1034BL 1000N.W 21V không chổi than 3/4",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1188,7 +1078,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 87,
     title: "Máy siết bulong Hukan G1-X4, Động cơ Không chổi than, Lực siết 330Nm, Bắn vít, Siết mở bulong",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1201,7 +1090,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 88,
     title: "THÂN MÁY SIẾT BULONG PIN (GEN1) HUKAN HM21-G1IW-X2 320N.W 1/2",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1214,7 +1102,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 89,
     title: "THÂN MÁY THỔI PHẢN LỰC DÙNG PIN G1-MT024S HUKAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1227,7 +1114,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 90,
     title: "THÂN Máy xoa vữa dung pin 21V 600W 380mm Hukan G2-XVP360",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1240,12 +1126,11 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 91,
     title: "Thân máy thổi phản lực G2TPL-F1 tốc độ không tải 65000 v/p Động cơ phản lực Máy thổi lá, thổi bụi không chổi than",
     author: "Tấn Lụa",
     date: "12/01/2021",
     description: "Thân máy thổi phản lực G2TPL-F1 tốc độ không tải 65000 v/p Động cơ phản lực Máy thổi lá, thổi bụi không chổi than có công dụng như thế nào với công việc của bạn...",
-    images: G2XVP360,
+    images: G2TPLF1,
     categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
     name: "Thân máy thổi phản lực G2TPL-F1 tốc độ không tải 65000 v/p Động cơ phản lực Máy thổi lá, thổi bụi không chổi than",
     price: "830,000đ",
@@ -1253,7 +1138,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 92,
     title: "Thước đầm 2m 12cm 8cm 3.5kg nhôm",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1266,7 +1150,6 @@ export const newsList = [
     url: HOST
   },
   {
-    id: 93,
     title: "Máy xới đất XDD178 7HP chạy dầu chính hãng OSHIMA",
     author: "Tấn Lụa",
     date: "12/01/2021",
@@ -1276,6 +1159,114 @@ export const newsList = [
     name: "Máy xới đất XDD178 7HP chạy dầu chính hãng OSHIMA",
     price: "13,000,000đ",
     oldPrice: "16,900,000đ",
+    url: HOST
+  },
+  {
+    title: "Máy cưa xích điện G3-CS1800 1800W chính hãng HUKAN",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy cưa xích điện G3-CS1800 1800W chính hãng HUKAN có công dụng như thế nào với công việc của bạn...",
+    images: G3CS1800,
+    categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+    name: "Máy cưa xích điện G3-CS1800 1800W chính hãng HUKAN",
+    price: "1,980,000đ",
+    oldPrice: "2,990,000đ",
+    url: HOST
+  },
+  {
+    title: "Máy thổi bụi G2-TH1003 1000W chính hãng HUKAN",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy thổi bụi G2-TH1003 1000W chính hãng HUKAN có công dụng như thế nào với công việc của bạn...",
+    images: G2TH1003,
+    categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+    name: "Máy thổi bụi G2-TH1003 1000W chính hãng HUKAN",
+    price: "1,050,000đ",
+    oldPrice: "1,690,000đ",
+    url: HOST
+  },
+  {
+    title: "Máy bơm nước DRAGON D30 6.5HP chính hãng",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy bơm nước DRAGON D30 6.5HP chính hãng có công dụng như thế nào với công việc của bạn...",
+    images: DRAGOND30,
+    categories: [CATEGORY_ID.MAY_BOM_NUOC],
+    name: "Máy bơm nước DRAGON D30 6.5HP chính hãng",
+    price: "3,350,000đ",
+    oldPrice: "4,690,000đ",
+    url: HOST
+  },
+  {
+    title: "Máy nén khí không dầu OSHIMA 12 1.5HP 12L",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy nén khí không dầu OSHIMA 12 1.5HP 12L có công dụng như thế nào với công việc của bạn...",
+    images: MAYNENKHIOSHIMA1215KHONGDAU,
+    categories: [CATEGORY_ID.MAY_NEN_KHI, CATEGORY_ID.MAY_CONG_NGHIEP],
+    name: "Máy nén khí không dầu OSHIMA 12 1.5HP 12L",
+    price: "3,050,000đ",
+    oldPrice: "4,690,000đ",
+    url: HOST
+  },
+  {
+    title: "Máy nén khí không dầu 30L OSHIMA 2HP 8 bar 1450 vòng/phút 220V–50Hz 28KG dây đồng",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy nén khí không dầu 30L OSHIMA 2HP 8 bar 1450 vòng/phút 220V–50Hz 28KG dây đồng có công dụng như thế nào với công việc của bạn...",
+    images: MAYNENKHIKHONGDAUOSHIMA30L,
+    categories: [CATEGORY_ID.MAY_NEN_KHI, CATEGORY_ID.MAY_CONG_NGHIEP],
+    name: "Máy nén khí không dầu 30L OSHIMA 2HP 8 bar 1450 vòng/phút 220V–50Hz 28KG dây đồng",
+    price: "3,810,000đ",
+    oldPrice: "4,690,000đ",
+    url: HOST
+  },
+  {
+    title: "Máy nén khí có dầu 30L OSHIMA 2HP	30L 220V–50Hz 8KG/cm2 75l/phút 21/23KG dây đồng",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy nén khí có dầu 30L OSHIMA 2HP	30L 220V–50Hz 8KG/cm2 75l/phút 21/23KG dây đồng có công dụng như thế nào với công việc của bạn...",
+    images: MAYNENKHICODAUOSHIMA30L,
+    categories: [CATEGORY_ID.MAY_NEN_KHI, CATEGORY_ID.MAY_CONG_NGHIEP],
+    name: "Máy nén khí có dầu 30L OSHIMA 2HP	30L 220V–50Hz 8KG/cm2 75l/phút 21/23KG dây đồng",
+    price: "2,750,000đ",
+    oldPrice: "5,690,000đ",
+    url: HOST
+  },
+  {
+    title: "Máy khoan đục OSHIMA K3CN28 850W 220V – 50Hz 4000 lần/p thương hiệu	Nhật Bản 2.9KG",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy khoan đục OSHIMA K3CN28 850W 220V – 50Hz 4000 lần/p thương hiệu	Nhật Bản 2.9KG có công dụng như thế nào với công việc của bạn...",
+    images: KHOANDUCK3CN28,
+    categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+    name: "Máy khoan đục OSHIMA K3CN28 850W 220V – 50Hz 4000 lần/p thương hiệu	Nhật Bản 2.9KG",
+    price: "1,570,000đ",
+    oldPrice: "2,190,000đ",
+    url: HOST
+  },
+  {
+    title: "Máy khoan đục OSHIMA K3CN26 800W 220V – 50Hz 4000 lần/p thương hiệu	Nhật Bản 2.4KG",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy khoan đục OSHIMA K3CN26 800W 220V – 50Hz 4000 lần/p thương hiệu Nhật Bản 2.4KG có công dụng như thế nào với công việc của bạn...",
+    images: KHOANDUCK3CN26,
+    categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+    name: "Máy khoan đục OSHIMA K3CN26 800W 220V – 50Hz 4000 lần/p thương hiệu Nhật Bản 2.4KG",
+    price: "1,470,000đ",
+    oldPrice: "1,990,000đ",
+    url: HOST
+  },
+  {
+    title: "Máy xới đất XDD173 6.5HP chĩnh hãng OSHIMA chạy dầu",
+    author: "Tấn Lụa",
+    date: "12/01/2021",
+    description: "Máy xới đất XDD173 6.5HP chĩnh hãng OSHIMA chạy dầu có công dụng như thế nào với công việc của bạn...",
+    images: MAYXOIXDD173,
+    categories: [CATEGORY_ID.MAY_XOI_DAT, CATEGORY_ID.MAY_NONG_NGHIEP],
+    name: "Máy xới đất XDD173 6.5HP chĩnh hãng OSHIMA chạy dầu",
+    price: "10,850,000đ",
+    oldPrice: "12,990,000đ",
     url: HOST
   },
 ].map(item => {
@@ -1296,7 +1287,7 @@ export const newsList = [
       const newPrice = originalPrice * (1 - categoryDiscount / 100);
       price = Math.round(newPrice).toLocaleString('en-US') + '₫';
       oldPrice = originalPriceStr;
-      discount = `-${categoryDiscount}%`;
+      discount = `- ${categoryDiscount} % `;
     }
   } else {
     // Mặc định: Tính % giảm dựa trên price và oldPrice có sẵn
@@ -1317,9 +1308,13 @@ export const newsList = [
     oldPrice,
     discount,
     content: `
-    <p>Sản phẩm <strong>${item.name}</strong> hiện đang được phân phối chính hãng tại ${COMPANY_NAME} với mức giá ưu đãi.</p>
-    <p><strong>Giá bán: <span style="color: #d32f2f; font-size: 1.2em;">${price}</span></strong> ${oldPrice ? `<span style="text-decoration: line-through; color: #999; margin-left: 10px;">${oldPrice}</span>` : ''}</p>
-    <p>Để biết thêm thông tin chi tiết về sản phẩm và các chương trình khuyến mãi, quý khách vui lòng liên hệ hotline: <b>${HOTLINE}</b> hoặc đến trực tiếp cửa hàng để được tư vấn tốt nhất.</p>
-  `
+  < p > Sản phẩm < strong > ${item.name} < /strong> hiện đang được phân phối chính hãng tại ${COMPANY_NAME} với mức giá ưu đãi.</p >
+  <p><strong>Giá bán: <span style="color: #d32f2f; font-size: 1.2em;" > ${price} < /span></strong > ${oldPrice ? `<span style="text-decoration: line-through; color: #999; margin-left: 10px;">${oldPrice}</span>` : ''}</p>
+    < p > Để biết thêm thông tin chi tiết về sản phẩm và các chương trình khuyến mãi, quý khách vui lòng liên hệ hotline: <b>${HOTLINE} </b> hoặc đến trực tiếp cửa hàng để được tư vấn tốt nhất.</p >
+      `
   };
-});
+}).map((item) => ({
+  ...item,
+  id: nanoid(10) // Tự động generate ID bằng nanoid
+}));
+

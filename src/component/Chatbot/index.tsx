@@ -87,8 +87,19 @@ const AIChatbot: React.FC = () => {
                 const x = Math.sin(s) * 10000;
                 return x - Math.floor(x);
             };
+
+            const stringToHash = (str: string | number) => {
+                const s = String(str);
+                let hash = 0;
+                for (let i = 0; i < s.length; i++) {
+                    hash = ((hash << 5) - hash) + s.charCodeAt(i);
+                    hash |= 0;
+                }
+                return Math.abs(hash);
+            };
+
             const flashSaleItems = [...newsList]
-                .sort((a, b) => seededRandom(seed + a.id) - seededRandom(seed + b.id))
+                .sort((a, b) => seededRandom(seed + stringToHash(a.id)) - seededRandom(seed + stringToHash(b.id)))
                 .slice(0, 10)
                 .map(p => {
                     const currentPrice = parseInt(p.price.replace(/[^\d]/g, ''));

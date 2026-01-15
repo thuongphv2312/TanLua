@@ -71,8 +71,8 @@ const HeaderContainer = ({
 
   // Xử lý dữ liệu giỏ hàng
   const cartItems = Object.keys(cartCounts).map((key) => {
-    const id = Number(key);
-    const product = productList.find((p: any) => p.id === id);
+    const id = key;
+    const product = productList.find((p: any) => String(p.id) === String(id));
     return product ? { ...product, quantity: cartCounts[id] } : null;
   }).filter((item: any) => item !== null);
 
@@ -166,7 +166,7 @@ const HeaderContainer = ({
             bordered={false}
           />
           <div style={{ backgroundColor: mainColor, padding: '12px 20px', cursor: 'pointer' }} onClick={handleSearch}>
-            <SearchOutlined style={{ fontSize: '18px', fontWeight: 'bold' }} />
+            <SearchOutlined style={{ fontSize: '18px', fontWeight: 'bold', color: '#fff' }} />
           </div>
         </div>
 
@@ -183,16 +183,16 @@ const HeaderContainer = ({
       <Space size={20} style={{ margin: screens.md ? '0 50px' : '0 10px' }} >
         {screens.md &&
           <Space size="middle" style={{ minWidth: '150px' }} className="cursor-pointer group transition-all">
-            <PhoneOutlined className="group-hover:scale-110 transition-transform" style={{ fontSize: '26px', color: '#f08a8a' }} />
+            <PhoneOutlined className="group-hover:scale-110 transition-transform" style={{ fontSize: '26px', color: '#fff' }} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <Text style={{ fontSize: '12px', color: 'white' }} className="group-hover:text-red-200">Hỗ trợ khách hàng</Text>
+              <Text style={{ fontSize: '12px', color: '#ffcccc' }}>Hỗ trợ khách hàng</Text>
               <Typography.Link
                 href={`tel:${HOTLINE.replace(/\./g, '')}`}
                 strong
-                style={{ color: 'white' }}
-                className="group-hover:text-yellow-300 transition-colors"
+                style={{ color: '#daca72' }}
+                className="header-gold-text group-hover:text-white transition-colors"
               >
-                {HOTLINE}
+                <span style={{ color: '#daca72' }}>{HOTLINE}</span>
               </Typography.Link>
             </div>
           </Space>
@@ -200,10 +200,12 @@ const HeaderContainer = ({
 
         {screens.md &&
           <Space size="middle" style={{ minWidth: '120px' }} className="cursor-pointer group transition-all">
-            <UserOutlined className="group-hover:scale-110 transition-transform" style={{ fontSize: '26px', color: '#f08a8a' }} />
+            <UserOutlined className="group-hover:scale-110 transition-transform" style={{ fontSize: '26px', color: '#fff' }} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <Text strong style={{ color: 'white' }} className="group-hover:text-yellow-300 transition-colors">Tài khoản</Text>
-              <Text style={{ fontSize: '12px', color: 'white' }} className="group-hover:text-red-200">Đăng nhập</Text>
+              <Text strong style={{ color: '#daca72' }} className="header-gold-text group-hover:text-white transition-colors">
+                <span style={{ color: '#daca72' }}>Tài khoản</span>
+              </Text>
+              <Text style={{ fontSize: '12px', color: '#ffcccc' }}>Đăng nhập</Text>
             </div>
           </Space>
         }
@@ -231,7 +233,7 @@ const HeaderContainer = ({
             margin: '0 0'
           }}>
             <Badge count={cartCount} showZero color="#ff4d4f">
-              <ShoppingCartOutlined style={{ fontSize: '35px', color: '#333' }} />
+              <ShoppingCartOutlined style={{ fontSize: '35px', color: '#fff' }} />
             </Badge>
           </div>
         </Popover>

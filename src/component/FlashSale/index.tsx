@@ -4,19 +4,19 @@ import { ShoppingCartOutlined, ThunderboltOutlined, PlusOutlined, FireOutlined }
 import { useNavigate } from 'react-router-dom';
 
 interface FlashSaleProps {
-    cartCounts?: { [key: number]: number };
-    onAddToCart?: (id: number, flashPrice: string) => void;
+    cartCounts?: { [key: string]: number };
+    onAddToCart?: (id: string | number, flashPrice: string) => void;
 }
 
 import { getFlashSaleProducts } from '../../utils/flashSale';
 
 const FlashSale: React.FC<FlashSaleProps> = ({
     cartCounts = {},
-    onAddToCart = (_id: number, _flashPrice: string) => { },
+    onAddToCart = (_id: string | number, _flashPrice: string) => { },
 }) => {
     const navigate = useNavigate();
     const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
-    const [addingId, setAddingId] = useState<number | null>(null);
+    const [addingId, setAddingId] = useState<string | number | null>(null);
 
     // Memoize flash sale products để không re-calculate mỗi lần render
     const flashProducts = useMemo(() => getFlashSaleProducts(), []);

@@ -9,8 +9,8 @@ const { Title, Text } = Typography;
 const { TextArea } = Input;
 
 interface CheckoutPageProps {
-  cartCounts: { [key: number]: number };
-  flashPrices?: { [key: number]: string };
+  cartCounts: { [key: string]: number };
+  flashPrices?: { [key: string]: string };
   productList: any[];
   onClearCart: () => void;
 }
@@ -22,8 +22,8 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ cartCounts, flashPrices = {
 
   // Tính toán lại giỏ hàng để hiển thị (với flash price nếu có)
   const cartItems = Object.keys(cartCounts).map((key) => {
-    const id = Number(key);
-    const product = productList.find((p: any) => p.id === id);
+    const id = key;
+    const product = productList.find((p: any) => String(p.id) === String(id));
     if (!product) return null;
 
     // Sử dụng flash price nếu có, không thì dùng giá gốc

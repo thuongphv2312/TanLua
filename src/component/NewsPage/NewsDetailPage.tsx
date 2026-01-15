@@ -13,7 +13,7 @@ const NewsDetailPage: React.FC = () => {
 
   useEffect(() => {
     if (id) {
-      const found = newsList.find((n) => n.id === Number(id));
+      const found = newsList.find((n) => n.id === id);
       if (found) setNewsItem(found);
       window.scrollTo(0, 0);
     }

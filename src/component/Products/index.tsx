@@ -9,7 +9,7 @@ import { isProductInFlashSale } from '../../utils/flashSale';
 
 
 interface Product {
-  id: number;
+  id: string | number;
   name: string;
   images: string[];
   price: string;
@@ -23,9 +23,9 @@ interface ProductsProps {
   title?: string;
   lstProducts?: Product[];
   bannerImage?: string;
-  cartCounts?: { [key: number]: number };
-  onAddToCart?: (id: number) => void;
-  onAddFlashSaleToCart?: (id: number, flashPrice: string) => void;
+  cartCounts?: { [key: string]: number };
+  onAddToCart?: (id: string | number) => void;
+  onAddFlashSaleToCart?: (id: string | number, flashPrice: string) => void;
   categoryId?: number;
   isLoading?: boolean;
 }
@@ -50,7 +50,7 @@ const Products: React.FC<ProductsProps> = ({
     return CATEGORIES[0].id;
   });
   const [visibleCount, setVisibleCount] = useState(10);
-  const [addingId, setAddingId] = useState<number | null>(null);
+  const [addingId, setAddingId] = useState<string | number | null>(null);
   const navigate = useNavigate();
 
   // Get current category info for SEO

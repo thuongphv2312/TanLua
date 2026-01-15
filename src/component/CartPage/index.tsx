@@ -7,12 +7,12 @@ import { motion } from 'motion/react';
 const { Title, Text } = Typography;
 
 interface CartPageProps {
-  cartCounts: { [key: number]: number };
-  flashPrices?: { [key: number]: string };
+  cartCounts: { [key: string]: number };
+  flashPrices?: { [key: string]: string };
   productList: any[];
-  onIncrease: (id: number) => void;
-  onDecrease: (id: number) => void;
-  onRemove: (id: number) => void;
+  onIncrease: (id: string | number) => void;
+  onDecrease: (id: string | number) => void;
+  onRemove: (id: string | number) => void;
 }
 
 const CartPage: React.FC<CartPageProps> = ({ cartCounts, flashPrices = {}, productList, onIncrease, onDecrease, onRemove }) => {
@@ -20,8 +20,8 @@ const CartPage: React.FC<CartPageProps> = ({ cartCounts, flashPrices = {}, produ
 
   // Chuyển đổi cartCounts (object) thành mảng sản phẩm để hiển thị
   const cartItems = Object.keys(cartCounts).map((key) => {
-    const id = Number(key);
-    const product = productList.find((p: any) => p.id === id);
+    const id = key;
+    const product = productList.find((p: any) => String(p.id) === String(id));
     if (!product) return null;
 
     // Nếu có flash price, sử dụng nó thay vì giá gốc

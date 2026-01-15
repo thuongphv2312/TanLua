@@ -9,9 +9,9 @@ import { newsList } from '../NewsPage/constants';
 const { Title } = Typography;
 
 interface SearchResultsProps {
-  cartCounts: { [key: number]: number };
-  onAddToCart: (id: number) => void;
-  onAddFlashSaleToCart: (id: number, flashPrice: string) => void;
+  cartCounts: { [key: string]: number };
+  onAddToCart: (id: string | number) => void;
+  onAddFlashSaleToCart: (id: string | number, flashPrice: string) => void;
 }
 
 const SearchResults: React.FC<SearchResultsProps> = ({ cartCounts, onAddToCart, onAddFlashSaleToCart }) => {

@@ -842,3 +842,93 @@ export const MAYXOIXDD178 = [
   "https://i.ibb.co/C3FJ81Pw/M-y-x-i-t-XDD178-6.png",
   "https://i.ibb.co/j94FND5y/M-y-x-i-t-XDD178-7.png",
 ]
+
+export const G3CS1800 = [
+  "https://i.ibb.co/6R9bD3d6/z6237032181369-c62c8ec0f505de3c46bac138e0ed8b9a-600x600.jpg",
+  "https://i.ibb.co/d4zTKVws/z6237032181340-93183c3307b70d0870d3c954ae7ed912-400x400.jpg",
+  "https://i.ibb.co/zHR8CK1X/z6237032144845-ec71b47184a783f4e7c62b0c1537d6c9-400x400.jpg",
+  "https://i.ibb.co/r2rfHT4P/z6237032144907-28bcb90a573c05533388101754762536-400x400.jpg",
+  "https://i.ibb.co/wrKW18Vr/z6237032097791-3eec31b98cc5cc3e016433e2c1539996-400x400.jpg",
+  "https://i.ibb.co/KzNK98vM/z6237032097825-84f824884a39bee4a8b71492b40f2ef3-600x600.jpg",
+]
+
+export const G2TH1003 = [
+  "https://i.ibb.co/qMxqYVjB/z7323037659226-f53fdc9abcf31913bedce14a3392d45a-600x600.jpg",
+  "https://i.ibb.co/yFfhZLJB/z7323037710473-ebaa11a8cfa8414c5121811169eac881-600x600.jpg",
+  "https://i.ibb.co/Qj90fNdh/z7323037659292-258752eec6775607f1b5b41da06fc13c-600x600.jpg",
+  "https://i.ibb.co/0R8SNDFN/z7323037687431-b00394d603146a9275ff6e74a9838d24-600x600.jpg",
+  "https://i.ibb.co/6R30GVYx/z7323037737599-522605540e4c1630def5e28c2b6f95f6-600x600.jpg",
+  "https://i.ibb.co/C54VSctp/z7323037614153-54ee1ded3bd999046170afa52041baf6-600x600.jpg",
+  "https://i.ibb.co/JYpt5Nz/z7323037614154-c9f00a370acd6c6418f8c3513bffc4ba-600x600.jpg",
+  "https://i.ibb.co/b5qjQycw/z7323037637385-2184eb745b491a9a47cb15ff17716c4f-600x600.jpg",
+]
+
+export const DRAGOND30 = [
+  "https://i.ibb.co/G4TNB5bb/vn-11134207-7r98o-lr5do3hhedg916-resize-w900-nl.webp",
+  "https://i.ibb.co/Ng7RLhC6/vn-11134207-7r98o-lr5do3hhh6l5ee.webp",
+  "https://i.ibb.co/nMh3F35m/vn-11134207-7r98o-lr5do3hhil5la3.webp",
+  "https://i.ibb.co/SwgHJV15/vn-11134207-7r98o-lr5do3hhfs0p89.webp",
+]
+
+export const MAYNENKHIOSHIMA1215KHONGDAU = [
+  "https://i.ibb.co/9HR5TXh6/vn-11134207-820l4-mgn2vumq8dfu8d.webp",
+  "https://i.ibb.co/tpz8pkRT/vn-11134207-820l4-mgn2w7iwi6885f.webp",
+  "https://i.ibb.co/WNdvtJpN/vn-11134207-820l4-mgn2w09b63v351.webp",
+  "https://i.ibb.co/xKGDTGBP/vn-11134207-820l4-mgn2w39c3k0fe0.webp",
+  "https://i.ibb.co/fzwywCKx/vn-11134207-820l4-mgn2w92m8x7151.webp",
+  "https://i.ibb.co/V0p41kQH/vn-11134207-820l4-mgn2wcbjzimjb9.webp",
+  "https://i.ibb.co/b0K8XBy/vn-11134207-820l4-mgn2wecci5fx3c.webp",
+  "https://i.ibb.co/NgCXTjsX/vn-11134207-820l4-mgn2wgbi9czx67.webp",
+  "https://i.ibb.co/pBsNHM6F/vn-11134207-820l4-mgn2vyssrjm4be.webp",
+]
+
+export const MAYNENKHIKHONGDAUOSHIMA30L = [
+  "https://i.ibb.co/FbWk51rN/3hp-7e7679b1-342d-46b1-8361-2480b6606ac9.webp",
+  "https://i.ibb.co/hRmDZVZ9/z4918872922158-226bbc865ee0b89ed091358c31ba47f6-d84703f4-6a71-489c-8c8d-0b96b0c171f1.webp",
+  "https://i.ibb.co/DPjBrgNt/z4918872922184-e6580f4ab2569e5eb5c87e56c13e2e8f-eadc0f9d-2df6-47b2-bc07-8f58afe7142c.webp",
+  "https://i.ibb.co/VYSsM0r8/z4918872925666-09b469a39eef74548b0615cc5b904b5d-1fa59f37-ed17-4eb8-81d0-3e37bea3f370.webp",
+  "https://i.ibb.co/JF2Sn3CQ/z4918872925794-d7e5f2e4a29206389d54eb1aaaeafb9a-c513b91f-3fc4-4204-972b-9a596eedbb6b.webp",
+  "https://i.ibb.co/Jjj2VGMx/z4918872925852-43343c3c75c1a719676cd200fa9d94d7-838ee066-c247-4d6f-b0ed-edc33513913d.webp",
+  "https://i.ibb.co/svGzsZnx/z4918872925935-5672ecf8804512fc75b81bcf8c88fa2a-5ea4f541-f512-4ccb-9625-cdf51ae778b3.webp",
+]
+
+export const MAYNENKHICODAUOSHIMA30L = [
+  "https://i.ibb.co/pV29pZ4/img-9399.webp",
+  "https://i.ibb.co/3yQxfv6S/img-9370.webp",
+  "https://i.ibb.co/V0gbSj2t/img-9402.webp",
+  "https://i.ibb.co/8nGFwpKS/img-9402-5e12c0e0-1512-40dd-982f-6d3260ee8056.webp",
+  "https://i.ibb.co/60mCknPy/img-9416.webp",
+  "https://i.ibb.co/HTDbLGL4/img-9432.webp",
+  "https://i.ibb.co/jvBmDWLG/1-2062e2f1-6deb-47f9-b60c-e993a8bd9973.webp",
+]
+
+export const KHOANDUCK3CN28 = [
+  "https://i.ibb.co/tpk4MJQJ/img-4027-jpg.webp",
+  "https://i.ibb.co/pvbvJCtj/khoan-duc-3-chuc-nang-k3cn28-1.webp",
+  "https://i.ibb.co/0yNnMjP2/may-khoan-duc-oshima-3-chuc-nang-k3cn-28-7.webp",
+  "https://i.ibb.co/ymjn6GjS/khoan-duc-3cn-oshima-k3cn28-3.webp",
+  "https://i.ibb.co/q3qJFjB9/img-4019-jpg.webp",
+]
+
+export const KHOANDUCK3CN26 = [
+  "https://i.ibb.co/yr2ZRh1/may-khoan-duc-3-chuc-nang-800w-oshima-k3cn-26-3.webp",
+  "https://i.ibb.co/fGqgndZf/may-khoan-duc-3-chuc-nang-800w-oshima-k3cn-26-4.webp",
+  "https://i.ibb.co/jP14W3wS/may-khoan-duc-3-chuc-nang-800w-oshima-k3cn-26-1.webp",
+  "https://i.ibb.co/ZR9J3BY8/may-khoan-duc-3-chuc-nang-800w-oshima-k3cn-26-2.webp",
+]
+
+export const MAYXOIXDD173 = [
+  "https://i.ibb.co/nNDyZx87/12784-z7166256629945-e1dddf9cb42fcd53d34e5c1ef1df2049.jpg",
+  "https://i.ibb.co/8LKLRTmx/12784-z7166256640336-c7293911da9f01d1571292f5396d64c2-1.jpg",
+  "https://i.ibb.co/5WvyX91D/12784-z7166256640339-443d0a10a66c827ad6ddda28a6eb1124.jpg",
+  "https://i.ibb.co/cc6dBd52/12784-may-xoi-dat-chay-dau-oshima-xdd-173-g.jpg",
+  "https://i.ibb.co/8Dz6wnrT/12784-z7166256629947-685d29399b6cb1727fd5133eedb9cc6e.jpg",
+  "https://i.ibb.co/xKwSGxcf/12784-z7166256629948-7f63ad6277db4b62a4463418a7e92daa.jpg",
+  "https://i.ibb.co/mCR038dd/12784-z7166256629949-310ebe12025359f4b8583e0d34feca90.jpg",
+  "https://i.ibb.co/Jw5yMcYN/12784-z7166256629950-4ccc26c25165c1b27ccb4a62f246e923.jpg",
+  "https://i.ibb.co/fdtWY7DT/12784-z7166256629953-e89eb36b6bd2146598a58d7353e209ad.jpg",
+  "https://i.ibb.co/5gdHT8h3/12784-z7166256629955-e79e45acd11521e56f4d1510b17c8c5c.jpg",
+  "https://i.ibb.co/qYbhSdj2/12784-z7166256629961-dbdc0dbd29b52df98e489ca56958c0df.jpg",
+  "https://i.ibb.co/XZC3Pg6Q/12784-z7166256629963-7044224d9b13e118d21318f461a66525.jpg",
+  "https://i.ibb.co/JjpxCGyw/12784-z7166256640326-a97aa9736e6bc2323b74b0049648b146.jpg",
+]

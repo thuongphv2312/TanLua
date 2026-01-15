@@ -65,15 +65,15 @@ body {
 }
 
 .ant-typography, .ant-typography strong {
-  color: var(--text-color) !important;
+  color: var(--text-color);
 }
 
 .ant-list-item-meta-title {
-  color: var(--text-color) !important;
+  color: var(--text-color);
 }
 
 .ant-list-item-meta-description {
-  color: var(--secondary-text) !important;
+  color: var(--secondary-text);
 }
 
 /* Smooth transitions for theme switching */

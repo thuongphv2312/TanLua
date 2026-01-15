@@ -9,8 +9,8 @@ import { isProductInFlashSale } from '../../utils/flashSale';
 const { Title, Text, Paragraph } = Typography;
 
 interface ProductDetailPageProps {
-  onAddToCart: (id: number) => void;
-  onAddFlashSaleToCart: (id: number, flashPrice: string) => void;
+  onAddToCart: (id: string | number) => void;
+  onAddFlashSaleToCart: (id: string | number, flashPrice: string) => void;
 }
 
 const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart, onAddFlashSaleToCart }) => {
@@ -20,7 +20,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart, onAd
   const [mainImage, setMainImage] = useState<string>('');
 
   useEffect(() => {
-    const foundProduct = newsList.find((p) => p.id === Number(id));
+    const foundProduct = newsList.find((p) => String(p.id) === String(id));
     if (foundProduct) {
       setProduct(foundProduct);
       setMainImage(foundProduct.images[0]);

@@ -24,12 +24,12 @@ import SEO from './component/SEO';
 import FlashSale from './component/FlashSale';
 
 interface AppRoutesProps {
-  cartCounts: { [key: number]: number };
-  flashPrices: { [key: number]: string };
-  onUpdateCart: (productId: number) => void;
-  onAddFlashSaleToCart: (productId: number, flashPrice: string) => void;
-  onDecreaseCart: (productId: number) => void;
-  onRemoveFromCart: (productId: number) => void;
+  cartCounts: { [key: string]: number };
+  flashPrices: { [key: string]: string };
+  onUpdateCart: (productId: string | number) => void;
+  onAddFlashSaleToCart: (productId: string | number, flashPrice: string) => void;
+  onDecreaseCart: (productId: string | number) => void;
+  onRemoveFromCart: (productId: string | number) => void;
   onClearCart: () => void;
 }
 

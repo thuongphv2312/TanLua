@@ -58,7 +58,7 @@ const App = () => {
   const mainColor = '#daca72';
 
   // Khởi tạo giỏ hàng từ LocalStorage
-  const [cartCounts, setCartCounts] = useState<{ [key: number]: number }>(() => {
+  const [cartCounts, setCartCounts] = useState<{ [key: string]: number }>(() => {
     try {
       const saved = localStorage.getItem('cartCounts');
       return saved ? JSON.parse(saved) : {};
@@ -68,7 +68,7 @@ const App = () => {
   });
 
   // Lưu giá flash sale cho các sản phẩm được thêm từ Flash Sale
-  const [flashPrices, setFlashPrices] = useState<{ [key: number]: string }>(() => {
+  const [flashPrices, setFlashPrices] = useState<{ [key: string]: string }>(() => {
     try {
       const saved = localStorage.getItem('flashPrices');
       return saved ? JSON.parse(saved) : {};
@@ -158,7 +158,7 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleUpdateCart = (productId: number) => {
+  const handleUpdateCart = (productId: string | number) => {
     setCartCounts((prev) => ({
       ...prev,
       [productId]: (prev[productId] || 0) + 1,
@@ -166,7 +166,7 @@ const App = () => {
   };
 
   // Thêm sản phẩm flash sale vào giỏ (có lưu giá flash)
-  const handleAddFlashSaleToCart = (productId: number, flashPrice: string) => {
+  const handleAddFlashSaleToCart = (productId: string | number, flashPrice: string) => {
     setCartCounts((prev) => ({
       ...prev,
       [productId]: (prev[productId] || 0) + 1,
@@ -178,7 +178,7 @@ const App = () => {
     }));
   };
 
-  const handleDecreaseCart = (productId: number) => {
+  const handleDecreaseCart = (productId: string | number) => {
     setCartCounts((prev) => {
       const currentCount = prev[productId] || 0;
       if (currentCount <= 1) return prev; // Không giảm dưới 1
@@ -189,7 +189,7 @@ const App = () => {
     });
   };
 
-  const handleRemoveFromCart = (productId: number) => {
+  const handleRemoveFromCart = (productId: string | number) => {
     setCartCounts((prev) => {
       const newState = { ...prev };
       delete newState[productId];
