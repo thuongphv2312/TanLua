@@ -1,5 +1,4 @@
 // constants/newsCategory.ts
-import { nanoid } from 'nanoid';
 import { TL35X_IMAGES, TJ35_IMAGES, SLIDER_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300, GIABATCOBANHXE, HANCOHK30ST2HP, KHOANBETONGK90, KHOANBETONGK96, MAYBOMTANGAPMINIG1B001TB, MAYBOMTANGAPMININK159A20M3H220V125MM, MAYMAIAG5055CT, MAYCATSATBAN2400S, MAYCATSATBANOS2000, MAYCANMUCCM5X1, MAYCANMUCCM5X2, MAYCANMUCCM5X2LS, MAYCANMUCCM5XLS, MAYCANMUCCM5XSS, MAYCANMUCCM5XCS, MAYCANMUCCM5XSPX, COMBOCVGRCV381, COMBOCVGRCV173, G3HUK35, GRMMAMMA200EMINI, MKSMMA200EMINI, MKSMMA200EV2, OSHIMAMMA200A, OSHIMAMMA250A, G2RH2601, K2626P, RH2066X, RH2900BL, G3STOM02, AG6101J, TLP35, PHUNXA3WF3A43, MAYRUAXE151801, MAYRUAXE0812K2, MAYRUAXEJZ300C, MAYRUAXEJZ900A2, MAYRUAXEMXR1213K1, MAYRUAXEMXR1215C2, MAYRUAXEMXR1418C1, THANMAYSIETBULONGBL0320, MAYTHOIBUIMSTB1001, MAYXOAVUADIENXVD220, MAYXOIDATXDX23, MAYXOIDATXDX18, NHOT2THI, PINCBP605020CELL, PHUKIENMAYCATCO, ROLETUNGAT, SACDON2AG3HUK020A, SACDON4AG3HUK040A, THANCUAXICH8INCHG2CX, THANCUAXICHG1C012BT, CVG2CV231, G1GS400, G2RGP190, IWB1034BL, G1X4, G1IWX2, G1MT024S, G2XVP360, THUOCDAM2M, MAYXOIXDD178, G3CS1800, G2TH1003, G2TPLF1, DRAGOND30, MAYNENKHIOSHIMA1215KHONGDAU, MAYNENKHIKHONGDAUOSHIMA30L, MAYNENKHICODAUOSHIMA30L, KHOANDUCK3CN28, KHOANDUCK3CN26, MAYXOIXDD173, MAYXOIXDXC, MAYXOIXDXR } from './images';
 
 const MACHINE_NAME = {
@@ -66,7 +65,7 @@ const calculateDiscount = (price: string, oldPrice: string) => {
 const CATEGORY_DISCOUNTS: { [key: number]: number } = {};
 
 export interface NewsItem {
-  id: string;
+  id?: string;
   title: string;
   author: string;
   date: string;
@@ -80,7 +79,7 @@ export interface NewsItem {
   discount?: string;
   content?: string;
 }
-export const newsList: NewsItem[] = [
+export const rawNewsList: NewsItem[] = [
   {
     title: "Dây xịt tăng áp ANOVI 15M 230BAR Loại xịn",
     author: "Tấn Lụa",
@@ -1293,7 +1292,24 @@ export const newsList: NewsItem[] = [
     oldPrice: "16,590,000đ",
     url: HOST
   },
-].map(item => {
+];
+
+// Helper function để tạo ID ổn định từ tên sản phẩm
+// Giúp tránh việc mất giỏ hàng khi load lại trang do ID bị random lại
+const generateStableId = (title: string): string => {
+  if (!title) return 'unknown';
+  return title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[đÐ]/g, 'd')
+    .replace(/([^0-9a-z-\s])/g, '')
+    .replace(/(\s+)/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '');
+};
+
+export const newsList: NewsItem[] = rawNewsList.map((item) => {
   let { price, oldPrice } = item;
   let discount = "";
 
@@ -1331,14 +1347,12 @@ export const newsList: NewsItem[] = [
     price,
     oldPrice,
     discount,
+    id: item.id || generateStableId(item.title), // Sử dụng ID có sẵn hoặc tạo ID ổn định từ tên
     content: `
-  < p > Sản phẩm < strong > ${item.name} < /strong> hiện đang được phân phối chính hãng tại ${COMPANY_NAME} với mức giá ưu đãi.</p >
-  <p><strong>Giá bán: <span style="color: #d32f2f; font-size: 1.2em;" > ${price} < /span></strong > ${oldPrice ? `<span style="text-decoration: line-through; color: #999; margin-left: 10px;">${oldPrice}</span>` : ''}</p>
-    < p > Để biết thêm thông tin chi tiết về sản phẩm và các chương trình khuyến mãi, quý khách vui lòng liên hệ hotline: <b>${HOTLINE} </b> hoặc đến trực tiếp cửa hàng để được tư vấn tốt nhất.</p >
-      `
+  <p>Sản phẩm <strong>${item.name}</strong> hiện đang được phân phối chính hãng tại ${COMPANY_NAME} với mức giá ưu đãi.</p>
+  <p><strong>Giá bán: <span style="color: #d32f2f; font-size: 1.2em;">${price}</span></strong> ${oldPrice ? `<span style="text-decoration: line-through; color: #999; margin-left: 10px;">${oldPrice}</span>` : ''}</p>
+  <p>Để biết thêm thông tin chi tiết về sản phẩm và các chương trình khuyến mãi, quý khách vui lòng liên hệ hotline: <b>${HOTLINE}</b> hoặc đến trực tiếp cửa hàng để được tư vấn tốt nhất.</p>
+    `
   };
-}).map((item) => ({
-  ...item,
-  id: nanoid(10) // Tự động generate ID bằng nanoid
-}));
+});
 
