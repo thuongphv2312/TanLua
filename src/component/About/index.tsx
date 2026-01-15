@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { PhoneOutlined, HomeOutlined, DownOutlined, UpOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import banner from '../../assets/banner-tanlua_2048x2048.png';
-import { EMAIL, HOTLINE, COMPANY_NAME, ADDRESS } from '../NewsPage/constants';
+import { EMAIL, HOTLINE, COMPANY_NAME, ADDRESS, HOST } from '../NewsPage/constants';
 
 const AboutSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -55,7 +55,7 @@ const AboutSection = () => {
         {/* Contact Info */}
         <div className="mt-2 text-md">
           <span>+) Email: <a href={`mailto:${EMAIL}`} className="text-blue-600">{EMAIL}</a></span>
-          <span className="ml-3">+) Website: <a href="http://www.tanlua.com.vn" className="text-blue-600">www.tanlua.com.vn</a> / <a href="http://www.tanluavietnam.com" className="text-blue-600">www.tanlua.com</a></span>
+          <span className="ml-3">+) Website: <a href="http://www.tanlua.com.vn" className="text-blue-600">{HOST}</a></span>
         </div>
       </div>
 
