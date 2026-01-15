@@ -55,7 +55,7 @@ const AboutSection = () => {
         {/* Contact Info */}
         <div className="mt-2 text-md">
           <span>+) Email: <a href={`mailto:${EMAIL}`} className="text-blue-600">{EMAIL}</a></span>
-          <span className="ml-3">+) Website: <a href="http://www.tanlua.com.vn" className="text-blue-600">{HOST}</a></span>
+          <span className="ml-3">+) Website: <a href={HOST} className="text-blue-600">{HOST}</a></span>
         </div>
       </div>
 
