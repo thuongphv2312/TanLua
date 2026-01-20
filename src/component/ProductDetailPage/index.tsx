@@ -64,7 +64,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart, onAd
           image: product.images?.[0],
           description: product.description,
           category: productCategory,
-          availability: 'InStock',
+          availability: product.isSoldOut ? 'OutOfStock' : 'InStock',
           brand: product.author || 'Tấn Lụa',
         }}
         breadcrumbs={breadcrumbs}
@@ -86,10 +86,17 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart, onAd
                 <ThunderboltOutlined /> FLASH SALE
               </div>
             )}
+            {product.isSoldOut && (
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-20">
+                <div className="bg-red-600 text-white font-bold px-6 py-3 rounded-lg transform -rotate-12 border-4 border-white shadow-2xl scale-125">
+                  HẾT HÀNG
+                </div>
+              </div>
+            )}
             <Image
               src={mainImage}
               alt={product.name}
-              className="object-contain max-h-full"
+              className={`object-contain max-h-full ${product.isSoldOut ? 'grayscale' : ''}`}
               style={{ maxHeight: '400px', width: 'auto' }}
             />
           </div>
@@ -152,8 +159,9 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart, onAd
               type="primary"
               danger
               size="large"
-              icon={<ShoppingCartOutlined />}
+              icon={product.isSoldOut ? null : <ShoppingCartOutlined />}
               className="h-12 px-8 text-lg font-semibold flex-1"
+              disabled={product.isSoldOut}
               onClick={() => {
                 if (flashProduct) {
                   onAddFlashSaleToCart(product.id, displayPrice);
@@ -163,7 +171,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart, onAd
                 message.success(`Đã thêm ${product.name} vào giỏ hàng!`);
               }}
             >
-              THÊM VÀO GIỎ HÀNG
+              {product.isSoldOut ? "TẠM HẾT HÀNG" : "THÊM VÀO GIỎ HÀNG"}
             </Button>
           </div>
 

@@ -84,7 +84,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Dây xịt tăng áp ANOVI 15M 230BAR Loại xịn",
     price: "260,000₫",
     oldPrice: "390,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Đầu xịt Talu TL22-TH xilanh 22mm ty inox",
@@ -96,7 +97,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Đầu xịt Talu TL22-TH xilanh 22mm ty inox",
     price: "1,100,000₫",
     oldPrice: "2,250,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Đầu xịt Talu TL22T xilanh 22mm ty inox",
@@ -108,7 +110,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Đầu xịt Talu TL22T xilanh 22mm ty inox",
     price: "1,050,000₫",
     oldPrice: "1,950,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Dây xịt tăng áp ANOVI 20M 230BAR Loại xịn",
@@ -120,7 +123,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Dây xịt tăng áp ANOVI 20M 230BAR Loại xịn",
     price: "320,000₫",
     oldPrice: "590,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Đầu xịt Talu TL30T xilanh 30mm ty inox",
@@ -132,7 +136,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Đầu xịt Talu TL30T xilanh 30mm ty inox",
     price: "1,350,000₫",
     oldPrice: "1,780,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Thân máy khoan G1-D55",
@@ -144,7 +149,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thân máy khoan G1-D55",
     price: "550,000₫",
     oldPrice: "620,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "Thân máy thổi G2-TPLF1",
@@ -156,7 +162,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thân máy thổi G2-TPLF1",
     price: "850,000₫",
     oldPrice: "980,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Đầu xịt Talu TL30STH xilanh 30mm ty inox",
@@ -168,7 +175,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Đầu xịt Talu TL30STH xilanh 30mm ty inox",
     price: "2,200,000₫",
     oldPrice: "2,870,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Sạc đôi HUKAN G2-S20X2",
@@ -180,7 +188,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Sạc đôi HUKAN G2-S20X2",
     price: "560,000₫",
     oldPrice: "620,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Dây xịt tăng áp ANOVI 50M 230BAR Loại xịn",
@@ -192,7 +201,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Dây xịt tăng áp ANOVI 50M 230BAR Loại xịn",
     price: "590,000₫",
     oldPrice: "980,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cắt cỏ TL35X 4 thì xăng riêng nhớt riêng",
@@ -204,7 +214,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cắt cỏ TL35X 4 thì xăng riêng nhớt riêng",
     price: "1,980,000₫",
     oldPrice: "3,050,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cắt cỏ TJ35 4 thì xăng riêng nhớt riêng",
@@ -216,7 +227,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cắt cỏ TJ35 4 thì xăng riêng nhớt riêng",
     price: "2,850,000₫",
     oldPrice: "4,750,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cắt cỏ CS260 2 thì xăng pha nhớt",
@@ -228,7 +240,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cắt cỏ CS260 2 thì xăng pha nhớt",
     price: "1,700,000₫",
     oldPrice: "2,850,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cắt cỏ CS226 2 thì xăng pha nhớt",
@@ -240,7 +253,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cắt cỏ CS226 2 thì xăng pha nhớt",
     price: "3,780,000đ",
     oldPrice: "4,725,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Bộ chuyển đổi nguồn G1-BCN0214",
@@ -252,7 +266,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Bộ chuyển đổi nguồn G1-BCN0214",
     price: "310,000₫",
     oldPrice: "480,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Bộ lam cưa xích 12inch",
@@ -264,7 +279,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Bộ lam cưa xích 12inch",
     price: "230,000₫",
     oldPrice: "295,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Combo pin sạc G1-P0805 20cell 8Ah 21V 1.5A",
@@ -274,9 +290,10 @@ export const rawNewsList: RawNewsItem[] = [
     images: COMBOPIN0805,
     categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
     name: "Combo pin sạc G1-P0805 20cell 8Ah 21V 1.5A",
-    price: "1,250,000₫",
-    oldPrice: "1,980,000₫",
-    url: HOST
+    price: "1,270,000₫",
+    oldPrice: "1,990,000₫",
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Combo pin sạc G1-CBP4505 15cell 4.5Ah 21V 1.5A",
@@ -288,7 +305,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Combo pin sạc G1-CBP4505 15cell 4.5Ah 21V 1.5A",
     price: "795,000₫",
     oldPrice: "920,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Combo chuyên vít HM21-G2CVX230N",
@@ -300,7 +318,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Combo chuyên vít HM21-G2CVX230N",
     price: "2,150,000₫",
     oldPrice: "3,080,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Combo chuyên vít OSHIMA SV21V-NG230N-D1",
@@ -312,7 +331,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Combo chuyên vít OSHIMA SV21V-NG230N-D1",
     price: "1,750,000₫",
     oldPrice: "2,500,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Đầm dùi TALU 750W 850W 1000W",
@@ -324,7 +344,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Đầm dùi TALU 750W 850W 1000W",
     price: "650,000₫",
     oldPrice: "680,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Dây xịt tăng áp ANOVI 10M 230BAR Loại xịn",
@@ -336,7 +357,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Dây xịt tăng áp ANOVI 10M 230BAR Loại xịn",
     price: "190,000₫",
     oldPrice: "230,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Thân Đầm dùi PIN TALU DV01 450W",
@@ -348,7 +370,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thân Đầm dùi PIN TALU DV01 450W",
     price: "810,000₫",
     oldPrice: "960,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Đầm thước điện TAL DTD-220",
@@ -360,7 +383,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Đầm thước điện TAL DTD-220",
     price: "1,820,000₫",
     oldPrice: "3,050,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Đầm thước xăng TAL DTX-T35PRO",
@@ -372,7 +396,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Đầm thước xăng TAL DTX-T35PRO",
     price: "3,045,000₫",
     oldPrice: "6,000,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Đầu xịt Talu TL22S-TH xilanh 22mm ty sứ",
@@ -384,7 +409,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Đầu xịt Talu TL22S-TH xilanh 22mm ty sứ",
     price: "1,780,000₫",
     oldPrice: "3,500,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Thân máy khoan G2-Z1300 chính hãng hukan 60N.M 3 chế độ",
@@ -396,7 +422,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thân máy khoan G2-Z1300 chính hãng hukan 60N.M 3 chế độ",
     price: "690,000₫",
     oldPrice: "820,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Giá bắt có bánh xe khung inox",
@@ -408,7 +435,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Giá bắt có bánh xe khung inox",
     price: "2,500,000₫",
     oldPrice: "3,000,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "Đầu xịt rửa Hankock HK30ST 2HP hồi ngoài ty sứ",
@@ -420,7 +448,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Đầu xịt rửa Hankock HK30ST 2HP hồi ngoài ty sứ",
     price: "2,146,000₫",
     oldPrice: "3,250,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "Khoan bê tông K90 chính hãng HUKAN 1020W 3.0J 3 chức năng",
@@ -432,7 +461,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Khoan bê tông K90 chính hãng HUKAN 1020W 3.0J 3 chức năng",
     price: "1,150,000₫",
     oldPrice: "1,360,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Khoan bê tông K96 chính hãng HUKAN 1050W 3.2J 3 chức năng",
@@ -444,7 +474,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Khoan bê tông K96 chính hãng HUKAN 1050W 3.2J 3 chức năng",
     price: "1,250,000₫",
     oldPrice: "1,890,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy bơm tăng áp mini G1-B001TB chính hãng HUKAN 30L/phút 220V 7400RPM",
@@ -456,7 +487,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy bơm tăng áp mini G1-B001TB chính hãng HUKAN 30L/phút 220V 7400RPM",
     price: "860,000₫",
     oldPrice: "980,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy bơm tăng áp mini NK 15-9A 2.0 M3/H 220V 12.5MM chính hãng NAKAWA",
@@ -468,7 +500,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy bơm tăng áp mini NK 15-9A 2.0 M3/H 220V 12.5MM chính hãng NAKAWA",
     price: "870,000₫",
     oldPrice: "980,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy mài chính hãng HUKAN G2-AG5055CT 900W 100MM 220V 11000RPM",
@@ -480,7 +513,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy mài chính hãng HUKAN G2-AG5055CT 900W 100MM 220V 11000RPM",
     price: "690,000₫",
     oldPrice: "980,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "Máy cắt sắt bàn G1-MCS2400S chính hãng HUKAN 2400W 3800v/phút 11kg",
@@ -492,7 +526,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cắt sắt bàn G1-MCS2400S chính hãng HUKAN 2400W 3800v/phút 11kg",
     price: "1,885,000₫",
     oldPrice: "2,150,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "Máy cắt sắt bàn OS2000 2000W 220V 3800r/phút 16kg chính hãng OSHIMA",
@@ -504,7 +539,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cắt sắt bàn OS2000 2000W 220V 3800r/phút 16kg chính hãng OSHIMA",
     price: "3,190,000₫",
     oldPrice: "3,780,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cân mực OSHIMA CM5X-1 LD 532nm xanh 5 tia 30-50m",
@@ -516,7 +552,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cân mực OSHIMA CM5X-1 LD 532nm xanh 5 tia 30-50m",
     price: "1,050,000₫",
     oldPrice: "1,180,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "Máy cân mực OSHIMA CM5X-2 LD 532nm xanh 5 tia 30-50m",
@@ -528,7 +565,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cân mực OSHIMA CM5X-2 LD 532nm xanh 5 tia 30-50m",
     price: "1,065,000₫",
     oldPrice: "1,190,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cân mực OSHIMA CM5X-2LS LD 532nm xanh 5 tia 30-50m",
@@ -540,7 +578,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cân mực OSHIMA CM5X-2LS LD 532nm xanh 5 tia 30-50m",
     price: "1,080,000₫",
     oldPrice: "1,250,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cân mực OSHIMA CM5X-LS bản cao cấp LD 532nm xanh 5 tia 40-60m",
@@ -552,7 +591,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cân mực OSHIMA CM5X-LS bản cao cấp LD 532nm xanh 5 tia 40-60m",
     price: "2,410,000₫",
     oldPrice: "2,850,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cân mực OSHIMA CM5X-SS bản cao cấp LD 532nm xanh 5 tia 40-60m",
@@ -564,7 +604,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cân mực OSHIMA CM5X-SS bản cao cấp LD 532nm xanh 5 tia 40-60m",
     price: "2,100,000₫",
     oldPrice: "2,750,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cân mực OSHIMA CM5X-CS bản cao cấp LD 532nm xanh 5 tia 40-60m",
@@ -576,7 +617,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cân mực OSHIMA CM5X-CS bản cao cấp LD 532nm xanh 5 tia 40-60m",
     price: "1,218,000₫",
     oldPrice: "1,480,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cân mực OSHIMA CM5X-SP-X bản cao cấp LD 515nm xanh 5 tia 40-60m",
@@ -588,7 +630,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cân mực OSHIMA CM5X-SP-X bản cao cấp LD 515nm xanh 5 tia 40-60m",
     price: "1,800,000₫",
     oldPrice: "2,150,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Combo máy chuyên vít GR-CV381 330N.W 6.35MM chính hãng GREEKMAN",
@@ -600,7 +643,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Combo máy chuyên vít GR-CV381 330N.W 6.35MM chính hãng GREEKMAN",
     price: "1,200,000₫",
     oldPrice: "2,580,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Combo máy chuyên vít GR-V173 200N.W 6.35MM 1600v/ phút chính hãng GREEKMAN",
@@ -612,7 +656,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Combo máy chuyên vít GR-V173 200N.W 6.35MM 1600v/ phút chính hãng GREEKMAN",
     price: "1,200,000₫",
     oldPrice: "2,450,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy đục bê tông G3-HUK35 16J 2900BPM 1600W 1150V/ phút chính hãng HUKAN",
@@ -624,7 +669,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy đục bê tông G3-HUK35 16J 2900BPM 1600W 1150V/ phút chính hãng HUKAN",
     price: "2,436,000₫",
     oldPrice: "2,850,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy hàn Greekman GR-MMA200E Mini 5.6KW 28V 1.6-3.2mm 35A chính hãng GREEkMAN",
@@ -636,7 +682,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy hàn Greekman GR-MMA200E Mini 5.6KW 28V 1.6-3.2mm 35A chính hãng GREEkMAN",
     price: "880,000₫",
     oldPrice: "1,180,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy hàn mitsukaisho MMA-200 Mini 5KVA 20-200A 1.6-3.2mm ARC chính hãng Mitsukaisho",
@@ -648,7 +695,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy hàn mitsukaisho MMA-200 Mini 5KVA 20-200A 1.6-3.2mm ARC chính hãng Mitsukaisho",
     price: "1,580,000₫",
     oldPrice: "1,800,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy hàn mitsukaisho MMA-200 5KVA 20-200A 1.6-3.2mm ARC chính hãng Mitsukaisho",
@@ -660,7 +708,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy hàn mitsukaisho MMA-200 5KVA 20-200A 1.6-3.2mm ARC chính hãng Mitsukaisho",
     price: "1,450,000₫",
     oldPrice: "1,800,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy hàn OSHIMA MMA-200A 7.1KVA 20-200A 1.6-4.0MM 4.2KG",
@@ -672,7 +721,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy hàn OSHIMA MMA-200A 7.1KVA 20-200A 1.6-4.0MM 4.2KG",
     price: "2,710,000₫",
     oldPrice: "3,200,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy hàn OSHIMA MMA-250A 9.6KVA 20-250A 1.6-5.0MM 5.5KG",
@@ -684,7 +734,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy hàn OSHIMA MMA-250A 9.6KVA 20-250A 1.6-5.0MM 5.5KG",
     price: "3,450,000₫",
     oldPrice: "5,200,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAn",
@@ -696,7 +747,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAn",
     price: "2,280,000₫",
     oldPrice: "3,200,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Thân máy khoan GR-K2626P 2.8J 21V 5000BPM 0-980v/ phút chính hãng GREEKMAN",
@@ -708,7 +760,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thân máy khoan GR-K2626P 2.8J 21V 5000BPM 0-980v/ phút chính hãng GREEKMAN",
     price: "580,000₫",
     oldPrice: "620,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "Máy khoan bê tông G2-RH2066X 1020W 220V 3.5J 4400v/ phút tốc độ búa và 780V/ phút tốc độ không tải",
@@ -720,7 +773,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy khoan bê tông G2-RH2066X 1020W 220V 3.5J 4400v/ phút tốc độ búa và 780V/ phút tốc độ không tải",
     price: "1,400,000₫",
     oldPrice: "1,580,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Combo máy khoan đục HK-RH2900BL 26MM 21V 2.8J 4800v/ phút chính hãng HUKAN",
@@ -732,7 +786,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Combo máy khoan đục HK-RH2900BL 26MM 21V 2.8J 4800v/ phút chính hãng HUKAN",
     price: "3,225,000₫",
     oldPrice: "3,500,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy khoan đục bê tông G3-STOM02 2.9J 22MM 5500v/ phút tần số tác động và 1700v/ phút tốc độ không tải",
@@ -744,7 +799,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy khoan đục bê tông G3-STOM02 2.9J 22MM 5500v/ phút tần số tác động và 1700v/ phút tốc độ không tải",
     price: "3,190,000đ",
     oldPrice: "3,500,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Combo máy mài cắt HUKAN G1-AG6101J 21V 100MM 7300v/ phút chân pin phổ thông",
@@ -756,7 +812,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Combo máy mài cắt HUKAN G1-AG6101J 21V 100MM 7300v/ phút chân pin phổ thông",
     price: "1,250,000đ",
     oldPrice: "1,468,000₫",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng TLP35 chạy xăng 13.5Kg động cơ 4 thì chính hãng TALU",
@@ -768,7 +825,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng TLP35 chạy xăng 13.5Kg động cơ 4 thì chính hãng TALU",
     price: "3,360,000đ",
     oldPrice: "6,250,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
@@ -780,7 +838,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng OSHIMA 3WF-3A-43 chạy xăng dung tích 26L 13.6Kg động cơ 2 thì",
     price: "3,510,000đ",
     oldPrice: "6,450,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy rửa xe OSHIMA 1518-O1 3100W 15L/ phút 40-180Kg/cm3 trọng lượng 20Kg",
@@ -792,7 +851,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy rửa xe OSHIMA 1518-O1 3100W 15L/ phút 40-180Kg/cm3 trọng lượng 20Kg",
     price: "4,080,000đ",
     oldPrice: "4,500,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy rửa xe CALI 0812-K2 2500W 8L/ phút áp lực phun 117Bar trọng lượng 7.2Kg",
@@ -804,7 +864,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy rửa xe CALI 0812-K2 2500W 8L/ phút áp lực phun 117Bar trọng lượng 7.2Kg",
     price: "1,450,000đ",
     oldPrice: "1,780,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy rửa xe OSHIMA JZ300C 2800W 8L/ phút 4-15Mpa trọng lượng 8Kg",
@@ -816,7 +877,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy rửa xe OSHIMA JZ300C 2800W 8L/ phút 4-15Mpa trọng lượng 8Kg",
     price: "1,650,000đ",
     oldPrice: "1,780,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy rửa xe JZ900A2 2500W 8L/ phút 4-12Mpa trọng lượng 8Kg",
@@ -828,7 +890,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy rửa xe JZ900A2 2500W 8L/ phút 4-12Mpa trọng lượng 8Kg",
     price: "1,950,000đ",
     oldPrice: "2,450,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy rửa xe MXR-1213K1 2700W 12L/ phút 4-16Mpa trọng lượng 13Kg",
@@ -840,7 +903,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy rửa xe MXR-1213K1 2700W 12L/ phút 4-16Mpa trọng lượng 13Kg",
     price: "2,450,000đ",
     oldPrice: "2,890,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy rửa xe MXR-1215C2 2800W 12L/ phút 4-15Mpa trọng lượng 10Kg",
@@ -852,7 +916,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy rửa xe MXR-1215C2 2800W 12L/ phút 4-15Mpa trọng lượng 10Kg",
     price: "2,650,000đ",
     oldPrice: "3,890,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy rửa xe MXR-1418C1 3000W 14L/ phút 4-16Mpa trọng lượng 14Kg",
@@ -864,7 +929,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy rửa xe MXR-1418C1 3000W 14L/ phút 4-16Mpa trọng lượng 14Kg",
     price: "2,900,000đ",
     oldPrice: "5,890,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Thân máy siết bulong G1-BL0320 320N.W 21V 2400IPM 1700v/ phút chính hãng HUKAN",
@@ -876,7 +942,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thân máy siết bulong G1-BL0320 320N.W 21V 2400IPM 1700v/ phút chính hãng HUKAN",
     price: "430,000đ",
     oldPrice: "890,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "Máy thổi bụi Mulinsen 700W 2.2Kg MS-TB1001 chính hãng",
@@ -888,7 +955,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy thổi bụi Mulinsen 700W 2.2Kg MS-TB1001 chính hãng",
     price: "230,000đ",
     oldPrice: "290,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy xoa vữa điện TAL-XVD220 1680W 220V 6Kg 80-460v/ phút chính hãng TAL",
@@ -900,7 +968,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy xoa vữa điện TAL-XVD220 1680W 220V 6Kg 80-460v/ phút chính hãng TAL",
     price: "1,850,000đ",
     oldPrice: "2,450,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy xới đất XDX23 4 thì 2.6KW trục xới 23 dung tích xilanh 55C 23Kg độ sâu xới 15-20Cm chính hãng OSHIMA",
@@ -912,7 +981,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy xới đất XDX23 4 thì 2.6KW dung tích xilanh 55C 23Kg độ sâu xới 15-20Cm chính hãng OSHIMA",
     price: "6,100,000đ",
     oldPrice: "12,200,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "Máy xới đất XDX18 4 thì 2.6KW trục xới 18 dung tích xilanh 55C 22Kg độ sâu xới 15-20Cm chính hãng OSHIMA",
@@ -924,7 +994,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy xới đất XDX18 4 thì 2.6KW dung tích xilanh 55C 22Kg độ sâu xới 15-20Cm chính hãng OSHIMA",
     price: "5,800,000đ",
     oldPrice: "11,600,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "Nhớt 2 thì chính hãng",
@@ -936,7 +1007,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Nhớt 2 thì chính hãng",
     price: "190,000đ",
     oldPrice: "210,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Combo pin sạc 20Cells 6.0Ah, sạc 1.5AH G1-CBP6050 HUKAN",
@@ -948,7 +1020,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Combo pin sạc 20Cells 6.0Ah, sạc 1.5AH G1-CBP6050 HUKAN",
     price: "850,000đ",
     oldPrice: "1,400,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Phụ kiện máy cắt cỏ",
@@ -960,7 +1033,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Phụ kiện máy cắt cỏ",
     price: "Liên hệ báo giá",
     oldPrice: "Liên hệ báo giá",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Rơ Le tự ngắt",
@@ -972,7 +1046,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Rơ Le tự ngắt",
     price: "380,000đ",
     oldPrice: "420,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Sạc đơn 2A 21V G3-HUK020A chính hãng HUKAN",
@@ -984,7 +1059,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Sạc đơn 2A 21V G3-HUK020A chính hãng HUKAN",
     price: "320,000đ",
     oldPrice: "320,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Sạc đơn 4A 21V G3-HUK040A chính hãng HUKAN",
@@ -996,7 +1072,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Sạc đơn 4A 21V G3-HUK040A chính hãng HUKAN",
     price: "480,000đ",
     oldPrice: "520,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Thân cưa xích 1.37Kg 21V G2-CX 8 inch",
@@ -1008,7 +1085,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thân cưa xích 1.37Kg 21V G2-CX 8 inch",
     price: "960,000đ",
     oldPrice: "1,000,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Thân cưa xích G1-C012BT 12inch 1100W 21V 3000v/ phút chính hãng HUKAN",
@@ -1020,7 +1098,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thân cưa xích G1-C012BT 12inch 1100W 21V 3000v/ phút chính hãng HUKAN",
     price: "850,000đ",
     oldPrice: "1,000,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Thân máy chuyên vít G2-CV231, lực siết 230N.m, đầu vít 1/4inch, động cơ không chổi than",
@@ -1032,7 +1111,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thân máy chuyên vít G2-CV231, lực siết 230N.m, đầu vít 1/4inch, động cơ không chổi than",
     price: "810,000đ",
     oldPrice: "1,000,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cắt tỉa hàng rào pin HUKAN G1-GS400, Lưỡi cắt cỏ 16cm, Lưỡi cắt hàng rào 22cm, Kéo cắt vườn",
@@ -1044,7 +1124,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy cắt tỉa hàng rào pin HUKAN G1-GS400, Lưỡi cắt cỏ 16cm, Lưỡi cắt hàng rào 22cm, Kéo cắt vườn",
     price: "1,490,000đ",
     oldPrice: "1,690,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Thân máy rung gạch pin (GEN2) G2-RGP190 hukan chính hãng",
@@ -1056,7 +1137,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thân máy rung gạch pin (GEN2) G2-RGP190 hukan chính hãng",
     price: "1,850,000đ",
     oldPrice: "2,000,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "THÂN MÁY SIẾT BULONG PIN (GEN2) BODY HM21-G2-IWB1034BL 1000N.W 21V không chổi than 3/4",
@@ -1068,7 +1150,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "THÂN MÁY SIẾT BULONG PIN (GEN2) BODY HM21-G2-IWB1034BL 1000N.W 21V không chổi than 3/4",
     price: "3,090,000đ",
     oldPrice: "6,000,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy siết bulong Hukan G1-X4, Động cơ Không chổi than, Lực siết 330Nm, Bắn vít, Siết mở bulong",
@@ -1080,7 +1163,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy siết bulong Hukan G1-X4, Động cơ Không chổi than, Lực siết 330Nm, Bắn vít, Siết mở bulong",
     price: "1,480,000đ",
     oldPrice: "1,990,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "THÂN MÁY SIẾT BULONG PIN (GEN1) HUKAN HM21-G1IW-X2 320N.W 1/2",
@@ -1092,7 +1176,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "THÂN MÁY SIẾT BULONG PIN (GEN1) HUKAN HM21-G1IW-X2 320N.W 1/2",
     price: "480,000đ",
     oldPrice: "990,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "THÂN MÁY THỔI PHẢN LỰC DÙNG PIN G1-MT024S HUKAN",
@@ -1104,7 +1189,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "THÂN MÁY THỔI PHẢN LỰC DÙNG PIN G1-MT024S HUKAN",
     price: "230,000đ",
     oldPrice: "420,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: true
   },
   {
     title: "THÂN Máy xoa vữa dung pin 21V 600W 380mm Hukan G2-XVP360",
@@ -1116,7 +1202,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "THÂN Máy xoa vữa dung pin 21V 600W 380mm Hukan G2-XVP360",
     price: "1,980,000đ",
     oldPrice: "2,990,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Thân máy thổi phản lực G2TPL-F1 tốc độ không tải 65000 v/p Động cơ phản lực Máy thổi lá, thổi bụi không chổi than",
@@ -1128,7 +1215,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thân máy thổi phản lực G2TPL-F1 tốc độ không tải 65000 v/p Động cơ phản lực Máy thổi lá, thổi bụi không chổi than",
     price: "830,000đ",
     oldPrice: "1,690,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Thước đầm 2m 12cm 8cm 3.5kg nhôm",
@@ -1140,7 +1228,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Thước đầm 2m 12cm 8cm 3.5kg nhôm",
     price: "870,000đ",
     oldPrice: "1,690,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy xới đất XDD178 7HP chạy dầu chính hãng OSHIMA",
@@ -1152,19 +1241,21 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy xới đất XDD178 7HP chạy dầu chính hãng OSHIMA",
     price: "13,000,000đ",
     oldPrice: "16,900,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy cưa xích điện G3-CS1800 1800W chính hãng HUKAN",
     author: "Tấn Lụa",
     date: "12/01/2021",
-    description: "Máy cưa xích điện G3-CS1800 1800W chính hãng HUKAN có công dụng như thế nào với công việc của bạn...",
+    description: "Máy cưa xích điện G3-CS1800 1800W chính hãng HUKAN có công dụng như thế nào with công việc của bạn...",
     images: G3CS1800,
     categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
     name: "Máy cưa xích điện G3-CS1800 1800W chính hãng HUKAN",
     price: "1,980,000đ",
     oldPrice: "2,990,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy thổi bụi G2-TH1003 1000W chính hãng HUKAN",
@@ -1176,7 +1267,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy thổi bụi G2-TH1003 1000W chính hãng HUKAN",
     price: "1,050,000đ",
     oldPrice: "1,690,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy bơm nước DRAGON D30 6.5HP chính hãng",
@@ -1188,7 +1280,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy bơm nước DRAGON D30 6.5HP chính hãng",
     price: "3,350,000đ",
     oldPrice: "4,690,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy nén khí không dầu OSHIMA 12 1.5HP 12L",
@@ -1200,7 +1293,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy nén khí không dầu OSHIMA 12 1.5HP 12L",
     price: "3,050,000đ",
     oldPrice: "4,690,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy nén khí không dầu 30L OSHIMA 2HP 8 bar 1450 vòng/phút 220V–50Hz 28KG dây đồng",
@@ -1212,7 +1306,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy nén khí không dầu 30L OSHIMA 2HP 8 bar 1450 vòng/phút 220V–50Hz 28KG dây đồng",
     price: "3,810,000đ",
     oldPrice: "4,690,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy nén khí có dầu 30L OSHIMA 2HP	30L 220V–50Hz 8KG/cm2 75l/phút 21/23KG dây đồng",
@@ -1224,7 +1319,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy nén khí có dầu 30L OSHIMA 2HP	30L 220V–50Hz 8KG/cm2 75l/phút 21/23KG dây đồng",
     price: "2,750,000đ",
     oldPrice: "5,690,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy khoan đục OSHIMA K3CN28 850W 220V – 50Hz 4000 lần/p thương hiệu	Nhật Bản 2.9KG",
@@ -1236,7 +1332,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy khoan đục OSHIMA K3CN28 850W 220V – 50Hz 4000 lần/p thương hiệu	Nhật Bản 2.9KG",
     price: "1,570,000đ",
     oldPrice: "2,190,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy khoan đục OSHIMA K3CN26 800W 220V – 50Hz 4000 lần/p thương hiệu	Nhật Bản 2.4KG",
@@ -1248,7 +1345,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy khoan đục OSHIMA K3CN26 800W 220V – 50Hz 4000 lần/p thương hiệu Nhật Bản 2.4KG",
     price: "1,470,000đ",
     oldPrice: "1,990,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy xới đất XDD173 6.5HP chĩnh hãng OSHIMA chạy dầu",
@@ -1260,7 +1358,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy xới đất XDD173 6.5HP chĩnh hãng OSHIMA chạy dầu",
     price: "10,850,000đ",
     oldPrice: "12,990,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy xới đất XDX-C chạy xăng 7HP chính hãng OSHIMA",
@@ -1272,7 +1371,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy xới đất XDX-C chạy xăng 7HP chính hãng OSHIMA",
     price: "8,050,000đ",
     oldPrice: "12,590,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
   {
     title: "Máy xới đất XDX-R 7HP chính hãng OSHIMA",
@@ -1284,7 +1384,8 @@ export const rawNewsList: RawNewsItem[] = [
     name: "Máy xới đất XDX-R 7HP chính hãng OSHIMA",
     price: "8,380,000đ",
     oldPrice: "16,590,000đ",
-    url: HOST
+    url: HOST,
+    isSoldOut: false
   },
 ];
 

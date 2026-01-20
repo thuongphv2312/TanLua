@@ -184,12 +184,21 @@ const FlashSale: React.FC<FlashSaleProps> = ({
                                         className="text-xs md:text-sm"
                                     />
 
+                                    {/* Sold Out Overlay */}
+                                    {product.isSoldOut && (
+                                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-20 transition-all duration-300">
+                                            <div className="bg-red-600 text-white font-bold px-2 py-1 rounded border-2 border-white shadow-lg transform -rotate-12 scale-110">
+                                                HẾT HÀNG
+                                            </div>
+                                        </div>
+                                    )}
+
                                     {/* Product Image */}
                                     {product.images?.[0] ? (
                                         <img
                                             src={product.images[0]}
                                             alt={product.name}
-                                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                            className={`w-full h-full object-cover transition-transform duration-500 hover:scale-110 ${product.isSoldOut ? 'grayscale' : ''}`}
                                             loading="lazy"
                                         />
                                     ) : (
@@ -216,13 +225,14 @@ const FlashSale: React.FC<FlashSaleProps> = ({
                                     {/* Add to Cart Button */}
                                     <Button
                                         type="primary"
-                                        icon={cartCounts[product.id] ? null : <PlusOutlined className="text-[10px] md:text-base" />}
-                                        shape="circle"
+                                        icon={product.isSoldOut ? null : (cartCounts[product.id] ? null : <PlusOutlined className="text-[10px] md:text-base" />)}
+                                        shape={product.isSoldOut ? "round" : "circle"}
                                         size="small"
-                                        className={`btn-flash flex-shrink-0 w-6 h-6 md:w-8 md:h-8 min-w-0 ${addingId === product.id ? 'btn-adding' : ''}`}
-                                        onClick={(e) => handleAddToCart(e, product)}
+                                        className={`btn-flash flex-shrink-0 ${product.isSoldOut ? 'w-auto px-2 h-6 md:h-7' : 'w-6 h-6 md:w-8 md:h-8'} min-w-0 ${addingId === product.id ? 'btn-adding' : ''}`}
+                                        disabled={product.isSoldOut}
+                                        onClick={(e) => !product.isSoldOut && handleAddToCart(e, product)}
                                     >
-                                        {cartCounts[product.id] ? <span className="font-bold text-[10px] md:text-sm">{cartCounts[product.id]}</span> : null}
+                                        {product.isSoldOut ? <span className="text-[9px] font-bold">Hết hàng</span> : (cartCounts[product.id] ? <span className="font-bold text-[10px] md:text-sm">{cartCounts[product.id]}</span> : null)}
                                     </Button>
                                 </div>
                             </div>

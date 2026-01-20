@@ -17,6 +17,7 @@ interface Product {
   discount?: string;
   url?: string;
   categories?: number[];
+  isSoldOut?: boolean;
 }
 
 interface ProductsProps {
@@ -235,9 +236,18 @@ const Products: React.FC<ProductsProps> = ({
                       />
                     )}
 
+                    {/* Sold Out Overlay */}
+                    {product.isSoldOut && (
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-20 transition-all duration-300">
+                        <div className="bg-red-600 text-white font-bold px-3 py-1.5 rounded border-2 border-white shadow-xl transform -rotate-12 scale-110 tracking-wider">
+                          HẾT HÀNG
+                        </div>
+                      </div>
+                    )}
+
                     {/* Product Image Placeholder */}
                     {product.images?.[0] ? (
-                      <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" loading='lazy' />
+                      <img src={product.images[0]} alt={product.name} className={`w-full h-full object-cover ${product.isSoldOut ? 'grayscale transition-all duration-500' : ''}`} loading='lazy' />
                     ) : (
                       <div className="flex items-center justify-center w-full h-full bg-gray-100 text-gray-300">
                         <SearchOutlined style={{ fontSize: '32px' }} />
@@ -274,13 +284,14 @@ const Products: React.FC<ProductsProps> = ({
                     <Button
                       type="primary"
                       danger
-                      icon={cartCounts[product.id] ? null : <PlusOutlined />}
-                      shape="circle"
+                      icon={product.isSoldOut ? null : (cartCounts[product.id] ? null : <PlusOutlined />)}
+                      shape={product.isSoldOut ? "round" : "circle"}
                       size="middle"
                       className={addingId === product.id ? 'btn-adding' : ''}
-                      onClick={(e) => handleAddToCart(e, product)}
+                      onClick={(e) => !product.isSoldOut && handleAddToCart(e, product)}
+                      disabled={product.isSoldOut}
                     >
-                      {cartCounts[product.id] ? <span className="font-bold">{cartCounts[product.id]}</span> : null}
+                      {product.isSoldOut ? <span className="text-[10px] font-bold">Hết hàng</span> : (cartCounts[product.id] ? <span className="font-bold">{cartCounts[product.id]}</span> : null)}
                     </Button>
                   </div>
                 </div>

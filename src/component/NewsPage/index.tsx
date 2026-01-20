@@ -8,15 +8,22 @@ import { NewsCardSkeleton, NewsSidebarSkeleton } from '../ui/SkeletonComponents'
 import { useEffect } from 'react';
 
 // --- Sub-Component: Thẻ bài viết ---
-const NewsCard = ({ images, title, author, date, description, onClick }: any) => (
+const NewsCard = ({ images, title, author, date, description, onClick, isSoldOut }: any) => (
   <div className="flex flex-col group cursor-pointer" onClick={onClick}>
-    <div className="overflow-hidden rounded-md mb-3 aspect-[4/3]">
+    <div className="relative overflow-hidden rounded-md mb-3 aspect-[4/3]">
       <img
         src={images?.[0]}
         alt={title}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${isSoldOut ? 'grayscale' : ''}`}
         loading='lazy'
       />
+      {isSoldOut && (
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center pointer-events-none">
+          <div className="bg-red-600 text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded shadow-lg transform -rotate-6 border border-white/30">
+            HẾT HÀNG
+          </div>
+        </div>
+      )}
     </div>
     <h3 className="text-[15px] font-bold leading-tight mb-2 line-clamp-2 group-hover:text-red-600 dark:text-white dark:group-hover:text-red-400">
       {title}

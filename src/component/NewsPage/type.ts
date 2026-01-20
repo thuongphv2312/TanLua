@@ -12,4 +12,5 @@ export interface NewsItem {
   discount?: string;
   url: string;
   content?: string;
+  isSoldOut?: boolean;
 }
