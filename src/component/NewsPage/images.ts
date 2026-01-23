@@ -951,3 +951,17 @@ export const MAYXOIXDXR = [
   "https://i.ibb.co/zWP1FWF2/17223541413-san-pham-1.jpg",
   "https://i.ibb.co/QvBJ9f5N/17223541390-san-pham-1.jpg",
 ]
+
+export const KMX340 = [
+  "https://i.ibb.co/mVHXtNR0/M-y-phun-x-t-2-k-KMX340-3.png",
+  "https://i.ibb.co/kgrJFXsM/M-y-phun-x-t-2-k-KMX340.png",
+  "https://i.ibb.co/7JVpfFCd/M-y-phun-x-t-2-k-KMX340-1.png",
+  "https://i.ibb.co/5hpJgY4h/M-y-phun-x-t-2-k-KMX340-2.png",
+]
+
+export const KMX350 = [
+  "https://i.ibb.co/JWHzMVQb/M-y-phun-x-t-4-k-KMX350.png",
+  "https://i.ibb.co/dJBk606D/M-y-phun-x-t-4-k-KMX350-1.png",
+  "https://i.ibb.co/3Y0qzhPk/M-y-phun-x-t-4-k-KMX350-2.png",
+  "https://i.ibb.co/XkL9DXSW/M-y-phun-x-t-4-k-KMX350-3.png",
+]
