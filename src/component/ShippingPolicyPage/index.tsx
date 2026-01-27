@@ -29,7 +29,7 @@ const POLICY_DATA: PolicySection[] = [
             {
                 content: (
                     <>
-                        <span className="text-red-600 font-bold">Miễn phí giao hàng</span> trong phạm vi <span className="font-bold text-gray-800">nội thành Nam Định</span> và <span className="font-bold text-gray-800">TP.Hồ Chí Minh</span>.
+                        <span className="text-red-600 font-bold">Miễn phí giao hàng</span> trong phạm vi <span className="font-bold text-gray-800">nội thành Nam Định</span>.
                         Trường hợp Quý khách đề nghị giao hàng tận nơi <span className="text-red-600 font-bold">ngoại thành</span> hoặc <span className="text-red-600 font-bold">liên tỉnh</span> vui lòng
                         liên hệ với nhân viên kinh doanh hoặc qua email: <a href={`mailto:${EMAIL}`} className="text-blue-600 hover:underline">{EMAIL}</a>
                     </>
