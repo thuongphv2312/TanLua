@@ -51,7 +51,7 @@ const POLICY_DATA: PolicySection[] = [
             {
                 content: (
                     <>
-                        <span className="font-bold text-gray-800">Đối với khách hàng nội thành Hà Nội & TP. Hồ Chí Minh:</span><br />
+                        <span className="font-bold text-gray-800">Đối với khách hàng nội thành Nam Định:</span><br />
                         Nhân viên của chúng tôi sẽ giao hàng tận nhà (nếu khách hàng yêu cầu).
                         Quý khách vui lòng thanh toán tiền trực tiếp cho nhân viên giao hàng bằng <span className="font-bold text-gray-800">tiền mặt</span>.
                     </>

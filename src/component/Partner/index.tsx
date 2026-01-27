@@ -20,7 +20,7 @@ const PartnerPage = () => {
 
         <Space direction="vertical" size="large" style={{ width: '100%' }}>
 
-          {/* Hà Nội */}
+          {/* Nam Định */}
           <div>
             <Space align="start">
               <HomeOutlined style={{ color: '#daca72', fontSize: '18px', marginTop: '4px' }} />
