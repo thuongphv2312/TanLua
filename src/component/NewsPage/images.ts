@@ -965,3 +965,21 @@ export const KMX350 = [
   "https://i.ibb.co/3Y0qzhPk/M-y-phun-x-t-4-k-KMX350-2.png",
   "https://i.ibb.co/XkL9DXSW/M-y-phun-x-t-4-k-KMX350-3.png",
 ]
+
+export const NAKAWA_JLM200A = [
+  "https://i.ibb.co/hk9dd9r/M-y-B-m-N-c-T-ng-p-T-ng-Nakawa-200-W-JLM-200-A-1.png",
+  "https://i.ibb.co/6ctGvbxw/M-y-B-m-N-c-T-ng-p-T-ng-Nakawa-200-W-JLM-200-A-2.png",
+  "https://i.ibb.co/fVV4TZVT/M-y-B-m-N-c-T-ng-p-T-ng-Nakawa-200-W-JLM-200-A-3.png",
+  "https://i.ibb.co/TM9rFxr0/M-y-B-m-N-c-T-ng-p-T-ng-Nakawa-200-W-JLM-200-A.png",
+]
+
+export const ROMANO_RM180A = [
+  "https://i.ibb.co/8DddbkdT/M-y-B-m-T-ng-p-Romano-180-W-RM-180-A-upscayl-4x-upscayl-lite-4x.png",
+  "https://i.ibb.co/JFcHY1jK/M-y-B-m-T-ng-p-Romano-180-W-RM-180-A-1-upscayl-4x-upscayl-lite-4x.png",
+]
+
+export const ROMANO_RM150A = [
+  "https://i.ibb.co/vvzwJJ7f/M-y-B-m-T-ng-p-Romano-150-W-RM-150-A-2-upscayl-4x-upscayl-lite-4x.png",
+  "https://i.ibb.co/kszMs6CX/M-y-B-m-T-ng-p-Romano-150-W-RM-150-A-upscayl-4x-upscayl-lite-4x.png",
+  "https://i.ibb.co/PvqrYjf4/M-y-B-m-T-ng-p-Romano-150-W-RM-150-A-1-upscayl-4x-upscayl-lite-4x.png",
+]
