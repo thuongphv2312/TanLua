@@ -18,6 +18,7 @@ import { FullPageSkeleton } from './component/ui/SkeletonComponents';
 import StickyDecorations from './component/StickyDecorations';
 import AIChatbot from './component/Chatbot';
 import SideBanners from './component/SideBanners';
+import FallingPetals from './component/FallingPetals';
 
 
 import { theme } from 'antd';
@@ -276,6 +277,7 @@ const App = () => {
           <AppFooter />
         </Layout>
         <SideBanners />
+        <FallingPetals />
         <StickyDecorations />
         <AIChatbot />
       </ClickSpark>
