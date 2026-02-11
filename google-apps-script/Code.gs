@@ -136,6 +136,9 @@ function doGet(e) {
       case 'get_stats':
         result = handleGetStats();
         break;
+      case 'get_invoices_realtime':
+        result = handleGetInvoicesRealtime(e.parameter);
+        break;
       default:
         result = { success: false, error: 'Unknown action: ' + action };
     }
@@ -1183,5 +1186,66 @@ function logError(context, message) {
     }
   } catch (e) {
     Logger.log('Logging failed: ' + e);
+  }
+}
+
+function handleGetInvoicesRealtime(params) {
+  const customerId = params.customerId;
+  const pageSize = params.pageSize || 50;
+  
+  // Call KiotViet API directly (Bypassing Sheet Sync for freshness)
+  // Endpoint: /invoices
+  // Params: customerId, pageSize, includePayment
+  
+  try {
+     const apiParams = {
+        customerId: customerId,
+        pageSize: pageSize,
+        includePayment: true, // Crucial for payment details
+        orderBy: 'createdDate',
+        orderDirection: 'Desc'
+     };
+
+     const response = callKiotVietAPI('/invoices', apiParams);
+     
+     if (!response || !response.data) {
+         return { success: true, data: [] };
+     }
+
+     const invoices = response.data.map(function(inv) {
+         return {
+             id: inv.id,
+             code: inv.code,
+             purchaseDate: inv.purchaseDate,
+             total: inv.total,
+             totalPayment: inv.totalPayment, // Total paid for this invoice
+             statusValue: inv.statusValue,   // Status text
+             // Map Details (Products)
+             details: (inv.invoiceDetails || []).map(function(d) {
+                 return {
+                     code: d.productCode,
+                     name: d.productName,
+                     quantity: d.quantity,
+                     price: d.price,
+                     discount: d.discount,
+                     subTotal: d.subTotal // Amount = Qty * Price - Discount
+                 };
+             }),
+             // Map Payments (History specific to this invoice)
+             payments: (inv.payments || []).map(function(p) {
+                 return {
+                     method: p.methodName,
+                     amount: p.amount,
+                     date: p.createdDate // When paid
+                 };
+             })
+         };
+     });
+
+     return { success: true, data: invoices };
+
+  } catch (err) {
+      logError('Get Invoices Realtime', err.toString());
+      return { success: false, error: err.toString() };
   }
 }

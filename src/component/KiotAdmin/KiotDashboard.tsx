@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Table, Input, Button, Tag, message, Tooltip, Modal, DatePicker, Select } from 'antd';
+import { Table, Input, Button, Tag, message, Tooltip, Modal, DatePicker, Select, Tabs } from 'antd';
 const { Option } = Select;
 
 const { RangePicker } = DatePicker;
@@ -24,13 +24,14 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { HashLoader } from 'react-spinners';
 import * as XLSX from 'xlsx';
-import type { AdminTab, KiotCustomer, KiotOrder, KiotDebt, KiotStats } from './types';
+import type { AdminTab, KiotCustomer, KiotOrder, KiotDebt, KiotStats, KiotInvoice } from './types';
 import {
     getCustomers,
     getOrders,
     getDebts,
     searchCustomer,
     getStats,
+    getInvoicesRealtime,
     fullSync,
     incrementalSync,
     checkNewEvents,
@@ -77,6 +78,8 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
     // Debt Details & Export
     const [debtDetailVisible, setDebtDetailVisible] = useState(false);
     const [debtOrders, setDebtOrders] = useState<KiotOrder[]>([]);
+    const [debtInvoices, setDebtInvoices] = useState<KiotInvoice[]>([]);
+    const [debtActiveSubTab, setDebtActiveSubTab] = useState('invoices');
     const [debtDetailLoading, setDebtDetailLoading] = useState(false);
     const [selectedDebtCustomer, setSelectedDebtCustomer] = useState<KiotDebt | null>(null);
 
@@ -292,13 +295,23 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
         setSelectedDebtCustomer(record);
         setDebtDetailVisible(true);
         setDebtDetailLoading(true);
+        setDebtActiveSubTab('invoices'); // Default to new tab
         try {
-            const result = await getOrders(1, 100, String(record.customerId));
-            if (result.success) {
-                setDebtOrders(result.data);
-            } else {
-                message.error('Không thể tải lịch sử đơn hàng');
+            // Parallel fetch: Orders (History) and Invoices (Realtime Details)
+            const [ordersResult, invoicesResult] = await Promise.all([
+                getOrders(1, 100, String(record.customerId)),
+                getInvoicesRealtime(String(record.customerId))
+            ]);
+
+            if (ordersResult.success) {
+                setDebtOrders(ordersResult.data);
             }
+            if (invoicesResult.success) {
+                setDebtInvoices(invoicesResult.data);
+            } else {
+                message.warning('Không thể tải chi tiết hóa đơn: ' + invoicesResult.error);
+            }
+
         } catch (error) {
             console.error(error);
             message.error('Lỗi khi tải chi tiết');
@@ -328,25 +341,101 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
     };
 
     const handleExportDebtDetails = () => {
-        if (debtOrders.length === 0) {
-            message.warning('Không có chi tiết để xuất');
+        // Export logic based on active tab or ALL details
+        // Priority: Invoices (More detailed)
+
+        if (debtInvoices.length === 0 && debtOrders.length === 0) {
+            message.warning('Không có dữ liệu để xuất');
             return;
         }
 
-        const headers = ['Mã đơn', 'Ngày đặt', 'Khách hàng', 'SĐT', 'Sản phẩm', 'Tổng tiền', 'Giảm giá', 'Trạng thái'];
-        const data = debtOrders.map(o => [
-            o.code,
-            o.purchaseDate ? new Date(o.purchaseDate).toLocaleDateString('vi-VN') : '',
-            o.customerName,
-            o.phone,
-            o.products,
-            o.totalAmount,
-            o.discount,
-            getStatusText(o.statusValue || o.status)
-        ]);
+        try {
+            const wb = XLSX.utils.book_new();
 
-        const fileName = `Chi_Tiet_Cong_No_${selectedDebtCustomer?.customerName || 'Khach_Hash'}_${new Date().toISOString().slice(0, 10)}.xlsx`;
-        exportToExcelHelper(data, headers, fileName);
+            // 1. Sheet Chi Tiet Hang Hoa (Phẳng hóa từ Invoices)
+            if (debtInvoices.length > 0) {
+                const invoiceHeaders = [
+                    'Mã HĐ', 'Ngày', 'Trạng thái', 'Tổng tiền', 'Đã trả', 'Còn nợ',
+                    'Mã SP', 'Tên SP', 'SL', 'Đơn giá', 'Giảm giá', 'Thành tiền',
+                    'Lịch sử trả'
+                ];
+
+                const invoiceData: any[][] = [];
+
+                debtInvoices.forEach(inv => {
+                    const paymentHistory = (inv.payments || [])
+                        .map(p => `${new Date(p.date).toLocaleDateString('vi-VN')}: ${p.amount.toLocaleString('vi-VN')}₫ (${p.method})`)
+                        .join('; ');
+
+                    const debtRemaining = inv.total - inv.totalPayment;
+
+                    if (inv.details && inv.details.length > 0) {
+                        inv.details.forEach(d => {
+                            invoiceData.push([
+                                inv.code,
+                                inv.purchaseDate ? new Date(inv.purchaseDate).toLocaleDateString('vi-VN') : '',
+                                inv.statusValue,
+                                inv.total,
+                                inv.totalPayment,
+                                debtRemaining,
+                                d.code,
+                                d.name,
+                                d.quantity,
+                                d.price,
+                                d.discount,
+                                d.subTotal,
+                                paymentHistory
+                            ]);
+                        });
+                    } else {
+                        // Invoice without details (just summary)
+                        invoiceData.push([
+                            inv.code,
+                            inv.purchaseDate ? new Date(inv.purchaseDate).toLocaleDateString('vi-VN') : '',
+                            inv.statusValue,
+                            inv.total,
+                            inv.totalPayment,
+                            debtRemaining,
+                            '', '', '', '', '', '',
+                            paymentHistory
+                        ]);
+                    }
+                });
+
+                const wsInvoices = XLSX.utils.aoa_to_sheet([invoiceHeaders, ...invoiceData]);
+
+                // Auto fit cols
+                const wscols = invoiceHeaders.map((_, i) => ({ wch: 15 }));
+                wscols[1] = { wch: 20 }; // Name
+                wscols[7] = { wch: 30 }; // Product Name
+                wscols[12] = { wch: 40 }; // Payment History
+                wsInvoices['!cols'] = wscols;
+
+                XLSX.utils.book_append_sheet(wb, wsInvoices, "Chi Tiết Hóa Đơn");
+            }
+
+            // 2. Sheet Lich Su Don Hang (Order Summary)
+            if (debtOrders.length > 0) {
+                const orderHeaders = ['Mã đơn', 'Ngày', 'Tổng tiền', 'Trạng thái', 'Sản phẩm (Gộp)'];
+                const orderData = debtOrders.map(o => [
+                    o.code,
+                    o.purchaseDate ? new Date(o.purchaseDate).toLocaleDateString('vi-VN') : '',
+                    o.totalAmount,
+                    o.statusValue,
+                    o.products
+                ]);
+                const wsOrders = XLSX.utils.aoa_to_sheet([orderHeaders, ...orderData]);
+                wsOrders['!cols'] = [{ wch: 15 }, { wch: 15 }, { wch: 15 }, { wch: 15 }, { wch: 50 }];
+                XLSX.utils.book_append_sheet(wb, wsOrders, "Lịch Sử Đặt Hàng");
+            }
+
+            XLSX.writeFile(wb, `Chi_Tiet_Cong_No_${selectedDebtCustomer?.customerName || 'Khach'}_${new Date().toISOString().slice(0, 10)}.xlsx`);
+            message.success('Đã xuất file Excel chi tiết!');
+
+        } catch (err) {
+            console.error(err);
+            message.error('Lỗi xuất file');
+        }
     };
 
     // ==================== Sync ====================
@@ -775,31 +864,100 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                             </div>
                         </div>
 
-                        <h4 style={{ marginBottom: 12, color: '#475569' }}>Lịch sử đơn hàng gần đây</h4>
-                        <Table
-                            dataSource={debtOrders}
-                            rowKey="orderId"
-                            size="small"
-                            columns={[
-                                { title: 'Mã đơn', dataIndex: 'code', key: 'code', render: (t: string) => <b>{t}</b> },
-                                { title: 'Ngày', dataIndex: 'purchaseDate', key: 'purchaseDate', render: (d: string) => new Date(d).toLocaleDateString('vi-VN') },
-                                { title: 'Sản phẩm', dataIndex: 'products', key: 'products', ellipsis: true },
+                        <Tabs
+                            activeKey={debtActiveSubTab}
+                            onChange={setDebtActiveSubTab}
+                            items={[
                                 {
-                                    title: 'Tổng tiền',
-                                    dataIndex: 'totalAmount',
-                                    key: 'totalAmount',
-                                    render: (t: number) => <span style={{ color: '#d97706', fontWeight: 'bold' }}>{(t || 0).toLocaleString('vi-VN')}₫</span>
+                                    key: 'invoices',
+                                    label: 'Chi tiết Hóa đơn & Thanh toán',
+                                    children: (
+                                        <div style={{ maxHeight: 600, overflowY: 'auto' }}>
+                                            <Table
+                                                dataSource={debtInvoices}
+                                                rowKey="id"
+                                                size="small"
+                                                expandable={{
+                                                    expandedRowRender: (record) => (
+                                                        <div style={{ margin: 0, padding: 12, background: '#f8fafc', borderRadius: 8 }}>
+                                                            <div style={{ marginBottom: 8, fontWeight: 600, color: '#475569' }}>Chi tiết hàng hóa:</div>
+                                                            <Table
+                                                                dataSource={record.details}
+                                                                rowKey="code"
+                                                                pagination={false}
+                                                                size="small"
+                                                                bordered
+                                                                columns={[
+                                                                    { title: 'Mã SP', dataIndex: 'code', key: 'code', width: 100 },
+                                                                    { title: 'Tên hàng', dataIndex: 'name', key: 'name' },
+                                                                    { title: 'SL', dataIndex: 'quantity', key: 'quantity', width: 60 },
+                                                                    { title: 'Đơn giá', dataIndex: 'price', key: 'price', render: n => (n || 0).toLocaleString() + '₫' },
+                                                                    { title: 'Giảm giá', dataIndex: 'discount', key: 'discount', render: n => (n || 0).toLocaleString() + '₫' },
+                                                                    { title: 'Thành tiền', dataIndex: 'subTotal', key: 'subTotal', render: n => <b style={{ color: '#d97706' }}>{(n || 0).toLocaleString() + '₫'}</b> },
+                                                                ]}
+                                                            />
+                                                            {record.payments && record.payments.length > 0 && (
+                                                                <div style={{ marginTop: 12 }}>
+                                                                    <div style={{ marginBottom: 8, fontWeight: 600, color: '#475569' }}>Lịch sử thanh toán:</div>
+                                                                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                                                                        {record.payments.map((p, idx) => (
+                                                                            <Tag key={idx} color="green">
+                                                                                {new Date(p.date).toLocaleDateString('vi-VN')} - {p.amount.toLocaleString()}₫ ({p.method})
+                                                                            </Tag>
+                                                                        ))}
+                                                                    </div>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    ),
+                                                    rowExpandable: (record) => true,
+                                                    defaultExpandedRowKeys: debtInvoices.length > 0 ? [debtInvoices[0].id as string] : []
+                                                }}
+                                                columns={[
+                                                    { title: 'Mã HĐ', dataIndex: 'code', key: 'code', render: t => <b style={{ color: '#3b82f6' }}>{t}</b> },
+                                                    { title: 'Ngày bán', dataIndex: 'purchaseDate', key: 'purchaseDate', render: d => new Date(d).toLocaleDateString('vi-VN') },
+                                                    { title: 'Tổng tiền', dataIndex: 'total', key: 'total', render: n => <b>{(n || 0).toLocaleString()}₫</b> },
+                                                    { title: 'Đã trả', dataIndex: 'totalPayment', key: 'totalPayment', render: n => <span style={{ color: '#10b981' }}>{(n || 0).toLocaleString()}₫</span> },
+                                                    { title: 'Còn nợ', key: 'remain', render: (_, r) => <span style={{ color: '#ef4444', fontWeight: 'bold' }}>{Math.max(0, r.total - r.totalPayment).toLocaleString()}₫</span> },
+                                                    { title: 'Trạng thái', dataIndex: 'statusValue', key: 'statusValue', render: s => renderStatus(s) },
+                                                ]}
+                                                pagination={false}
+                                            />
+                                        </div>
+                                    )
                                 },
                                 {
-                                    title: 'Trạng thái',
-                                    dataIndex: 'statusValue',
-                                    key: 'statusValue',
-                                    width: 120,
-                                    render: (_: string | number, record: KiotOrder) => renderStatus(record.statusValue || record.status)
-                                },
+                                    key: 'orders',
+                                    label: 'Lịch sử Đặt hàng (Sync)',
+                                    children: (
+                                        <Table
+                                            dataSource={debtOrders}
+                                            rowKey="orderId"
+                                            size="small"
+                                            columns={[
+                                                { title: 'Mã đơn', dataIndex: 'code', key: 'code', render: (t: string) => <b>{t}</b> },
+                                                { title: 'Ngày', dataIndex: 'purchaseDate', key: 'purchaseDate', render: (d: string) => new Date(d).toLocaleDateString('vi-VN') },
+                                                { title: 'Sản phẩm', dataIndex: 'products', key: 'products', ellipsis: true },
+                                                {
+                                                    title: 'Tổng tiền',
+                                                    dataIndex: 'totalAmount',
+                                                    key: 'totalAmount',
+                                                    render: (t: number) => <span style={{ color: '#d97706', fontWeight: 'bold' }}>{(t || 0).toLocaleString('vi-VN')}₫</span>
+                                                },
+                                                {
+                                                    title: 'Trạng thái',
+                                                    dataIndex: 'statusValue',
+                                                    key: 'statusValue',
+                                                    width: 120,
+                                                    render: (_: string | number, record: KiotOrder) => renderStatus(record.statusValue || record.status)
+                                                },
+                                            ]}
+                                            pagination={false}
+                                            scroll={{ y: 400 }}
+                                        />
+                                    )
+                                }
                             ]}
-                            pagination={false}
-                            scroll={{ y: 400 }}
                         />
                     </div>
                 )}

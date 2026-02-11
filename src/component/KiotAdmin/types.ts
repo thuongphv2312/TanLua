@@ -46,6 +46,32 @@ export interface KiotDebt {
     note: string;
 }
 
+export interface KiotInvoiceDetail {
+    code: string;
+    name: string;
+    quantity: number;
+    price: number;
+    discount: number;
+    subTotal: number;
+}
+
+export interface KiotPayment {
+    method: string;
+    amount: number;
+    date: string;
+}
+
+export interface KiotInvoice {
+    id: number | string;
+    code: string;
+    purchaseDate: string;
+    total: number;
+    totalPayment: number;
+    statusValue: string;
+    details: KiotInvoiceDetail[];
+    payments: KiotPayment[];
+}
+
 export interface KiotStats {
     totalCustomers: number;
     totalOrders: number;

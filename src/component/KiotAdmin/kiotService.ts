@@ -10,6 +10,7 @@ import type {
     SetupPayload,
     SyncResult,
     NewEventsResponse,
+    KiotInvoice,
 } from './types';
 
 // URL Google Apps Script Web App - SẼ ĐƯỢC CẤU HÌNH SAU
@@ -153,6 +154,16 @@ export async function getOrders(
     if (status) params.status = status;
     if (search) params.search = search;
     return apiGet('get_orders', params);
+}
+
+
+
+export async function getInvoicesRealtime(customerId: string): Promise<{
+    success: boolean;
+    data: KiotInvoice[];
+    error?: string;
+}> {
+    return apiGet('get_invoices_realtime', { customerId });
 }
 
 export async function getDebts(
