@@ -17,6 +17,7 @@ import ScrollToTop from './component/ScrollToTop';
 import { FullPageSkeleton } from './component/ui/SkeletonComponents';
 import StickyDecorations from './component/StickyDecorations';
 import AIChatbot from './component/Chatbot';
+import SideBanners from './component/SideBanners';
 
 
 import { theme } from 'antd';
@@ -252,7 +253,8 @@ const App = () => {
             isDarkMode={isDarkMode}
             onToggleTheme={toggleTheme}
           />
-          <Content style={contentStyle}>
+          <Content className="main-content" style={contentStyle}>
+            {/* PC Banners */}
             <MenuContainer />
             <Breadcrumbs />
             {isInitialLoading ? (
@@ -273,6 +275,7 @@ const App = () => {
           <RecentPurchaseNotification />
           <AppFooter />
         </Layout>
+        <SideBanners />
         <StickyDecorations />
         <AIChatbot />
       </ClickSpark>
