@@ -258,16 +258,7 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
         return <Tag color={colorMap[displayStatus] || 'default'}>{displayStatus}</Tag>;
     };
 
-    const getStatusText = (status: string | number) => {
-        const statusMap: Record<string, string> = {
-            '1': 'Phiếu tạm',
-            '2': 'Đang xử lý',
-            '3': 'Hoàn thành',
-            '4': 'Đã hủy',
-        };
-        const s = String(status);
-        return statusMap[s] || s;
-    }
+
 
     const exportToExcelHelper = (data: any[][], headers: string[], fileName: string) => {
         try {
@@ -405,7 +396,7 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                 const wsInvoices = XLSX.utils.aoa_to_sheet([invoiceHeaders, ...invoiceData]);
 
                 // Auto fit cols
-                const wscols = invoiceHeaders.map((_, i) => ({ wch: 15 }));
+                const wscols = invoiceHeaders.map(() => ({ wch: 15 }));
                 wscols[1] = { wch: 20 }; // Name
                 wscols[7] = { wch: 30 }; // Product Name
                 wscols[12] = { wch: 40 }; // Payment History
@@ -910,7 +901,7 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                                                             )}
                                                         </div>
                                                     ),
-                                                    rowExpandable: (record) => true,
+                                                    rowExpandable: () => true,
                                                     defaultExpandedRowKeys: debtInvoices.length > 0 ? [debtInvoices[0].id as string] : []
                                                 }}
                                                 columns={[
