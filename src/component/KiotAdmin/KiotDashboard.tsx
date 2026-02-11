@@ -16,6 +16,8 @@ import {
     ReloadOutlined,
     ThunderboltOutlined,
     ExclamationCircleOutlined,
+    FullscreenOutlined,
+    FullscreenExitOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { HashLoader } from 'react-spinners';
@@ -76,6 +78,26 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
     const toastIdRef = useRef(0);
 
     // const PAGE_SIZE = 20; // Removed constant
+
+    // ==================== Fullscreen ====================
+    const dashboardRef = useRef<HTMLDivElement>(null);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    const toggleFullScreen = () => {
+        if (!document.fullscreenElement) {
+            dashboardRef.current?.requestFullscreen().catch((err: any) => {
+                message.error(`Lỗi Fullscreen: ${err.message}`);
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    };
+
+    useEffect(() => {
+        const handleChange = () => setIsFullscreen(!!document.fullscreenElement);
+        document.addEventListener('fullscreenchange', handleChange);
+        return () => document.removeEventListener('fullscreenchange', handleChange);
+    }, []);
 
     // ==================== Data Loading ====================
 
@@ -524,7 +546,28 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
     // ==================== Render ====================
 
     return (
-        <div className="kiot-admin-page">
+        <div
+            className="kiot-admin-page"
+            ref={dashboardRef}
+            style={isFullscreen ? { backgroundColor: '#111827', overflowY: 'auto', maxHeight: '100vh' } : undefined}
+        >
+            <style>
+                {`
+                    .kiot-table-wrapper .ant-table-pagination {
+                        margin-right: 20px !important;
+                        margin-top: 16px !important;
+                    }
+                    .kiot-table-wrapper .ant-pagination-item {
+                        margin-right: 8px !important;
+                    }
+                    .kiot-table-wrapper .ant-pagination-prev, 
+                    .kiot-table-wrapper .ant-pagination-next,
+                    .kiot-table-wrapper .ant-pagination-jump-prev,
+                    .kiot-table-wrapper .ant-pagination-jump-next {
+                        margin-right: 8px !important;
+                    }
+                `}
+            </style>
             {/* Sync Loading Overlay */}
             {syncLoading && (
                 <div className="kiot-loading-overlay">
@@ -562,6 +605,7 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                     </div>
 
                     <div className="kiot-dashboard-actions">
+
                         <Button
                             className="kiot-back-btn"
                             icon={<ArrowLeftOutlined />}
@@ -592,6 +636,22 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                         >
                             Đăng xuất
                         </Button>
+                        <Tooltip title={isFullscreen ? "Thu nhỏ" : "Toàn màn hình"}>
+                            <Button
+                                className="kiot-fullscreen-btn"
+                                icon={isFullscreen ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
+                                onClick={toggleFullScreen}
+                                type="text"
+                                size="large"
+                                style={{
+                                    color: '#fff',
+                                    marginLeft: 8,
+                                    transition: 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                                }}
+                                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+                                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                            />
+                        </Tooltip>
                     </div>
                 </div>
 
@@ -755,9 +815,11 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                                         setCustomerPage(page);
                                         if (size !== pageSize) setPageSize(size);
                                     },
-                                    showTotal: (total, range) => `Hiển thị ${range[0]}-${range[1]} của ${total} khách hàng`,
+                                    showTotal: (total, range) => `${range[0]}-${range[1]} / ${total} khách`,
                                     showSizeChanger: true,
-                                    pageSizeOptions: ['20', '50', '100', '200']
+                                    pageSizeOptions: ['20', '50', '100'],
+                                    position: ['bottomRight'],
+                                    showQuickJumper: true
                                 }}
                                 scroll={{ x: 1000, y: 600 }}
                                 size="middle"
@@ -778,9 +840,11 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                                         setOrderPage(page);
                                         if (size !== pageSize) setPageSize(size);
                                     },
-                                    showTotal: (total, range) => `Hiển thị ${range[0]}-${range[1]} của ${total} đơn hàng`,
+                                    showTotal: (total, range) => `${range[0]}-${range[1]} / ${total} đơn`,
                                     showSizeChanger: true,
-                                    pageSizeOptions: ['20', '50', '100', '200']
+                                    pageSizeOptions: ['20', '50', '100'],
+                                    position: ['bottomRight'],
+                                    showQuickJumper: true
                                 }}
                                 scroll={{ x: 900, y: 600 }}
                                 size="middle"
@@ -801,9 +865,11 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                                         setDebtPage(page);
                                         if (size !== pageSize) setPageSize(size);
                                     },
-                                    showTotal: (total, range) => `Hiển thị ${range[0]}-${range[1]} của ${total} khách còn nợ`,
+                                    showTotal: (total, range) => `${range[0]}-${range[1]} / ${total} khách`,
                                     showSizeChanger: true,
-                                    pageSizeOptions: ['20', '50', '100', '200']
+                                    pageSizeOptions: ['20', '50', '100'],
+                                    position: ['bottomRight'],
+                                    showQuickJumper: true
                                 }}
                                 scroll={{ x: 800, y: 600 }}
                                 size="middle"
