@@ -795,7 +795,7 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                                     dataIndex: 'statusValue',
                                     key: 'statusValue',
                                     width: 120,
-                                    render: (s: string | number, record: KiotOrder) => renderStatus(record.statusValue || record.status)
+                                    render: (_: string | number, record: KiotOrder) => renderStatus(record.statusValue || record.status)
                                 },
                             ]}
                             pagination={false}
