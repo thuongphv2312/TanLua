@@ -22,6 +22,7 @@ import ReturnPolicyPage from './component/ReturnPolicyPage';
 import PaymentSupportPage from './component/PaymentSupportPage';
 import SEO from './component/SEO';
 import FlashSale from './component/FlashSale';
+import KiotAdmin from './component/KiotAdmin';
 
 interface AppRoutesProps {
   cartCounts: { [key: string]: number };
@@ -103,6 +104,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
       <Route path="/huong-dan-thanh-toan" element={<PaymentSupportPage />} />
       <Route path="/tro-thanh-doi-tac" element={<PartnerPage />} />
       <Route path="/lien-he-quang-cao" element={<PartnerPage />} />
+      <Route path="/kiot-admin" element={<KiotAdmin />} />
       <Route path={ROUTE_MAP['CART']} element={
         <CartPage
           cartCounts={cartCounts}

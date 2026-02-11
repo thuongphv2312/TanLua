@@ -1,0 +1,819 @@
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { Table, Input, Button, Tag, message, Tooltip, Modal, DatePicker, Select } from 'antd';
+const { Option } = Select;
+
+const { RangePicker } = DatePicker;
+import {
+    SyncOutlined,
+    SearchOutlined,
+    TeamOutlined,
+    ShoppingCartOutlined,
+    DollarOutlined,
+    ClockCircleOutlined,
+    BellOutlined,
+    LogoutOutlined,
+    ArrowLeftOutlined,
+    ReloadOutlined,
+    ThunderboltOutlined,
+    ExclamationCircleOutlined,
+} from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
+import { HashLoader } from 'react-spinners';
+import type { AdminTab, KiotCustomer, KiotOrder, KiotDebt, KiotStats } from './types';
+import {
+    getCustomers,
+    getOrders,
+    getDebts,
+    searchCustomer,
+    getStats,
+    fullSync,
+    incrementalSync,
+    checkNewEvents,
+    clearSession,
+} from './kiotService';
+
+interface KiotDashboardProps {
+    retailerName: string;
+    autoSync?: boolean;
+}
+
+interface ToastItem {
+    id: number;
+    message: string;
+}
+
+const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = false }) => {
+    const navigate = useNavigate();
+    const [activeTab, setActiveTab] = useState<AdminTab>('customers');
+    const [loading, setLoading] = useState(false);
+    const [syncLoading, setSyncLoading] = useState(false);
+    const [syncMessage, setSyncMessage] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // Data states
+    const [customers, setCustomers] = useState<KiotCustomer[]>([]);
+    const [orders, setOrders] = useState<KiotOrder[]>([]);
+    const [debts, setDebts] = useState<KiotDebt[]>([]);
+    const [stats, setStats] = useState<KiotStats | null>(null);
+
+    // Pagination
+    const [customerPage, setCustomerPage] = useState(1);
+    const [orderPage, setOrderPage] = useState(1);
+    const [debtPage, setDebtPage] = useState(1);
+    const [pageSize, setPageSize] = useState(100);
+    const [dateRange, setDateRange] = useState<any>(null); // For orders filter
+    const [orderSearch, setOrderSearch] = useState('');
+    const [orderStatus, setOrderStatus] = useState<string | undefined>(undefined);
+    const [debtSearch, setDebtSearch] = useState('');
+    const [totalCustomers, setTotalCustomers] = useState(0);
+    const [totalOrders, setTotalOrders] = useState(0);
+    const [totalDebts, setTotalDebts] = useState(0);
+
+    // Notifications
+    const [toasts, setToasts] = useState<ToastItem[]>([]);
+    const [newEventCount, setNewEventCount] = useState(0);
+    const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    const toastIdRef = useRef(0);
+
+    // const PAGE_SIZE = 20; // Removed constant
+
+    // ==================== Data Loading ====================
+
+    const loadStats = useCallback(async () => {
+        try {
+            const result = await getStats();
+            if (result.success) {
+                setStats(result.stats);
+            }
+        } catch (err) {
+            console.error('Error loading stats:', err);
+        }
+    }, []);
+
+    const loadCustomers = useCallback(async (page: number) => {
+        setLoading(true);
+        try {
+            const result = await getCustomers(page, pageSize);
+            if (result.success) {
+                setCustomers(result.data);
+                setTotalCustomers(result.total);
+            }
+        } catch (err) {
+            console.error('Error loading customers:', err);
+        } finally {
+            setLoading(false);
+        }
+    }, [pageSize]);
+
+    const loadOrders = useCallback(async (page: number) => {
+        setLoading(true);
+        try {
+            const from = dateRange ? dateRange[0].format('YYYY-MM-DD') : undefined;
+            const to = dateRange ? dateRange[1].format('YYYY-MM-DD') : undefined;
+            const result = await getOrders(page, pageSize, undefined, from, to, orderStatus, orderSearch);
+
+            if (result.success) {
+                setOrders(result.data);
+                setTotalOrders(result.total);
+            }
+        } catch (err) {
+            console.error('Error loading orders:', err);
+        } finally {
+            setLoading(false);
+        }
+    }, [pageSize, dateRange, orderStatus, orderSearch]);
+
+    const loadDebts = useCallback(async (page: number) => {
+        setLoading(true);
+        try {
+            const result = await getDebts(page, pageSize, debtSearch);
+            if (result.success) {
+                setDebts(result.data);
+                setTotalDebts(result.total);
+            }
+        } catch (err) {
+            console.error('Error loading debts:', err);
+        } finally {
+            setLoading(false);
+        }
+    }, [pageSize, debtSearch]);
+
+    // Initial load
+    useEffect(() => {
+        loadStats();
+        // Trigger load for active tab
+        if (activeTab === 'customers') loadCustomers(customerPage);
+    }, [loadStats, loadCustomers, customerPage, pageSize]); // Add pageSize
+
+    // Tab change
+    useEffect(() => {
+        if (activeTab === 'customers') loadCustomers(customerPage);
+        else if (activeTab === 'orders') loadOrders(orderPage);
+        else if (activeTab === 'debts') loadDebts(debtPage);
+    }, [activeTab, customerPage, orderPage, debtPage, pageSize]);
+
+    // ==================== Polling ====================
+
+    useEffect(() => {
+        pollingRef.current = setInterval(async () => {
+            try {
+                const result = await checkNewEvents();
+                if (result.success && result.newEvents > 0) {
+                    setNewEventCount(result.newEvents);
+                    addToast(`🔔 ${result.newEvents} sự kiện mới từ KiotViet!`);
+                }
+            } catch {
+                // Silent fail for polling
+            }
+        }, 30000); // 30 seconds
+
+        return () => {
+            if (pollingRef.current) clearInterval(pollingRef.current);
+        };
+    }, []);
+
+    const addToast = (msg: string) => {
+        const id = ++toastIdRef.current;
+        setToasts(prev => [...prev, { id, message: msg }]);
+        setTimeout(() => {
+            setToasts(prev => prev.filter(t => t.id !== id));
+        }, 5000);
+    };
+
+    // ==================== Search ====================
+
+    const handleSearch = async () => {
+        if (!searchQuery.trim()) {
+            loadCustomers(1);
+            return;
+        }
+        setLoading(true);
+        try {
+            const result = await searchCustomer(searchQuery.trim());
+            if (result.success) {
+                setCustomers(result.data);
+                setTotalCustomers(result.total);
+                setActiveTab('customers');
+            } else {
+                message.warning(result.error || 'Không tìm thấy kết quả');
+            }
+        } catch (err) {
+            message.error('Lỗi tìm kiếm');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // ==================== Sync ====================
+
+    const handleFullSync = () => {
+        Modal.confirm({
+            title: 'Full Sync',
+            icon: <ExclamationCircleOutlined />,
+            content: 'Thao tác này sẽ kéo TOÀN BỘ dữ liệu từ KiotViet và ghi đè dữ liệu cũ. Có thể mất vài phút. Bạn chắc chắn?',
+            okText: 'Đồng bộ ngay',
+            cancelText: 'Hủy',
+            onOk: async () => {
+                setSyncLoading(true);
+                setSyncMessage('Đang đồng bộ toàn bộ dữ liệu...');
+                try {
+                    const result = await fullSync();
+                    if (result.success) {
+                        message.success(
+                            `✅ Full sync hoàn tất! ${result.customers || 0} KH, ${result.orders || 0} đơn hàng`
+                        );
+                        loadStats();
+                        loadCustomers(1);
+                        setNewEventCount(0);
+                    } else {
+                        message.error(result.error || 'Lỗi đồng bộ');
+                    }
+                } catch (err: any) {
+                    message.error('Lỗi: ' + (err.message || 'Vui lòng thử lại'));
+                } finally {
+                    setSyncLoading(false);
+                    setSyncMessage('');
+                }
+            },
+        });
+    };
+
+    const handleIncrementalSync = async () => {
+        setSyncLoading(true);
+        setSyncMessage('Đang đồng bộ dữ liệu mới...');
+        try {
+            const result = await incrementalSync();
+            if (result.success) {
+                const msg = result.newCustomers
+                    ? `✅ Đồng bộ xong! +${result.newCustomers} KH mới, ${result.updatedCustomers || 0} cập nhật`
+                    : '✅ Đồng bộ xong! Không có thay đổi mới.';
+                message.success(msg);
+                loadStats();
+                if (activeTab === 'customers') loadCustomers(customerPage);
+                else if (activeTab === 'orders') loadOrders(orderPage);
+                else loadDebts(debtPage);
+                setNewEventCount(0);
+            } else {
+                message.error(result.error || 'Lỗi đồng bộ');
+            }
+        } catch (err: any) {
+            message.error('Lỗi: ' + (err.message || 'Vui lòng thử lại'));
+        } finally {
+            setSyncLoading(false);
+            setSyncMessage('');
+        }
+    };
+
+    // ==================== Logout ====================
+
+    const handleLogout = () => {
+        clearSession();
+        window.location.reload();
+    };
+
+    // ==================== Auto Sync ====================
+    useEffect(() => {
+        if (autoSync) {
+            handleIncrementalSync();
+        }
+    }, []);
+
+    // ==================== Table Columns ====================
+
+    const customerColumns = [
+        {
+            title: 'Mã KH',
+            dataIndex: 'code',
+            key: 'code',
+            width: 100,
+            render: (code: string, record: KiotCustomer) => (
+                <span>
+                    {code}
+                    {record.isNew === 'true' && <span className="kiot-new-badge">MỚI</span>}
+                </span>
+            ),
+        },
+        {
+            title: 'Tên khách hàng',
+            dataIndex: 'name',
+            key: 'name',
+            ellipsis: true,
+            render: (name: string) => <strong style={{ color: '#e2e8f0' }}>{name}</strong>,
+        },
+        {
+            title: 'Số điện thoại',
+            dataIndex: 'contactNumber',
+            key: 'contactNumber',
+            width: 130,
+            render: (phone: string) => (
+                <a href={`tel:${phone}`} style={{ color: '#a78bfa' }}>
+                    {phone}
+                </a>
+            ),
+        },
+        {
+            title: 'Email',
+            dataIndex: 'email',
+            key: 'email',
+            width: 180,
+            ellipsis: true,
+        },
+        {
+            title: 'Địa chỉ',
+            dataIndex: 'address',
+            key: 'address',
+            ellipsis: true,
+            render: (_: unknown, record: KiotCustomer) => {
+                const parts = [record.address, record.ward, record.district, record.city].filter(Boolean);
+                return <Tooltip title={parts.join(', ')}>{parts.join(', ') || '—'}</Tooltip>;
+            },
+        },
+        {
+            title: 'Nhóm',
+            dataIndex: 'group',
+            key: 'group',
+            width: 120,
+            render: (group: string) => group ? <Tag color="purple">{group}</Tag> : '—',
+        },
+        {
+            title: 'Công nợ',
+            dataIndex: 'debt',
+            key: 'debt',
+            width: 120,
+            sorter: (a: KiotCustomer, b: KiotCustomer) => Number(a.debt) - Number(b.debt),
+            render: (debt: number) => {
+                const val = Number(debt) || 0;
+                return (
+                    <span className={val > 0 ? 'kiot-debt-positive' : 'kiot-debt-zero'}>
+                        {val > 0 ? val.toLocaleString('vi-VN') + '₫' : '0₫'}
+                    </span>
+                );
+            },
+        },
+        {
+            title: 'Doanh thu',
+            dataIndex: 'totalRevenue',
+            key: 'totalRevenue',
+            width: 130,
+            sorter: (a: KiotCustomer, b: KiotCustomer) => Number(a.totalRevenue) - Number(b.totalRevenue),
+            render: (rev: number) => {
+                const val = Number(rev) || 0;
+                return <span style={{ color: '#34d399' }}>{val.toLocaleString('vi-VN')}₫</span>;
+            },
+        },
+    ];
+
+    const orderColumns = [
+        {
+            title: 'Mã đơn',
+            dataIndex: 'code',
+            key: 'code',
+            width: 120,
+            render: (code: string) => <strong style={{ color: '#60a5fa' }}>{code}</strong>,
+        },
+        {
+            title: 'Khách hàng',
+            dataIndex: 'customerName',
+            key: 'customerName',
+            ellipsis: true,
+        },
+        {
+            title: 'Sản phẩm',
+            dataIndex: 'products',
+            key: 'products',
+            ellipsis: true,
+            render: (products: string) => <Tooltip title={products}>{products || '—'}</Tooltip>,
+        },
+        {
+            title: 'Tổng tiền',
+            dataIndex: 'totalAmount',
+            key: 'totalAmount',
+            width: 130,
+            sorter: (a: KiotOrder, b: KiotOrder) => Number(a.totalAmount) - Number(b.totalAmount),
+            render: (amount: number) => (
+                <strong style={{ color: '#fbbf24' }}>
+                    {(Number(amount) || 0).toLocaleString('vi-VN')}₫
+                </strong>
+            ),
+        },
+        {
+            title: 'Giảm giá',
+            dataIndex: 'discount',
+            key: 'discount',
+            width: 100,
+            render: (d: number) => {
+                const val = Number(d) || 0;
+                return val > 0 ? <span style={{ color: '#f87171' }}>-{val.toLocaleString('vi-VN')}₫</span> : '—';
+            },
+        },
+        {
+            title: 'Trạng thái',
+            dataIndex: 'statusValue',
+            key: 'statusValue',
+            width: 120,
+            render: (status: string | number) => {
+                const statusMap: Record<number, string> = {
+                    1: 'Phiếu tạm',
+                    2: 'Đang xử lý',
+                    3: 'Hoàn thành',
+                    4: 'Đã hủy',
+                };
+                const displayStatus = typeof status === 'number' ? (statusMap[status] || status) : status;
+
+                const colorMap: Record<string, string> = {
+                    'Hoàn thành': 'green',
+                    'Đang xử lý': 'blue',
+                    'Đã hủy': 'red',
+                    'Phiếu tạm': 'orange',
+                };
+                return <Tag color={colorMap[String(displayStatus)] || 'default'}>{displayStatus || 'N/A'}</Tag>;
+            },
+        },
+        {
+            title: 'Ngày đặt',
+            dataIndex: 'purchaseDate',
+            key: 'purchaseDate',
+            width: 140,
+            render: (date: string) => {
+                if (!date) return '—';
+                try {
+                    return new Date(date).toLocaleDateString('en-GB');
+                } catch {
+                    return date;
+                }
+            },
+        },
+    ];
+
+    const debtColumns = [
+        {
+            title: 'Mã KH',
+            dataIndex: 'customerId',
+            key: 'customerId',
+            width: 100,
+        },
+        {
+            title: 'Tên khách hàng',
+            dataIndex: 'customerName',
+            key: 'customerName',
+            ellipsis: true,
+            render: (name: string) => <strong style={{ color: '#e2e8f0' }}>{name}</strong>,
+        },
+        {
+            title: 'Số điện thoại',
+            dataIndex: 'phone',
+            key: 'phone',
+            width: 130,
+            render: (phone: string) => (
+                <a href={`tel:${phone}`} style={{ color: '#a78bfa' }}>{phone}</a>
+            ),
+        },
+        {
+            title: 'Tổng nợ',
+            dataIndex: 'totalDebt',
+            key: 'totalDebt',
+            width: 130,
+            sorter: (a: KiotDebt, b: KiotDebt) => Number(a.totalDebt) - Number(b.totalDebt),
+            render: (debt: number) => (
+                <strong className="kiot-debt-positive">
+                    {(Number(debt) || 0).toLocaleString('vi-VN')}₫
+                </strong>
+            ),
+        },
+        {
+            title: 'Đã thanh toán',
+            dataIndex: 'totalPaid',
+            key: 'totalPaid',
+            width: 130,
+            render: (paid: number) => (
+                <span style={{ color: '#34d399' }}>
+                    {(Number(paid) || 0).toLocaleString('vi-VN')}₫
+                </span>
+            ),
+        },
+        {
+            title: 'Còn lại',
+            dataIndex: 'remaining',
+            key: 'remaining',
+            width: 130,
+            render: (r: number) => {
+                const val = Number(r) || 0;
+                return (
+                    <strong style={{ color: val > 0 ? '#f87171' : '#34d399' }}>
+                        {val.toLocaleString('vi-VN')}₫
+                    </strong>
+                );
+            },
+        },
+        {
+            title: 'Cập nhật',
+            dataIndex: 'lastTransactionDate',
+            key: 'lastTransactionDate',
+            width: 140,
+            render: (date: string) => {
+                if (!date) return '—';
+                try {
+                    return new Date(date).toLocaleDateString('en-GB');
+                } catch {
+                    return date;
+                }
+            },
+        },
+    ];
+
+    // ==================== Render ====================
+
+    return (
+        <div className="kiot-admin-page">
+            {/* Sync Loading Overlay */}
+            {syncLoading && (
+                <div className="kiot-loading-overlay">
+                    <HashLoader color="#a855f7" size={60} />
+                    <div className="loading-text">{syncMessage}</div>
+                    <div className="loading-progress">Vui lòng không đóng trang trong quá trình đồng bộ...</div>
+                </div>
+            )}
+
+            {/* Toast Notifications */}
+            {toasts.length > 0 && (
+                <div className="kiot-notification-toast">
+                    {toasts.map((toast) => (
+                        <div key={toast.id} className="kiot-toast-item">
+                            <BellOutlined />
+                            {toast.message}
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            <div className="kiot-admin-container">
+                {/* Header */}
+                <div className="kiot-dashboard-header">
+                    <div className="kiot-dashboard-title">
+                        <h2>📊 Quản lý KiotViet</h2>
+                        {retailerName && (
+                            <span className="kiot-retailer-badge">🏪 {retailerName}</span>
+                        )}
+                        {newEventCount > 0 && (
+                            <Tag color="green" style={{ borderRadius: 20, fontWeight: 600 }}>
+                                <BellOutlined /> {newEventCount} mới
+                            </Tag>
+                        )}
+                    </div>
+
+                    <div className="kiot-dashboard-actions">
+                        <Button
+                            className="kiot-back-btn"
+                            icon={<ArrowLeftOutlined />}
+                            onClick={() => navigate('/')}
+                        >
+                            Trang chủ
+                        </Button>
+                        <Button
+                            className="kiot-sync-btn incremental"
+                            icon={<ReloadOutlined />}
+                            onClick={handleIncrementalSync}
+                            loading={syncLoading}
+                        >
+                            Đồng bộ mới
+                        </Button>
+                        <Button
+                            className="kiot-sync-btn full"
+                            icon={<SyncOutlined />}
+                            onClick={handleFullSync}
+                            loading={syncLoading}
+                        >
+                            Full Sync
+                        </Button>
+                        <Button
+                            className="kiot-logout-btn"
+                            icon={<LogoutOutlined />}
+                            onClick={handleLogout}
+                        >
+                            Đăng xuất
+                        </Button>
+                    </div>
+                </div>
+
+                {/* Stats Cards */}
+                <div className="kiot-stats-grid">
+                    <div className="kiot-stat-card">
+                        <div className="stat-icon purple"><TeamOutlined /></div>
+                        <div className="stat-value">{stats?.totalCustomers?.toLocaleString('vi-VN') || '—'}</div>
+                        <div className="stat-label">Tổng khách hàng</div>
+                    </div>
+                    <div className="kiot-stat-card">
+                        <div className="stat-icon blue"><ShoppingCartOutlined /></div>
+                        <div className="stat-value">{stats?.totalOrders?.toLocaleString('vi-VN') || '—'}</div>
+                        <div className="stat-label">Tổng đơn hàng</div>
+                    </div>
+                    <div className="kiot-stat-card">
+                        <div className="stat-icon green"><DollarOutlined /></div>
+                        <div className="stat-value">
+                            {stats?.totalRevenue ? stats.totalRevenue.toLocaleString('vi-VN') + '₫' : '—'}
+                        </div>
+                        <div className="stat-label">Tổng doanh thu</div>
+                    </div>
+                    <div className="kiot-stat-card">
+                        <div className="stat-icon red"><ExclamationCircleOutlined /></div>
+                        <div className="stat-value">{stats?.totalDebtAmount ? stats.totalDebtAmount.toLocaleString('vi-VN') + '₫' : '0₫'}</div>
+                        <div className="stat-label">Khách còn nợ</div>
+                    </div>
+                    <div className="kiot-stat-card">
+                        <div className="stat-icon orange"><ClockCircleOutlined /></div>
+                        <div className="stat-value" style={{ fontSize: 16 }}>
+                            {stats?.lastSyncTime && stats.lastSyncTime !== 'Chưa đồng bộ'
+                                ? new Date(stats.lastSyncTime).toLocaleString('vi-VN')
+                                : 'Chưa đồng bộ'}
+                        </div>
+                        <div className="stat-label">Đồng bộ lần cuối</div>
+                    </div>
+                </div>
+
+                {/* Content Card */}
+                <div className="kiot-content-card">
+                    {/* Tabs & Search */}
+                    <div className="kiot-content-header">
+                        <div className="kiot-tabs">
+                            <button
+                                className={`kiot-tab ${activeTab === 'customers' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('customers')}
+                            >
+                                <TeamOutlined /> Khách hàng ({totalCustomers})
+                            </button>
+                            <button
+                                className={`kiot-tab ${activeTab === 'orders' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('orders')}
+                            >
+                                <ShoppingCartOutlined /> Đơn hàng ({totalOrders})
+                            </button>
+                            <button
+                                className={`kiot-tab ${activeTab === 'debts' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('debts')}
+                            >
+                                <DollarOutlined /> Công nợ ({totalDebts})
+                            </button>
+                        </div>
+
+                        {activeTab === 'customers' && (
+                            <div className="kiot-search-input">
+                                <Input
+                                    prefix={<SearchOutlined />}
+                                    placeholder="Tìm theo tên, SĐT, mã KH..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    onPressEnter={handleSearch}
+                                    allowClear
+                                    onClear={() => { setSearchQuery(''); loadCustomers(1); }}
+                                />
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Sync Info */}
+                    <div className="kiot-sync-info">
+                        <div className="kiot-sync-dot" />
+                        <span>Polling mỗi 30 giây • Webhook đã kích hoạt</span>
+                        {newEventCount > 0 && (
+                            <Button
+                                type="link"
+                                size="small"
+                                icon={<ThunderboltOutlined />}
+                                onClick={handleIncrementalSync}
+                                style={{ color: '#34d399', fontWeight: 600 }}
+                            >
+                                Cập nhật ngay ({newEventCount} mới)
+                            </Button>
+                        )}
+                    </div>
+
+                    {/* Table */}
+                    <div className="kiot-table-wrapper">
+                        {activeTab === 'orders' && (
+                            <div style={{ marginBottom: 16, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                                <Input
+                                    placeholder="Tìm mã đơn, tên KH, SĐT..."
+                                    prefix={<SearchOutlined />}
+                                    style={{ width: 250 }}
+                                    allowClear
+                                    value={orderSearch}
+                                    onChange={e => setOrderSearch(e.target.value)}
+                                    onPressEnter={() => loadOrders(1)}
+                                />
+                                <Select
+                                    placeholder="Trạng thái"
+                                    style={{ width: 150 }}
+                                    allowClear
+                                    value={orderStatus}
+                                    onChange={val => { setOrderStatus(val); setOrderPage(1); }}
+                                >
+                                    <Option value="1">Phiếu tạm</Option>
+                                    <Option value="2">Đang xử lý</Option>
+                                    <Option value="3">Hoàn thành</Option>
+                                    <Option value="4">Đã hủy</Option>
+                                </Select>
+                                <RangePicker
+                                    onChange={(dates) => {
+                                        setDateRange(dates);
+                                        setOrderPage(1);
+                                    }}
+                                    format="DD/MM/YYYY"
+                                    placeholder={['Từ ngày', 'Đến ngày']}
+                                />
+                                <Button type="primary" icon={<SearchOutlined />} onClick={() => loadOrders(1)}>
+                                    Tìm kiếm
+                                </Button>
+                            </div>
+                        )}
+                        {activeTab === 'debts' && (
+                            <div style={{ marginBottom: 16, display: 'flex', gap: 12 }}>
+                                <Input
+                                    placeholder="Tìm khách nợ theo tên, SĐT..."
+                                    prefix={<SearchOutlined />}
+                                    style={{ width: 300 }}
+                                    allowClear
+                                    value={debtSearch}
+                                    onChange={e => setDebtSearch(e.target.value)}
+                                    onPressEnter={() => loadDebts(1)}
+                                />
+                                <Button type="primary" icon={<SearchOutlined />} onClick={() => loadDebts(1)}>
+                                    Tìm kiếm
+                                </Button>
+                            </div>
+                        )}
+                        {activeTab === 'customers' && (
+                            <Table
+                                columns={customerColumns}
+                                dataSource={customers}
+                                rowKey="id"
+                                loading={loading}
+                                pagination={{
+                                    current: customerPage,
+                                    pageSize: pageSize,
+                                    total: totalCustomers,
+                                    onChange: (page, size) => {
+                                        setCustomerPage(page);
+                                        if (size !== pageSize) setPageSize(size);
+                                    },
+                                    showTotal: (total, range) => `Hiển thị ${range[0]}-${range[1]} của ${total} khách hàng`,
+                                    showSizeChanger: true,
+                                    pageSizeOptions: ['20', '50', '100', '200']
+                                }}
+                                scroll={{ x: 1000, y: 600 }}
+                                size="middle"
+                            />
+                        )}
+
+                        {activeTab === 'orders' && (
+                            <Table
+                                columns={orderColumns}
+                                dataSource={orders}
+                                rowKey="orderId"
+                                loading={loading}
+                                pagination={{
+                                    current: orderPage,
+                                    pageSize: pageSize,
+                                    total: totalOrders,
+                                    onChange: (page, size) => {
+                                        setOrderPage(page);
+                                        if (size !== pageSize) setPageSize(size);
+                                    },
+                                    showTotal: (total, range) => `Hiển thị ${range[0]}-${range[1]} của ${total} đơn hàng`,
+                                    showSizeChanger: true,
+                                    pageSizeOptions: ['20', '50', '100', '200']
+                                }}
+                                scroll={{ x: 900, y: 600 }}
+                                size="middle"
+                            />
+                        )}
+
+                        {activeTab === 'debts' && (
+                            <Table
+                                columns={debtColumns}
+                                dataSource={debts}
+                                rowKey="customerId"
+                                loading={loading}
+                                pagination={{
+                                    current: debtPage,
+                                    pageSize: pageSize,
+                                    total: totalDebts,
+                                    onChange: (page, size) => {
+                                        setDebtPage(page);
+                                        if (size !== pageSize) setPageSize(size);
+                                    },
+                                    showTotal: (total, range) => `Hiển thị ${range[0]}-${range[1]} của ${total} khách còn nợ`,
+                                    showSizeChanger: true,
+                                    pageSizeOptions: ['20', '50', '100', '200']
+                                }}
+                                scroll={{ x: 800, y: 600 }}
+                                size="middle"
+                            />
+                        )}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default KiotDashboard;

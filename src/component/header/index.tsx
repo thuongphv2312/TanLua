@@ -5,7 +5,7 @@ import {
   UserOutlined,
   ShoppingCartOutlined
 } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { HOTLINE } from '../NewsPage/constants';
 import { MobileMenu } from '../MenuContainer';
 import brand1 from '../../assets/tojiko.png';
@@ -28,6 +28,29 @@ const HeaderContainer = ({
   const [searchValue, setSearchValue] = useState('');
   const screens = useBreakpoint();
   const navigate = useNavigate();
+  const location = useLocation();
+  const [retailerName, setRetailerName] = useState<string | null>(null);
+
+  /* Session Check Logic */
+  const checkSession = () => {
+    try {
+      const session = sessionStorage.getItem('kiot_admin_session');
+      if (session) {
+        const data = JSON.parse(session);
+        if (data.retailer) {
+          setRetailerName(data.retailer);
+          return;
+        }
+      }
+    } catch { }
+    setRetailerName(null);
+  };
+
+  useEffect(() => {
+    checkSession();
+    window.addEventListener('kiot_session_changed', checkSession);
+    return () => window.removeEventListener('kiot_session_changed', checkSession);
+  }, []);
 
   // Logic typing placeholder
   const placeholderTexts = useMemo(() => [
@@ -199,13 +222,13 @@ const HeaderContainer = ({
         }
 
         {screens.md &&
-          <Space size="middle" style={{ minWidth: '120px' }} className="cursor-pointer group transition-all">
+          <Space size="middle" style={{ minWidth: '120px' }} className="cursor-pointer group transition-all" onClick={() => navigate('/kiot-admin')}>
             <UserOutlined className="group-hover:scale-110 transition-transform" style={{ fontSize: '26px', color: '#fff' }} />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <Text strong style={{ color: '#daca72' }} className="header-gold-text group-hover:text-white transition-colors">
-                <span style={{ color: '#daca72' }}>Tài khoản</span>
+                <span style={{ color: '#daca72' }}>{retailerName ? retailerName : 'Tài khoản'}</span>
               </Text>
-              <Text style={{ fontSize: '12px', color: '#ffcccc' }}>Đăng nhập</Text>
+              <Text style={{ fontSize: '12px', color: '#ffcccc' }}>{retailerName ? 'Quản lý' : 'Đăng nhập'}</Text>
             </div>
           </Space>
         }

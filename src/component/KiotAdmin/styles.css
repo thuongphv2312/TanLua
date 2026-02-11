@@ -1,0 +1,731 @@
+/* ==================== KiotViet Admin Styles ==================== */
+
+/* ---- Layout ---- */
+.kiot-admin-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  padding: 0;
+}
+
+.kiot-admin-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* ---- Login Page ---- */
+.kiot-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.kiot-login-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(108, 92, 231, 0.15) 0%, transparent 70%);
+  top: -200px;
+  right: -200px;
+  border-radius: 50%;
+  animation: kiot-pulse 8s ease-in-out infinite;
+}
+
+.kiot-login-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(253, 121, 168, 0.1) 0%, transparent 70%);
+  bottom: -100px;
+  left: -100px;
+  border-radius: 50%;
+  animation: kiot-pulse 6s ease-in-out infinite reverse;
+}
+
+@keyframes kiot-pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.kiot-login-card {
+  width: 100%;
+  max-width: 460px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 48px 40px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  animation: kiot-slide-up 0.6s ease-out;
+}
+
+@keyframes kiot-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kiot-login-card .kiot-logo {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.kiot-login-card .kiot-logo-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, #6c5ce7, #a855f7);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 32px;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(108, 92, 231, 0.4);
+}
+
+.kiot-login-card .kiot-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.kiot-login-card .kiot-subtitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+}
+
+/* Form inputs on dark bg */
+.kiot-login-card .ant-input,
+.kiot-login-card .ant-input-password .ant-input {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  height: 48px !important;
+  font-size: 15px !important;
+  padding: 12px 16px !important;
+  line-height: 24px !important;
+  transition: all 0.3s ease !important;
+}
+
+.kiot-login-card .ant-input:hover,
+.kiot-login-card .ant-input:focus {
+  border-color: rgba(108, 92, 231, 0.5) !important;
+  background: rgba(255, 255, 255, 0.09) !important;
+}
+
+.kiot-login-card .ant-input::placeholder {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.kiot-login-card .ant-input-prefix {
+  color: rgba(255, 255, 255, 0.45) !important;
+  margin-right: 10px !important;
+  font-size: 16px !important;
+}
+
+.kiot-login-card .ant-input-password .ant-input-suffix {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.kiot-login-card .ant-form-item-label>label {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-weight: 500;
+  font-size: 14px !important;
+  margin-bottom: 8px !important;
+}
+
+.kiot-login-card .ant-input-affix-wrapper {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  height: 48px !important;
+  transition: all 0.3s ease !important;
+}
+
+.kiot-login-card .ant-input-affix-wrapper .ant-input {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  height: auto !important;
+}
+
+.kiot-login-card .ant-input-affix-wrapper:hover,
+.kiot-login-card .ant-input-affix-wrapper:focus,
+.kiot-login-card .ant-input-affix-wrapper-focused {
+  border-color: #6c5ce7 !important;
+  background: rgba(255, 255, 255, 0.09) !important;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15) !important;
+}
+
+.kiot-login-card .ant-form-item {
+  margin-bottom: 20px !important;
+}
+
+.kiot-login-btn {
+  width: 100%;
+  height: 48px !important;
+  border-radius: 12px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  background: linear-gradient(135deg, #6c5ce7, #a855f7) !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(108, 92, 231, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.kiot-login-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(108, 92, 231, 0.5) !important;
+}
+
+/* ---- Setup Form ---- */
+.kiot-setup-section {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.kiot-setup-section .kiot-setup-title {
+  color: #a855f7;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---- Dashboard ---- */
+.kiot-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.kiot-dashboard-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kiot-dashboard-title h2 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.kiot-dashboard-title .kiot-retailer-badge {
+  background: rgba(108, 92, 231, 0.2);
+  border: 1px solid rgba(108, 92, 231, 0.4);
+  color: #a78bfa;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.kiot-dashboard-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---- Stats Cards ---- */
+.kiot-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kiot-stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px 24px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.kiot-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(108, 92, 231, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.kiot-stat-card .stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.kiot-stat-card .stat-icon.purple {
+  background: rgba(108, 92, 231, 0.2);
+  color: #a78bfa;
+}
+
+.kiot-stat-card .stat-icon.blue {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.kiot-stat-card .stat-icon.green {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+.kiot-stat-card .stat-icon.red {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+.kiot-stat-card .stat-icon.orange {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+.kiot-stat-card .stat-value {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.kiot-stat-card .stat-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ---- Content Area ---- */
+.kiot-content-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.kiot-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.kiot-tabs {
+  display: flex;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.kiot-tab {
+  padding: 8px 20px;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background: transparent;
+  white-space: nowrap;
+}
+
+.kiot-tab:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.kiot-tab.active {
+  background: linear-gradient(135deg, #6c5ce7, #a855f7);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
+}
+
+.kiot-search-input {
+  width: 320px;
+}
+
+.kiot-search-input .ant-input-affix-wrapper {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px !important;
+  padding: 8px 12px !important;
+  color: #fff !important;
+}
+
+.kiot-search-input .ant-input {
+  background: transparent !important;
+  border: none !important;
+  color: #fff !important;
+}
+
+.kiot-search-input .ant-input::placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.kiot-search-input .ant-input-prefix {
+  color: rgba(255, 255, 255, 0.45) !important;
+  margin-right: 8px !important;
+}
+
+/* ---- Table ---- */
+.kiot-table-wrapper {
+  padding: 0 4px 16px;
+  overflow-x: auto;
+}
+
+.kiot-table-wrapper .ant-table {
+  background: transparent !important;
+}
+
+.kiot-table-wrapper .ant-table-thead>tr>th {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 16px !important;
+}
+
+.kiot-table-wrapper .ant-table-tbody>tr>td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 14px !important;
+  padding: 12px 16px !important;
+  background: transparent !important;
+}
+
+.kiot-table-wrapper .ant-table-tbody>tr:hover>td {
+  background: rgba(108, 92, 231, 0.08) !important;
+}
+
+.kiot-table-wrapper .ant-table-row {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kiot-table-wrapper .ant-pagination {
+  margin-top: 16px !important;
+}
+
+.kiot-table-wrapper .ant-pagination .ant-pagination-item {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.kiot-table-wrapper .ant-pagination .ant-pagination-item a {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.kiot-table-wrapper .ant-pagination .ant-pagination-item-active {
+  background: linear-gradient(135deg, #6c5ce7, #a855f7) !important;
+  border-color: #6c5ce7 !important;
+}
+
+.kiot-table-wrapper .ant-pagination .ant-pagination-item-active a {
+  color: #fff !important;
+}
+
+.kiot-table-wrapper .ant-pagination .ant-pagination-prev button,
+.kiot-table-wrapper .ant-pagination .ant-pagination-next button {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.kiot-table-wrapper .ant-empty-description {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* ---- New Badge ---- */
+.kiot-new-badge {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: kiot-badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes kiot-badge-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* ---- Debt Badge ---- */
+.kiot-debt-positive {
+  color: #f87171;
+  font-weight: 600;
+}
+
+.kiot-debt-zero {
+  color: #34d399;
+  font-weight: 500;
+}
+
+/* ---- Notification Toast ---- */
+.kiot-notification-toast {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kiot-toast-item {
+  background: rgba(16, 185, 129, 0.95);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: kiot-toast-in 0.4s ease-out;
+  max-width: 360px;
+}
+
+@keyframes kiot-toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ---- Sync Button Styles ---- */
+.kiot-sync-btn {
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.kiot-sync-btn.full {
+  background: linear-gradient(135deg, #6c5ce7, #a855f7) !important;
+  border: none !important;
+  color: #fff !important;
+}
+
+.kiot-sync-btn.incremental {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.kiot-sync-btn.incremental:hover {
+  border-color: #6c5ce7 !important;
+  color: #a78bfa !important;
+}
+
+.kiot-back-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border-radius: 10px !important;
+  height: 40px !important;
+}
+
+.kiot-back-btn:hover {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.kiot-logout-btn {
+  background: rgba(239, 68, 68, 0.15) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  color: #f87171 !important;
+  border-radius: 10px !important;
+  height: 40px !important;
+}
+
+.kiot-logout-btn:hover {
+  background: rgba(239, 68, 68, 0.25) !important;
+}
+
+/* ---- Last Sync Info ---- */
+.kiot-sync-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+  padding: 8px 16px;
+}
+
+.kiot-sync-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  animation: kiot-dot-blink 2s ease-in-out infinite;
+}
+
+@keyframes kiot-dot-blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* ---- Loading Overlay ---- */
+.kiot-loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 12, 41, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  gap: 16px;
+}
+
+.kiot-loading-overlay .loading-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.kiot-loading-overlay .loading-progress {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+}
+
+/* ---- URL Config Step ---- */
+.kiot-url-step {
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 12px;
+}
+
+.kiot-url-step .url-step-label {
+  color: #fbbf24;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .kiot-login-card {
+    margin: 16px;
+    padding: 32px 24px;
+  }
+
+  .kiot-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .kiot-dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .kiot-content-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .kiot-search-input {
+    width: 100%;
+  }
+
+  .kiot-tabs {
+    overflow-x: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .kiot-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kiot-stat-card .stat-value {
+    font-size: 22px;
+  }
+}
