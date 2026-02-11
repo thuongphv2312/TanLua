@@ -18,9 +18,12 @@ import {
     ExclamationCircleOutlined,
     FullscreenOutlined,
     FullscreenExitOutlined,
+    EyeOutlined,
+    DownloadOutlined
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { HashLoader } from 'react-spinners';
+import * as XLSX from 'xlsx';
 import type { AdminTab, KiotCustomer, KiotOrder, KiotDebt, KiotStats } from './types';
 import {
     getCustomers,
@@ -70,6 +73,12 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
     const [totalCustomers, setTotalCustomers] = useState(0);
     const [totalOrders, setTotalOrders] = useState(0);
     const [totalDebts, setTotalDebts] = useState(0);
+
+    // Debt Details & Export
+    const [debtDetailVisible, setDebtDetailVisible] = useState(false);
+    const [debtOrders, setDebtOrders] = useState<KiotOrder[]>([]);
+    const [debtDetailLoading, setDebtDetailLoading] = useState(false);
+    const [selectedDebtCustomer, setSelectedDebtCustomer] = useState<KiotDebt | null>(null);
 
     // Notifications
     const [toasts, setToasts] = useState<ToastItem[]>([]);
@@ -224,6 +233,120 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
         } finally {
             setLoading(false);
         }
+    };
+
+    // ==================== Debt Handlers ====================
+
+    const renderStatus = (status: string | number) => {
+        const statusMap: Record<string, string> = {
+            '1': 'Phiếu tạm',
+            '2': 'Đang xử lý',
+            '3': 'Hoàn thành',
+            '4': 'Đã hủy',
+        };
+        const s = String(status);
+        const displayStatus = statusMap[s] || s;
+        const colorMap: Record<string, string> = {
+            'Hoàn thành': 'green',
+            'Đang xử lý': 'blue',
+            'Đã hủy': 'red',
+            'Phiếu tạm': 'orange',
+        };
+        return <Tag color={colorMap[displayStatus] || 'default'}>{displayStatus}</Tag>;
+    };
+
+    const getStatusText = (status: string | number) => {
+        const statusMap: Record<string, string> = {
+            '1': 'Phiếu tạm',
+            '2': 'Đang xử lý',
+            '3': 'Hoàn thành',
+            '4': 'Đã hủy',
+        };
+        const s = String(status);
+        return statusMap[s] || s;
+    }
+
+    const exportToExcelHelper = (data: any[][], headers: string[], fileName: string) => {
+        try {
+            const worksheet = XLSX.utils.aoa_to_sheet([headers, ...data]);
+
+            // Auto-fit columns
+            const wscols = headers.map((_, i) => {
+                const maxContentLength = data.reduce((max, row) => Math.max(max, String(row[i] || '').length), 0);
+                const headerLength = headers[i].length;
+                return { wch: Math.max(maxContentLength, headerLength) + 5 };
+            });
+            worksheet['!cols'] = wscols;
+
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+            XLSX.writeFile(workbook, fileName);
+            message.success('Đã xuất file Excel thành công!');
+        } catch (error) {
+            console.error(error);
+            message.error('Lỗi khi xuất file Excel');
+        }
+    };
+
+    const handleViewDebtDetails = async (record: KiotDebt) => {
+        setSelectedDebtCustomer(record);
+        setDebtDetailVisible(true);
+        setDebtDetailLoading(true);
+        try {
+            const result = await getOrders(1, 100, String(record.customerId));
+            if (result.success) {
+                setDebtOrders(result.data);
+            } else {
+                message.error('Không thể tải lịch sử đơn hàng');
+            }
+        } catch (error) {
+            console.error(error);
+            message.error('Lỗi khi tải chi tiết');
+        } finally {
+            setDebtDetailLoading(false);
+        }
+    };
+
+    const handleExportDebts = () => {
+        if (debts.length === 0) {
+            message.warning('Không có dữ liệu để xuất');
+            return;
+        }
+
+        const headers = ['Mã KH', 'Tên khách hàng', 'Số điện thoại', 'Tổng nợ', 'Đã thanh toán', 'Còn lại', 'Cập nhật'];
+        const data = debts.map(d => [
+            d.customerId,
+            d.customerName,
+            d.phone,
+            d.totalDebt,
+            d.totalPaid,
+            d.remaining,
+            d.lastTransactionDate ? new Date(d.lastTransactionDate).toLocaleDateString('vi-VN') : ''
+        ]);
+
+        exportToExcelHelper(data, headers, `Tong_Hop_Cong_No_${new Date().toISOString().slice(0, 10)}.xlsx`);
+    };
+
+    const handleExportDebtDetails = () => {
+        if (debtOrders.length === 0) {
+            message.warning('Không có chi tiết để xuất');
+            return;
+        }
+
+        const headers = ['Mã đơn', 'Ngày đặt', 'Khách hàng', 'SĐT', 'Sản phẩm', 'Tổng tiền', 'Giảm giá', 'Trạng thái'];
+        const data = debtOrders.map(o => [
+            o.code,
+            o.purchaseDate ? new Date(o.purchaseDate).toLocaleDateString('vi-VN') : '',
+            o.customerName,
+            o.phone,
+            o.products,
+            o.totalAmount,
+            o.discount,
+            getStatusText(o.statusValue || o.status)
+        ]);
+
+        const fileName = `Chi_Tiet_Cong_No_${selectedDebtCustomer?.customerName || 'Khach_Hash'}_${new Date().toISOString().slice(0, 10)}.xlsx`;
+        exportToExcelHelper(data, headers, fileName);
     };
 
     // ==================== Sync ====================
@@ -541,6 +664,22 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                 }
             },
         },
+        {
+            title: 'Thao tác',
+            key: 'action',
+            width: 100,
+            render: (_: any, record: KiotDebt) => (
+                <Tooltip title="Xem chi tiết">
+                    <Button
+                        type="primary"
+                        ghost
+                        size="small"
+                        icon={<EyeOutlined />}
+                        onClick={() => handleViewDebtDetails(record)}
+                    />
+                </Tooltip>
+            ),
+        }
     ];
 
     // ==================== Render ====================
@@ -588,6 +727,83 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                     ))}
                 </div>
             )}
+
+            {/* Detail Modal */}
+            <Modal
+                title={
+                    <div>
+                        <span style={{ marginRight: 8 }}>Chi tiết công nợ:</span>
+                        <strong style={{ color: '#a78bfa' }}>{selectedDebtCustomer?.customerName}</strong>
+                    </div>
+                }
+                open={debtDetailVisible}
+                onCancel={() => setDebtDetailVisible(false)}
+                footer={[
+                    <Button
+                        key="export"
+                        icon={<DownloadOutlined />}
+                        onClick={handleExportDebtDetails}
+                        style={{ marginRight: 8 }}
+                    >
+                        Xuất Excel
+                    </Button>,
+                    <Button key="close" onClick={() => setDebtDetailVisible(false)}>
+                        Đóng
+                    </Button>
+                ]}
+                width={900}
+                styles={{ body: { maxHeight: '70vh', overflowY: 'auto' } }}
+            >
+                {debtDetailLoading ? (
+                    <div style={{ textAlign: 'center', padding: 40 }}>
+                        <HashLoader color="#a855f7" size={40} />
+                    </div>
+                ) : (
+                    <div>
+                        <div style={{ marginBottom: 16, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 10 }}>
+                            <div className="kiot-stat-card" style={{ padding: '10px 15px', minWidth: 150, background: '#f8fafc', border: '1px solid #e2e8f0', boxShadow: 'none' }}>
+                                <div style={{ fontSize: 12, color: '#64748b' }}>Tổng nợ hiện tại</div>
+                                <div style={{ fontSize: 18, fontWeight: 'bold', color: '#ef4444' }}>
+                                    {(selectedDebtCustomer?.totalDebt || 0).toLocaleString('vi-VN')}₫
+                                </div>
+                            </div>
+                            <div className="kiot-stat-card" style={{ padding: '10px 15px', minWidth: 150, background: '#f8fafc', border: '1px solid #e2e8f0', boxShadow: 'none' }}>
+                                <div style={{ fontSize: 12, color: '#64748b' }}>Số điện thoại</div>
+                                <div style={{ fontSize: 18, fontWeight: 'bold', color: '#334155' }}>
+                                    {selectedDebtCustomer?.phone || '—'}
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 style={{ marginBottom: 12, color: '#475569' }}>Lịch sử đơn hàng gần đây</h4>
+                        <Table
+                            dataSource={debtOrders}
+                            rowKey="orderId"
+                            size="small"
+                            columns={[
+                                { title: 'Mã đơn', dataIndex: 'code', key: 'code', render: (t: string) => <b>{t}</b> },
+                                { title: 'Ngày', dataIndex: 'purchaseDate', key: 'purchaseDate', render: (d: string) => new Date(d).toLocaleDateString('vi-VN') },
+                                { title: 'Sản phẩm', dataIndex: 'products', key: 'products', ellipsis: true },
+                                {
+                                    title: 'Tổng tiền',
+                                    dataIndex: 'totalAmount',
+                                    key: 'totalAmount',
+                                    render: (t: number) => <span style={{ color: '#d97706', fontWeight: 'bold' }}>{(t || 0).toLocaleString('vi-VN')}₫</span>
+                                },
+                                {
+                                    title: 'Trạng thái',
+                                    dataIndex: 'statusValue',
+                                    key: 'statusValue',
+                                    width: 120,
+                                    render: (s: string | number, record: KiotOrder) => renderStatus(record.statusValue || record.status)
+                                },
+                            ]}
+                            pagination={false}
+                            scroll={{ y: 400 }}
+                        />
+                    </div>
+                )}
+            </Modal>
 
             <div className="kiot-admin-container">
                 {/* Header */}
@@ -798,6 +1014,14 @@ const KiotDashboard: React.FC<KiotDashboardProps> = ({ retailerName, autoSync = 
                                 />
                                 <Button type="primary" icon={<SearchOutlined />} onClick={() => loadDebts(1)}>
                                     Tìm kiếm
+                                </Button>
+                                <Button
+                                    className="kiot-excel-btn"
+                                    icon={<DownloadOutlined />}
+                                    onClick={handleExportDebts}
+                                    style={{ backgroundColor: '#10b981', borderColor: '#10b981', color: '#fff', marginLeft: 'auto' }}
+                                >
+                                    Xuất Excel
                                 </Button>
                             </div>
                         )}
