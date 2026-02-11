@@ -5,7 +5,7 @@ import {
   UserOutlined,
   ShoppingCartOutlined
 } from '@ant-design/icons';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { HOTLINE } from '../NewsPage/constants';
 import { MobileMenu } from '../MenuContainer';
 import brand1 from '../../assets/tojiko.png';
@@ -28,7 +28,6 @@ const HeaderContainer = ({
   const [searchValue, setSearchValue] = useState('');
   const screens = useBreakpoint();
   const navigate = useNavigate();
-  const location = useLocation();
   const [retailerName, setRetailerName] = useState<string | null>(null);
 
   /* Session Check Logic */
