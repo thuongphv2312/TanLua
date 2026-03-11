@@ -56,19 +56,19 @@ export const CS226 = [
 ];
 
 export const TL226 = [
-  "https://i.ibb.co/gL7Zvp6N/tl226F.png"
+  "https://i.ibb.co/dTGYtfq/TL226.png"
 ];
 
 export const TL260 = [
-  "https://i.ibb.co/1GFDF0Vp/tl260F.png"
+  "https://i.ibb.co/4R90F98B/TL260.png"
 ]
 
 export const TL330 = [
-  "https://i.ibb.co/pjZbfmrK/tl330F.png"
+  "https://i.ibb.co/qYSVDJ6p/TL330.png"
 ]
 
 export const TL541 = [
-  "https://i.ibb.co/Jjm73GVf/tl541F.png"
+  "https://i.ibb.co/Fk8QwfGb/TL541.png"
 ]
 
 
