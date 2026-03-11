@@ -17,7 +17,7 @@ import ScrollToTop from './component/ScrollToTop';
 import { FullPageSkeleton } from './component/ui/SkeletonComponents';
 import StickyDecorations from './component/StickyDecorations';
 import AIChatbot from './component/Chatbot';
-import SideBanners from './component/SideBanners';
+// import SideBanners from './component/SideBanners';
 import FallingPetals from './component/FallingPetals';
 
 
