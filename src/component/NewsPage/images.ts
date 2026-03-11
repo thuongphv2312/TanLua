@@ -55,6 +55,23 @@ export const CS226 = [
   "https://i.ibb.co/bRKgfnb4/z7060934406953-6e48e305ed557a4cd28640a26fb28e32.jpg",
 ];
 
+export const TL226 = [
+  "https://i.ibb.co/gL7Zvp6N/tl226F.png"
+];
+
+export const TL260 = [
+  "https://i.ibb.co/1GFDF0Vp/tl260F.png"
+]
+
+export const TL330 = [
+  "https://i.ibb.co/pjZbfmrK/tl330F.png"
+]
+
+export const TL541 = [
+  "https://i.ibb.co/Jjm73GVf/tl541F.png"
+]
+
+
 export const G1BCN02147 = [
   "https://i.ibb.co/zVfnbV9T/vn-11134207-7ra0g-m7knc6aerber9d-resize-w450-nl.webp",
   "https://i.ibb.co/8DWGM3s4/vn-11134207-7ra0g-m7kneb14hs5ic4.webp",
@@ -214,6 +231,15 @@ export const DAUXITTL30T = [
   "https://i.ibb.co/Gvsd9Tkt/TL30-T-2-HP-5.png",
   "https://i.ibb.co/JFFDLFLj/TL30-T-2-HP-6.png"
 ]
+
+export const DAUXITTL30TH = [
+  "https://i.ibb.co/35vnRVYc/Tl30TH-3.png",
+  "https://i.ibb.co/TDQ3vzJV/Tl30TH-4.png",
+  "https://i.ibb.co/x8SfFhjh/Tl30Th-5.png",
+  "https://i.ibb.co/3YrNM2Vt/Tl30TH-1.png",
+  "https://i.ibb.co/QFyPyjq2/Tl30TH-2.png",
+]
+
 
 export const SACDOIG2S20X2 = [
   "https://i.ibb.co/G3BqJJBx/s-c-G2-S20-X2.png",
@@ -982,4 +1008,15 @@ export const ROMANO_RM150A = [
   "https://i.ibb.co/vvzwJJ7f/M-y-B-m-T-ng-p-Romano-150-W-RM-150-A-2-upscayl-4x-upscayl-lite-4x.png",
   "https://i.ibb.co/kszMs6CX/M-y-B-m-T-ng-p-Romano-150-W-RM-150-A-upscayl-4x-upscayl-lite-4x.png",
   "https://i.ibb.co/PvqrYjf4/M-y-B-m-T-ng-p-Romano-150-W-RM-150-A-1-upscayl-4x-upscayl-lite-4x.png",
+]
+
+export const G2_R9LUX = [
+  "https://i.ibb.co/bTqBpy7/M-y-r-a-xe-HUKAN-G2-R9-LUX-2.png",
+  "https://i.ibb.co/G4DWjc1K/M-y-r-a-xe-HUKAN-G2-R9-LUX-5.png",
+  "https://i.ibb.co/GQYxY0KV/M-y-r-a-xe-HUKAN-G2-R9-LUX-6.png",
+  "https://i.ibb.co/zVgq3kzB/M-y-r-a-xe-HUKAN-G2-R9-LUX-7.png",
+  "https://i.ibb.co/Qj3xt05p/M-y-r-a-xe-HUKAN-G2-R9-LUX-8.png",
+  "https://i.ibb.co/5grNVWr8/M-y-r-a-xe-HUKAN-G2-R9-LUX.png",
+  "https://i.ibb.co/ymG40scH/M-y-r-a-xe-HUKAN-G2-R9-LUX-3.png",
+  "https://i.ibb.co/XfTBT0Zk/M-y-r-a-xe-HUKAN-G2-R9-LUX-4.png",
 ]
