@@ -276,7 +276,7 @@ const App = () => {
           <RecentPurchaseNotification />
           <AppFooter />
         </Layout>
-        <SideBanners />
+        {/* <SideBanners /> */}
         <FallingPetals />
         <StickyDecorations />
         <AIChatbot />
