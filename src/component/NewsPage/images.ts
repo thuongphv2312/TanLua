@@ -7,10 +7,10 @@ export const TL35X_IMAGES = [
 ];
 
 export const TJ35_IMAGES = [
-  "https://i.ibb.co/jk0fKZwL/tojiko-tj35-1.png",
-  "https://i.ibb.co/gL5nBfNR/tojiko-tj35-2.png",
-  "https://i.ibb.co/fdrFq2c0/tojiko-tj35-3.png",
-  "https://i.ibb.co/kVNhPjL0/tojiko-tj35-4.png",
+  "https://i.ibb.co/C3vfVFCs/tojiko-tj35-2.png",
+  "https://i.ibb.co/Z1YPj1Tm/tojiko-tj35-3.png",
+  "https://i.ibb.co/mVqBxwK2/tojiko-tj35-4.png",
+  "https://i.ibb.co/KpcZPqTN/tojiko-tj35-1.png",
 ];
 
 export const SLIDER_IMAGES = [
