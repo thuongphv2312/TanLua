@@ -13,7 +13,7 @@ interface ProductDetailPageProps {
   onAddFlashSaleToCart: (id: string | number, flashPrice: string) => void;
 }
 
-const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart, onAddFlashSaleToCart }) => {
+const ProductDetailPage: React.FC<ProductDetailPageProps> = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [product, setProduct] = useState<any>(null);
@@ -155,6 +155,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart, onAd
           </div>
 
           <div className="flex gap-4 pt-4">
+            {/* Add to cart - Temporarily hidden 
             <Button
               type="primary"
               danger
@@ -173,6 +174,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart, onAd
             >
               {product.isSoldOut ? "TẠM HẾT HÀNG" : "THÊM VÀO GIỎ HÀNG"}
             </Button>
+            */}
           </div>
 
           <Divider />

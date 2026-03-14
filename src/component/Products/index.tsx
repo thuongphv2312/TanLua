@@ -35,9 +35,9 @@ const Products: React.FC<ProductsProps> = ({
   title = '',
   lstProducts = [],
   bannerImage,
-  cartCounts = {},
-  onAddToCart = () => { },
-  onAddFlashSaleToCart = () => { },
+  // cartCounts = {},
+  // onAddToCart = () => { },
+  // onAddFlashSaleToCart = () => { },
   categoryId,
   isLoading = false
 }) => {
@@ -51,7 +51,7 @@ const Products: React.FC<ProductsProps> = ({
     return CATEGORIES[0].id;
   });
   const [visibleCount, setVisibleCount] = useState(10);
-  const [addingId, setAddingId] = useState<string | number | null>(null);
+  // const [addingId, setAddingId] = useState<string | number | null>(null);
   const navigate = useNavigate();
 
   // Get current category info for SEO
@@ -73,6 +73,7 @@ const Products: React.FC<ProductsProps> = ({
     }
   }, [title, categoryId, lstProducts]);
 
+  /* handleAddToCart temporarily hidden
   const handleAddToCart = (e: React.MouseEvent, product: Product) => {
     e.stopPropagation(); // Ngăn sự kiện click lan ra Card
     setAddingId(product.id);
@@ -94,6 +95,7 @@ const Products: React.FC<ProductsProps> = ({
       setAddingId(null);
     }, 400);
   };
+  */
 
   const dataToDisplay = lstProducts.filter(item => item.categories?.includes(activeCategory));
   const visibleData = dataToDisplay.slice(0, visibleCount);
@@ -280,7 +282,7 @@ const Products: React.FC<ProductsProps> = ({
                       )}
                     </div>
 
-                    {/* Add to Cart Button */}
+                    {/* Add to Cart Button - Temporarily hidden 
                     <Button
                       type="primary"
                       danger
@@ -293,6 +295,7 @@ const Products: React.FC<ProductsProps> = ({
                     >
                       {product.isSoldOut ? <span className="text-[10px] font-bold">Hết hàng</span> : (cartCounts[product.id] ? <span className="font-bold">{cartCounts[product.id]}</span> : null)}
                     </Button>
+                    */}
                   </div>
                 </div>
               </Card>

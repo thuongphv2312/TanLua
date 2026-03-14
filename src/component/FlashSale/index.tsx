@@ -10,13 +10,10 @@ interface FlashSaleProps {
 
 import { getFlashSaleProducts } from '../../utils/flashSale';
 
-const FlashSale: React.FC<FlashSaleProps> = ({
-    cartCounts = {},
-    onAddToCart = (_id: string | number, _flashPrice: string) => { },
-}) => {
+const FlashSale: React.FC<FlashSaleProps> = () => {
     const navigate = useNavigate();
     const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
-    const [addingId, setAddingId] = useState<string | number | null>(null);
+    // const [addingId, setAddingId] = useState<string | number | null>(null);
 
     // Memoize flash sale products để không re-calculate mỗi lần render
     const flashProducts = useMemo(() => getFlashSaleProducts(), []);
@@ -42,6 +39,7 @@ const FlashSale: React.FC<FlashSaleProps> = ({
         return () => clearInterval(timer);
     }, []);
 
+    /*
     const handleAddToCart = (e: React.MouseEvent, product: any) => {
         e.stopPropagation();
         setAddingId(product.id);
@@ -54,6 +52,7 @@ const FlashSale: React.FC<FlashSaleProps> = ({
             setAddingId(null);
         }, 400);
     };
+    */
 
     const formatTime = (num: number) => num.toString().padStart(2, '0');
 
@@ -222,7 +221,7 @@ const FlashSale: React.FC<FlashSaleProps> = ({
                                         <span className="text-gray-400 line-through text-[9px] md:text-xs">{product.price}</span>
                                     </div>
 
-                                    {/* Add to Cart Button */}
+                                    {/* Add to Cart Button - Temporarily hidden 
                                     <Button
                                         type="primary"
                                         icon={product.isSoldOut ? null : (cartCounts[product.id] ? null : <PlusOutlined className="text-[10px] md:text-base" />)}
@@ -234,6 +233,7 @@ const FlashSale: React.FC<FlashSaleProps> = ({
                                     >
                                         {product.isSoldOut ? <span className="text-[9px] font-bold">Hết hàng</span> : (cartCounts[product.id] ? <span className="font-bold text-[10px] md:text-sm">{cartCounts[product.id]}</span> : null)}
                                     </Button>
+                                    */}
                                 </div>
                             </div>
                         </Card>

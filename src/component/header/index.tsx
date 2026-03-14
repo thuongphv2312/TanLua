@@ -2,8 +2,8 @@ import { Input, Badge, Space, Typography, Layout, Grid, Button, Popover, List, A
 import {
   SearchOutlined,
   PhoneOutlined,
-  UserOutlined,
-  ShoppingCartOutlined
+  UserOutlined
+  // ShoppingCartOutlined
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { HOTLINE } from '../NewsPage/constants';
@@ -18,9 +18,9 @@ const { useBreakpoint } = Grid;
 const HeaderContainer = ({
   headerStyle = {},
   mainColor = '',
-  cartCount = 0,
-  cartCounts = {},
-  productList = [],
+  // cartCount = 0,
+  // cartCounts = {},
+  // productList = [],
   isDarkMode = false,
   onToggleTheme = () => { }
 }: any) => {
@@ -91,7 +91,8 @@ const HeaderContainer = ({
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, textIndex, placeholderTexts]);
 
-  // Xử lý dữ liệu giỏ hàng
+  // Xử lý dữ liệu giỏ hàng - Temporarily hidden
+  /*
   const cartItems = Object.keys(cartCounts).map((key) => {
     const id = key;
     const product = productList.find((p: any) => String(p.id) === String(id));
@@ -143,6 +144,7 @@ const HeaderContainer = ({
       )}
     </div>
   );
+  */
 
   const handleSearch = () => {
     if (searchValue.trim()) {
@@ -240,7 +242,7 @@ const HeaderContainer = ({
         {/* Language Switcher - Desktop */}
         {screens.md && <LanguageSwitcher />}
 
-        {/* 3. Giỏ hàng */}
+        {/* 3. Giỏ hàng - Temporarily hidden 
         <Popover content={cartContent} title="Giỏ hàng của bạn" trigger="hover" placement="bottomRight">
           <div style={{
             backgroundColor: mainColor,
@@ -259,6 +261,7 @@ const HeaderContainer = ({
             </Badge>
           </div>
         </Popover>
+        */}
       </Space>
     </Header>
   </>)
