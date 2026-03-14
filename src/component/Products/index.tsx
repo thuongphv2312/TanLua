@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingCartOutlined, SearchOutlined, PlusOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import { Card, Badge, Button, message, Empty, Tooltip } from 'antd';
+import { SearchOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import { Card, Badge, Button, Empty, Tooltip } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { CATEGORIES, HOST } from '../NewsPage/constants';
 import { ProductGridSkeleton } from '../ui/SkeletonComponents';

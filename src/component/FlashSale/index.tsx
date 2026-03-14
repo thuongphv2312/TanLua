@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Card, Badge, Button, message, Tooltip } from 'antd';
-import { ShoppingCartOutlined, ThunderboltOutlined, PlusOutlined, FireOutlined } from '@ant-design/icons';
+import { Card, Badge, Tooltip } from 'antd';
+import { ThunderboltOutlined, FireOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 
 interface FlashSaleProps {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Typography, Button, Rate, Divider, Image, message } from 'antd';
-import { ShoppingCartOutlined, ArrowLeftOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import { Typography, Rate, Divider, Image } from 'antd';
+import { ArrowLeftOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { newsList, CATEGORIES, HOST } from '../NewsPage/constants';
 import SEO from '../SEO';
 import { isProductInFlashSale } from '../../utils/flashSale';
