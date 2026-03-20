@@ -18,6 +18,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState<any>(null);
   const [mainImage, setMainImage] = useState<string>('');
+  const [previewVisible, setPreviewVisible] = useState<boolean>(false);
 
   useEffect(() => {
     const foundProduct = newsList.find((p) => String(p.id) === String(id));
@@ -87,18 +88,32 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = () => {
               </div>
             )}
             {product.isSoldOut && (
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-20">
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-20 pointer-events-none">
                 <div className="bg-red-600 text-white font-bold px-6 py-3 rounded-lg transform -rotate-12 border-4 border-white shadow-2xl scale-125">
                   HẾT HÀNG
                 </div>
               </div>
             )}
-            <Image
+            {/* Sử dụng thẻ img native để tương tác chuột phải (Copy) không bị Ant Design Mask chặn */}
+            <img
               src={mainImage}
               alt={product.name}
-              className={`object-contain max-h-full ${product.isSoldOut ? 'grayscale' : ''}`}
+              onClick={() => setPreviewVisible(true)}
+              className={`object-contain max-h-full cursor-pointer ${product.isSoldOut ? 'grayscale' : ''}`}
               style={{ maxHeight: '400px', width: 'auto' }}
+              title="Nhấn vào để xem đầy đủ hình ảnh"
             />
+            {/* Thẻ Image của Ant Design ẩn đi, đóng vai trò tạo Popup Preview */}
+            <div style={{ display: 'none' }}>
+              <Image
+                src={mainImage}
+                preview={{
+                  visible: previewVisible,
+                  src: mainImage,
+                  onVisibleChange: (value) => setPreviewVisible(value),
+                }}
+              />
+            </div>
           </div>
           <div className="flex gap-2 overflow-x-auto pb-2">
             {product.images.map((img: string, index: number) => (
