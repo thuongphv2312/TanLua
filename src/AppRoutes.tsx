@@ -5,8 +5,6 @@ import FeaturedCategories from './component/FeaturedCategories';
 import Products from './component/Products';
 import NewsPage from './component/NewsPage';
 import AboutSection from './component/About';
-import CartPage from './component/CartPage';
-import CheckoutPage from './component/CheckoutPage';
 import SearchResults from './component/SearchResults';
 import ProductDetailPage from './component/ProductDetailPage';
 import { ROUTE_MAP } from './constants';
@@ -24,25 +22,7 @@ import SEO from './component/SEO';
 import FlashSale from './component/FlashSale';
 import KiotAdmin from './component/KiotAdmin';
 
-interface AppRoutesProps {
-  cartCounts: { [key: string]: number };
-  flashPrices: { [key: string]: string };
-  onUpdateCart: (productId: string | number) => void;
-  onAddFlashSaleToCart: (productId: string | number, flashPrice: string) => void;
-  onDecreaseCart: (productId: string | number) => void;
-  onRemoveFromCart: (productId: string | number) => void;
-  onClearCart: () => void;
-}
-
-const AppRoutes: React.FC<AppRoutesProps> = ({
-  cartCounts,
-  flashPrices,
-  onUpdateCart,
-  onAddFlashSaleToCart,
-  onDecreaseCart,
-  onRemoveFromCart,
-  onClearCart,
-}) => {
+const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<>
@@ -52,43 +32,28 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           keywords="tanlua, tấn lụa, máy hàn, máy cắt cỏ, máy xới đất, máy rửa xe, máy khoan pin, dụng cụ cầm tay, máy nông nghiệp, máy công nghiệp, HUKAN, OSHIMA, GREEKMAN"
         />
         <Slider />
-        <FlashSale
-          cartCounts={cartCounts}
-          onAddToCart={onAddFlashSaleToCart}
-        />
+        <FlashSale />
         <FeaturedCategories />
         <Products
           title='🔥 HÀNG THANH LÝ - XẢ KHO GIÁ SỐC'
           bannerImage="https://i.ibb.co/8DGkmWJG/z7429088691186-0fcc4934dd141cccd0b59a3718d2b50d.jpg"
           lstProducts={newsList}
-          cartCounts={cartCounts}
-          onAddToCart={onUpdateCart}
-          onAddFlashSaleToCart={onAddFlashSaleToCart}
           categoryId={99}
         />
         <Products
           title='MÁY NÔNG NGHIỆP'
           lstProducts={newsList}
-          cartCounts={cartCounts}
-          onAddToCart={onUpdateCart}
-          onAddFlashSaleToCart={onAddFlashSaleToCart}
           categoryId={1}
         />
         <Products
           title='MÁY CÔNG NGHIỆP'
           lstProducts={newsList}
-          cartCounts={cartCounts}
-          onAddToCart={onUpdateCart}
-          onAddFlashSaleToCart={onAddFlashSaleToCart}
           categoryId={2}
         />
         <Products
           title='DỤNG CỤ CẦM TAY'
           bannerImage={banner}
           lstProducts={newsList}
-          cartCounts={cartCounts}
-          onAddToCart={onUpdateCart}
-          onAddFlashSaleToCart={onAddFlashSaleToCart}
           categoryId={10}
         />
         <NewsPage />
@@ -105,36 +70,11 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
       <Route path="/tro-thanh-doi-tac" element={<PartnerPage />} />
       <Route path="/lien-he-quang-cao" element={<PartnerPage />} />
       <Route path="/kiot-admin" element={<KiotAdmin />} />
-      <Route path={ROUTE_MAP['CART']} element={
-        <CartPage
-          cartCounts={cartCounts}
-          flashPrices={flashPrices}
-          productList={newsList}
-          onIncrease={onUpdateCart}
-          onDecrease={onDecreaseCart}
-          onRemove={onRemoveFromCart}
-        />
-      } />
-      <Route path="/cart/checkout" element={
-        <CheckoutPage
-          cartCounts={cartCounts}
-          flashPrices={flashPrices}
-          productList={newsList}
-          onClearCart={onClearCart}
-        />
-      } />
       <Route path={ROUTE_MAP['SEARCH']} element={
-        <SearchResults
-          cartCounts={cartCounts}
-          onAddToCart={onUpdateCart}
-          onAddFlashSaleToCart={onAddFlashSaleToCart}
-        />
+        <SearchResults />
       } />
       <Route path="/product/:id" element={
-        <ProductDetailPage
-          onAddToCart={onUpdateCart}
-          onAddFlashSaleToCart={onAddFlashSaleToCart}
-        />
+        <ProductDetailPage />
       } />
       {CATEGORIES.map((category) => (
         <Route
@@ -143,9 +83,6 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           element={<Products
             title={category.name.toUpperCase()}
             lstProducts={newsList}
-            cartCounts={cartCounts}
-            onAddToCart={onUpdateCart}
-            onAddFlashSaleToCart={onAddFlashSaleToCart}
             categoryId={category.id}
           />} />
       ))}

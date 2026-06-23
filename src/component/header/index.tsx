@@ -10,7 +10,7 @@ import { HOTLINE } from '../NewsPage/constants';
 import { MobileMenu } from '../MenuContainer';
 import brand1 from '../../assets/tojiko.png';
 import brand2 from '../../assets/TALU.png';
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import LanguageSwitcher from '../LanguageSwitcher';
 import ThemeToggle from '../ThemeToggle';
 const { Header } = Layout;
@@ -18,9 +18,6 @@ const { useBreakpoint } = Grid;
 const HeaderContainer = ({
   headerStyle = {},
   mainColor = '',
-  // cartCount = 0,
-  // cartCounts = {},
-  // productList = [],
   isDarkMode = false,
   onToggleTheme = () => { }
 }: any) => {
@@ -29,6 +26,17 @@ const HeaderContainer = ({
   const screens = useBreakpoint();
   const navigate = useNavigate();
   const [retailerName, setRetailerName] = useState<string | null>(null);
+  const searchInputRef = useRef<any>(null);
+
+  useEffect(() => {
+    const handleFocus = () => {
+      if (searchInputRef.current) {
+        searchInputRef.current.focus();
+      }
+    };
+    window.addEventListener('focus_search_input', handleFocus);
+    return () => window.removeEventListener('focus_search_input', handleFocus);
+  }, []);
 
   /* Session Check Logic */
   const checkSession = () => {
@@ -91,61 +99,6 @@ const HeaderContainer = ({
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, textIndex, placeholderTexts]);
 
-  // Xử lý dữ liệu giỏ hàng - Temporarily hidden
-  /*
-  const cartItems = Object.keys(cartCounts).map((key) => {
-    const id = key;
-    const product = productList.find((p: any) => String(p.id) === String(id));
-    return product ? { ...product, quantity: cartCounts[id] } : null;
-  }).filter((item: any) => item !== null);
-
-  // Tính tổng tiền
-  const totalAmount = cartItems.reduce((acc: number, item: any) => {
-    const price = parseInt(item.price.replace(/\D/g, ''), 10) || 0; // Loại bỏ ký tự không phải số
-    return acc + (price * item.quantity);
-  }, 0);
-
-  // Nội dung hiển thị trong Popover
-  const cartContent = (
-    <div style={{ width: 350 }}>
-      <List
-        className="thin-scrollbar"
-        itemLayout="horizontal"
-        dataSource={cartItems}
-        renderItem={(item: any) => (
-          <List.Item>
-            <List.Item.Meta
-              avatar={<Avatar src={item.images[0]} shape="square" size={50} />}
-              title={<Text strong style={{ fontSize: '14px' }}>{item.name}</Text>}
-              description={
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px' }}>
-                  <Text type="secondary">SL: {item.quantity}</Text>
-                  <Text type="danger" strong>{item.price}</Text>
-                </div>
-              }
-            />
-          </List.Item>
-        )}
-        locale={{ emptyText: <Empty description="Giỏ hàng trống" image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
-        style={{ maxHeight: 300, overflowY: 'auto' }}
-      />
-      {cartItems.length > 0 && (
-        <div style={{ marginTop: 16, borderTop: '1px solid #f0f0f0', paddingTop: 16 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 16 }}>
-            <Text strong>Tổng cộng:</Text>
-            <Text type="danger" strong style={{ fontSize: 18 }}>
-              {totalAmount.toLocaleString('vi-VN')}₫
-            </Text>
-          </div>
-          <Button type="primary" danger block size="large" onClick={() => navigate('/cart')}>
-            Thanh toán ngay
-          </Button>
-        </div>
-      )}
-    </div>
-  );
-  */
-
   const handleSearch = () => {
     if (searchValue.trim()) {
       navigate(`/search?q=${encodeURIComponent(searchValue.trim())}`);
@@ -182,6 +135,7 @@ const HeaderContainer = ({
             {/* <MenuOutlined /> */}
           </div>
           <Input
+            ref={searchInputRef}
             placeholder={currentPlaceholder}
             style={{ minWidth: '120px', flex: 1 }}
             value={searchValue}
@@ -203,7 +157,7 @@ const HeaderContainer = ({
         </Space>
       )}
 
-      {/* 2. Hotline & Account & Language & Cart*/}
+      {/* 2. Hotline & Account & Language */}
       <Space size={20} style={{ margin: screens.md ? '0 50px' : '0 10px' }} >
         {screens.md &&
           <Space size="middle" style={{ minWidth: '150px' }} className="cursor-pointer group transition-all">
@@ -241,27 +195,6 @@ const HeaderContainer = ({
 
         {/* Language Switcher - Desktop */}
         {screens.md && <LanguageSwitcher />}
-
-        {/* 3. Giỏ hàng - Temporarily hidden 
-        <Popover content={cartContent} title="Giỏ hàng của bạn" trigger="hover" placement="bottomRight">
-          <div style={{
-            backgroundColor: mainColor,
-            width: '50px',
-            height: '50px',
-            borderRadius: '12px',
-            border: '1px solid #f08a8a',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'pointer',
-            margin: '0 0'
-          }}>
-            <Badge count={cartCount} showZero color="#ff4d4f">
-              <ShoppingCartOutlined style={{ fontSize: '35px', color: '#fff' }} />
-            </Badge>
-          </div>
-        </Popover>
-        */}
       </Space>
     </Header>
   </>)

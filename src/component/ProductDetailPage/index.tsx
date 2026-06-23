@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Typography, Rate, Divider, Image } from 'antd';
-import { ArrowLeftOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import { newsList, CATEGORIES, HOST } from '../NewsPage/constants';
+import { Typography, Rate, Divider, Image, Button } from 'antd';
+import { ArrowLeftOutlined, ThunderboltOutlined, PhoneOutlined, MessageOutlined } from '@ant-design/icons';
+import { newsList, CATEGORIES, HOST, HOTLINE } from '../NewsPage/constants';
 import SEO from '../SEO';
 import { isProductInFlashSale } from '../../utils/flashSale';
+import { parseProductSpecs } from '../../utils/product';
 
 const { Title, Text, Paragraph } = Typography;
 
-interface ProductDetailPageProps {
-  onAddToCart: (id: string | number) => void;
-  onAddFlashSaleToCart: (id: string | number, flashPrice: string) => void;
-}
-
-const ProductDetailPage: React.FC<ProductDetailPageProps> = () => {
+const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [product, setProduct] = useState<any>(null);
@@ -169,27 +165,26 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = () => {
             <Paragraph className="text-gray-600 dark:text-gray-400">{product.description}</Paragraph>
           </div>
 
-          <div className="flex gap-4 pt-4">
-            {/* Add to cart - Temporarily hidden 
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <Button
               type="primary"
               danger
               size="large"
-              icon={product.isSoldOut ? null : <ShoppingCartOutlined />}
-              className="h-12 px-8 text-lg font-semibold flex-1"
-              disabled={product.isSoldOut}
-              onClick={() => {
-                if (flashProduct) {
-                  onAddFlashSaleToCart(product.id, displayPrice);
-                } else {
-                  onAddToCart(product.id);
-                }
-                message.success(`Đã thêm ${product.name} vào giỏ hàng!`);
-              }}
+              icon={<PhoneOutlined />}
+              className="h-12 px-8 text-base font-semibold flex-1 rounded-lg"
+              onClick={() => window.open(`tel:${HOTLINE.replace(/\./g, '')}`, '_self')}
             >
-              {product.isSoldOut ? "TẠM HẾT HÀNG" : "THÊM VÀO GIỎ HÀNG"}
+              GỌI HOTLINE: {HOTLINE}
             </Button>
-            */}
+            <Button
+              type="default"
+              size="large"
+              icon={<MessageOutlined style={{ color: '#0068ff' }} />}
+              className="h-12 px-8 text-base font-semibold flex-1 border-[#0068ff] text-[#0068ff] hover:bg-[#0068ff]/5 rounded-lg"
+              onClick={() => window.open(`https://zalo.me/${HOTLINE.replace(/\./g, '')}`, '_blank')}
+            >
+              TƯ VẤN QUA ZALO
+            </Button>
           </div>
 
           <Divider />
@@ -202,12 +197,39 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = () => {
         </div>
       </div>
 
-      {/* Chi tiết sản phẩm (Nội dung dài) */}
-      <div className="mt-8 bg-white p-6 rounded-xl shadow-sm">
-        <Title level={3} className="border-b pb-4 mb-4">Chi tiết sản phẩm</Title>
-        <div className="prose max-w-none">
-          <p>{product.description}</p>
-          <p>Thông tin chi tiết đang được cập nhật...</p>
+      {/* Chi tiết sản phẩm & Thông số kỹ thuật */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+        {/* Left: Mô tả chi tiết */}
+        <div className="lg:col-span-2 bg-white dark:bg-[#1f1f1f] p-6 rounded-xl shadow-sm border dark:border-gray-800 text-left">
+          <Title level={3} className="border-b pb-4 mb-4 dark:text-white">Chi tiết sản phẩm</Title>
+          <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="font-semibold text-gray-800 dark:text-gray-200">{product.name}</p>
+            <p>{product.description}</p>
+            <p className="mt-4">Sản phẩm được phân phối chính hãng bởi **Tấn Lụa** với cam kết chất lượng tuyệt đối, dịch vụ giao hàng toàn quốc nhanh chóng và chính sách bảo hành uy tín 12 tháng.</p>
+            <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg border border-dashed dark:border-gray-850">
+              <p className="mb-2 font-medium text-gray-800 dark:text-gray-200">💡 Lưu ý sử dụng & bảo dưỡng:</p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Đọc kỹ hướng dẫn sử dụng đi kèm sản phẩm trước khi vận hành.</li>
+                <li>Kiểm tra dầu nhớt (đối với động cơ 2 thì/4 thì) trước khi khởi động.</li>
+                <li>Bảo quản nơi khô ráo, tránh ẩm ướt và vệ sinh sạch sẽ sau mỗi lần sử dụng.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Thông số kỹ thuật */}
+        <div className="bg-white dark:bg-[#1f1f1f] p-6 rounded-xl shadow-sm border dark:border-gray-800 text-left">
+          <Title level={3} className="border-b pb-4 mb-4 dark:text-white">Thông số kỹ thuật</Title>
+          <table className="spec-table tech-spec-font text-xs">
+            <tbody>
+              {parseProductSpecs(product).map((spec, idx) => (
+                <tr key={idx}>
+                  <td className="font-medium text-gray-400 dark:text-gray-500 w-5/12">{spec.key}</td>
+                  <td className="text-gray-800 dark:text-gray-200 font-semibold">{spec.value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

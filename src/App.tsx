@@ -6,16 +6,14 @@ import HeaderContainer from './component/header';
 import ClickSpark from './component/ClickSpark';
 import AppFooter from './component/footer';
 import { FloatingContactButtons } from './component/FloatingContactButtons';
-import MenuContainer from './component/MenuContainer';
 import Breadcrumbs from './component/Breadcrumbs';
-import { newsList } from './component/NewsPage/constants';
 import AppRoutes from './AppRoutes';
-import RecentPurchaseNotification from './component/RecentPurchaseNotification';
+import BottomNavigation from './component/BottomNavigation';
 import NetworkStatus from './component/NetworkStatus';
 import MarqueeBanner from './component/MarqueeBanner';
 import ScrollToTop from './component/ScrollToTop';
 import { FullPageSkeleton } from './component/ui/SkeletonComponents';
-import StickyDecorations from './component/StickyDecorations';
+
 import AIChatbot from './component/Chatbot';
 // import SideBanners from './component/SideBanners';
 // import FallingPetals from './component/FallingPetals';
@@ -58,38 +56,6 @@ const App = () => {
   }, []);
 
   const mainColor = '#daca72';
-
-  // Khởi tạo giỏ hàng từ LocalStorage
-  const [cartCounts, setCartCounts] = useState<{ [key: string]: number }>(() => {
-    try {
-      const saved = localStorage.getItem('cartCounts');
-      return saved ? JSON.parse(saved) : {};
-    } catch (error) {
-      return {};
-    }
-  });
-
-  // Lưu giá flash sale cho các sản phẩm được thêm từ Flash Sale
-  const [flashPrices, setFlashPrices] = useState<{ [key: string]: string }>(() => {
-    try {
-      const saved = localStorage.getItem('flashPrices');
-      return saved ? JSON.parse(saved) : {};
-    } catch (error) {
-      return {};
-    }
-  });
-
-  // Lưu vào LocalStorage khi giỏ hàng thay đổi
-  useEffect(() => {
-    localStorage.setItem('cartCounts', JSON.stringify(cartCounts));
-  }, [cartCounts]);
-
-  // Lưu flash prices vào LocalStorage
-  useEffect(() => {
-    localStorage.setItem('flashPrices', JSON.stringify(flashPrices));
-  }, [flashPrices]);
-
-  const totalCartItems = Object.values(cartCounts).reduce((sum, count) => sum + count, 0);
 
 
   useEffect(() => {
@@ -160,55 +126,7 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleUpdateCart = (productId: string | number) => {
-    setCartCounts((prev) => ({
-      ...prev,
-      [productId]: (prev[productId] || 0) + 1,
-    }));
-  };
 
-  // Thêm sản phẩm flash sale vào giỏ (có lưu giá flash)
-  const handleAddFlashSaleToCart = (productId: string | number, flashPrice: string) => {
-    setCartCounts((prev) => ({
-      ...prev,
-      [productId]: (prev[productId] || 0) + 1,
-    }));
-    // Lưu giá flash sale
-    setFlashPrices((prev) => ({
-      ...prev,
-      [productId]: flashPrice,
-    }));
-  };
-
-  const handleDecreaseCart = (productId: string | number) => {
-    setCartCounts((prev) => {
-      const currentCount = prev[productId] || 0;
-      if (currentCount <= 1) return prev; // Không giảm dưới 1
-      return {
-        ...prev,
-        [productId]: currentCount - 1,
-      };
-    });
-  };
-
-  const handleRemoveFromCart = (productId: string | number) => {
-    setCartCounts((prev) => {
-      const newState = { ...prev };
-      delete newState[productId];
-      return newState;
-    });
-    // Cũng xóa flash price nếu có
-    setFlashPrices((prev) => {
-      const newState = { ...prev };
-      delete newState[productId];
-      return newState;
-    });
-  };
-
-  const handleClearCart = () => {
-    setCartCounts({});
-    setFlashPrices({});
-  };
 
   return (
     <ConfigProvider
@@ -247,38 +165,25 @@ const App = () => {
           <HeaderContainer
             headerStyle={headerStyle}
             mainColor={mainColor}
-            cartCount={totalCartItems}
-            cartCounts={cartCounts}
-            productList={newsList}
             isSticky={isSticky}
             isDarkMode={isDarkMode}
             onToggleTheme={toggleTheme}
           />
           <Content className="main-content" style={contentStyle}>
-            {/* PC Banners */}
-            <MenuContainer />
             <Breadcrumbs />
             {isInitialLoading ? (
               <FullPageSkeleton />
             ) : (
-              <AppRoutes
-                cartCounts={cartCounts}
-                flashPrices={flashPrices}
-                onUpdateCart={handleUpdateCart}
-                onAddFlashSaleToCart={handleAddFlashSaleToCart}
-                onDecreaseCart={handleDecreaseCart}
-                onRemoveFromCart={handleRemoveFromCart}
-                onClearCart={handleClearCart}
-              />
+              <AppRoutes />
             )}
           </Content>
           <FloatingContactButtons />
-          <RecentPurchaseNotification />
           <AppFooter />
+          {!screens.md && <BottomNavigation />}
         </Layout>
         {/* <SideBanners /> */}
         {/* <FallingPetals /> */}
-        <StickyDecorations />
+        {/* <StickyDecorations /> */}
         <AIChatbot />
       </ClickSpark>
     </ConfigProvider>

@@ -190,7 +190,7 @@ const AIChatbot: React.FC = () => {
     };
 
     return (
-        <div className="fixed bottom-6 left-6 z-[1000] font-sans">
+        <div className="fixed bottom-[84px] md:bottom-6 left-6 z-[1000] font-sans">
             <AnimatePresence>
                 {isOpen && (
                     <motion.div

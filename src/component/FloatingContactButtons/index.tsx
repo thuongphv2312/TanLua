@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
-import { FloatButton } from 'antd';
+import { FloatButton, Grid } from 'antd';
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import './index.css';
 import { HOTLINE } from '../NewsPage/constants';
 
+const { useBreakpoint } = Grid;
+
 export const FloatingContactButtons = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const screens = useBreakpoint();
   const iconStyle = { width: '28px', height: '28px', objectFit: 'contain', zIndex: 2 } as any;
 
   useEffect(() => {
@@ -17,7 +20,7 @@ export const FloatingContactButtons = () => {
   }, []);
 
   return (
-    <FloatButton.Group shape="circle" style={{ right: 24, bottom: 24 }}>
+    <FloatButton.Group shape="circle" style={{ right: 24, bottom: screens.md ? 24 : 84 }}>
       {/* Nút Back to Top */}
       {showBackToTop && (
         <div className="fade-in">

@@ -8,13 +8,7 @@ import { newsList } from '../NewsPage/constants';
 
 const { Title } = Typography;
 
-interface SearchResultsProps {
-  cartCounts: { [key: string]: number };
-  onAddToCart: (id: string | number) => void;
-  onAddFlashSaleToCart: (id: string | number, flashPrice: string) => void;
-}
-
-const SearchResults: React.FC<SearchResultsProps> = ({ cartCounts, onAddToCart, onAddFlashSaleToCart }) => {
+const SearchResults: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
@@ -56,9 +50,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({ cartCounts, onAddToCart, 
         <Products
           title={`Tìm thấy ${filteredProducts.length} sản phẩm phù hợp`}
           lstProducts={filteredProducts as any}
-          cartCounts={cartCounts}
-          onAddToCart={onAddToCart}
-          onAddFlashSaleToCart={onAddFlashSaleToCart}
         />
       ) : (
         <div className="flex flex-col items-center justify-center mt-20">

@@ -54,6 +54,44 @@ export const CATEGORIES = [
   { id: CATEGORY_ID.VAT_TU, name: MACHINE_NAME.VAT_TU, slug: "vat-tu", img: SLIDER_IMAGES[11] },
 ];
 
+export const MENU_STRUCTURE = [
+  {
+    id: CATEGORY_ID.MAY_NONG_NGHIEP,
+    name: "MÁY NÔNG NGHIỆP",
+    slug: "may-nong-nghiep",
+    subCategories: [
+      { id: CATEGORY_ID.MAY_CAT_CO, name: "Máy cắt cỏ", slug: "may-cat-co", desc: "Máy cắt cỏ 2 thì, 4 thì công suất lớn" },
+      { id: CATEGORY_ID.MAY_XOI_DAT, name: "Máy xới đất", slug: "may-xoi-dat", desc: "Máy xới đất mini chạy xăng, dầu" },
+      { id: CATEGORY_ID.MAY_BOM_NUOC, name: "Máy bơm nước", slug: "may-bom-nuoc", desc: "Máy bơm nước tăng áp, bơm chìm" }
+    ]
+  },
+  {
+    id: CATEGORY_ID.MAY_CONG_NGHIEP,
+    name: "MÁY CÔNG NGHIỆP",
+    slug: "may-cong-nghiep",
+    subCategories: [
+      { id: CATEGORY_ID.MAY_NEN_KHI, name: "Máy nén khí", slug: "may-nen-khi", desc: "Máy nén khí có dầu, không dầu Oshima" },
+      { id: CATEGORY_ID.MAY_CONG_NGHIEP, name: "Máy xây dựng", slug: "may-cong-nghiep", desc: "Đầm thước, máy xoa vữa chính hãng" }
+    ]
+  },
+  {
+    id: CATEGORY_ID.THIET_BI_XIT_RUA,
+    name: "THIẾT BỊ XỊT RỬA",
+    slug: "thiet-bi-xit-rua",
+    subCategories: [
+      { id: CATEGORY_ID.THIET_BI_XIT_RUA, name: "Đầu xịt áp lực", slug: "thiet-bi-xit-rua", desc: "Đầu xịt rửa xe ty sứ, ty inox" }
+    ]
+  },
+  {
+    id: CATEGORY_ID.DUNG_CU_CAM_TAY,
+    name: "DỤNG CỤ CẦM TAY",
+    slug: "dung-cu-cam-tay",
+    subCategories: [
+      { id: CATEGORY_ID.DUNG_CU_CAM_TAY, name: "Dụng cụ cầm tay", slug: "dung-cu-cam-tay", desc: "Máy khoan, máy siết bulong, máy hàn" }
+    ]
+  }
+];
+
 const calculateDiscount = (price: string, oldPrice: string) => {
   if (!oldPrice) return "";
   const priceNumber = parseInt(price.replace(/\D/g, ''));
