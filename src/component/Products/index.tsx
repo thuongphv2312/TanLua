@@ -600,7 +600,7 @@ const Products: React.FC<ProductsProps> = ({
               <Card
                 key={product.id}
                 hoverable
-                className="relative overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-sm hover:shadow border-gray-150 dark:border-gray-850"
+                className="relative overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-sm hover:shadow border-gray-200 dark:border-gray-800"
                 onClick={() => navigate(`/product/${product.id}`)}
                 cover={
                   <div className={`relative h-48 flex items-center justify-center ${flashProduct ? 'bg-gradient-to-br from-red-50 to-orange-50' : 'bg-gradient-to-br from-green-100 to-green-50'}`}>

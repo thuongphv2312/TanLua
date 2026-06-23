@@ -157,7 +157,7 @@ const MegaMenuPanel: React.FC<MegaMenuPanelProps> = ({ cat, onNavigate }) => {
    return (
       <div className="flex w-[820px] min-h-[380px] bg-white dark:bg-[#1f1f1f] text-left rounded-xl overflow-hidden shadow-xl border dark:border-gray-800">
          {/* Cột trái: Danh mục con dọc */}
-         <div className="w-[240px] bg-gray-50/50 dark:bg-gray-900/30 border-r dark:border-gray-850 p-2 flex flex-col gap-1">
+         <div className="w-[240px] bg-gray-50/50 dark:bg-gray-900/30 border-r dark:border-gray-800 p-2 flex flex-col gap-1">
             {cat.subCategories.map((sub: any) => {
                const isActive = sub.id === hoveredSubId;
                return (
@@ -168,7 +168,7 @@ const MegaMenuPanel: React.FC<MegaMenuPanelProps> = ({ cat, onNavigate }) => {
                      className={`px-4 py-3 rounded-lg cursor-pointer transition-all flex items-center justify-between group ${
                         isActive
                            ? 'bg-red-50 dark:bg-red-950/20 text-[#cb2b2b] font-semibold'
-                           : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/70 dark:hover:bg-gray-850/40'
+                           : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/70 dark:hover:bg-gray-800/40'
                      }`}
                   >
                      <span className="text-xs md:text-sm">{sub.name}</span>
@@ -207,7 +207,7 @@ const MegaMenuPanel: React.FC<MegaMenuPanelProps> = ({ cat, onNavigate }) => {
                               <button
                                  key={opt}
                                  onClick={() => onNavigate(`/${currentSub.slug}`, { selectedProperty: opt })}
-                                 className="px-3 py-1.5 text-xs bg-gray-50 dark:bg-gray-850 hover:bg-red-50 dark:hover:bg-red-950/20 hover:text-[#cb2b2b] rounded-md border border-gray-200 dark:border-gray-800 hover:border-red-200 dark:hover:border-red-900/30 transition-all font-medium text-gray-700 dark:text-gray-300"
+                                 className="px-3 py-1.5 text-xs bg-gray-50 dark:bg-gray-800 hover:bg-red-50 dark:hover:bg-red-950/20 hover:text-[#cb2b2b] rounded-md border border-gray-200 dark:border-gray-800 hover:border-red-200 dark:hover:border-red-900/30 transition-all font-medium text-gray-700 dark:text-gray-300"
                               >
                                  {opt}
                               </button>
@@ -240,7 +240,7 @@ const MegaMenuPanel: React.FC<MegaMenuPanelProps> = ({ cat, onNavigate }) => {
                               <div
                                  key={p.id}
                                  onClick={() => onNavigate(`/product/${p.id}`)}
-                                 className="p-2 border dark:border-gray-800 rounded-lg hover:border-red-200 dark:hover:border-red-900/40 hover:shadow-sm cursor-pointer transition-all flex flex-col items-center text-center group bg-white dark:bg-[#1f1f1f] hover:bg-gray-50 dark:hover:bg-gray-850/50"
+                                 className="p-2 border dark:border-gray-800 rounded-lg hover:border-red-200 dark:hover:border-red-900/40 hover:shadow-sm cursor-pointer transition-all flex flex-col items-center text-center group bg-white dark:bg-[#1f1f1f] hover:bg-gray-50 dark:hover:bg-gray-800/50"
                               >
                                  <div className="w-14 h-14 flex items-center justify-center bg-gray-50 dark:bg-gray-900 rounded overflow-hidden mb-2 relative border dark:border-gray-800">
                                     {p.images?.[0] ? (

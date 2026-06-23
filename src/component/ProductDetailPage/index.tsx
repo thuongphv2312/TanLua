@@ -206,7 +206,7 @@ const ProductDetailPage: React.FC = () => {
             <p className="font-semibold text-gray-800 dark:text-gray-200">{product.name}</p>
             <p>{product.description}</p>
             <p className="mt-4">Sản phẩm được phân phối chính hãng bởi **Tấn Lụa** với cam kết chất lượng tuyệt đối, dịch vụ giao hàng toàn quốc nhanh chóng và chính sách bảo hành uy tín 12 tháng.</p>
-            <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg border border-dashed dark:border-gray-850">
+            <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg border border-dashed dark:border-gray-800">
               <p className="mb-2 font-medium text-gray-800 dark:text-gray-200">💡 Lưu ý sử dụng & bảo dưỡng:</p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Đọc kỹ hướng dẫn sử dụng đi kèm sản phẩm trước khi vận hành.</li>

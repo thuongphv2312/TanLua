@@ -166,7 +166,7 @@ const Slider: React.FC = () => {
             
             {/* CỘT 1: Sidebar danh mục dọc (4/12 cột trên Mobile, 3/12 cột trên PC) */}
             <div className="col-span-4 md:col-span-3 bg-white dark:bg-[#1f1f1f] rounded-xl border border-gray-100 dark:border-gray-800/30 shadow-md shadow-gray-100/50 dark:shadow-none overflow-hidden flex flex-col gap-1 p-2 h-[260px] sm:h-[320px] md:h-[400px]">
-               <div className="px-2 py-2 md:px-4 md:py-3 border-b border-gray-50 dark:border-gray-800/30 font-bold text-[10px] sm:text-xs md:text-sm text-gray-855 dark:text-gray-200 flex items-center gap-1.5 md:gap-2">
+               <div className="px-2 py-2 md:px-4 md:py-3 border-b border-gray-50 dark:border-gray-800/30 font-bold text-[10px] sm:text-xs md:text-sm text-gray-800 dark:text-gray-200 flex items-center gap-1.5 md:gap-2">
                   <AppstoreOutlined className="text-[#cb2b2b] text-xs md:text-sm" />
                   <span>DANH MỤC SẢN PHẨM</span>
                </div>
@@ -220,7 +220,7 @@ const Slider: React.FC = () => {
                   hoveredSubId === null ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
                }`}>
                   {/* Banner Carousel */}
-                  <div className="col-span-8 md:col-span-9 h-full overflow-hidden">
+                  <div className="col-span-12 md:col-span-9 h-full overflow-hidden">
                      <Carousel autoplay autoplaySpeed={4000} speed={500} dotPlacement="bottom" className="h-full">
                         {sliderData.map((img: { id: number; src: string; title: string }, index: number) => (
                            <div key={index} className="h-full">
@@ -238,7 +238,7 @@ const Slider: React.FC = () => {
                   </div>
 
                   {/* Cột Chính sách dịch vụ (Xếp dọc trên cả PC và Mobile) */}
-                  <div className="col-span-4 md:col-span-3 flex flex-col gap-1.5 sm:gap-2 md:gap-2.5 p-1.5 sm:p-2 md:p-3 h-full bg-gray-50/50 dark:bg-gray-900/30 border-l border-gray-100/60 dark:border-gray-800/30 overflow-hidden">
+                  <div className="hidden md:flex col-span-4 md:col-span-3 flex-col gap-1.5 sm:gap-2 md:gap-2.5 p-1.5 sm:p-2 md:p-3 h-full bg-gray-50/50 dark:bg-gray-900/30 border-l border-gray-100/60 dark:border-gray-800/30 overflow-hidden">
                      {/* Dịch vụ 1 */}
                      <div className="flex-1 flex items-center gap-1 sm:gap-2 md:gap-3 p-1 sm:p-1.5 md:p-2.5 bg-white dark:bg-[#1f1f1f] rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-800/20 shadow-sm hover:shadow-md hover:border-red-100 dark:hover:border-red-950/20 transition-all duration-300 min-w-0">
                         <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9 rounded-full bg-red-50 dark:bg-red-950/20 text-[#cb2b2b] flex items-center justify-center text-[10px] sm:text-xs md:text-base flex-shrink-0">
@@ -306,7 +306,7 @@ const Slider: React.FC = () => {
                                        <button
                                           key={opt}
                                           onClick={() => handleNavigate(`/${currentSub.slug}`, { selectedFilters: { [filter.key]: opt } })}
-                                          className="px-2 md:px-3 py-1 md:py-1.5 text-[9px] md:text-xs bg-gray-50 dark:bg-gray-850 hover:bg-red-50 dark:hover:bg-red-950/20 hover:text-[#cb2b2b] rounded-md border border-gray-100 dark:border-gray-855 hover:border-red-200 dark:hover:border-red-900/30 transition-all font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:shadow"
+                                          className="px-2 md:px-3 py-1 md:py-1.5 text-[9px] md:text-xs bg-gray-50 dark:bg-gray-800 hover:bg-red-50 dark:hover:bg-red-950/20 hover:text-[#cb2b2b] rounded-md border border-gray-100 dark:border-gray-800 hover:border-red-200 dark:hover:border-red-900/30 transition-all font-medium text-gray-700 dark:text-gray-300 shadow-sm hover:shadow"
                                        >
                                           {opt}
                                        </button>
@@ -341,7 +341,7 @@ const Slider: React.FC = () => {
                                  <div
                                     key={p.id}
                                     onClick={() => handleNavigate(`/product/${p.id}`)}
-                                    className="p-1.5 md:p-2 border border-gray-100 dark:border-gray-800/20 rounded-xl hover:border-red-200/60 dark:hover:border-red-900/40 shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col items-center text-center group bg-white dark:bg-[#1f1f1f] hover:bg-gray-50 dark:hover:bg-gray-855/50"
+                                    className="p-1.5 md:p-2 border border-gray-100 dark:border-gray-800/20 rounded-xl hover:border-red-200/60 dark:hover:border-red-900/40 shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col items-center text-center group bg-white dark:bg-[#1f1f1f] hover:bg-gray-50 dark:hover:bg-gray-800/50"
                                  >
                                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center bg-gray-50 dark:bg-gray-900 rounded overflow-hidden mb-1.5 md:mb-2 relative border border-gray-50 dark:border-gray-800/20">
                                        {p.images?.[0] ? (
@@ -355,7 +355,7 @@ const Slider: React.FC = () => {
                                           <AppstoreOutlined className="text-gray-300 text-sm md:text-lg" />
                                        )}
                                     </div>
-                                    <span className="text-[9px] sm:text-[10px] font-medium text-gray-855 dark:text-gray-200 line-clamp-2 leading-tight group-hover:text-[#cb2b2b] transition-colors">
+                                    <span className="text-[9px] sm:text-[10px] font-medium text-gray-800 dark:text-gray-200 line-clamp-2 leading-tight group-hover:text-[#cb2b2b] transition-colors">
                                        {p.name}
                                     </span>
                                  </div>
