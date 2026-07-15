@@ -180,11 +180,11 @@ export const DAMTHUOCDIENTALDTD220 = [
 ]
 
 export const DAMTHUOCXANGDTXT35PRO = [
-  "https://i.ibb.co/sJCPHW3g/m-th-c-x-ng-TAL-DTX-T35-PRO-4.png",
-  "https://i.ibb.co/YFSB80js/m-th-c-x-ng-TAL-DTX-T35-PRO-2.png",
-  "https://i.ibb.co/7NQt8KHc/m-th-c-x-ng-TAL-DTX-T35-PRO-3.png",
-  "https://i.ibb.co/0pY9YPFv/m-th-c-x-ng-TAL-DTX-T35-PRO-5.png",
-  "https://i.ibb.co/NnybdGMz/m-th-c-x-ng-TAL-DTX-T35-PRO.png"
+  "https://i.ibb.co/Y7dsLGNS/m-th-c-x-ng-TAL-DTX-T35-PRO.png",
+  "https://i.ibb.co/z0NNn3r/m-th-c-x-ng-TAL-DTX-T35-PRO-1.png",
+  "https://i.ibb.co/hxQQ19hz/m-th-c-x-ng-TAL-DTX-T35-PRO-2.png",
+  "https://i.ibb.co/0p3v7VBR/m-th-c-x-ng-TAL-DTX-T35-PRO-3.png",
+  "https://i.ibb.co/087GMTv/m-th-c-x-ng-TAL-DTX-T35-PRO-4.png",
 ]
 
 export const DAUXITTL22STH = [
