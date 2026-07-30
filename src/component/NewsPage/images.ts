@@ -1022,6 +1022,7 @@ export const G2_R9LUX = [
 ]
 
 export const CUOC_CAT_CO_TALU = [
+  "https://i.ibb.co/vvQHVzRX/Thi-t-k-l-i-banner-m-y-c-t-c-18.png",
   "https://i.ibb.co/WWJVLKWW/C-c-c-t-c-TALU-1.png",
   "https://i.ibb.co/Y4nhJWND/C-c-c-t-c-TALU-2.png",
   "https://i.ibb.co/tpFF8ZgD/C-c-c-t-c-TALU-3.png",
@@ -1038,5 +1039,4 @@ export const CUOC_CAT_CO_TALU = [
   "https://i.ibb.co/20tFhgrF/Thi-t-k-l-i-banner-m-y-c-t-c-15.png",
   "https://i.ibb.co/zhcwsXBS/Thi-t-k-l-i-banner-m-y-c-t-c-16.png",
   "https://i.ibb.co/q3rjZcSc/Thi-t-k-l-i-banner-m-y-c-t-c-17.png",
-  "https://i.ibb.co/vvQHVzRX/Thi-t-k-l-i-banner-m-y-c-t-c-18.png",
 ]
