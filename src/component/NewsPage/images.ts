@@ -1020,3 +1020,23 @@ export const G2_R9LUX = [
   "https://i.ibb.co/ymG40scH/M-y-r-a-xe-HUKAN-G2-R9-LUX-3.png",
   "https://i.ibb.co/XfTBT0Zk/M-y-r-a-xe-HUKAN-G2-R9-LUX-4.png",
 ]
+
+export const CUOC_CAT_CO_TALU = [
+  "https://i.ibb.co/WWJVLKWW/C-c-c-t-c-TALU-1.png",
+  "https://i.ibb.co/Y4nhJWND/C-c-c-t-c-TALU-2.png",
+  "https://i.ibb.co/tpFF8ZgD/C-c-c-t-c-TALU-3.png",
+  "https://i.ibb.co/fY22B8Jh/C-c-c-t-c-TALU-4.png",
+  "https://i.ibb.co/4RqmQtN4/C-c-c-t-c-TALU-5.png",
+  "https://i.ibb.co/8DNYXWG0/C-c-c-t-c-TALU-6.png",
+  "https://i.ibb.co/842d2WCm/C-c-c-t-c-TALU-7.png",
+  "https://i.ibb.co/qMFvdbQs/C-c-c-t-c-TALU-8.png",
+  "https://i.ibb.co/qvybG2Y/C-c-c-t-c-TALU-10.png",
+  "https://i.ibb.co/CypzhN9/Thi-t-k-l-i-banner-m-y-c-t-c-11.png",
+  "https://i.ibb.co/s7m9z4B/Thi-t-k-l-i-banner-m-y-c-t-c-12.png",
+  "https://i.ibb.co/rKFxf4kY/Thi-t-k-l-i-banner-m-y-c-t-c-13.png",
+  "https://i.ibb.co/Z16LRVLm/Thi-t-k-l-i-banner-m-y-c-t-c-14.png",
+  "https://i.ibb.co/20tFhgrF/Thi-t-k-l-i-banner-m-y-c-t-c-15.png",
+  "https://i.ibb.co/zhcwsXBS/Thi-t-k-l-i-banner-m-y-c-t-c-16.png",
+  "https://i.ibb.co/q3rjZcSc/Thi-t-k-l-i-banner-m-y-c-t-c-17.png",
+  "https://i.ibb.co/vvQHVzRX/Thi-t-k-l-i-banner-m-y-c-t-c-18.png",
+]
