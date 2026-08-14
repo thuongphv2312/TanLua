@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Typography, Rate, Divider, Image, Button } from 'antd';
-import { ArrowLeftOutlined, ThunderboltOutlined, PhoneOutlined, MessageOutlined } from '@ant-design/icons';
+import { Typography, Rate, Divider, Image, Button, message } from 'antd';
+import { ArrowLeftOutlined, ThunderboltOutlined, PhoneOutlined, MessageOutlined, DownloadOutlined } from '@ant-design/icons';
 import { newsList, CATEGORIES, HOST, HOTLINE } from '../NewsPage/constants';
 import SEO from '../SEO';
 import { isProductInFlashSale } from '../../utils/flashSale';
@@ -15,6 +15,54 @@ const ProductDetailPage: React.FC = () => {
   const [product, setProduct] = useState<any>(null);
   const [mainImage, setMainImage] = useState<string>('');
   const [previewVisible, setPreviewVisible] = useState<boolean>(false);
+  const [downloading, setDownloading] = useState<boolean>(false);
+
+  const handleDownloadAllImages = async () => {
+     if (!product || !product.images || product.images.length === 0) return;
+     setDownloading(true);
+     let currentHide = message.loading('Đang chuẩn bị tải xuống hình ảnh...', 0);
+     try {
+        for (let i = 0; i < product.images.length; i++) {
+           const url = product.images[i];
+           currentHide();
+           currentHide = message.loading(`Đang tải ảnh ${i + 1}/${product.images.length}...`, 0);
+           try {
+              const response = await fetch(url, { mode: 'cors' });
+              if (!response.ok) throw new Error('Network response was not ok');
+              const blob = await response.blob();
+              const blobUrl = URL.createObjectURL(blob);
+              const link = document.createElement('a');
+              link.href = blobUrl;
+              
+              const extension = url.split('.').pop()?.split(/[?#]/)[0] || 'jpg';
+              const cleanProductName = product.name
+                 .toLowerCase()
+                 .normalize('NFD')
+                 .replace(/[\u0300-\u036f]/g, '')
+                 .replace(/[^a-z0-9]+/g, '-')
+                 .replace(/^-+|-+$/g, '');
+              
+              link.download = `${cleanProductName || 'san-pham'}-${i + 1}.${extension}`;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              URL.revokeObjectURL(blobUrl);
+           } catch (err) {
+              console.error(`Không thể tải ảnh bằng fetch, thử mở link trực tiếp:`, err);
+              window.open(url, '_blank');
+           }
+           await new Promise((resolve) => setTimeout(resolve, 300));
+        }
+        currentHide();
+        message.success('Đã hoàn thành tải xuống tất cả ảnh sản phẩm!');
+     } catch (error) {
+        console.error('Lỗi khi tải ảnh:', error);
+        currentHide();
+        message.error('Có lỗi xảy ra trong quá trình tải ảnh. Vui lòng kiểm tra lại!');
+     } finally {
+        setDownloading(false);
+     }
+  };
 
   useEffect(() => {
     const foundProduct = newsList.find((p) => String(p.id) === String(id));
@@ -122,6 +170,15 @@ const ProductDetailPage: React.FC = () => {
               </div>
             ))}
           </div>
+          <Button
+             type="dashed"
+             icon={<DownloadOutlined />}
+             loading={downloading}
+             onClick={handleDownloadAllImages}
+             className="w-full mt-2 h-10 flex items-center justify-center gap-2 rounded-lg border-dashed border-gray-300 dark:border-gray-700 hover:border-blue-500 hover:text-blue-500 dark:hover:border-blue-400 dark:hover:text-blue-400 text-sm font-medium transition-all"
+          >
+             {downloading ? 'Đang tải ảnh...' : `Tải xuống tất cả ảnh (${product.images.length})`}
+          </Button>
         </div>
 
         {/* Right: Product Info */}
