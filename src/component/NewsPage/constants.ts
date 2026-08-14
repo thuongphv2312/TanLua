@@ -15,7 +15,8 @@ const MACHINE_NAME = {
   MAY_BOM_NUOC: "Máy bơm nước",
   MAY_NEN_KHI: "Máy nén khí",
   HANG_THANH_LY: "Hàng thanh lý",
-  VAT_TU: "Vật tư"
+  VAT_TU: "Vật tư",
+  DAU_NO: "Đầu nổ"
 }
 
 
@@ -41,6 +42,7 @@ export const CATEGORIES = [
   { id: CATEGORY_ID.MAY_NEN_KHI, name: MACHINE_NAME.MAY_NEN_KHI, slug: "may-nen-khi", img: SLIDER_IMAGES[9] },
   { id: CATEGORY_ID.HANG_THANH_LY, name: MACHINE_NAME.HANG_THANH_LY, slug: "hang-thanh-ly", img: SLIDER_IMAGES[10] },
   { id: CATEGORY_ID.VAT_TU, name: MACHINE_NAME.VAT_TU, slug: "vat-tu", img: SLIDER_IMAGES[11] },
+  { id: CATEGORY_ID.DAU_NO, name: MACHINE_NAME.DAU_NO, slug: "dau-no", img: SLIDER_IMAGES[0] },
 ];
 
 export const MENU_STRUCTURE = [

@@ -1,6 +1,6 @@
 import type { RawNewsItem } from './type';
 import { CATEGORY_ID, HOST } from './config';
-import { TL35X_IMAGES, TJ35_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300, GIABATCOBANHXE, HANCOHK30ST2HP, KHOANBETONGK90, KHOANBETONGK96, MAYBOMTANGAPMINIG1B001TB, MAYBOMTANGAPMININK159A20M3H220V125MM, MAYMAIAG5055CT, MAYCATSATBAN2400S, MAYCATSATBANOS2000, MAYCANMUCCM5X1, MAYCANMUCCM5X2, MAYCANMUCCM5X2LS, MAYCANMUCCM5XLS, MAYCANMUCCM5XSS, MAYCANMUCCM5XCS, MAYCANMUCCM5XSPX, COMBOCVGRCV381, COMBOCVGRCV173, G3HUK35, GRMMAMMA200EMINI, MKSMMA200EMINI, MKSMMA200EV2, OSHIMAMMA200A, OSHIMAMMA250A, G2RH2601, K2626P, RH2066X, RH2900BL, G3STOM02, AG6101J, TLP35, PHUNXA3WF3A43, MAYRUAXE151801, MAYRUAXE0812K2, MAYRUAXEJZ300C, MAYRUAXEJZ900A2, MAYRUAXEMXR1213K1, MAYRUAXEMXR1215C2, MAYRUAXEMXR1418C1, THANMAYSIETBULONGBL0320, MAYTHOIBUIMSTB1001, MAYXOAVUADIENXVD220, MAYXOIDATXDX23, MAYXOIDATXDX18, NHOT2THI, PINCBP605020CELL, PHUKIENMAYCATCO, ROLETUNGAT, SACDON2AG3HUK020A, SACDON4AG3HUK040A, THANCUAXICH8INCHG2CX, THANCUAXICHG1C012BT, CVG2CV231, G1GS400, G2RGP190, IWB1034BL, G1X4, G1IWX2, G1MT024S, G2XVP360, THUOCDAM2M, MAYXOIXDD178, G3CS1800, G2TH1003, G2TPLF1, DRAGOND30, MAYNENKHIOSHIMA1215KHONGDAU, MAYNENKHIKHONGDAUOSHIMA30L, MAYNENKHICODAUOSHIMA30L, KHOANDUCK3CN28, KHOANDUCK3CN26, MAYXOIXDD173, MAYXOIXDXC, MAYXOIXDXR, KMX340, KMX350, NAKAWA_JLM200A, ROMANO_RM180A, ROMANO_RM150A, G2_R9LUX, DAUXITTL30TH, TL226, TL260, TL330, TL541, CUOC_CAT_CO_TALU, THUOCNHOMMATDAM2M, THANMAYTHOIBUIHUKANELB1599BL, THANMAYSIETBULONGHM21G1IWX2, THANMAYMAIGOCWORKFIXWFAG7900CP, THANCATCANHWORKFIXWFP3050BL, G1BLP3240, MAYTHOIDIENHUKANG1LB3800, MAYSIETBULONGWORKFIXWF_IW360BL, MAYPHUNXADIENACQUY } from './images';
+import { TL35X_IMAGES, TJ35_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300, GIABATCOBANHXE, HANCOHK30ST2HP, KHOANBETONGK90, KHOANBETONGK96, MAYBOMTANGAPMINIG1B001TB, MAYBOMTANGAPMININK159A20M3H220V125MM, MAYMAIAG5055CT, MAYCATSATBAN2400S, MAYCATSATBANOS2000, MAYCANMUCCM5X1, MAYCANMUCCM5X2, MAYCANMUCCM5X2LS, MAYCANMUCCM5XLS, MAYCANMUCCM5XSS, MAYCANMUCCM5XCS, MAYCANMUCCM5XSPX, COMBOCVGRCV381, COMBOCVGRCV173, G3HUK35, GRMMAMMA200EMINI, MKSMMA200EMINI, MKSMMA200EV2, OSHIMAMMA200A, OSHIMAMMA250A, G2RH2601, K2626P, RH2066X, RH2900BL, G3STOM02, AG6101J, TLP35, PHUNXA3WF3A43, MAYRUAXE151801, MAYRUAXE0812K2, MAYRUAXEJZ300C, MAYRUAXEJZ900A2, MAYRUAXEMXR1213K1, MAYRUAXEMXR1215C2, MAYRUAXEMXR1418C1, THANMAYSIETBULONGBL0320, MAYTHOIBUIMSTB1001, MAYXOAVUADIENXVD220, MAYXOIDATXDX23, MAYXOIDATXDX18, NHOT2THI, PINCBP605020CELL, PHUKIENMAYCATCO, ROLETUNGAT, SACDON2AG3HUK020A, SACDON4AG3HUK040A, THANCUAXICH8INCHG2CX, THANCUAXICHG1C012BT, CVG2CV231, G1GS400, G2RGP190, IWB1034BL, G1X4, G1IWX2, G1MT024S, G2XVP360, THUOCDAM2M, MAYXOIXDD178, G3CS1800, G2TH1003, G2TPLF1, DRAGOND30, MAYNENKHIOSHIMA1215KHONGDAU, MAYNENKHIKHONGDAUOSHIMA30L, MAYNENKHICODAUOSHIMA30L, KHOANDUCK3CN28, KHOANDUCK3CN26, MAYXOIXDD173, MAYXOIXDXC, MAYXOIXDXR, KMX340, KMX350, NAKAWA_JLM200A, ROMANO_RM180A, ROMANO_RM150A, G2_R9LUX, DAUXITTL30TH, TL226, TL260, TL330, TL541, CUOC_CAT_CO_TALU, THUOCNHOMMATDAM2M, THANMAYTHOIBUIHUKANELB1599BL, THANMAYSIETBULONGHM21G1IWX2, THANMAYMAIGOCWORKFIXWFAG7900CP, THANCATCANHWORKFIXWFP3050BL, G1BLP3240, MAYTHOIDIENHUKANG1LB3800, MAYSIETBULONGWORKFIXWF_IW360BL, MAYPHUNXADIENACQUY, MAYMAIPINWORKFIXWFAG100ATC, MAYMAIPINWORKFIXWFAG9000PRO, WFID1395N, G1XC3, G1M88PRO, KHOANG2ID790, G2MS90255, HM21G2PR3030BL, LUOIBAMXOIMAYDAYCUROA, G2RH2166X, WFRH2326BL, BOSSUNM21BCP0230M, BSRH2702PRO, DAUNOHEIWAGX230 } from './images';
 
 export const rawNewsList: RawNewsItem[] = [
    {
@@ -420,13 +420,13 @@ export const rawNewsList: RawNewsItem[] = [
       isSoldOut: false
    },
    {
-      title: "Thân máy khoan G2-Z1300 chính hãng hukan 60N.M 3 chế độ",
+      title: "Thân máy khoan G2-Z1300 chính hãng HUKAN 60N.M 3 chế độ",
       author: "Tấn Lụa",
       date: "12/01/2021",
-      description: "Thân máy khoan G2-Z1300 chính hãng hukan 60N.M 3 chế độ có công dụng như thế nào với công việc của bạn...",
+      description: "Thân máy khoan G2-Z1300 chính hãng HUKAN 60N.M 3 chế độ có công dụng như thế nào với công việc của bạn...",
       images: THANMAYKHOANGG2Z1300,
       categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
-      name: "Thân máy khoan G2-Z1300 chính hãng hukan 60N.M 3 chế độ",
+      name: "Thân máy khoan G2-Z1300 chính hãng HUKAN 60N.M 3 chế độ",
       price: "690,000₫",
       oldPrice: "820,000₫",
       url: HOST,
@@ -533,6 +533,32 @@ export const rawNewsList: RawNewsItem[] = [
       name: "Thân máy mài góc WORKFIX WF-AG7900CP chính hãng",
       price: "630,000₫",
       oldPrice: "799,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy mài pin WORKFIX WF-AG100ATC chính hãng ",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy mài pin WORKFIX WF-AG100ATC chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: MAYMAIPINWORKFIXWFAG100ATC,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy mài pin WORKFIX WF-AG100ATC chính hãng",
+      price: "2,115,000₫",
+      oldPrice: "2,460,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy mài pin WORKFIX WF-AG9000PRO chính hãng ",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy mài pin WORKFIX WF-AG9000PRO chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: MAYMAIPINWORKFIXWFAG9000PRO,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy mài pin WORKFIX WF-AG9000PRO chính hãng",
+      price: "1,932,000₫",
+      oldPrice: "2,590,000₫",
       url: HOST,
       isSoldOut: false
    },
@@ -758,15 +784,41 @@ export const rawNewsList: RawNewsItem[] = [
       isSoldOut: false
    },
    {
-      title: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAn",
+      title: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAN",
       author: "Tấn Lụa",
       date: "12/01/2021",
-      description: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAn có công dụng như thế nào với công việc của bạn...",
+      description: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAN có công dụng như thế nào với công việc của bạn...",
       images: G2RH2601,
       categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
-      name: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAn",
+      name: "Combo máy khoan đục G2-RH2601 26MM 21V 3.2J 5500BPM 1600v/ phút chính hãng HUKAN",
       price: "2,280,000₫",
       oldPrice: "3,200,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy khoan đục bê tông HUKAN G2-RH2166X 1020W 3.5J 780V/P 4.4KG chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy khoan đục bê tông HUKAN G2-RH2166X 1020W 3.5J 780V/P 4.4KG chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: G2RH2166X,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy khoan đục bê tông HUKAN G2-RH2166X 1020W 3.5J 780V/P 4.4KG chính hãng",
+      price: "1,190,000₫",
+      oldPrice: "1,450,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy khoan bê tông đa chức năng WORKFIX WF-RH2326BL 2.3J 1350V/P chạy pin chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy khoan bê tông đa chức năng WORKFIX WF-RH2326BL 2.3J 1350V/P chạy pin chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: WFRH2326BL,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy khoan bê tông đa chức năng WORKFIX WF-RH2326BL 2.3J 1350V/P chạy pin chính hãng",
+      price: "1,680,000₫",
+      oldPrice: "2,250,000₫",
       url: HOST,
       isSoldOut: false
    },
@@ -793,6 +845,58 @@ export const rawNewsList: RawNewsItem[] = [
       name: "Máy khoan bê tông G2-RH2066X 1020W 220V 3.5J 4400v/ phút tốc độ búa và 780V/ phút tốc độ không tải",
       price: "1,400,000₫",
       oldPrice: "1,580,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy khoan đa chức năng WORKFIX WF-ID1395N 95NW không chổi than chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy khoan đa chức năng WORKFIX WF-ID1395N 95NW không chổi than chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: WFID1395N,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy khoan đa chức năng WORKFIX WF-ID1395N 95NW không chổi than chính hãng",
+      price: "1,820,000₫",
+      oldPrice: "2,580,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy khoan pin HUKAN G1-XC3 45N.W 16V đầu kẹp 10mm chính hãng ",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy khoan pin HUKAN G1-XC3 chính 45N.W 16V đầu kẹp 10mm chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: G1XC3,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy khoan pin HUKAN G1-XC3 45N.W 16V đầu kẹp 10mm chính hãng",
+      price: "865,000₫",
+      oldPrice: "920,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy khoan pin HUKAN G1-M88PRO 90N.W 21V 950W chính hãng ",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy khoan pin HUKAN G1-M88PRO 90N.W 21V 950W chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: G1M88PRO,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy khoan pin HUKAN G1-M88PRO 90N.W 21V 950W chính hãng",
+      price: "1,975,000₫",
+      oldPrice: "2,290,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy khoan điện HUKAN G2-ID790 790W chính hãng ",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy khoan điện HUKAN G2-ID790 790W chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: KHOANG2ID790,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy khoan điện HUKAN G2-ID790 790W chính hãng",
+      price: "670,000₫",
+      oldPrice: "820,000₫",
       url: HOST,
       isSoldOut: false
    },
@@ -834,6 +938,45 @@ export const rawNewsList: RawNewsItem[] = [
       oldPrice: "1,468,000₫",
       url: HOST,
       isSoldOut: true
+   },
+   {
+      title: "Máy cắt nhôm HUKAN G2-MS90255 1700W chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy cắt nhôm HUKAN G2-MS90255 1700W chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: G2MS90255,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy cắt nhôm HUKAN G2-MS90255 1700W chính hãng",
+      price: "2,968,000đ",
+      oldPrice: "3,500,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Combo máy cắt cành HUKAN HM21-G2PR3030BL chạy pin chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Combo máy cắt cành HUKAN HM21-G2PR3030BL chạy pin chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: HM21G2PR3030BL,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Combo máy cắt cành HUKAN HM21-G2PR3030BL chạy pin chính hãng",
+      price: "2,100,000đ",
+      oldPrice: "2,320,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Combo kéo cắt cành BOSSUN M21B-CP0230M chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Combo kéo cắt cành BOSSUN M21B-CP0230M chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: BOSSUNM21BCP0230M,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Combo kéo cắt cành BOSSUN M21B-CP0230M chính hãng",
+      price: "1,350,000đ",
+      oldPrice: "1,590,000₫",
+      url: HOST,
+      isSoldOut: false
    },
    {
       title: "Máy phun xạ hạt, sương, thuốc trừ sâu, thổi bụi, đa chức năng TLP35 chạy xăng 13.5Kg động cơ 4 thì chính hãng TALU",
@@ -1213,13 +1356,13 @@ export const rawNewsList: RawNewsItem[] = [
       isSoldOut: false
    },
    {
-      title: "Thân máy rung gạch pin (GEN2) G2-RGP190 hukan chính hãng",
+      title: "Thân máy rung gạch pin (GEN2) G2-RGP190 HUKAN chính hãng",
       author: "Tấn Lụa",
       date: "12/01/2021",
-      description: "Thân máy rung gạch pin (GEN2) G2-RGP190 hukan chính hãng có công dụng như thế nào với công việc của bạn...",
+      description: "Thân máy rung gạch pin (GEN2) G2-RGP190 HUKAN chính hãng có công dụng như thế nào với công việc của bạn...",
       images: G2RGP190,
       categories: [CATEGORY_ID.DUNG_CU_CAM_TAY, CATEGORY_ID.MAY_CONG_NGHIEP],
-      name: "Thân máy rung gạch pin (GEN2) G2-RGP190 hukan chính hãng",
+      name: "Thân máy rung gạch pin (GEN2) G2-RGP190 HUKAN chính hãng",
       price: "1,850,000đ",
       oldPrice: "2,000,000đ",
       url: HOST,
@@ -1239,13 +1382,13 @@ export const rawNewsList: RawNewsItem[] = [
       isSoldOut: false
    },
    {
-      title: "Máy siết bulong Hukan G1-X4, Động cơ Không chổi than, Lực siết 330Nm, Bắn vít, Siết mở bulong",
+      title: "Máy siết bulong HUKAN G1-X4, Động cơ Không chổi than, Lực siết 330Nm, Bắn vít, Siết mở bulong",
       author: "Tấn Lụa",
       date: "12/01/2021",
-      description: "Máy siết bulong Hukan G1-X4, Động cơ Không chổi than, Lực siết 330Nm, Bắn vít, Siết mở bulong có công dụng như thế nào với công việc của bạn...",
+      description: "Máy siết bulong HUKAN G1-X4, Động cơ Không chổi than, Lực siết 330Nm, Bắn vít, Siết mở bulong có công dụng như thế nào với công việc của bạn...",
       images: G1X4,
       categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
-      name: "Máy siết bulong Hukan G1-X4, Động cơ Không chổi than, Lực siết 330Nm, Bắn vít, Siết mở bulong",
+      name: "Máy siết bulong HUKAN G1-X4, Động cơ Không chổi than, Lực siết 330Nm, Bắn vít, Siết mở bulong",
       price: "1,480,000đ",
       oldPrice: "1,990,000đ",
       url: HOST,
@@ -1304,13 +1447,13 @@ export const rawNewsList: RawNewsItem[] = [
       isSoldOut: false
    },
    {
-      title: "THÂN Máy xoa vữa dung pin 21V 600W 380mm Hukan G2-XVP360",
+      title: "THÂN Máy xoa vữa dung pin 21V 600W 380mm HUKAN G2-XVP360",
       author: "Tấn Lụa",
       date: "12/01/2021",
-      description: "THÂN Máy xoa vữa dung pin 21V 600W 380mm Hukan G2-XVP360 có công dụng như thế nào với công việc của bạn...",
+      description: "THÂN Máy xoa vữa dung pin 21V 600W 380mm HUKAN G2-XVP360 có công dụng như thế nào với công việc của bạn...",
       images: G2XVP360,
       categories: [CATEGORY_ID.DUNG_CU_CAM_TAY, CATEGORY_ID.MAY_CONG_NGHIEP],
-      name: "THÂN Máy xoa vữa dung pin 21V 600W 380mm Hukan G2-XVP360",
+      name: "THÂN Máy xoa vữa dung pin 21V 600W 380mm HUKAN G2-XVP360",
       price: "1,980,000đ",
       oldPrice: "2,990,000đ",
       url: HOST,
@@ -1434,6 +1577,19 @@ export const rawNewsList: RawNewsItem[] = [
       isSoldOut: false
    },
    {
+      title: "Lưỡi băm xới dành cho máy chạy dây curoa",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Lưỡi băm xới dành cho máy chạy dây curoa có công dụng như thế nào với công việc của bạn...",
+      images: LUOIBAMXOIMAYDAYCUROA,
+      categories: [CATEGORY_ID.MAY_XOI_DAT, CATEGORY_ID.VAT_TU],
+      name: "Lưỡi băm xới dành cho máy chạy dây curoa",
+      price: "Liên hệ",
+      oldPrice: "",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
       title: "Máy khoan đục OSHIMA K3CN28 850W 220V – 50Hz 4000 lần/p thương hiệu	Nhật Bản 2.9KG",
       author: "Tấn Lụa",
       date: "12/01/2021",
@@ -1443,6 +1599,45 @@ export const rawNewsList: RawNewsItem[] = [
       name: "Máy khoan đục OSHIMA K3CN28 850W 220V – 50Hz 4000 lần/p thương hiệu	Nhật Bản 2.9KG",
       price: "1,570,000đ",
       oldPrice: "2,190,000đ",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy khoan đục bê tông BOSSUN BS-RH2702PRO 14MM 1050W 3.5J 4.4KG chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy khoan đục bê tông BOSSUN BS-RH2702PRO 14MM 1050W 3.5J 4.4KG chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: BSRH2702PRO,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy khoan đục bê tông BOSSUN BS-RH2702PRO 14MM 1050W 3.5J 4.4KG chính hãng",
+      price: "1,550,000đ",
+      oldPrice: "2,490,000đ",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy khoan đục bê tông BOSSUN BS-DH0817PRO 15J 1350W 6KG chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy khoan đục bê tông BOSSUN BS-DH0817PRO 15J 1350W 6KG chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: BSRH2702PRO,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy khoan đục bê tông BOSSUN BS-DH0817PRO 15J 1350W 6KG chính hãng",
+      price: "1,925,000đ",
+      oldPrice: "3,490,000đ",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Đầu nổ HEIWA GX230 7.5HP 4 thì 1800rpm 16KG chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Đầu nổ HEIWA GX230 7.5HP 4 thì 1800rpm 16KG chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: DAUNOHEIWAGX230,
+      categories: [CATEGORY_ID.DAU_NO],
+      name: "Đầu nổ HEIWA GX230 7.5HP 4 thì 1800rpm 16KG chính hãng",
+      price: "3,290,000đ",
+      oldPrice: "3,590,000đ",
       url: HOST,
       isSoldOut: false
    },

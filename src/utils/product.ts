@@ -1,7 +1,24 @@
+import { BRAND_LIST } from '../component/NewsPage/config';
+
 export interface ProductSpec {
   key: string;
   value: string;
 }
+
+export const detectProductBrand = (productName: string, author?: string): string => {
+  if (author && author !== 'Tấn Lụa' && author !== 'Admin' && author !== 'Tấn Lụa Admin') {
+    return author;
+  }
+  const nameUpper = productName.toUpperCase();
+  if (nameUpper.includes("TJ35")) return "TOJIKO";
+
+  for (const brand of BRAND_LIST) {
+    if (nameUpper.includes(brand)) {
+      return brand;
+    }
+  }
+  return "Khác";
+};
 
 export const parseProductSpecs = (product: any): ProductSpec[] => {
   const specs: ProductSpec[] = [];
@@ -12,21 +29,8 @@ export const parseProductSpecs = (product: any): ProductSpec[] => {
   const textToSearch = `${name} ${desc}`;
 
   // 1. Thương hiệu
-  let brand = "Tấn Lụa";
-  if (product.author && product.author !== "Tấn Lụa" && product.author !== "Admin" && product.author !== "Tấn Lụa Admin") {
-     brand = product.author;
-  } else if (name.toUpperCase().includes("TJ35")) {
-     brand = "TOJIKO";
-  } else {
-     const brands = ["HUKAN", "OSHIMA", "GREEKMAN", "MITSUKAISHO", "NAKAWA", "TALU", "HANKOCK", "ROMANO", "ANOVI", "TOJIKO", "DRAGON", "TAL", "CALI", "MULINSEN", "KMX"];
-     for (const b of brands) {
-        if (name.toUpperCase().includes(b)) {
-           brand = b;
-           break;
-        }
-     }
-  }
-  specs.push({ key: "Thương hiệu", value: brand });
+  const brand = detectProductBrand(name, product.author);
+  specs.push({ key: "Thương hiệu", value: brand === "Khác" ? "Tấn Lụa" : brand });
 
   // 2. Công suất
   const wattMatch = textToSearch.match(/(\d+)\s*(W|kW|watt)/i);

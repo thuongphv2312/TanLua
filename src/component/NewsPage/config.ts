@@ -11,6 +11,13 @@ export const CATEGORY_ID = {
    DUNG_CU_CAM_TAY: 10,
    VAT_TU: 11,
    HANG_THANH_LY: 99,
+   DAU_NO: 12,
 };
 
 export const HOST = 'tanlua.vercel.app';
+
+export const BRAND_LIST = [
+   "HUKAN", "OSHIMA", "GREEKMAN", "MITSUKAISHO", "NAKAWA", "TALU",
+   "HANKOCK", "ROMANO", "ANOVI", "TOJIKO", "DRAGON", "TAL",
+   "CALI", "MULINSEN", "KMX", "WORKFIX", "BOSSUN"
+];

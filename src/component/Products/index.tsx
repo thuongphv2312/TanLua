@@ -2,10 +2,11 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { SearchOutlined, ThunderboltOutlined, FilterOutlined } from '@ant-design/icons';
 import { Card, Badge, Button, Empty, Tooltip, Select, Drawer, Radio, Divider } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { CATEGORIES, HOST } from '../NewsPage/constants';
+import { CATEGORIES, HOST, CATEGORY_ID } from '../NewsPage/constants';
 import { ProductGridSkeleton } from '../ui/SkeletonComponents';
 import SEO, { CATEGORY_SEO } from '../SEO';
 import { isProductInFlashSale } from '../../utils/flashSale';
+import { detectProductBrand } from '../../utils/product';
 
 
 interface Product {
@@ -80,7 +81,7 @@ const Products: React.FC<ProductsProps> = ({
         setActiveCategory(match.id);
       }
     }
-    
+
     // Nhận filter từ router state chuyển sang từ Mega Menu hoặc Slider
     const routerState = location.state as { selectedFilters?: Record<string, string>; selectedBrand?: string } | null;
     setSelectedBrand(routerState?.selectedBrand || 'ALL');
@@ -92,13 +93,7 @@ const Products: React.FC<ProductsProps> = ({
   // Trích xuất thương hiệu duy nhất cho toàn bộ sản phẩm
   const brands = useMemo(() => {
      const allBrands = lstProducts.map((p: Product) => {
-        if (p.author && p.author !== 'Tấn Lụa' && p.author !== 'Admin' && p.author !== 'Tấn Lụa Admin') return p.author;
-        if (p.name.toUpperCase().includes("TJ35")) return "TOJIKO";
-        const bList = ["HUKAN", "OSHIMA", "GREEKMAN", "MITSUKAISHO", "NAKAWA", "TALU", "HANKOCK", "ROMANO", "ANOVI", "TOJIKO", "DRAGON", "TAL", "CALI", "MULINSEN", "KMX"];
-        for (const b of bList) {
-           if (p.name.toUpperCase().includes(b)) return b;
-        }
-        return "Khác";
+        return detectProductBrand(p.name, (p as any).author);
      });
      return ['ALL', ...Array.from(new Set(allBrands))];
   }, [lstProducts]);
@@ -110,9 +105,9 @@ const Products: React.FC<ProductsProps> = ({
       label: string;
       options: string[];
     }
-    
+
     const configs: FilterConfig[] = [];
-    
+
     if (activeCategory === 6) { // CATEGORY_ID.MAY_CAT_CO = 6
       configs.push({
         key: "engineType",
@@ -179,6 +174,17 @@ const Products: React.FC<ProductsProps> = ({
         label: "Điện áp / Nguồn",
         options: ["220V", "Dùng pin"]
       });
+    } else if (activeCategory === CATEGORY_ID.DAU_NO) { // Đầu nổ
+      configs.push({
+        key: "engineType",
+        label: "Nhiên liệu",
+        options: ["Chạy xăng", "Chạy dầu"]
+      });
+      configs.push({
+        key: "engineSpeed",
+        label: "Vòng tua",
+        options: ["1800rpm", "3600rpm"]
+      });
     }
 
     return configs.map(config => ({
@@ -194,15 +200,7 @@ const Products: React.FC<ProductsProps> = ({
     // Lọc theo thương hiệu
     if (selectedBrand !== 'ALL') {
        result = result.filter((p: Product) => {
-          const pBrand = (p.author && p.author !== 'Tấn Lụa' && p.author !== 'Admin' && p.author !== 'Tấn Lụa Admin') ? p.author : null;
-          if (pBrand) return pBrand === selectedBrand;
-          if (p.name.toUpperCase().includes("TJ35")) return "TOJIKO" === selectedBrand;
-          
-          const bList = ["HUKAN", "OSHIMA", "GREEKMAN", "MITSUKAISHO", "NAKAWA", "TALU", "HANKOCK", "ROMANO", "ANOVI", "TOJIKO", "DRAGON", "TAL", "CALI", "MULINSEN", "KMX"];
-          for (const b of bList) {
-             if (p.name.toUpperCase().includes(b)) return b === selectedBrand;
-          }
-          return selectedBrand === 'Khác';
+          return detectProductBrand(p.name, (p as any).author) === selectedBrand;
        });
     }
 
@@ -363,350 +361,354 @@ const Products: React.FC<ProductsProps> = ({
 
       {/* Category Navigation */}
       <div className="flex gap-2 mb-4 overflow-x-auto pb-2 custom-scrollbar">
-         {CATEGORIES.map((category: Category) => (
-            <Button
-               key={category.id}
-               type={activeCategory === category.id ? 'primary' : 'default'}
-               danger={activeCategory === category.id}
-               shape="round"
-               onClick={() => {
-                  setActiveCategory(category.id);
-                  setVisibleCount(10);
-               }}
-               className="whitespace-nowrap text-xs md:text-sm"
-            >
-               {category.name}
-            </Button>
-         ))}
+        {CATEGORIES.map((category: Category) => (
+          <Button
+            key={category.id}
+            type={activeCategory === category.id ? 'primary' : 'default'}
+            danger={activeCategory === category.id}
+            shape="round"
+            onClick={() => {
+              setActiveCategory(category.id);
+              setVisibleCount(10);
+            }}
+            className="whitespace-nowrap text-xs md:text-sm"
+          >
+            {category.name}
+          </Button>
+        ))}
       </div>
 
       {/* Bộ lọc nhanh trên Desktop (PC) */}
       <div className="hidden md:flex items-center gap-4 mb-6 p-4 bg-gray-50 dark:bg-gray-900/40 rounded-xl border border-gray-100/80 dark:border-gray-800/30 shadow-sm shadow-gray-100/40 dark:shadow-none text-left">
-         <span className="font-semibold text-gray-500 dark:text-gray-400 text-sm">Bộ lọc nhanh:</span>
-         
-         {/* Lọc Thương hiệu */}
-         <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-400">Thương hiệu:</span>
+        <span className="font-semibold text-gray-500 dark:text-gray-400 text-sm">Bộ lọc nhanh:</span>
+
+        {/* Lọc Thương hiệu */}
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-gray-400">Thương hiệu:</span>
+          <Select
+            value={selectedBrand}
+            onChange={(val) => setSelectedBrand(val)}
+            style={{ width: 140 }}
+            className="text-xs"
+            options={brands.map((b: string) => ({ value: b, label: b === 'ALL' ? 'Tất cả' : b }))}
+          />
+        </div>
+
+        {/* Lọc Giá */}
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-gray-400">Khoảng giá:</span>
+          <Select
+            value={selectedPriceRange}
+            onChange={(val) => setSelectedPriceRange(val)}
+            style={{ width: 160 }}
+            options={[
+              { value: 'ALL', label: 'Tất cả giá' },
+              { value: 'UNDER_1M', label: 'Dưới 1,000,000₫' },
+              { value: '1M_3M', label: '1,000,000₫ - 3,000,000₫' },
+              { value: 'OVER_3M', label: 'Trên 3,000,000₫' },
+            ]}
+          />
+        </div>
+
+        {/* Lọc Trạng thái */}
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-gray-400">Trạng thái:</span>
+          <Select
+            value={selectedStatus}
+            onChange={(val) => setSelectedStatus(val)}
+            style={{ width: 150 }}
+            options={[
+              { value: 'ALL', label: 'Tất cả sản phẩm' },
+              { value: 'IN_STOCK', label: 'Còn hàng' },
+              { value: 'LIQUIDATED', label: 'Hàng xả kho' },
+              { value: 'PROMOTION', label: 'Đang khuyến mãi' },
+            ]}
+          />
+        </div>
+
+        {/* Lọc Thuộc tính động (Properties) */}
+        {propertyFiltersConfig.map((filter) => (
+          <div key={filter.key} className="flex items-center gap-2">
+            <span className="text-xs text-gray-400">{filter.label}:</span>
             <Select
-               value={selectedBrand}
-               onChange={(val) => setSelectedBrand(val)}
-               style={{ width: 140 }}
-               className="text-xs"
-               options={brands.map((b: string) => ({ value: b, label: b === 'ALL' ? 'Tất cả' : b }))}
+              value={selectedProperties[filter.key] || 'ALL'}
+              onChange={(val) => setSelectedProperties(prev => ({ ...prev, [filter.key]: val }))}
+              style={{ width: 140 }}
+              className="text-xs"
+              options={filter.options.map((opt: string) => ({
+                value: opt,
+                label: opt === 'ALL' ? 'Tất cả' : opt
+              }))}
             />
-         </div>
+          </div>
+        ))}
 
-         {/* Lọc Giá */}
-         <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-400">Khoảng giá:</span>
-            <Select
-               value={selectedPriceRange}
-               onChange={(val) => setSelectedPriceRange(val)}
-               style={{ width: 160 }}
-               options={[
-                  { value: 'ALL', label: 'Tất cả giá' },
-                  { value: 'UNDER_1M', label: 'Dưới 1,000,000₫' },
-                  { value: '1M_3M', label: '1,000,000₫ - 3,000,000₫' },
-                  { value: 'OVER_3M', label: 'Trên 3,000,000₫' },
-               ]}
-            />
-         </div>
-
-         {/* Lọc Trạng thái */}
-         <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-400">Trạng thái:</span>
-            <Select
-               value={selectedStatus}
-               onChange={(val) => setSelectedStatus(val)}
-               style={{ width: 150 }}
-               options={[
-                  { value: 'ALL', label: 'Tất cả sản phẩm' },
-                  { value: 'IN_STOCK', label: 'Còn hàng' },
-                  { value: 'LIQUIDATED', label: 'Hàng xả kho' },
-                  { value: 'PROMOTION', label: 'Đang khuyến mãi' },
-               ]}
-            />
-         </div>
-
-         {/* Lọc Thuộc tính động (Properties) */}
-         {propertyFiltersConfig.map((filter) => (
-            <div key={filter.key} className="flex items-center gap-2">
-               <span className="text-xs text-gray-400">{filter.label}:</span>
-               <Select
-                  value={selectedProperties[filter.key] || 'ALL'}
-                  onChange={(val) => setSelectedProperties(prev => ({ ...prev, [filter.key]: val }))}
-                  style={{ width: 140 }}
-                  className="text-xs"
-                  options={filter.options.map((opt: string) => ({
-                     value: opt,
-                     label: opt === 'ALL' ? 'Tất cả' : opt
-                  }))}
-               />
-            </div>
-         ))}
-
-         {/* Reset button nếu có lọc */}
-         {(selectedBrand !== 'ALL' || selectedPriceRange !== 'ALL' || selectedStatus !== 'ALL' || Object.values(selectedProperties).some(v => v !== 'ALL')) && (
-            <Button
-               type="text"
-               danger
-               onClick={() => {
-                  setSelectedBrand('ALL');
-                  setSelectedPriceRange('ALL');
-                  setSelectedStatus('ALL');
-                  setSelectedProperties({});
-               }}
-               className="text-xs font-semibold"
-            >
-               Xoá bộ lọc
-            </Button>
-         )}
+        {/* Reset button nếu có lọc */}
+        {(selectedBrand !== 'ALL' || selectedPriceRange !== 'ALL' || selectedStatus !== 'ALL' || Object.values(selectedProperties).some(v => v !== 'ALL')) && (
+          <Button
+            type="text"
+            danger
+            onClick={() => {
+              setSelectedBrand('ALL');
+              setSelectedPriceRange('ALL');
+              setSelectedStatus('ALL');
+              setSelectedProperties({});
+            }}
+            className="text-xs font-semibold"
+          >
+            Xoá bộ lọc
+          </Button>
+        )}
       </div>
 
       {/* Drawer Bộ lọc trên Mobile (Mobile App style) */}
       <Drawer
-         title={<span className="font-bold">Bộ lọc sản phẩm</span>}
-         placement="right"
-         onClose={() => setFilterDrawerOpen(false)}
-         open={filterDrawerOpen}
-         width={280}
-         styles={{ body: { padding: '20px' } }}
-         extra={
-            <Button
-               type="text"
-               danger
-               onClick={() => {
-                  setSelectedBrand('ALL');
-                  setSelectedPriceRange('ALL');
-                  setSelectedStatus('ALL');
-                  setSelectedProperties({});
-                  setFilterDrawerOpen(false);
-               }}
-               className="text-xs font-semibold"
-            >
-               Reset
-            </Button>
-         }
+        title={<span className="font-bold">Bộ lọc sản phẩm</span>}
+        placement="right"
+        onClose={() => setFilterDrawerOpen(false)}
+        open={filterDrawerOpen}
+        width={280}
+        styles={{ body: { padding: '20px' } }}
+        extra={
+          <Button
+            type="text"
+            danger
+            onClick={() => {
+              setSelectedBrand('ALL');
+              setSelectedPriceRange('ALL');
+              setSelectedStatus('ALL');
+              setSelectedProperties({});
+              setFilterDrawerOpen(false);
+            }}
+            className="text-xs font-semibold"
+          >
+            Reset
+          </Button>
+        }
       >
-         <div className="space-y-6 text-left">
-            {/* Lọc Thương hiệu */}
-            <div>
-               <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-3 text-sm">Thương hiệu</h4>
-               <Radio.Group
-                  value={selectedBrand}
-                  onChange={(e) => setSelectedBrand(e.target.value)}
-                  className="flex flex-col gap-2"
-               >
-                  {brands.map((b: string) => (
-                     <Radio key={b} value={b} className="text-xs">
-                        {b === 'ALL' ? 'Tất cả thương hiệu' : b}
-                     </Radio>
-                  ))}
-               </Radio.Group>
-            </div>
-
-            <Divider style={{ margin: '12px 0' }} />
-
-            {/* Lọc Giá */}
-            <div>
-               <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-3 text-sm">Khoảng giá</h4>
-               <Radio.Group
-                  value={selectedPriceRange}
-                  onChange={(e) => setSelectedPriceRange(e.target.value)}
-                  className="flex flex-col gap-2"
-               >
-                  <Radio value="ALL" className="text-xs">Tất cả giá</Radio>
-                  <Radio value="UNDER_1M" className="text-xs">Dưới 1,000,000₫</Radio>
-                  <Radio value="1M_3M" className="text-xs">1,000,000₫ - 3,000,000₫</Radio>
-                  <Radio value="OVER_3M" className="text-xs">Trên 3,000,000₫</Radio>
-               </Radio.Group>
-            </div>
-
-            <Divider style={{ margin: '12px 0' }} />
-
-            {/* Lọc Trạng thái */}
-            <div>
-               <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-3 text-sm">Trạng thái</h4>
-               <Radio.Group
-                  value={selectedStatus}
-                  onChange={(e) => setSelectedStatus(e.target.value)}
-                  className="flex flex-col gap-2"
-               >
-                  <Radio value="ALL" className="text-xs">Tất cả sản phẩm</Radio>
-                  <Radio value="IN_STOCK" className="text-xs">Còn hàng</Radio>
-                  <Radio value="LIQUIDATED" className="text-xs">Hàng xả kho</Radio>
-                  <Radio value="PROMOTION" className="text-xs">Đang khuyến mãi</Radio>
-               </Radio.Group>
-            </div>
-
-             {/* Lọc Thuộc tính động (Properties) */}
-             {propertyFiltersConfig.map((filter) => (
-                <div key={filter.key}>
-                   <Divider style={{ margin: '12px 0' }} />
-                   <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-3 text-sm">
-                      {filter.label}
-                   </h4>
-                   <Radio.Group
-                      value={selectedProperties[filter.key] || 'ALL'}
-                      onChange={(e) => setSelectedProperties(prev => ({ ...prev, [filter.key]: e.target.value }))}
-                      className="flex flex-col gap-2"
-                   >
-                      {filter.options.map((opt: string) => (
-                         <Radio key={opt} value={opt} className="text-xs">
-                            {opt === 'ALL' ? 'Tất cả' : opt}
-                         </Radio>
-                      ))}
-                   </Radio.Group>
-                </div>
-             ))}
-
-            <Button
-               type="primary"
-               danger
-               block
-               onClick={() => setFilterDrawerOpen(false)}
-               className="mt-6 h-10 font-bold rounded-lg"
+        <div className="space-y-6 text-left">
+          {/* Lọc Thương hiệu */}
+          <div>
+            <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-3 text-sm">Thương hiệu</h4>
+            <Radio.Group
+              value={selectedBrand}
+              onChange={(e) => setSelectedBrand(e.target.value)}
+              className="flex flex-col gap-2"
             >
-               ÁP DỤNG BỘ LỌC
-            </Button>
-         </div>
+              {brands.map((b: string) => (
+                <Radio key={b} value={b} className="text-xs">
+                  {b === 'ALL' ? 'Tất cả thương hiệu' : b}
+                </Radio>
+              ))}
+            </Radio.Group>
+          </div>
+
+          <Divider style={{ margin: '12px 0' }} />
+
+          {/* Lọc Giá */}
+          <div>
+            <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-3 text-sm">Khoảng giá</h4>
+            <Radio.Group
+              value={selectedPriceRange}
+              onChange={(e) => setSelectedPriceRange(e.target.value)}
+              className="flex flex-col gap-2"
+            >
+              <Radio value="ALL" className="text-xs">Tất cả giá</Radio>
+              <Radio value="UNDER_1M" className="text-xs">Dưới 1,000,000₫</Radio>
+              <Radio value="1M_3M" className="text-xs">1,000,000₫ - 3,000,000₫</Radio>
+              <Radio value="OVER_3M" className="text-xs">Trên 3,000,000₫</Radio>
+            </Radio.Group>
+          </div>
+
+          <Divider style={{ margin: '12px 0' }} />
+
+          {/* Lọc Trạng thái */}
+          <div>
+            <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-3 text-sm">Trạng thái</h4>
+            <Radio.Group
+              value={selectedStatus}
+              onChange={(e) => setSelectedStatus(e.target.value)}
+              className="flex flex-col gap-2"
+            >
+              <Radio value="ALL" className="text-xs">Tất cả sản phẩm</Radio>
+              <Radio value="IN_STOCK" className="text-xs">Còn hàng</Radio>
+              <Radio value="LIQUIDATED" className="text-xs">Hàng xả kho</Radio>
+              <Radio value="PROMOTION" className="text-xs">Đang khuyến mãi</Radio>
+            </Radio.Group>
+          </div>
+
+          {/* Lọc Thuộc tính động (Properties) */}
+          {propertyFiltersConfig.map((filter) => (
+            <div key={filter.key}>
+              <Divider style={{ margin: '12px 0' }} />
+              <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-3 text-sm">
+                {filter.label}
+              </h4>
+              <Radio.Group
+                value={selectedProperties[filter.key] || 'ALL'}
+                onChange={(e) => setSelectedProperties(prev => ({ ...prev, [filter.key]: e.target.value }))}
+                className="flex flex-col gap-2"
+              >
+                {filter.options.map((opt: string) => (
+                  <Radio key={opt} value={opt} className="text-xs">
+                    {opt === 'ALL' ? 'Tất cả' : opt}
+                  </Radio>
+                ))}
+              </Radio.Group>
+            </div>
+          ))}
+
+          <Button
+            type="primary"
+            danger
+            block
+            onClick={() => setFilterDrawerOpen(false)}
+            className="mt-6 h-10 font-bold rounded-lg"
+          >
+            ÁP DỤNG BỘ LỌC
+          </Button>
+        </div>
       </Drawer>
 
       {/* Product Grid */}
-      {isLoading ? (
-        <ProductGridSkeleton count={10} />
-      ) : dataToDisplay.length === 0 ? (
-        <div className="py-10">
-          <Empty description="Không tìm thấy sản phẩm" />
-        </div>
-      ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {bannerImage && (
-            <div className="col-span-2 h-full transition-transform duration-300 hover:scale-[1.02] shadow-sm hover:shadow">
-              <img
-                src={bannerImage}
-                alt="Banner"
-                className="w-full h-full object-cover rounded-lg shadow-sm"
-                loading='lazy'
-              />
-            </div>
-          )}
-          {visibleData.map((product: Product) => {
-            const flashProduct = isProductInFlashSale(product.id);
-            const displayPrice = flashProduct ? flashProduct.flashPrice : product.price;
-            const displayOldPrice = flashProduct ? (product.oldPrice || product.price) : product.oldPrice;
+      {
+        isLoading ? (
+          <ProductGridSkeleton count={10} />
+        ) : dataToDisplay.length === 0 ? (
+          <div className="py-10">
+            <Empty description="Không tìm thấy sản phẩm" />
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {bannerImage && (
+              <div className="col-span-2 h-full transition-transform duration-300 hover:scale-[1.02] shadow-sm hover:shadow">
+                <img
+                  src={bannerImage}
+                  alt="Banner"
+                  className="w-full h-full object-cover rounded-lg shadow-sm"
+                  loading='lazy'
+                />
+              </div>
+            )}
+            {visibleData.map((product: Product) => {
+              const flashProduct = isProductInFlashSale(product.id);
+              const displayPrice = flashProduct ? flashProduct.flashPrice : product.price;
+              const displayOldPrice = flashProduct ? (product.oldPrice || product.price) : product.oldPrice;
 
-            return (
-              <Card
-                key={product.id}
-                hoverable
-                className="relative overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-sm hover:shadow border-gray-200 dark:border-gray-800"
-                onClick={() => navigate(`/product/${product.id}`)}
-                cover={
-                  <div className={`relative h-48 flex items-center justify-center ${flashProduct ? 'bg-gradient-to-br from-red-50 to-orange-50' : 'bg-gradient-to-br from-green-100 to-green-50'}`}>
-                    {/* Flash Sale Badge */}
-                    {flashProduct && (
-                      <div className="absolute top-0 left-0 bg-gradient-to-r from-red-600 to-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10 flex items-center gap-1 animate-pulse">
-                        <ThunderboltOutlined /> FLASH SALE
-                      </div>
-                    )}
-
-                    {/* Liquidated Badge */}
-                    {(activeCategory === 99 || product.categories?.includes(99)) && (
-                      <div
-                        className={`absolute left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10 animate-pulse ${flashProduct ? 'top-[26px]' : 'top-0'}`}
-                      >
-                        XẢ KHO
-                      </div>
-                    )}
-
-                    {/* Discount Badge */}
-                    {product.discount && !flashProduct && (
-                      <Badge.Ribbon
-                        text={<span className={parseInt(product.discount.replace(/\D/g, '')) >= 40 ? "fire-text text-sm scale-125" : "fire-text"}>{product.discount}</span>}
-                        color="transparent"
-                        className="text-xs font-bold"
-                      />
-                    )}
-
-                    {/* Sold Out Overlay */}
-                    {product.isSoldOut && (
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-20 transition-all duration-300">
-                        <div className="bg-red-600 text-white font-bold px-3 py-1.5 rounded border-2 border-white shadow-xl transform -rotate-12 scale-110 tracking-wider">
-                          HẾT HÀNG
+              return (
+                <Card
+                  key={product.id}
+                  hoverable
+                  className="relative overflow-hidden transition-transform duration-300 hover:scale-[1.02] shadow-sm hover:shadow border-gray-200 dark:border-gray-800"
+                  onClick={() => navigate(`/product/${product.id}`)}
+                  cover={
+                    <div className={`relative h-48 flex items-center justify-center ${flashProduct ? 'bg-gradient-to-br from-red-50 to-orange-50' : 'bg-gradient-to-br from-green-100 to-green-50'}`}>
+                      {/* Flash Sale Badge */}
+                      {flashProduct && (
+                        <div className="absolute top-0 left-0 bg-gradient-to-r from-red-600 to-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10 flex items-center gap-1 animate-pulse">
+                          <ThunderboltOutlined /> FLASH SALE
                         </div>
-                      </div>
-                    )}
-
-                    {/* Product Image Placeholder */}
-                    {product.images?.[0] ? (
-                      <img src={product.images[0]} alt={product.name} className={`w-full h-full object-cover ${product.isSoldOut ? 'grayscale transition-all duration-500' : ''}`} loading='lazy' />
-                    ) : (
-                      <div className="flex items-center justify-center w-full h-full bg-gray-100 text-gray-300">
-                        <SearchOutlined style={{ fontSize: '32px' }} />
-                      </div>
-                    )}
-
-                    {/* Watermark */}
-                    <div className="absolute bottom-2 left-2 text-xs text-gray-400 font-mono">
-                      {product.url}
-                    </div>
-                  </div>
-                }
-                bodyStyle={{ padding: '12px' }}
-              >
-                {/* Product Info */}
-                <div className="space-y-2">
-                  <Tooltip title={product.name}>
-                    <h3 className="text-sm font-medium line-clamp-2 h-10 cursor-help">{product.name}</h3>
-                  </Tooltip>
-
-                  {/* Price Section */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-col">
-                      <span className={`font-bold text-base ${flashProduct ? 'text-red-600' : 'text-red-500'}`}>
-                        {flashProduct && <ThunderboltOutlined className="mr-1" />}
-                        {displayPrice}
-                      </span>
-                      {displayOldPrice && (
-                        <span className="text-gray-400 line-through text-xs font-normal">{displayOldPrice}</span>
                       )}
+
+                      {/* Liquidated Badge */}
+                      {(activeCategory === 99 || product.categories?.includes(99)) && (
+                        <div
+                          className={`absolute left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10 animate-pulse ${flashProduct ? 'top-[26px]' : 'top-0'}`}
+                        >
+                          XẢ KHO
+                        </div>
+                      )}
+
+                      {/* Discount Badge */}
+                      {product.discount && !flashProduct && (
+                        <Badge.Ribbon
+                          text={<span className={parseInt(product.discount.replace(/\D/g, '')) >= 40 ? "fire-text text-sm scale-125" : "fire-text"}>{product.discount}</span>}
+                          color="transparent"
+                          className="text-xs font-bold"
+                        />
+                      )}
+
+                      {/* Sold Out Overlay */}
+                      {product.isSoldOut && (
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-20 transition-all duration-300">
+                          <div className="bg-red-600 text-white font-bold px-3 py-1.5 rounded border-2 border-white shadow-xl transform -rotate-12 scale-110 tracking-wider">
+                            HẾT HÀNG
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Product Image Placeholder */}
+                      {product.images?.[0] ? (
+                        <img src={product.images[0]} alt={product.name} className={`w-full h-full object-cover ${product.isSoldOut ? 'grayscale transition-all duration-500' : ''}`} loading='lazy' />
+                      ) : (
+                        <div className="flex items-center justify-center w-full h-full bg-gray-100 text-gray-300">
+                          <SearchOutlined style={{ fontSize: '32px' }} />
+                        </div>
+                      )}
+
+                      {/* Watermark */}
+                      <div className="absolute bottom-2 left-2 text-xs text-gray-400 font-mono">
+                        {product.url}
+                      </div>
+                    </div>
+                  }
+                  bodyStyle={{ padding: '12px' }}
+                >
+                  {/* Product Info */}
+                  <div className="space-y-2">
+                    <Tooltip title={product.name}>
+                      <h3 className="text-sm font-medium line-clamp-2 h-10 cursor-help">{product.name}</h3>
+                    </Tooltip>
+
+                    {/* Price Section */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex flex-col">
+                        <span className={`font-bold text-base ${flashProduct ? 'text-red-600' : 'text-red-500'}`}>
+                          {flashProduct && <ThunderboltOutlined className="mr-1" />}
+                          {displayPrice}
+                        </span>
+                        {displayOldPrice && (
+                          <span className="text-gray-400 line-through text-xs font-normal">{displayOldPrice}</span>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Card>
-            );
-          })}
-        </div>
-      )}
+                </Card>
+              );
+            })}
+          </div>
+        )
+      }
 
       {/* Load More Button */}
-      {dataToDisplay.length > 10 && (
-        <div className="text-center mt-8">
-          {visibleCount < dataToDisplay.length ? (
-            <Button
-              type="default"
-              size="large"
-              shape="round"
-              className="px-8"
-              onClick={() => setVisibleCount(prev => prev + 10)}
-            >
-              Xem thêm sản phẩm
-            </Button>
-          ) : (
-            <Button
-              type="default"
-              size="large"
-              shape="round"
-              className="px-8"
-              onClick={() => setVisibleCount(10)}
-            >
-              Thu gọn
-            </Button>
-          )}
-        </div>
-      )}
-    </div>
+      {
+        dataToDisplay.length > 10 && (
+          <div className="text-center mt-8">
+            {visibleCount < dataToDisplay.length ? (
+              <Button
+                type="default"
+                size="large"
+                shape="round"
+                className="px-8"
+                onClick={() => setVisibleCount(prev => prev + 10)}
+              >
+                Xem thêm sản phẩm
+              </Button>
+            ) : (
+              <Button
+                type="default"
+                size="large"
+                shape="round"
+                className="px-8"
+                onClick={() => setVisibleCount(10)}
+              >
+                Thu gọn
+              </Button>
+            )}
+          </div>
+        )
+      }
+    </div >
   );
 };
 
