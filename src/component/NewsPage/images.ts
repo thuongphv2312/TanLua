@@ -1040,3 +1040,79 @@ export const CUOC_CAT_CO_TALU = [
   "https://i.ibb.co/zhcwsXBS/Thi-t-k-l-i-banner-m-y-c-t-c-16.png",
   "https://i.ibb.co/q3rjZcSc/Thi-t-k-l-i-banner-m-y-c-t-c-17.png",
 ]
+
+export const THUOCNHOMMATDAM2M = [
+  "https://i.ibb.co/bjj8vrWZ/Th-c-nh-m-m-t-m-2m.png",
+  "https://i.ibb.co/G4Q8xJ3q/Th-c-nh-m-m-t-m-2m-tr-ng-ph-th-ng.png",
+  "https://i.ibb.co/GQz1dhMb/Th-c-nh-m-m-t-m-2m-v-ng.png",
+]
+
+export const THANMAYTHOIBUIHUKANELB1599BL = [
+  "https://i.ibb.co/fYvQkRkF/vn-11134207-7ras8-m20e4y45jx5ncb.webp",
+  "https://i.ibb.co/Kp26wL0m/vn-11134207-7ras8-mdo4k8f90bov6b.webp",
+  "https://i.ibb.co/Cs9CjNNJ/vn-11134207-7ras8-m20e3d6ivb32a6.webp",
+  "https://i.ibb.co/RGdrsgHC/vn-11134207-7ras8-m20e3d72uhum1f.webp",
+  "https://i.ibb.co/pBfRfQD4/vn-11134207-7ras8-m20e3d86svbv0b.webp",
+  "https://i.ibb.co/7xcQXk5w/vn-11134207-7ras8-m20e3dfohwpq50.webp",
+  "https://i.ibb.co/23bCHDWq/vn-11134207-7ras8-m20e3dg8h3ff93.webp",
+  "https://i.ibb.co/Q7t04XpZ/vn-11134207-7ras8-m20e3dh2fvmm89.webp",
+]
+
+export const THANMAYSIETBULONGHM21G1IWX2 = [
+  "https://i.ibb.co/39TTDQtJ/Th-n-m-y-si-t-bulong-HM21-G1-IWX2-2.png",
+  "https://i.ibb.co/HTxxjYKL/Th-n-m-y-si-t-bulong-HM21-G1-IWX2-3.png",
+  "https://i.ibb.co/bRX3BmhZ/Th-n-m-y-si-t-bulong-HM21-G1-IWX2-4.png",
+  "https://i.ibb.co/TBCcTGrr/Th-n-m-y-si-t-bulong-HM21-G1-IWX2.png",
+  "https://i.ibb.co/d4g53MPL/Th-n-m-y-si-t-bulong-HM21-G1-IWX2-1.png",
+]
+
+export const THANMAYMAIGOCWORKFIXWFAG7900CP = [
+  "https://i.ibb.co/vxb4MRQx/Th-n-m-y-m-i-g-c-Workfix-WF-AG7900-CP-1.png",
+  "https://i.ibb.co/9m00wjyr/Th-n-m-y-m-i-g-c-Workfix-WF-AG7900-CP-2.png",
+  "https://i.ibb.co/1fKX1Fp9/Th-n-m-y-m-i-g-c-Workfix-WF-AG7900-CP.png",
+]
+
+export const THANCATCANHWORKFIXWFP3050BL = [
+  "https://i.ibb.co/W4BqBMB6/Th-n-c-t-c-nh-WF-CP3050-BL.png",
+  "https://i.ibb.co/kV1W7gGH/Th-n-c-t-c-nh-WF-CP3050-BL-1.png",
+  "https://i.ibb.co/Hj3yh3g/WF-CP3050-BL-07.png",
+  "https://i.ibb.co/yFWbZq3x/WF-CP3050-BL-10.png",
+]
+
+export const G1BLP3240 = [
+  "https://i.ibb.co/cchyHv0Y/Th-n-bulong-BL324-2.png",
+  "https://i.ibb.co/MwQJk86/Th-n-bulong-BL324-3.png",
+  "https://i.ibb.co/NnY95xsm/Th-n-bulong-BL324-4.png",
+  "https://i.ibb.co/DgS4Whvk/Th-n-bulong-BL324-5.png",
+  "https://i.ibb.co/v41knBsr/Th-n-bulong-BL324-6.png",
+  "https://i.ibb.co/4Rsmvbvx/Th-n-bulong-BL324-7.png",
+  "https://i.ibb.co/GQxTdJmH/Th-n-bulong-BL324-8.png",
+  "https://i.ibb.co/NdGnMX3B/Th-n-bulong-BL324.png",
+  "https://i.ibb.co/mC4yVsTc/Th-n-bulong-BL324-1.png",
+]
+
+export const MAYTHOIDIENHUKANG1LB3800 = [
+  "https://i.ibb.co/23Sh4mZC/vn-11134207-81ztc-moi4i1viegap40.webp",
+  "https://i.ibb.co/WNPw9swx/vn-11134207-81ztc-moi4i1vjx8geea.webp",
+  "https://i.ibb.co/d0nDpHXX/vn-11134207-81ztc-moi4i1x8a8zt36.webp",
+  "https://i.ibb.co/zL7CxXN/vn-11134207-81ztc-moi4i1zmpkwdc9.webp",
+  "https://i.ibb.co/hGqH5L5/vn-11134207-81ztc-moi4i2hqv4sge6.webp",
+  "https://i.ibb.co/cKXcMCyK/vn-11134207-81ztc-moi4i2rrzaq1a8.webp",
+  "https://i.ibb.co/kgZj0Bmv/vn-11134207-81ztc-moi4i4k6800b30.webp",
+]
+
+export const MAYSIETBULONGWORKFIXWF_IW360BL = [
+  "https://i.ibb.co/9kjCJTCq/vn-11134207-81ztc-mo5mmdrwbnk0ee.png",
+  "https://i.ibb.co/LhZqHnP9/vn-11134207-81ztc-mo5mmds9fmdg6b.png",
+  "https://i.ibb.co/cXrrjksx/vn-11134207-81ztc-mo5mmdrybaiwd2.png",
+  "https://i.ibb.co/JR9RN09z/vn-11134207-81ztc-mo5mmdrycp3c0a.png",
+  "https://i.ibb.co/080T49C/vn-11134207-81ztc-mo5mmdrzemf8d9.png",
+  "https://i.ibb.co/fYJYy9d8/vn-11134207-7r98o-lwol0eeldzo937.png",
+  "https://i.ibb.co/yBV4CpbR/vn-11134207-81ztc-mo5mmdrqjri9f9.png",
+  "https://i.ibb.co/G47T4sHr/vn-11134207-81ztc-mo5mmdrv6x3939.png",
+]
+
+export const MAYPHUNXADIENACQUY = [
+  "https://i.ibb.co/mVSk90JJ/M-y-phun-x-i-n.png",
+  "https://i.ibb.co/nN8mVWh4/M-y-phun-x-i-n-1.png",
+]
