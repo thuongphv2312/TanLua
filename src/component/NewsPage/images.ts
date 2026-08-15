@@ -890,14 +890,14 @@ export const G2TH1003 = [
 ]
 
 export const DRAGOND30 = [
-  "https://i.ibb.co/hFgzdPNm/may-bom-nuoc-dragon-d30-6-5hp-g.webp",
-  "https://i.ibb.co/jnfvcgr/may-bom-nuoc-dragon-d30-6-5hp-3.webp",
-  "https://i.ibb.co/QF2KzbpK/may-bom-nuoc-dragon-d30-6-5hp-4.webp",
-  "https://i.ibb.co/JwHJx9K4/may-bom-nuoc-dragon-d30-6-5hp-5.webp",
-  "https://i.ibb.co/JwmLd3Lf/may-bom-nuoc-dragon-d30-6-5hp-6.webp",
-  "https://i.ibb.co/typ1X10/may-bom-nuoc-dragon-d30-6-5hp-7.webp",
-  "https://i.ibb.co/prfZWCCY/may-bom-nuoc-dragon-d30-6-5hp-1.webp",
-  "https://i.ibb.co/jPwLFfQT/may-bom-nuoc-dragon-d30-6-5hp-2.webp",
+  "https://i.postimg.cc/FzB4zRGZ/may-bom-nuoc-dragon-d30-6-5hp-1.webp",
+  "https://i.postimg.cc/vTNsTBXq/may-bom-nuoc-dragon-d30-6-5hp-2.webp",
+  "https://i.postimg.cc/qq5TqRQm/may-bom-nuoc-dragon-d30-6-5hp-3.webp",
+  "https://i.postimg.cc/5yRVy0pK/may-bom-nuoc-dragon-d30-6-5hp-4.webp",
+  "https://i.postimg.cc/SRvhRsVt/may-bom-nuoc-dragon-d30-6-5hp-5.webp",
+  "https://i.postimg.cc/vTNsTBXN/may-bom-nuoc-dragon-d30-6-5hp-6.webp",
+  "https://i.postimg.cc/2yKDy6Tt/may-bom-nuoc-dragon-d30-6-5hp-7.webp",
+  "https://i.postimg.cc/MHFSHTt4/may-bom-nuoc-dragon-d30-6-5hp-g.webp",
 ]
 
 export const MAYNENKHIOSHIMA1215KHONGDAU = [
@@ -1071,9 +1071,9 @@ export const THANMAYSIETBULONGHM21G1IWX2 = [
 ]
 
 export const THANMAYMAIGOCWORKFIXWFAG7900CP = [
-  "https://i.ibb.co/vxb4MRQx/Th-n-m-y-m-i-g-c-Workfix-WF-AG7900-CP-1.png",
-  "https://i.ibb.co/9m00wjyr/Th-n-m-y-m-i-g-c-Workfix-WF-AG7900-CP-2.png",
-  "https://i.ibb.co/1fKX1Fp9/Th-n-m-y-m-i-g-c-Workfix-WF-AG7900-CP.png",
+  "https://i.postimg.cc/vH2Bx8DL/Than-may-mai-goc-Workfix-WF-AG7900CP.png",
+  "https://i.postimg.cc/J4YnH7tQ/Than-may-mai-goc-Workfix-WF-AG7900CP-1.png",
+  "https://i.postimg.cc/RVpFJCqR/Than-may-mai-goc-Workfix-WF-AG7900CP-2.png",
 ]
 
 export const THANCATCANHWORKFIXWFP3050BL = [
@@ -1096,99 +1096,99 @@ export const G1BLP3240 = [
 ]
 
 export const MAYTHOIDIENHUKANG1LB3800 = [
-  "https://i.ibb.co/23Sh4mZC/vn-11134207-81ztc-moi4i1viegap40.webp",
-  "https://i.ibb.co/WNPw9swx/vn-11134207-81ztc-moi4i1vjx8geea.webp",
-  "https://i.ibb.co/d0nDpHXX/vn-11134207-81ztc-moi4i1x8a8zt36.webp",
-  "https://i.ibb.co/zL7CxXN/vn-11134207-81ztc-moi4i1zmpkwdc9.webp",
-  "https://i.ibb.co/hGqH5L5/vn-11134207-81ztc-moi4i2hqv4sge6.webp",
-  "https://i.ibb.co/cKXcMCyK/vn-11134207-81ztc-moi4i2rrzaq1a8.webp",
-  "https://i.ibb.co/kgZj0Bmv/vn-11134207-81ztc-moi4i4k6800b30.webp",
+  "https://i.postimg.cc/C1CCwnhQ/vn-11134207-81ztc-moi4i1viegap40.webp",
+  "https://i.postimg.cc/3Rjj3086/vn-11134207-81ztc-moi4i1vjx8geea.webp",
+  "https://i.postimg.cc/rmGGqRy6/vn-11134207-81ztc-moi4i1x8a8zt36.webp",
+  "https://i.postimg.cc/Hx00T8W1/vn-11134207-81ztc-moi4i1zmpkwdc9.webp",
+  "https://i.postimg.cc/cH77dtx2/vn-11134207-81ztc-moi4i2hqv4sge6.webp",
+  "https://i.postimg.cc/nzKKn9Vn/vn-11134207-81ztc-moi4i2rrzaq1a8.webp",
+  "https://i.postimg.cc/26ddCLjj/vn-11134207-81ztc-moi4i4k6800b30.webp",
 ]
 
 export const MAYSIETBULONGWORKFIXWF_IW360BL = [
-  "https://i.ibb.co/9kjCJTCq/vn-11134207-81ztc-mo5mmdrwbnk0ee.png",
-  "https://i.ibb.co/LhZqHnP9/vn-11134207-81ztc-mo5mmds9fmdg6b.png",
-  "https://i.ibb.co/cXrrjksx/vn-11134207-81ztc-mo5mmdrybaiwd2.png",
-  "https://i.ibb.co/JR9RN09z/vn-11134207-81ztc-mo5mmdrycp3c0a.png",
-  "https://i.ibb.co/080T49C/vn-11134207-81ztc-mo5mmdrzemf8d9.png",
-  "https://i.ibb.co/fYJYy9d8/vn-11134207-7r98o-lwol0eeldzo937.png",
-  "https://i.ibb.co/yBV4CpbR/vn-11134207-81ztc-mo5mmdrqjri9f9.png",
-  "https://i.ibb.co/G47T4sHr/vn-11134207-81ztc-mo5mmdrv6x3939.png",
+  "https://i.postimg.cc/Xq385c1Z/vn-11134207-7r98o-lwol0eeldzo937.png",
+  "https://i.postimg.cc/J0qQ5DS0/vn-11134207-81ztc-mo5mmdrqjri9f9.png",
+  "https://i.postimg.cc/br8TnHV2/vn-11134207-81ztc-mo5mmdrv6x3939.png",
+  "https://i.postimg.cc/nrk1GjNM/vn-11134207-81ztc-mo5mmdrwbnk0ee.png",
+  "https://i.postimg.cc/br8TnHVn/vn-11134207-81ztc-mo5mmdrybaiwd2.png",
+  "https://i.postimg.cc/Y03xzGT4/vn-11134207-81ztc-mo5mmdrycp3c0a.png",
+  "https://i.postimg.cc/SRrGf2HY/vn-11134207-81ztc-mo5mmdrzemf8d9.png",
+  "https://i.postimg.cc/kGcyv6Lb/vn-11134207-81ztc-mo5mmds9fmdg6b.png",
 ]
 
 export const MAYPHUNXADIENACQUY = [
-  "https://i.ibb.co/mVSk90JJ/M-y-phun-x-i-n.png",
-  "https://i.ibb.co/nN8mVWh4/M-y-phun-x-i-n-1.png",
+  "https://i.postimg.cc/xjKpdqpM/May-phun-xa-dien.png",
+  "https://i.postimg.cc/bNpCS84r/May-phun-xa-dien-1.png",
 ]
 
 export const MAYMAIPINWORKFIXWFAG100ATC = [
-  "https://i.ibb.co/Lh2yrx6T/M-y-m-i-pin-WF-AG100-ATC-1.png",
-  "https://i.ibb.co/k60w1kVd/M-y-m-i-pin-WF-AG100-ATC-2.png",
-  "https://i.ibb.co/3YYY6q29/M-y-m-i-pin-WF-AG100-ATC.png",
+  "https://i.postimg.cc/RZPDz8sL/May-mai-pin-WF-AG100ATC.png",
+  "https://i.postimg.cc/SxZvp5Tt/May-mai-pin-WF-AG100ATC-1.png",
+  "https://i.postimg.cc/qvm5dYbm/May-mai-pin-WF-AG100ATC-2.png",
 ]
 
 export const MAYMAIPINWORKFIXWFAG9000PRO = [
-  "https://i.ibb.co/V0P3pjm0/M-y-m-i-AG9000-PRO-1.png",
-  "https://i.ibb.co/yFJNF6Cp/M-y-m-i-AG9000-PRO-2.png",
-  "https://i.ibb.co/Q7zMShSf/M-y-m-i-AG9000-PRO-3.png",
-  "https://i.ibb.co/ynPBt601/M-y-m-i-AG9000-PRO.png",
+  "https://i.postimg.cc/QN5wWftP/May-mai-AG9000PRO.png",
+  "https://i.postimg.cc/VsMpbKvc/May-mai-AG9000PRO-1.png",
+  "https://i.postimg.cc/nV7gQ3rJ/May-mai-AG9000PRO-2.png",
+  "https://i.postimg.cc/59vTFsyW/May-mai-AG9000PRO-3.png",
 ]
 
 export const WFID1395N = [
-  "https://i.ibb.co/jk1vQDq7/M-y-khoan-pin-WF-ID1395-N-1.png",
-  "https://i.ibb.co/mrDj37KK/M-y-khoan-pin-WF-ID1395-N-2.png",
-  "https://i.ibb.co/W4RRypL4/M-y-khoan-pin-WF-ID1395-N-3.png",
-  "https://i.ibb.co/Q7c1ZfD9/M-y-khoan-pin-WF-ID1395-N-4.png",
-  "https://i.ibb.co/N2cp2kQX/M-y-khoan-pin-WF-ID1395-N.png",
+  "https://i.postimg.cc/1ztbnPnp/May-khoan-pin-WF-ID1395N.png",
+  "https://i.postimg.cc/QMtv9s9J/May-khoan-pin-WF-ID1395N-1.png",
+  "https://i.postimg.cc/vmBCgMgL/May-khoan-pin-WF-ID1395N-2.png",
+  "https://i.postimg.cc/xdCBJYJP/May-khoan-pin-WF-ID1395N-3.png",
+  "https://i.postimg.cc/d01gkvk2/May-khoan-pin-WF-ID1395N-4.png",
 ]
 
 export const G1XC3 = [
-  "https://i.ibb.co/1t59gZ4K/M-y-khoan-pin-G1-XC3-2.png",
-  "https://i.ibb.co/dstQn5km/M-y-khoan-pin-G1-XC3-3.png",
-  "https://i.ibb.co/KzQHMr9Q/M-y-khoan-pin-G1-XC3.png",
-  "https://i.ibb.co/D36tB00/M-y-khoan-pin-G1-XC3-1.png",
+  "https://i.postimg.cc/05wR08t4/May-khoan-pin-G1-XC3-3.png",
+  "https://i.postimg.cc/XNCSkV2g/May-khoan-pin-G1-XC3.png",
+  "https://i.postimg.cc/KcMSDZ9s/May-khoan-pin-G1-XC3-1.png",
+  "https://i.postimg.cc/NGHqkgNz/May-khoan-pin-G1-XC3-2.png",
 ]
 
 export const G1M88PRO = [
-  "https://i.ibb.co/cc87xX41/M-y-khoan-pin-G1-M88-PRO.png",
-  "https://i.ibb.co/xKGWZJbY/M-y-khoan-pin-G1-M88-PRO-2.png",
-  "https://i.ibb.co/SwC0x8gC/M-y-khoan-pin-G1-M88-PRO-3.png",
-  "https://i.ibb.co/wrP2fmGp/M-y-khoan-pin-G1-M88-PRO-4.png",
-  "https://i.ibb.co/9kGnDhWJ/M-y-khoan-pin-G1-M88-PRO-1.png",
+  "https://i.postimg.cc/XY80BQ2j/May-khoan-pin-G1-M88PRO.png",
+  "https://i.postimg.cc/jSXrnZ8q/May-khoan-pin-G1-M88PRO-1.png",
+  "https://i.postimg.cc/g2DPLNM2/May-khoan-pin-G1-M88PRO-2.png",
+  "https://i.postimg.cc/qvLd6jmM/May-khoan-pin-G1-M88PRO-3.png",
+  "https://i.postimg.cc/7ZVyJmBL/May-khoan-pin-G1-M88PRO-4.png",
 ]
 
 export const KHOANG2ID790 = [
-  "https://i.ibb.co/zTHnbmnN/M-y-khoan-i-n-G2-ID790-4.png",
-  "https://i.ibb.co/Lz5gf7ch/M-y-khoan-i-n-G2-ID790-5.png",
-  "https://i.ibb.co/zpfRdGq/M-y-khoan-i-n-G2-ID790-upscayl-1x-upscayl-standard-4x.png",
-  "https://i.ibb.co/GQrpBSpd/M-y-khoan-i-n-G2-ID790-1.png",
-  "https://i.ibb.co/Cp9ZRTqB/M-y-khoan-i-n-G2-ID790-2.png",
-  "https://i.ibb.co/1Yd3hs7M/M-y-khoan-i-n-G2-ID790-3.png",
+  "https://i.postimg.cc/Z0twwzq0/May-khoan-dien-G2-ID790-upscayl-1x-upscayl-standard-4x.png",
+  "https://i.postimg.cc/6TJMMxQX/May-khoan-dien-G2-ID790-1.png",
+  "https://i.postimg.cc/CdTccpKh/May-khoan-dien-G2-ID790-2.png",
+  "https://i.postimg.cc/G9wXXnpc/May-khoan-dien-G2-ID790-3.png",
+  "https://i.postimg.cc/JtVppChh/May-khoan-dien-G2-ID790-4.png",
+  "https://i.postimg.cc/4nkWWR3x/May-khoan-dien-G2-ID790-5.png",
 ]
 
 export const G2MS90255 = [
-  "https://i.ibb.co/m5R6dqZc/Maycatnhom-G2-MS90255-2.png",
-  "https://i.ibb.co/R49sqPCj/Maycatnhom-G2-MS90255-3.png",
-  "https://i.ibb.co/hRVCtZPg/Maycatnhom-G2-MS90255-4.png",
-  "https://i.ibb.co/TBdDNFhr/Maycatnhom-G2-MS90255-5.png",
-  "https://i.ibb.co/8ggdVTZq/Maycatnhom-G2-MS90255-6.png",
-  "https://i.ibb.co/8wM4bYL/Maycatnhom-G2-MS90255-7.png",
-  "https://i.ibb.co/tpXB6hsQ/Maycatnhom-G2-MS90255-8.png",
-  "https://i.ibb.co/1YqGTqyh/Maycatnhom-G2-MS90255-9.png",
-  "https://i.ibb.co/Fb07FccV/Maycatnhom-G2-MS90255.png",
+  "https://i.postimg.cc/vZ7NSTfy/Maycatnhom-G2-MS90255.png",
+  "https://i.postimg.cc/525RkyLb/Maycatnhom-G2-MS90255-2.png",
+  "https://i.postimg.cc/tgXM0btw/Maycatnhom-G2-MS90255-3.png",
+  "https://i.postimg.cc/130jYXw9/Maycatnhom-G2-MS90255-4.png",
+  "https://i.postimg.cc/Jz32d0ZR/Maycatnhom-G2-MS90255-5.png",
+  "https://i.postimg.cc/g0YT9pqf/Maycatnhom-G2-MS90255-6.png",
+  "https://i.postimg.cc/q7k5frXP/Maycatnhom-G2-MS90255-7.png",
+  "https://i.postimg.cc/YSpsc7zB/Maycatnhom-G2-MS90255-8.png",
+  "https://i.postimg.cc/Jh12w85W/Maycatnhom-G2-MS90255-9.png",
 ]
 
 export const HM21G2PR3030BL = [
-  "https://i.ibb.co/1hTF7Tb/C-t-c-nh-HK-HM21-G2-PR3030-BL.png",
-  "https://i.ibb.co/ym6xNCSn/vn-11134207-7ras8-m3vmtfibaenc2c.webp",
-  "https://i.ibb.co/4Z4vn7jT/vn-11134207-7ras8-mdo4ditkkddx17.webp",
-  "https://i.ibb.co/V0CztdF6/vn-11134207-820l4-mh32fx1bkjrg10.webp",
-  "https://i.ibb.co/Xk3LJrG4/vn-11134207-7ras8-m3vmtfib8zhx01.webp",
+  "https://i.postimg.cc/43ZrJVsT/Cat-canh-HK-HM21G2PR3030BL.png",
+  "https://i.postimg.cc/TPGZRgfR/vn-11134207-7ras8-m3vmtfib8zhx01.webp",
+  "https://i.postimg.cc/jjKGsPtq/vn-11134207-7ras8-m3vmtfibaenc2c.webp",
+  "https://i.postimg.cc/vmMpQfbm/vn-11134207-7ras8-mdo4ditkkddx17.webp",
+  "https://i.postimg.cc/7LDpx0wH/vn-11134207-820l4-mh32fx1bkjrg10.webp",
 ]
 
 export const LUOIBAMXOIMAYDAYCUROA = [
-  "https://i.ibb.co/CpBSP5jT/L-i-b-m-x-i-d-nh-cho-m-y-ch-y-d-y-curoa.png",
-  "https://i.ibb.co/svpgd54J/z8094449346221-d8dd24107664b56b23d586ba3dd9bfb0.jpg",
+  "https://i.postimg.cc/0NR97zvn/Luoi-bam-xoi-danh-cho-may-chay-day-curoa.png",
+  "https://i.postimg.cc/8CQTL7GK/z8094449346221-d8dd24107664b56b23d586ba3dd9bfb0.jpg",
 ]
 
 export const G2RH2166X = [
