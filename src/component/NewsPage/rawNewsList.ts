@@ -1,6 +1,6 @@
 import type { RawNewsItem } from './type';
 import { CATEGORY_ID, HOST } from './config';
-import { TL35X_IMAGES, TJ35_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300, GIABATCOBANHXE, HANCOHK30ST2HP, KHOANBETONGK90, KHOANBETONGK96, MAYBOMTANGAPMINIG1B001TB, MAYBOMTANGAPMININK159A20M3H220V125MM, MAYMAIAG5055CT, MAYCATSATBAN2400S, MAYCATSATBANOS2000, MAYCANMUCCM5X1, MAYCANMUCCM5X2, MAYCANMUCCM5X2LS, MAYCANMUCCM5XLS, MAYCANMUCCM5XSS, MAYCANMUCCM5XCS, MAYCANMUCCM5XSPX, COMBOCVGRCV381, COMBOCVGRCV173, G3HUK35, GRMMAMMA200EMINI, MKSMMA200EMINI, MKSMMA200EV2, OSHIMAMMA200A, OSHIMAMMA250A, G2RH2601, K2626P, RH2066X, RH2900BL, G3STOM02, AG6101J, TLP35, PHUNXA3WF3A43, MAYRUAXE151801, MAYRUAXE0812K2, MAYRUAXEJZ300C, MAYRUAXEJZ900A2, MAYRUAXEMXR1213K1, MAYRUAXEMXR1215C2, MAYRUAXEMXR1418C1, THANMAYSIETBULONGBL0320, MAYTHOIBUIMSTB1001, MAYXOAVUADIENXVD220, MAYXOIDATXDX23, MAYXOIDATXDX18, NHOT2THI, PINCBP605020CELL, PHUKIENMAYCATCO, ROLETUNGAT, SACDON2AG3HUK020A, SACDON4AG3HUK040A, THANCUAXICH8INCHG2CX, THANCUAXICHG1C012BT, CVG2CV231, G1GS400, G2RGP190, IWB1034BL, G1X4, G1IWX2, G1MT024S, G2XVP360, THUOCDAM2M, MAYXOIXDD178, G3CS1800, G2TH1003, G2TPLF1, DRAGOND30, MAYNENKHIOSHIMA1215KHONGDAU, MAYNENKHIKHONGDAUOSHIMA30L, MAYNENKHICODAUOSHIMA30L, KHOANDUCK3CN28, KHOANDUCK3CN26, MAYXOIXDD173, MAYXOIXDXC, MAYXOIXDXR, KMX340, KMX350, NAKAWA_JLM200A, ROMANO_RM180A, ROMANO_RM150A, G2_R9LUX, DAUXITTL30TH, TL226, TL260, TL330, TL541, CUOC_CAT_CO_TALU, THUOCNHOMMATDAM2M, THANMAYTHOIBUIHUKANELB1599BL, THANMAYSIETBULONGHM21G1IWX2, THANMAYMAIGOCWORKFIXWFAG7900CP, THANCATCANHWORKFIXWFP3050BL, G1BLP3240, MAYTHOIDIENHUKANG1LB3800, MAYSIETBULONGWORKFIXWF_IW360BL, MAYPHUNXADIENACQUY, MAYMAIPINWORKFIXWFAG100ATC, MAYMAIPINWORKFIXWFAG9000PRO, WFID1395N, G1XC3, G1M88PRO, KHOANG2ID790, G2MS90255, HM21G2PR3030BL, LUOIBAMXOIMAYDAYCUROA, G2RH2166X, WFRH2326BL, BOSSUNM21BCP0230M, BSRH2702PRO, DAUNOHEIWAGX230 } from './images';
+import { TL35X_IMAGES, TJ35_IMAGES, G2TPLF1_IMAGES, CS260, CS226, G1BCN02147, LAMCX12INCH, COMBOPIN0805, COMBOPIN4505, COMBOCVHM21G2CVX230N, SV21VNG230ND1, DAMDUIDIEN7508501000W, DAYXITTANGAP10M, DAYXITTANGAP15M, DAYXITTANGAP20M, DAYXITTANGAP50M, DAMDUIPINDV01, DAMTHUOCDIENTALDTD220, DAMTHUOCXANGDTXT35PRO, DAUXITTL22TH, DAUXITTL22STH, DAUXITTL22T, DAUXITTL30T, DAUXITTL30STH, SACDOIG2S20X2, THANMAYKHOANG1D55, THANMAYKHOANGG2Z1300, GIABATCOBANHXE, HANCOHK30ST2HP, KHOANBETONGK90, KHOANBETONGK96, MAYBOMTANGAPMINIG1B001TB, MAYBOMTANGAPMININK159A20M3H220V125MM, MAYMAIAG5055CT, MAYCATSATBAN2400S, MAYCATSATBANOS2000, MAYCANMUCCM5X1, MAYCANMUCCM5X2, MAYCANMUCCM5X2LS, MAYCANMUCCM5XLS, MAYCANMUCCM5XSS, MAYCANMUCCM5XCS, MAYCANMUCCM5XSPX, COMBOCVGRCV381, COMBOCVGRCV173, G3HUK35, GRMMAMMA200EMINI, MKSMMA200EMINI, MKSMMA200EV2, OSHIMAMMA200A, OSHIMAMMA250A, G2RH2601, K2626P, RH2066X, RH2900BL, G3STOM02, AG6101J, TLP35, PHUNXA3WF3A43, MAYRUAXE151801, MAYRUAXE0812K2, MAYRUAXEJZ300C, MAYRUAXEJZ900A2, MAYRUAXEMXR1213K1, MAYRUAXEMXR1215C2, MAYRUAXEMXR1418C1, THANMAYSIETBULONGBL0320, MAYTHOIBUIMSTB1001, MAYXOAVUADIENXVD220, MAYXOIDATXDX23, MAYXOIDATXDX18, NHOT2THI, PINCBP605020CELL, PHUKIENMAYCATCO, ROLETUNGAT, SACDON2AG3HUK020A, SACDON4AG3HUK040A, THANCUAXICH8INCHG2CX, THANCUAXICHG1C012BT, CVG2CV231, G1GS400, G2RGP190, IWB1034BL, G1X4, G1IWX2, G1MT024S, G2XVP360, THUOCDAM2M, MAYXOIXDD178, G3CS1800, G2TH1003, G2TPLF1, DRAGOND30, MAYNENKHIOSHIMA1215KHONGDAU, MAYNENKHIKHONGDAUOSHIMA30L, MAYNENKHICODAUOSHIMA30L, KHOANDUCK3CN28, KHOANDUCK3CN26, MAYXOIXDD173, MAYXOIXDXC, MAYXOIXDXR, KMX340, KMX350, NAKAWA_JLM200A, ROMANO_RM180A, ROMANO_RM150A, G2_R9LUX, DAUXITTL30TH, TL226, TL260, TL330, TL541, CUOC_CAT_CO_TALU, THUOCNHOMMATDAM2M, THANMAYTHOIBUIHUKANELB1599BL, THANMAYSIETBULONGHM21G1IWX2, THANMAYMAIGOCWORKFIXWFAG7900CP, THANCATCANHWORKFIXWFP3050BL, G1BLP3240, MAYTHOIDIENHUKANG1LB3800, MAYSIETBULONGWORKFIXWF_IW360BL, MAYPHUNXADIENACQUY, MAYMAIPINWORKFIXWFAG100ATC, MAYMAIPINWORKFIXWFAG9000PRO, WFID1395N, G1XC3, G1M88PRO, KHOANG2ID790, G2MS90255, HM21G2PR3030BL, LUOIBAMXOIMAYDAYCUROA, G2RH2166X, WFRH2326BL, BOSSUNM21BCP0230M, BSRH2702PRO, DAUNOHEIWAGX230, BSDH0817PRO, DAUNOHEIWAGX230XANH, DAUNOSIHEROGX200, WORKFIXWFSD238N238NW, BOSSUNBSVT45BL45NM14INCH, CUAXICHTJ5200, CUAXICHTJ2500, CUAXICHTJ520PRO, CUAXICHWFCS1202BL, WFCB8020UTL, WFCB6020UTL, WFBK6000, G1P15USBTC, WF_IW2100N } from './images';
 
 export const rawNewsList: RawNewsItem[] = [
    {
@@ -312,6 +312,32 @@ export const rawNewsList: RawNewsItem[] = [
       name: "Combo chuyên vít HM21-G2CVX230N",
       price: "2,150,000₫",
       oldPrice: "3,080,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy chuyên vít búa WORKFIX WF-SD238N 238N.M không chổi than chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy chuyên vít búa WORKFIX WF-SD238N 238N.M không chổi than chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: WORKFIXWFSD238N238NW,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy chuyên vít búa WORKFIX WF-SD238N 238N.M không chổi than chính hãng",
+      price: "1,890,000₫",
+      oldPrice: "2,590,000₫",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Máy chuyên vít cấp trượt BOSSUN BS-VT45BL 45N.M 1/4 INCH chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Máy chuyên vít cấp trượt BOSSUN BS-VT45BL 45N.M 1/4 INCH chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: BOSSUNBSVT45BL45NM14INCH,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Máy chuyên vít cấp trượt BOSSUN BS-VT45BL 45N.M 1/4 INCH chính hãng",
+      price: "917,000₫",
+      oldPrice: "1,205,000₫",
       url: HOST,
       isSoldOut: false
    },
@@ -1239,6 +1265,58 @@ export const rawNewsList: RawNewsItem[] = [
       isSoldOut: false
    },
    {
+      title: "Combo pin WORKFIX WF-CB8020UTL 8.0Ah sạc nhanh 2.0A 20 cell chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Combo pin WORKFIX WF-CB8020UTL 8.0Ah sạc nhanh 2.0A 20 cell chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: WFCB8020UTL,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Combo pin WORKFIX WF-CB8020UTL 8.0Ah sạc nhanh 2.0A 20 cell chính hãng",
+      price: "896,000đ",
+      oldPrice: "1,200,000đ",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Combo pin sạc WORKFIX WF-CB6020UTL 6Ah 20cell có chân sạc usb typec chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Combo pin sạc WORKFIX WF-CB6020UTL 6Ah 20cell có chân sạc usb typec chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: WFCB6020UTL,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Combo pin sạc WORKFIX WF-CB6020UTL 6Ah 20cell có chân sạc usb typec chính hãng",
+      price: "679,000đ",
+      oldPrice: "1,050,000đ",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Combo pin sạc WORKFIX WF-BK6000 15CELL 6.0Ah 21V sạc nhanh 2.0A chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2025",
+      description: "Combo pin sạc WORKFIX WF-BK6000 15CELL 6.0Ah 21V sạc nhanh 2.0A chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: WFBK6000,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Combo pin sạc WORKFIX WF-BK6000 15CELL 6.0Ah 21V sạc nhanh 2.0A chính hãng",
+      price: "469,000đ",
+      oldPrice: "799,000đ",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Combo pin sạc HUKAN G1-P15USBTC 15CELL 4.5Ah 21V sạc 1.5A chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2025",
+      description: "Combo pin sạc HUKAN G1-P15USBTC 15CELL 4.5Ah 21V sạc 1.5A chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: G1P15USBTC,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Combo pin sạc HUKAN G1-P15USBTC 15CELL 4.5Ah 21V sạc 1.5A chính hãng",
+      price: "910,000đ",
+      oldPrice: "1,320,000đ",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
       title: "Phụ kiện máy cắt cỏ",
       author: "Tấn Lụa",
       date: "12/01/2021",
@@ -1300,6 +1378,58 @@ export const rawNewsList: RawNewsItem[] = [
       name: "Thân cưa xích 1.37Kg 21V G2-CX 8 inch",
       price: "960,000đ",
       oldPrice: "1,000,000đ",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Cưa xích xăng 20INCH TOJIKO TJ5200 54CC 2.1KW 5.5KG 11.000RPM chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Cưa xích xăng 20INCH TOJIKO TJ5200 54CC 2.1KW 5.5KG 11.000RPM chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: CUAXICHTJ5200,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Cưa xích xăng 20INCH TOJIKO TJ5200 54CC 2.1KW 5.5KG 11.000RPM chính hãng",
+      price: "Liên hệ",
+      oldPrice: "",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Cưa xích xăng 12INCH TOJIKO TJ2500 25CC 0.9KW 4.5KG 12.000RPM chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Cưa xích xăng 12INCH TOJIKO TJ2500 25CC 0.9KW 4.5KG 12.000RPM chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: CUAXICHTJ2500,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Cưa xích xăng 12INCH TOJIKO TJ2500 25CC 0.9KW 4.5KG 12.000RPM chính hãng",
+      price: "Liên hệ",
+      oldPrice: "",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Cưa xích xăng 20INCH TOJIKO TJ520PRO 54CC 2.1KW 5.5KG 11.000RPM chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Cưa xích xăng 20INCH TOJIKO TJ520PRO 54CC 2.1KW 5.5KG 11.000RPM chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: CUAXICHTJ520PRO,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Cưa xích xăng 20INCH TOJIKO TJ520PRO 54CC 2.1KW 5.5KG 11.000RPM chính hãng",
+      price: "Liên hệ",
+      oldPrice: "",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Cưa xích 12INCH WORKFIX WF-CS1202BL tốc độ cắt 6m/s 2500RPM chính hãng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Cưa xích 12INCH WORKFIX WF-CS1202BL tốc độ cắt 6m/s 2500RPM chính hãng có công dụng như thế nào với công việc của bạn...",
+      images: CUAXICHWFCS1202BL,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Cưa xích 12INCH WORKFIX WF-CS1202BL tốc độ cắt 6m/s 2500RPM chính hãng",
+      price: "2,093,000đ",
+      oldPrice: "2,680,000đ",
       url: HOST,
       isSoldOut: false
    },
@@ -1378,6 +1508,19 @@ export const rawNewsList: RawNewsItem[] = [
       name: "THÂN MÁY SIẾT BULONG PIN (GEN2) BODY HM21-G2-IWB1034BL 1000N.W 21V không chổi than 3/4",
       price: "3,090,000đ",
       oldPrice: "6,000,000đ",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Combo máy siết bulong WORKFIX WF-IW2100N 2100N.M 21V 3/4",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Combo máy siết bulong WORKFIX WF-IW2100N 2100N.M 21V 3/4 có công dụng như thế nào với công việc của bạn...",
+      images: WF_IW2100N,
+      categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
+      name: "Combo máy siết bulong WORKFIX WF-IW2100N 2100N.M 21V 3/4",
+      price: "4,650,000đ",
+      oldPrice: "5,500,000đ",
       url: HOST,
       isSoldOut: false
    },
@@ -1620,7 +1763,7 @@ export const rawNewsList: RawNewsItem[] = [
       author: "Tấn Lụa",
       date: "12/01/2021",
       description: "Máy khoan đục bê tông BOSSUN BS-DH0817PRO 15J 1350W 6KG chính hãng có công dụng như thế nào với công việc của bạn...",
-      images: BSRH2702PRO,
+      images: BSDH0817PRO,
       categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
       name: "Máy khoan đục bê tông BOSSUN BS-DH0817PRO 15J 1350W 6KG chính hãng",
       price: "1,925,000đ",
@@ -1629,15 +1772,41 @@ export const rawNewsList: RawNewsItem[] = [
       isSoldOut: false
    },
    {
-      title: "Đầu nổ HEIWA GX230 7.5HP 4 thì 1800rpm 16KG chính hãng",
+      title: "Đầu nổ HEIWA GX230 cam 7.5HP 4 thì 1800rpm 16KG chính hãng chạy xăng",
       author: "Tấn Lụa",
       date: "12/01/2021",
-      description: "Đầu nổ HEIWA GX230 7.5HP 4 thì 1800rpm 16KG chính hãng có công dụng như thế nào với công việc của bạn...",
+      description: "Đầu nổ HEIWA GX230 cam 7.5HP 4 thì 1800rpm 16KG chính chạy xăng hãng có công dụng như thế nào với công việc của bạn...",
       images: DAUNOHEIWAGX230,
       categories: [CATEGORY_ID.DAU_NO],
-      name: "Đầu nổ HEIWA GX230 7.5HP 4 thì 1800rpm 16KG chính hãng",
+      name: "Đầu nổ HEIWA GX230 cam 7.5HP 4 thì 1800rpm 16KG chính hãng chạy xăng",
       price: "3,290,000đ",
       oldPrice: "3,590,000đ",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Đầu nổ HEIWA GX230 xanh 7.5HP 4 thì 1800rpm 16KG chính hãng chạy xăng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Đầu nổ HEIWA GX230 xanh 7.5HP 4 thì 1800rpm 16KG chính hãng chạy xăng có công dụng như thế nào với công việc của bạn...",
+      images: DAUNOHEIWAGX230XANH,
+      categories: [CATEGORY_ID.DAU_NO],
+      name: "Đầu nổ HEIWA GX230 xanh 7.5HP 4 thì 1800rpm 16KG chính hãng chạy xăng",
+      price: "2,500,000đ",
+      oldPrice: "3,150,000đ",
+      url: HOST,
+      isSoldOut: false
+   },
+   {
+      title: "Đầu nổ SIHERO GX200 6.5HP 4 thì 3600rpm 14.5KG chính hãng chạy xăng",
+      author: "Tấn Lụa",
+      date: "12/01/2021",
+      description: "Đầu nổ SIHERO GX200 6.5HP 4 thì 3600rpm 14.5KG chính hãng chạy xăng có công dụng như thế nào với công việc của bạn...",
+      images: DAUNOSIHEROGX200,
+      categories: [CATEGORY_ID.DAU_NO],
+      name: "Đầu nổ SIHERO GX200 6.5HP 4 thì 3600rpm 14.5KG chính hãng chạy xăng",
+      price: "1,549,000đ",
+      oldPrice: "1,990,000đ",
       url: HOST,
       isSoldOut: false
    },

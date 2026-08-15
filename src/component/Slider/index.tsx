@@ -48,7 +48,7 @@ interface PropertyFilter {
 }
 
 const getCategoryPropertyFilters = (categoryId: number): PropertyFilter[] => {
-   if (categoryId === 6) { // Máy cắt cỏ
+   if (categoryId === CATEGORY_ID.MAY_CAT_CO) { // Máy cắt cỏ
       return [
          {
             label: "Động cơ",
@@ -62,7 +62,7 @@ const getCategoryPropertyFilters = (categoryId: number): PropertyFilter[] => {
          }
       ];
    }
-   if (categoryId === 3) { // Đầu xịt áp lực
+   if (categoryId === CATEGORY_ID.THIET_BI_XIT_RUA) { // Đầu xịt áp lực
       return [
          {
             label: "Piston (Ty)",
@@ -76,7 +76,7 @@ const getCategoryPropertyFilters = (categoryId: number): PropertyFilter[] => {
          }
       ];
    }
-   if (categoryId === 10) { // Dụng cụ cầm tay
+   if (categoryId === CATEGORY_ID.DUNG_CU_CAM_TAY) { // Dụng cụ cầm tay
       return [
          {
             label: "Loại máy",
@@ -90,7 +90,7 @@ const getCategoryPropertyFilters = (categoryId: number): PropertyFilter[] => {
          }
       ];
    }
-   if (categoryId === 9) { // Máy nén khí
+   if (categoryId === CATEGORY_ID.MAY_NEN_KHI) { // Máy nén khí
       return [
          {
             label: "Kiểu động cơ",
@@ -104,7 +104,7 @@ const getCategoryPropertyFilters = (categoryId: number): PropertyFilter[] => {
          }
       ];
    }
-   if (categoryId === 7) { // Máy xới đất
+   if (categoryId === CATEGORY_ID.MAY_XOI_DAT) { // Máy xới đất
       return [
          {
             label: "Động cơ",
@@ -118,7 +118,7 @@ const getCategoryPropertyFilters = (categoryId: number): PropertyFilter[] => {
          }
       ];
    }
-   if (categoryId === 8) { // Máy bơm nước
+   if (categoryId === CATEGORY_ID.MAY_BOM_NUOC) { // Máy bơm nước
       return [
          {
             label: "Loại bơm",
