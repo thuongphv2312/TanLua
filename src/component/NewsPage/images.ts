@@ -1,9 +1,18 @@
 export const TL35X_IMAGES = [
-  "https://i.ibb.co/krN8wL8/TL35X-1.png",
-  "https://i.ibb.co/5CNKf5c/TL35X-2.png",
-  "https://i.ibb.co/6cFJJp58/TL35X-3.png",
-  "https://i.ibb.co/Df06Xf11/TL35X-4.png",
-  "https://i.ibb.co/4nzHvkDf/TL35X-5.png",
+  "https://i.postimg.cc/cC1Y6ZRd/TL35X-9.png",
+  "https://i.postimg.cc/Xq25ChLw/TL35X-1.png",
+  "https://i.postimg.cc/prV8yxfW/TL35X-10.png",
+  "https://i.postimg.cc/RhCfq97N/TL35X-11.png",
+  "https://i.postimg.cc/mkZMhRYH/TL35X-12.png",
+  "https://i.postimg.cc/GtMDyNKy/TL35X-13.png",
+  "https://i.postimg.cc/wMWNmP2N/TL35X-14.png",
+  "https://i.postimg.cc/Xq25ChL8/TL35X-2.png",
+  "https://i.postimg.cc/6qHZvScH/TL35X-3.png",
+  "https://i.postimg.cc/0Qs7R7rG/TL35X-4.png",
+  "https://i.postimg.cc/DZPL2mbY/TL35X-5.png",
+  "https://i.postimg.cc/j54PsCJF/TL35X-6.png",
+  "https://i.postimg.cc/QtJ1XVWv/TL35X-7.png",
+  "https://i.postimg.cc/qRxykgC9/TL35X-8.png",
 ];
 
 export const TJ35_IMAGES = [
