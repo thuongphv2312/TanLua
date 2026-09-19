@@ -1330,3 +1330,7 @@ export const WF_IW2100N = [
   "https://i.postimg.cc/P5STRTgJ/Bulong-WF-IW2100N-2.png",
   "https://i.postimg.cc/8CsN8xG5/Bulong-WF-IW2100N-3.png",
 ]
+
+export const MAYRUAXEJZ1050C = [
+  "https://i.postimg.cc/qRFzfSqx/Chuong-trinh-hang-moi-ve.png",
+]
