@@ -154,8 +154,8 @@ export const rawNewsList: RawNewsItem[] = [
       images: DAYXITTANGAP50M,
       categories: [CATEGORY_ID.MAY_NONG_NGHIEP, CATEGORY_ID.THIET_BI_XIT_RUA],
       name: "Dây xịt tăng áp ANOVI 50M 230BAR Loại xịn",
-      price: "590,000₫",
-      oldPrice: "980,000₫",
+      price: "850,000₫",
+      oldPrice: "1,300,000₫",
       url: HOST,
       isSoldOut: false
    },
