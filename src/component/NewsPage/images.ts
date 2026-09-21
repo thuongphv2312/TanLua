@@ -1,4 +1,5 @@
 export const TL35X_IMAGES = [
+  "https://i.postimg.cc/rm4TyPnn/CTKM-May-cat-co-TL35X.png",
   "https://i.postimg.cc/cC1Y6ZRd/TL35X-9.png",
   "https://i.postimg.cc/Xq25ChLw/TL35X-1.png",
   "https://i.postimg.cc/prV8yxfW/TL35X-10.png",
@@ -166,11 +167,16 @@ export const DAYXITTANGAP20M = [
 ]
 
 export const DAYXITTANGAP50M = [
+  "https://i.postimg.cc/7Y6Bg24m/Day-xit-ap-luc-cao-ANOVI-230BAR.png",
   "https://i.ibb.co/hFG70xW9/50M-4.png",
   "https://i.ibb.co/wFj2vfHQ/50M-1.png",
   "https://i.ibb.co/whmFmSK2/50M-2.png",
   "https://i.ibb.co/qMBdf1cB/50M-3png.png",
   "https://i.ibb.co/N2s6SmFm/50M-5.png",
+]
+
+export const DAYXITTANGAP50M280BAR = [
+  "https://i.postimg.cc/66Hc5pZ4/Day-xit-ap-luc-cao-ANOVI-280BAR.png"
 ]
 
 export const DAMDUIPINDV01 = [
@@ -368,6 +374,7 @@ export const MAYCANMUCCM5X2 = [
 ]
 
 export const MAYCANMUCCM5X2LS = [
+  "https://i.postimg.cc/rsq1yvVH/Chuong-trinh-khuyen-mai-CM5X-2LS.png",
   "https://i.ibb.co/ycNXfrW6/M-y-c-n-m-c-CM5-X-2-LS-1.png",
   "https://i.ibb.co/ZpLkm2bz/M-y-c-n-m-c-CM5-X-2-LS-2.png",
   "https://i.ibb.co/QFFzZ06P/M-y-c-n-m-c-CM5-X-2-LS-3.png",
@@ -395,6 +402,7 @@ export const MAYCANMUCCM5XSS = [
 ]
 
 export const MAYCANMUCCM5XCS = [
+  "https://i.postimg.cc/TYwbkjpr/Chuong-trinh-khuyen-mai-CM5X-CS.png",
   "https://i.ibb.co/1f29kmZN/M-y-c-n-m-c-CM5-X-CS-1.png",
   "https://i.ibb.co/4RDNKFGt/M-y-c-n-m-c-CM5-X-CS-2.png",
   "https://i.ibb.co/9MdtTcd/M-y-c-n-m-c-CM5-X-CS-3.png",
@@ -582,6 +590,19 @@ export const MAYRUAXE1215C1 = [
   "https://i.ibb.co/TxRp8sqJ/M-y-r-a-xe-Cali-1215-C1-O.png",
 ]
 
+export const MAYRUAXEMXRJZ1050CN = [
+  "https://i.postimg.cc/ZK8rvYBw/Chuong-trinh-hang-moi-ve.png"
+]
+
+export const MAYRUAXEG3HPWR10 = [
+  "https://i.postimg.cc/prDqdfMq/Chuong-trinh-hang-moi-ve-G3-HPW-R10.png"
+]
+
+export const MAYRUAXEG2RX3002 = [
+  "https://i.postimg.cc/C184vG5Y/Chuong-trinh-khuyen-mai-G2-RX3002.png"
+]
+
+
 export const MAYRUAXE151801 = [
   "https://i.ibb.co/nqwJg3sb/M-y-r-a-xe-Cali-1518-C1-1518-O1-O-4.png",
   "https://i.ibb.co/MDCP74m7/M-y-r-a-xe-Cali-1518-C1-1518-O1-O-1.png",
@@ -593,6 +614,7 @@ export const MAYRUAXE151801 = [
 
 export const MAYRUAXE0812K2 = [
   "https://i.ibb.co/Fq0C23xd/M-y-r-a-xe-Cali-0812-k2-1.png",
+  "https://i.postimg.cc/DZ0FVzsr/Chuong-trinh-hang-moi-ve-0812.png",
   "https://i.ibb.co/HDk5MvmF/M-y-r-a-xe-Cali-0812-k2-2.png",
   "https://i.ibb.co/W4CzKhBJ/M-y-r-a-xe-Cali-0812-k2-3.png",
   "https://i.ibb.co/kgxTX9gT/M-y-r-a-xe-Cali-0812-k2-4.png",
@@ -923,6 +945,7 @@ export const MAYNENKHIOSHIMA1215KHONGDAU = [
 
 export const MAYNENKHIKHONGDAUOSHIMA30L = [
   "https://i.ibb.co/FbWk51rN/3hp-7e7679b1-342d-46b1-8361-2480b6606ac9.webp",
+  "https://i.postimg.cc/hvhG0rMk/CTKM-May-nen-khi-kho-30L-OSM.png",
   "https://i.ibb.co/hRmDZVZ9/z4918872922158-226bbc865ee0b89ed091358c31ba47f6-d84703f4-6a71-489c-8c8d-0b96b0c171f1.webp",
   "https://i.ibb.co/DPjBrgNt/z4918872922184-e6580f4ab2569e5eb5c87e56c13e2e8f-eadc0f9d-2df6-47b2-bc07-8f58afe7142c.webp",
   "https://i.ibb.co/VYSsM0r8/z4918872925666-09b469a39eef74548b0615cc5b904b5d-1fa59f37-ed17-4eb8-81d0-3e37bea3f370.webp",
@@ -932,6 +955,7 @@ export const MAYNENKHIKHONGDAUOSHIMA30L = [
 ]
 
 export const MAYNENKHICODAUOSHIMA30L = [
+  "https://i.postimg.cc/cL3rjFZY/CTKM-May-nen-khi-30L-co-dau-OSM-NP.png",
   "https://i.ibb.co/pV29pZ4/img-9399.webp",
   "https://i.ibb.co/3yQxfv6S/img-9370.webp",
   "https://i.ibb.co/V0gbSj2t/img-9402.webp",
@@ -1035,6 +1059,7 @@ export const G2_R9LUX = [
 ]
 
 export const CUOC_CAT_CO_TALU = [
+  "https://i.postimg.cc/fTNzyMhM/CTKM-Cuoc-cat-co-TALU.png",
   "https://i.ibb.co/vvQHVzRX/Thi-t-k-l-i-banner-m-y-c-t-c-18.png",
   "https://i.ibb.co/WWJVLKWW/C-c-c-t-c-TALU-1.png",
   "https://i.ibb.co/Y4nhJWND/C-c-c-t-c-TALU-2.png",
