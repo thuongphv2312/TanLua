@@ -1753,8 +1753,8 @@ export const rawNewsList: RawNewsItem[] = [
       images: MAYNENKHIOMTS1215KHONGDAU,
       categories: [CATEGORY_ID.MAY_NEN_KHI, CATEGORY_ID.MAY_CONG_NGHIEP],
       name: "Máy nén khí không dầu Mitsukaisho 12-1.5 1.5HP Xanh dương điện 1 pha dây đồng 100% 12 lít",
-      price: "3,050,000đ",
-      oldPrice: "4,690,000đ",
+      price: "2,632,000đ",
+      oldPrice: "3,099,000đ",
       url: HOST,
       isSoldOut: false
    },
