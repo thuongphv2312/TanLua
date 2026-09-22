@@ -931,16 +931,8 @@ export const DRAGOND30 = [
   "https://i.postimg.cc/MHFSHTt4/may-bom-nuoc-dragon-d30-6-5hp-g.webp",
 ]
 
-export const MAYNENKHIOSHIMA1215KHONGDAU = [
-  "https://i.ibb.co/9HR5TXh6/vn-11134207-820l4-mgn2vumq8dfu8d.webp",
-  "https://i.ibb.co/tpz8pkRT/vn-11134207-820l4-mgn2w7iwi6885f.webp",
-  "https://i.ibb.co/WNdvtJpN/vn-11134207-820l4-mgn2w09b63v351.webp",
-  "https://i.ibb.co/xKGDTGBP/vn-11134207-820l4-mgn2w39c3k0fe0.webp",
-  "https://i.ibb.co/fzwywCKx/vn-11134207-820l4-mgn2w92m8x7151.webp",
-  "https://i.ibb.co/V0p41kQH/vn-11134207-820l4-mgn2wcbjzimjb9.webp",
-  "https://i.ibb.co/b0K8XBy/vn-11134207-820l4-mgn2wecci5fx3c.webp",
-  "https://i.ibb.co/NgCXTjsX/vn-11134207-820l4-mgn2wgbi9czx67.webp",
-  "https://i.ibb.co/pBsNHM6F/vn-11134207-820l4-mgn2vyssrjm4be.webp",
+export const MAYNENKHIOMTS1215KHONGDAU = [
+  "https://i.postimg.cc/TwG3rJWP/CTKM-May-nen-khi-Mitsukaisho-12-1-5-1-5HP.png",
 ]
 
 export const MAYNENKHIKHONGDAUOSHIMA30L = [
