@@ -480,6 +480,7 @@ export const MKSMMA200EV2 = [
 ]
 
 export const OSHIMAMMA200A = [
+  "https://i.postimg.cc/vHc13XD0/Chuong-trinh-khuyen-mai-may-han-OSHIMA-MMA-200A.png",
   "https://i.ibb.co/LD4WFKNZ/M-y-r-a-xe-oshima-MMA-200-A-5.png",
   "https://i.ibb.co/HTfYrKB4/M-y-r-a-xe-oshima-MMA-200-A.png",
   "https://i.ibb.co/ZzTgFtWm/M-y-r-a-xe-oshima-MMA-200-A-1.png",
@@ -491,6 +492,7 @@ export const OSHIMAMMA200A = [
 ]
 
 export const OSHIMAMMA250A = [
+  "https://i.postimg.cc/htQ2W9Zf/Chuong-trinh-khuyen-mai-may-han-OSHIMA-MMA-250A.png",
   "https://i.ibb.co/fYmFhX21/M-y-h-n-oshima-MMA-200-A-2.png",
   "https://i.ibb.co/hRK9q1ht/M-y-h-n-oshima-MMA-200-A-3.png",
   "https://i.ibb.co/npL3Jkw/M-y-h-n-oshima-MMA-200-A-4.png",
@@ -498,6 +500,10 @@ export const OSHIMAMMA250A = [
   "https://i.ibb.co/Y7RjwsxT/M-y-h-n-oshima-MMA-200-A-6.png",
   "https://i.ibb.co/pjnhRMts/M-y-h-n-oshima-MMA-200-A.png",
   "https://i.ibb.co/Vcd8FD63/M-y-h-n-oshima-MMA-200-A-1.png"
+]
+
+export const GREEKMAN200MINI = [
+  "https://i.postimg.cc/CxYbJXnL/Chuong-trinh-khuyen-mai-may-han-GREEKMAN-GR-MMA200-MINI.png"
 ]
 
 export const G2RH2601 = [
