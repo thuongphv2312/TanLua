@@ -965,6 +965,7 @@ export const MAYNENKHICODAUOSHIMA30L = [
 
 export const KHOANDUCK3CN28 = [
   "https://i.ibb.co/tpk4MJQJ/img-4027-jpg.webp",
+  "https://i.postimg.cc/3RgLsDhs/May-khoan-dien-Oshima-K3CN28-850W.png",
   "https://i.ibb.co/pvbvJCtj/khoan-duc-3-chuc-nang-k3cn28-1.webp",
   "https://i.ibb.co/0yNnMjP2/may-khoan-duc-oshima-3-chuc-nang-k3cn-28-7.webp",
   "https://i.ibb.co/ymjn6GjS/khoan-duc-3cn-oshima-k3cn28-3.webp",
@@ -973,6 +974,7 @@ export const KHOANDUCK3CN28 = [
 
 export const KHOANDUCK3CN26 = [
   "https://i.ibb.co/yr2ZRh1/may-khoan-duc-3-chuc-nang-800w-oshima-k3cn-26-3.webp",
+  "https://i.postimg.cc/WbSyprZV/May-khoan-dien-Oshima-K3CN26-800W-Do.png",
   "https://i.ibb.co/fGqgndZf/may-khoan-duc-3-chuc-nang-800w-oshima-k3cn-26-4.webp",
   "https://i.ibb.co/jP14W3wS/may-khoan-duc-3-chuc-nang-800w-oshima-k3cn-26-1.webp",
   "https://i.ibb.co/ZR9J3BY8/may-khoan-duc-3-chuc-nang-800w-oshima-k3cn-26-2.webp",
@@ -1168,6 +1170,8 @@ export const MAYMAIPINWORKFIXWFAG9000PRO = [
 
 export const WFID1395N = [
   "https://i.postimg.cc/1ztbnPnp/May-khoan-pin-WF-ID1395N.png",
+  "https://i.postimg.cc/15Ngs020/Combo-May-khoan-pin-Workfix-WF-ID1395N.png",
+  "https://i.postimg.cc/ncQspKgS/Than-May-khoan-pin-Workfix-WF-ID1395N.png",
   "https://i.postimg.cc/QMtv9s9J/May-khoan-pin-WF-ID1395N-1.png",
   "https://i.postimg.cc/vmBCgMgL/May-khoan-pin-WF-ID1395N-2.png",
   "https://i.postimg.cc/xdCBJYJP/May-khoan-pin-WF-ID1395N-3.png",
@@ -1183,10 +1187,16 @@ export const G1XC3 = [
 
 export const G1M88PRO = [
   "https://i.postimg.cc/XY80BQ2j/May-khoan-pin-G1-M88PRO.png",
+  "https://i.postimg.cc/c41DzHbb/Combo-May-khoan-pin-HUKAN-G1-M88-PRO.png",
+  "https://i.postimg.cc/J47TFnFw/Than-may-khoan-pin-HUKAN-G1-M88-PRO-Price-(2).png",
   "https://i.postimg.cc/jSXrnZ8q/May-khoan-pin-G1-M88PRO-1.png",
   "https://i.postimg.cc/g2DPLNM2/May-khoan-pin-G1-M88PRO-2.png",
   "https://i.postimg.cc/qvLd6jmM/May-khoan-pin-G1-M88PRO-3.png",
   "https://i.postimg.cc/7ZVyJmBL/May-khoan-pin-G1-M88PRO-4.png",
+]
+
+export const WFID1380BL = [
+  "https://i.postimg.cc/g03qjF7T/Combo-may-khoan-BOSSUN-M12B-ID1380BL-2-pin-10-cell.png",
 ]
 
 export const KHOANG2ID790 = [
@@ -1293,21 +1303,6 @@ export const BOSSUNBSVT45BL45NM14INCH = [
   "https://i.postimg.cc/BZTPb1Wq/Chuyen-vit-BOSSUN-BS-VT45BL.png",
   "https://i.postimg.cc/CMGn5fyL/Chuyen-vit-BOSSUN-BS-VT45BL-1.png",
   "https://i.postimg.cc/KcP3jgXc/Chuyen-vit-BOSSUN-BS-VT45BL-2.png",
-]
-
-export const CUAXICHTJ5200 = [
-  "https://i.postimg.cc/x85dRMYg/Cua-xich-xang-TJ5200.png",
-  "https://i.postimg.cc/7h9LV0DB/Cua-xich-xang-TJ5200-1.png",
-]
-
-export const CUAXICHTJ2500 = [
-  "https://i.postimg.cc/PJ5HdcsY/Cua-xich-xang-TJ2500.png",
-  "https://i.postimg.cc/rswTqbXS/Cua-xich-xang-TJ2500-1.png",
-]
-
-export const CUAXICHTJ520PRO = [
-  "https://i.postimg.cc/KvKXQtZh/Cua-xich-xang-TJ520PRO-upscayl-1x-upscayl-standard-4x.png",
-  "https://i.postimg.cc/HsJG3bpD/Cua-xich-xang-TJ520PRO-1-upscayl-1x-upscayl-standard-4x.png"
 ]
 
 export const CUAXICHWFCS1202BL = [
