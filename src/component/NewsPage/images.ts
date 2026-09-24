@@ -712,6 +712,7 @@ export const MAYXOAVUADIENXVD220 = [
 
 export const MAYXOIDATXDX23 = [
   "https://i.ibb.co/Mx3tZb18/M-y-x-i-t-XDX-23-1-6.png",
+  'https://i.postimg.cc/Zqs823wd/May-xoi-xdx23.png',
   "https://i.ibb.co/RkJK4cmD/M-y-x-i-t-XDX-23-1.png",
   "https://i.ibb.co/VWHMNgVd/M-y-x-i-t-XDX-23-2.png",
   "https://i.ibb.co/RkHBxyNq/M-y-x-i-t-XDX-23-3.png",
@@ -721,6 +722,7 @@ export const MAYXOIDATXDX23 = [
 
 export const MAYXOIDATXDX18 = [
   "https://i.ibb.co/Dfp3WQtw/M-y-x-i-t-xdx-18-2.png",
+  "https://i.postimg.cc/76bVZX5d/May-xoi-XDX18.png",
   "https://i.ibb.co/d9sRsWJ/M-y-x-i-t-xdx-18-3.png",
   "https://i.ibb.co/WThX4V2/M-y-x-i-t-xdx-18-4.png",
   "https://i.ibb.co/BVnvqCX2/M-y-x-i-t-xdx-18-5.png",
@@ -897,6 +899,7 @@ export const THUOCDAM2M = [
 
 export const MAYXOIXDD178 = [
   "https://i.ibb.co/JRNRYNJ8/M-y-x-i-t-XDD178.png",
+  "https://i.postimg.cc/bNMjyFdF/May-xoi-xdd-178.png",
   "https://i.ibb.co/ns1FgHw9/M-y-x-i-t-XDD178-1.png",
   "https://i.ibb.co/LzbHh9qm/M-y-x-i-t-XDD178-2.png",
   "https://i.ibb.co/LhXSBgFc/M-y-x-i-t-XDD178-3.png",
@@ -982,6 +985,7 @@ export const KHOANDUCK3CN26 = [
 
 export const MAYXOIXDD173 = [
   "https://i.ibb.co/nNDyZx87/12784-z7166256629945-e1dddf9cb42fcd53d34e5c1ef1df2049.jpg",
+  "https://i.postimg.cc/MZ9S4GSY/May-xoi-xdd-173.png",
   "https://i.ibb.co/8LKLRTmx/12784-z7166256640336-c7293911da9f01d1571292f5396d64c2-1.jpg",
   "https://i.ibb.co/5WvyX91D/12784-z7166256640339-443d0a10a66c827ad6ddda28a6eb1124.jpg",
   "https://i.ibb.co/cc6dBd52/12784-may-xoi-dat-chay-dau-oshima-xdd-173-g.jpg",
@@ -998,6 +1002,7 @@ export const MAYXOIXDD173 = [
 
 export const MAYXOIXDXC = [
   "https://i.ibb.co/yFJX6YBW/xdx-c2.webp",
+  "https://i.postimg.cc/ZqQNVmqv/May-xoi-xdx-c.png",
   "https://i.ibb.co/DDkjgYQY/xdx-c23.webp",
   "https://i.ibb.co/bgsmhqCn/z5496529208164-2c29ee4b8b87d84b803786a1c4031760.webp",
   "https://i.ibb.co/7d0zb48D/z5496529246992-60e2caa460a49e584f0b41816eac4e23.webp",
@@ -1009,6 +1014,7 @@ export const MAYXOIXDXC = [
 
 export const MAYXOIXDXR = [
   "https://i.ibb.co/tTsjSwK5/1722354139-san-pham-1.jpg",
+  "https://i.postimg.cc/k4cm7JtW/May-xoi-xdx-r.png",
   "https://i.ibb.co/vCwKYTps/17223541401-san-pham-1.jpg",
   "https://i.ibb.co/DgH6bMqF/17223541402-san-pham-1.jpg",
   "https://i.ibb.co/zWP1FWF2/17223541413-san-pham-1.jpg",
