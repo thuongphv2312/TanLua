@@ -293,6 +293,7 @@ export const HANCOHK30ST2HP = [
 
 export const KHOANBETONGK90 = [
   "https://i.ibb.co/fYMkqzS4/M-y-khoan-b-t-ng-K90-1.png",
+  "https://i.postimg.cc/MHg57Jjk/May-khoan-be-tong-HUKAN-K90.png",
   "https://i.ibb.co/bRLpKV2j/M-y-khoan-b-t-ng-K90.png"
 ]
 
@@ -508,6 +509,7 @@ export const GREEKMAN200MINI = [
 
 export const G2RH2601 = [
   "https://i.ibb.co/sJyGRHZq/Th-n-M-y-khoan-b-t-ng-G2-RH2601.png",
+  "https://i.postimg.cc/59XZCxZR/May-khoan-be-tong-HUKAN-G2-Rh2601.png",
   "https://i.ibb.co/Cp9xDK4X/Th-n-M-y-khoan-b-t-ng-G2-RH2601-1.png",
   "https://i.ibb.co/d4bYgQ85/Th-n-M-y-khoan-b-t-ng-G2-RH2601-2.png",
   "https://i.ibb.co/TDFVn1PP/Th-n-M-y-khoan-b-t-ng-G2-RH2601-3.png",
@@ -549,6 +551,7 @@ export const RH2900BL = [
 
 export const G3STOM02 = [
   "https://i.ibb.co/dJxgdzcc/M-y-khoan-b-t-ng-G2-STOM02.png",
+  "https://i.postimg.cc/859XH62g/May-khoan-be-tong-pin-HUKAN-G3STOM-02.png",
   "https://i.ibb.co/5hYDLVBm/M-y-khoan-b-t-ng-G2-STOM02-2.png",
   "https://i.ibb.co/fV0g6Jqh/M-y-khoan-b-t-ng-G2-STOM02-3.png",
   "https://i.ibb.co/TM0ydtLL/M-y-khoan-b-t-ng-G2-STOM02-4.png",
@@ -682,6 +685,7 @@ export const MAYRUAXEMXR1418C1 = [
 
 export const THANMAYSIETBULONGBL0320 = [
   "https://i.ibb.co/Xk8JYVHq/M-y-si-t-bulong-G1-BL0320.png",
+  "https://i.postimg.cc/Jn1208bV/Than-may-siet-bulong-G1-BL0320.png",
   "https://i.ibb.co/ZRsrWGjD/M-y-si-t-bulong-G1-BL0320-1.png",
   "https://i.ibb.co/bgr3Jxk6/M-y-si-t-bulong-G1-BL0320-2.png",
   "https://i.ibb.co/cWzVrgw/M-y-si-t-bulong-G1-BL0320-3.png",
@@ -836,6 +840,7 @@ export const G2RGP190 = [
 
 export const IWB1034BL = [
   "https://i.ibb.co/gZcYT5wn/Th-n-m-y-si-t-bulong-HM21-G2-IWB1034-BL.png",
+  "https://i.postimg.cc/tC1mY2VP/Combo-bulong-HUKAN-G2-IWB1034BL.png",
   "https://i.ibb.co/MxLMFcGX/Th-n-m-y-si-t-bulong-HM21-G2-IWB1034-BL-1.png",
   "https://i.ibb.co/WNgtKGMQ/Th-n-m-y-si-t-bulong-HM21-G2-IWB1034-BL-2.png",
   "https://i.ibb.co/67qtXRPs/Th-n-m-y-si-t-bulong-HM21-G2-IWB1034-BL-3.png",
@@ -1125,6 +1130,7 @@ export const THANCATCANHWORKFIXWFP3050BL = [
 
 export const G1BLP3240 = [
   "https://i.ibb.co/cchyHv0Y/Th-n-bulong-BL324-2.png",
+  "https://i.postimg.cc/MHLP9jNh/Than-may-siet-bulong-G1-BLP324.png",
   "https://i.ibb.co/MwQJk86/Th-n-bulong-BL324-3.png",
   "https://i.ibb.co/NnY95xsm/Th-n-bulong-BL324-4.png",
   "https://i.ibb.co/DgS4Whvk/Th-n-bulong-BL324-5.png",
@@ -1147,6 +1153,7 @@ export const MAYTHOIDIENHUKANG1LB3800 = [
 
 export const MAYSIETBULONGWORKFIXWF_IW360BL = [
   "https://i.postimg.cc/Xq385c1Z/vn-11134207-7r98o-lwol0eeldzo937.png",
+  "https://i.postimg.cc/PfSBLC3B/Combo-bulong-WF-IW360BL.png",
   "https://i.postimg.cc/J0qQ5DS0/vn-11134207-81ztc-mo5mmdrqjri9f9.png",
   "https://i.postimg.cc/br8TnHV2/vn-11134207-81ztc-mo5mmdrv6x3939.png",
   "https://i.postimg.cc/nrk1GjNM/vn-11134207-81ztc-mo5mmdrwbnk0ee.png",
@@ -1249,6 +1256,8 @@ export const G2RH2166X = [
 
 export const WFRH2326BL = [
   "https://i.ibb.co/Q7rqTtf2/Khoan-b-n-t-ng-WF-RH2326-BL-1.png",
+  "https://i.postimg.cc/L6Bvqw6Q/Combo-khoan-be-tong-Workfix-WF-RH2326BL.png",
+  "https://i.postimg.cc/SN7VX3xq/Than-khoan-be-tong-Workfix-WF-RH2326BL.png",
   "https://i.ibb.co/Hf4WLhst/Khoan-b-n-t-ng-WF-RH2326-BL-2.png",
   "https://i.ibb.co/93276G1c/Khoan-b-n-t-ng-WF-RH2326-BL-3.png",
   "https://i.ibb.co/VYY8dCpv/Khoan-b-n-t-ng-WF-RH2326-BL-4.png",
@@ -1263,12 +1272,14 @@ export const BOSSUNM21BCP0230M = [
 
 export const BSRH2702PRO = [
   "https://i.postimg.cc/8CpNZqFf/Duc-be-tong-BOSSUN-BS-RH2702PRO.png",
+  "https://i.postimg.cc/wBBWY2zn/May-khoan-duc-be-tong-BOSSUN-BS-RH2702PRO.png",
   "https://i.postimg.cc/MG6q9hcd/Duc-be-tong-BOSSUN-BS-RH2702PRO-1.png",
   "https://i.postimg.cc/N0sBdWy1/Duc-be-tong-BOSSUN-BS-RH2702PRO-2.png",
 ]
 
 export const BSDH0817PRO = [
   "https://i.postimg.cc/CL8h5CTx/Duc-be-tong-BOSSUN-BS-DH0817PRO.png",
+  "https://i.postimg.cc/VLjZq5DY/May-khoan-duc-be-tong-BOSSUN-BS-DH0817PRO.png",
   "https://i.postimg.cc/Qx78CgGV/Duc-be-tong-BOSSUN-BS-DH0817PRO-1.png",
   "https://i.postimg.cc/zXhzvwZv/Duc-be-tong-BOSSUN-BS-DH0817PRO-2.png",
   "https://i.postimg.cc/rF4VsGXm/Duc-be-tong-BOSSUN-BS-DH0817PRO-3.png",
