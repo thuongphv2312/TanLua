@@ -852,6 +852,7 @@ export const IWB1034BL = [
 
 export const G1X4 = [
   "https://i.ibb.co/JWw1Dt30/Combo-M-y-si-t-bulong-G1-X4.png",
+  "https://i.postimg.cc/zB0JSvrB/Combo-siet-bulong-hukan-G1-X4.png",
   "https://i.ibb.co/KjJJz9xg/Combo-M-y-si-t-bulong-G1-X4-1.png",
   "https://i.ibb.co/B54RPWGJ/M-y-si-t-bulong-G1-X4-2.png",
   "https://i.ibb.co/CpjTNSWW/M-y-si-t-bulong-G1-X4-3.png",
@@ -1312,6 +1313,7 @@ export const DAUNOSIHEROGX200 = [
 
 export const WORKFIXWFSD238N238NW = [
   "https://i.postimg.cc/jj1P6Vvj/May-Chuyen-Vit-Bua-WORKFIX-WF-SD238N.png",
+  "https://i.postimg.cc/4NKJVX2Q/Than-CHUYEN-VIT-Workfix-WF-SD238N.png",
   "https://i.postimg.cc/pdSzQNkD/May-Chuyen-Vit-Bua-WORKFIX-WF-SD238N-1.png",
   "https://i.postimg.cc/QMz1gLSc/May-Chuyen-Vit-Bua-WORKFIX-WF-SD238N-2.png",
 ]
@@ -1368,4 +1370,12 @@ export const WF_IW2100N = [
 
 export const MAYRUAXEJZ1050C = [
   "https://i.postimg.cc/qRFzfSqx/Chuong-trinh-hang-moi-ve.png",
+]
+
+export const V140BL = [
+  "https://i.postimg.cc/63jX4Prv/May-chuyen-vit-pin-HUKAN-G1-V140BL.png"
+]
+
+export const G1CB01503 = [
+  "https://i.postimg.cc/VNssSnxx/Combo-3-may-khoan-mai-va-siet-bulong-G1-CB01503.png"
 ]
