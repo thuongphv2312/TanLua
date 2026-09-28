@@ -1326,7 +1326,33 @@ export const BOSSUNBSVT45BL45NM14INCH = [
 
 export const CUAXICHWFCS1202BL = [
   "https://i.postimg.cc/Kj600kNj/Cua-xich-WF-CS1202BL.png",
+  "https://i.postimg.cc/zfgKqjtF/Than-cua-WF-CS1202BL.png",
+  "https://i.postimg.cc/505w56bp/Than-cua-WF-CS1202BL.png",
   "https://i.postimg.cc/Hnq66c2k/Cua-xich-WF-CS1202BL-xanh.png"
+]
+
+export const CS73 = [
+  "https://i.postimg.cc/65qK71rX/Cua-xich-xang-Huspanda-CS73.png"
+]
+
+export const CS75 = [
+  "https://i.postimg.cc/yYDq63Hn/Cua-xich-xang-Huspanda-CS75.png"
+]
+
+export const AK9999 = [
+  "https://i.postimg.cc/yNPpy7KP/May-cua-xich-OSHIMA-AK9999-2-thi.png"
+]
+
+export const CX5201 = [
+  "https://i.postimg.cc/nVy8zchH/Cua-xich-Mitsukaisho-CX-5201-2-2KW.png"
+]
+
+export const OS5900 = [
+  "https://i.postimg.cc/Pq9y4JcD/Cua-xich-2-thi-Oshima-OS-5900-2-5kw.png"
+]
+
+export const CX2500 = [
+  "https://i.postimg.cc/Dz9QGDJQ/Cua-xich-Mitsukaisho-CX-2500-0-9KW.png"
 ]
 
 export const WFCB8020UTL = [
