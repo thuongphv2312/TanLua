@@ -1152,6 +1152,22 @@ export const MAYTHOIDIENHUKANG1LB3800 = [
   "https://i.postimg.cc/26ddCLjj/vn-11134207-81ztc-moi4i4k6800b30.webp",
 ]
 
+export const MAYTHOIBUI4THINIKIPROEB851 = [
+  "https://i.postimg.cc/28YkdHTh/May-Thoi-Bui-Cam-Tay-Chay-Xang-Niki-Pro-EB-851.png"
+]
+
+export const MAYTHOIBUI4THINIKIPROEB2500 = [
+  "https://i.postimg.cc/bwzxZcMy/May-Thoi-Bui-Cam-Tay-Chay-Xang-Niki-Pro-EB-2500.png"
+]
+
+export const MAYTHOILAOSHIMAMTL26CC = [
+  "https://i.postimg.cc/SNm2rLGC/May-thoi-la-Oshima-MTL-26CC-2-thi.png"
+]
+
+export const MAYTHOILAOSHIMAMTL57CC = [
+  "https://i.postimg.cc/VN0d6KYN/May-thoi-la-Oshima-MTL-57CC-2-thi.png"
+]
+
 export const MAYSIETBULONGWORKFIXWF_IW360BL = [
   "https://i.postimg.cc/Xq385c1Z/vn-11134207-7r98o-lwol0eeldzo937.png",
   "https://i.postimg.cc/PfSBLC3B/Combo-bulong-WF-IW360BL.png",
