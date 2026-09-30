@@ -1260,7 +1260,12 @@ export const HM21G2PR3030BL = [
 
 export const LUOIBAMXOIMAYDAYCUROA = [
   "https://i.postimg.cc/0NR97zvn/Luoi-bam-xoi-danh-cho-may-chay-day-curoa.png",
+  "https://i.postimg.cc/y8PW8PWZ/Phu-kien-may-xoi-day-curoa-dau-dau-chay-dau-170-do-len.png",
   "https://i.postimg.cc/8CQTL7GK/z8094449346221-d8dd24107664b56b23d586ba3dd9bfb0.jpg",
+]
+
+export const PHUKIENMAYXOIMINI = [
+  "https://i.postimg.cc/MZQTQxvT/Phu-kien-may-xoi-mini.png"
 ]
 
 export const G2RH2166X = [
