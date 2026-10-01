@@ -1341,6 +1341,7 @@ export const WORKFIXWFSD238N238NW = [
 
 export const BOSSUNBSVT45BL45NM14INCH = [
   "https://i.postimg.cc/BZTPb1Wq/Chuyen-vit-BOSSUN-BS-VT45BL.png",
+  "https://i.postimg.cc/tgQCXpZR/May-van-vit-BOSSUN-BS-VT45BL.png",
   "https://i.postimg.cc/CMGn5fyL/Chuyen-vit-BOSSUN-BS-VT45BL-1.png",
   "https://i.postimg.cc/KcP3jgXc/Chuyen-vit-BOSSUN-BS-VT45BL-2.png",
 ]
