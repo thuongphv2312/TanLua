@@ -821,6 +821,8 @@ export const CVG2CV231 = [
 
 export const G1GS400 = [
   "https://i.ibb.co/pBNQ906P/Combo-m-y-c-t-t-a-G1-GS400.png",
+  "https://i.postimg.cc/SRTRhxvw/Combo-May-cat-tia-hang-rao-Hukan-G1-GS400.png",
+  "https://i.postimg.cc/gcNnRg2Y/Than-cat-tia-hang-rao-Hukan-G1-GS400.png",
   "https://i.ibb.co/4g5mBJTB/Combo-m-y-c-t-t-a-G1-GS400-1.png",
   "https://i.ibb.co/TxLyqZ5m/Combo-m-y-c-t-t-a-G1-GS400-2.png",
   "https://i.ibb.co/5WkmK1Bc/Combo-m-y-c-t-t-a-G1-GS400-3.png",
@@ -1252,10 +1254,16 @@ export const G2MS90255 = [
 
 export const HM21G2PR3030BL = [
   "https://i.postimg.cc/43ZrJVsT/Cat-canh-HK-HM21G2PR3030BL.png",
+  "https://i.postimg.cc/Bnx35vC9/Combo-may-cat-canh-Hukan-G2-PR3030BL.png",
+  "https://i.postimg.cc/CKSgcVc2/Than-may-cat-canh-Hukan-G2-PR3030BL.png",
   "https://i.postimg.cc/TPGZRgfR/vn-11134207-7ras8-m3vmtfib8zhx01.webp",
   "https://i.postimg.cc/jjKGsPtq/vn-11134207-7ras8-m3vmtfibaenc2c.webp",
   "https://i.postimg.cc/vmMpQfbm/vn-11134207-7ras8-mdo4ditkkddx17.webp",
   "https://i.postimg.cc/7LDpx0wH/vn-11134207-820l4-mh32fx1bkjrg10.webp",
+]
+
+export const COMBOTHANCUAKIEMHUKANG1CK25PRO = [
+  "https://i.postimg.cc/NGSvWXN3/Than-cua-kiem-Hukan-G1-CK25PRO.png"
 ]
 
 export const LUOIBAMXOIMAYDAYCUROA = [
@@ -1351,6 +1359,10 @@ export const CUAXICHWFCS1202BL = [
   "https://i.postimg.cc/zfgKqjtF/Than-cua-WF-CS1202BL.png",
   "https://i.postimg.cc/505w56bp/Than-cua-WF-CS1202BL.png",
   "https://i.postimg.cc/Hnq66c2k/Cua-xich-WF-CS1202BL-xanh.png"
+]
+
+export const CUAXICHWFCS12CP = [
+  "https://i.postimg.cc/C5zYbHcQ/Than-cua-12-inch-WF-CS12CP.png"
 ]
 
 export const CS73 = [
