@@ -736,6 +736,7 @@ export const MAYXOIDATXDX18 = [
 
 export const NHOT2THI = [
   "https://i.ibb.co/WvPcZzFd/Nh-t-2-th.png",
+  "https://i.postimg.cc/t4ZQ6DCT/Nhot-2T-Oshima.png",
   "https://i.ibb.co/1tf9prmQ/Nh-t-2-th-1.png",
   "https://i.ibb.co/PvTqSGB9/Nh-t-2-th-2.png",
   "https://i.ibb.co/20SLhvGx/Nh-t-2-th-3.png",
