@@ -1486,13 +1486,13 @@ export const rawNewsList: RawNewsItem[] = [
       isSoldOut: false
    },
    {
-      title: "Thân chưa kiếm pin chính hãng hukan G1-CK25PRO 21V không chổi than",
+      title: "Thân cưa kiếm pin chính hãng hukan G1-CK25PRO 21V không chổi than",
       author: "Tấn Lụa",
       date: "12/01/2021",
-      description: "Thân chưa kiếm pin chính hãng hukan G1-CK25PRO 21V không chổi than có công dụng như thế nào với công việc của bạn...",
+      description: "Thân cưa kiếm pin chính hãng hukan G1-CK25PRO 21V không chổi than có công dụng như thế nào với công việc của bạn...",
       images: COMBOTHANCUAKIEMHUKANG1CK25PRO,
       categories: [CATEGORY_ID.DUNG_CU_CAM_TAY],
-      name: "Thân chưa kiếm pin chính hãng hukan G1-CK25PRO 21V không chổi than",
+      name: "Thân cưa kiếm pin chính hãng hukan G1-CK25PRO 21V không chổi than",
       price: "1,075,200đ",
       oldPrice: "1,295,000đ",
       url: HOST,
