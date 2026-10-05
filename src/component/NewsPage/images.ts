@@ -1439,3 +1439,71 @@ export const V140BL = [
 export const G1CB01503 = [
   "https://i.postimg.cc/VNssSnxx/Combo-3-may-khoan-mai-va-siet-bulong-G1-CB01503.png"
 ]
+
+export const THANKHOANPINGCDL1040Z2 = [
+  "https://i.postimg.cc/fkQZbSXX/Than-khoan-pin-co-bua-Hukan-GC-DL1040-Z2.png"
+]
+
+export const THANKHOANPINGCDL1050Z3 = [
+  "https://i.postimg.cc/q7q7SnGc/Than-may-khoan-pin-Hukan-GC-DL1050-Z3.png"
+]
+
+export const THANMAIPINHUKANGCAGL5600S = [
+  "https://i.postimg.cc/4NXsjVfd/Than-may-mai-pin-Hukan-GC-AGL5600S.png"
+]
+
+export const THANCHUYENVITPINGCIRL304BL = [
+  "https://i.postimg.cc/xTsD7Zpp/Than-may-chuyen-vit-Hukan-GC-IRL304BL.png"
+]
+
+export const MAYTHOIHUBUIDIENGCETB702 = [
+  "https://i.postimg.cc/L8r7FFtC/May-thoi-hut-bui-dien-Hukan-GC-ETB702.png"
+]
+
+export const GCIDL154AT = [
+  "https://i.postimg.cc/G2bXbLH9/Than-may-khoan-pin-Hukan-GC-IDL154AT.png"
+]
+
+export const GCIWL285S = [
+  "https://i.postimg.cc/5yT5QbNq/Than-may-siet-bulong-hukan-GC-IWL285S.png"
+]
+
+export const THANMAIPINHUKANGCAG5200S = [
+  "https://i.postimg.cc/pTdK0pmQ/Than-may-mai-pin-Hukan-GC-AG5200S.png"
+]
+
+export const GCGSL21N6 = [
+  "https://i.postimg.cc/rmbRQgXT/Than-cua-xich-pin-6inch-hukan-GC-CSL21-N6.png"
+]
+
+export const GCIDL1385 = [
+  "https://i.postimg.cc/C5qmwmjy/Than-may-khoan-pin-Hukan-GC-IDL1385.png"
+]
+
+export const THANCHUYENVITPINGCCSL2140 = [
+  "https://i.postimg.cc/05wfMXwM/Than-may-chuyen-vit-Hukan-GC-CSL2140.png"
+]
+
+export const GCIWL290N = [
+  "https://i.postimg.cc/4xdHtnSY/Than-may-siet-bulong-GC-IWL290N.png"
+]
+
+export const DUCGCERH226 = [
+  "https://i.postimg.cc/JzGt0vsZ/May-khoan-be-tong-Hukan-GC-ERH226.png"
+]
+
+export const GCRHL2126BL = [
+  "https://i.postimg.cc/Xv63WzdY/Than-may-khoan-be-tong-pin-Hukan-GC-RHL2126BL.png"
+]
+
+export const COMBOPINSACWFCB6020UTL = [
+  "https://i.postimg.cc/7YCy2kN4/Combo-pin-sac-WF-CB6020UTL.png"
+]
+
+export const PIN8AHWFCB8020UTL = [
+  "https://i.postimg.cc/qMn4FrCJ/Pin-20-cell-8-0Ah-WF-CB8020UTL.png"
+]
+
+export const BSMXV1680W = [
+  "https://i.postimg.cc/GpgW2gsy/May-xoa-vua-dien-BS-MXV1680W.png"
+]
