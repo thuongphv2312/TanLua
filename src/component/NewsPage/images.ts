@@ -1519,3 +1519,11 @@ export const MAYCATCOOSM330 = [
 export const MAYCATCOOSM543 = [
   "https://i.postimg.cc/DzQXCGpF/May-cat-co-OSM-543.png"
 ]
+
+export const JM985HP = [
+  "https://i.postimg.cc/rsD9nLh7/Dau-phun-xit-Jet-Man-5hp-JM98.png"
+]
+
+export const JM138 = [
+  "https://i.postimg.cc/CdybcnnQ/Dau-phun-xit-Jet-Man-7-5hp-JM138.png"
+]
