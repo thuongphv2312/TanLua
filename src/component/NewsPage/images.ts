@@ -1521,9 +1521,9 @@ export const MAYCATCOOSM543 = [
 ]
 
 export const JM985HP = [
-  "https://i.postimg.cc/rsD9nLh7/Dau-phun-xit-Jet-Man-5hp-JM98.png"
+  "https://i.postimg.cc/MGyRGp4R/Dau-phun-xit-Jet-Man-5hp-JM98.png"
 ]
 
 export const JM138 = [
-  "https://i.postimg.cc/CdybcnnQ/Dau-phun-xit-Jet-Man-7-5hp-JM138.png"
+  "https://i.postimg.cc/kX4xy9Vk/Dau-phun-xit-Jet-Man-7-5hp-JM138.png"
 ]
