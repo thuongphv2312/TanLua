@@ -1507,3 +1507,15 @@ export const PIN8AHWFCB8020UTL = [
 export const BSMXV1680W = [
   "https://i.postimg.cc/GpgW2gsy/May-xoa-vua-dien-BS-MXV1680W.png"
 ]
+
+export const MAYCATCOOSM260 = [
+  "https://i.postimg.cc/L5pQcj2q/May-cat-co-OSM-260.png"
+]
+
+export const MAYCATCOOSM330 = [
+  "https://i.postimg.cc/7YQM7SdN/May-cat-co-OSM-330.png"
+]
+
+export const MAYCATCOOSM543 = [
+  "https://i.postimg.cc/DzQXCGpF/May-cat-co-OSM-543.png"
+]
