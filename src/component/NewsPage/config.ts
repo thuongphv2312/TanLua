@@ -19,5 +19,5 @@ export const HOST = 'tanlua.vercel.app';
 export const BRAND_LIST = [
    "HUKAN", "OSHIMA", "GREEKMAN", "MITSUKAISHO", "NAKAWA", "TALU",
    "HANKOCK", "ROMANO", "ANOVI", "TOJIKO", "DRAGON", "TAL",
-   "CALI", "MULINSEN", "KMX", "WORKFIX", "BOSSUN"
+   "CALI", "MULINSEN", "KMX", "WORKFIX", "BOSSUN", "JETMAN"
 ];

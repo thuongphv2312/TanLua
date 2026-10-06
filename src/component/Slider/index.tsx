@@ -67,7 +67,7 @@ const getCategoryPropertyFilters = (categoryId: number): PropertyFilter[] => {
          {
             label: "Piston (Ty)",
             key: "pistonType",
-            options: ["Ty sứ", "Ty inox"]
+            options: ["Ty sứ", "Ty inox", "Ty thép"]
          },
          {
             label: "Xilanh (Đường kính)",
