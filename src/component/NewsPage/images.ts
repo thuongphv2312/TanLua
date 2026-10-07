@@ -1527,3 +1527,7 @@ export const JM985HP = [
 export const JM138 = [
   "https://i.postimg.cc/kX4xy9Vk/Dau-phun-xit-Jet-Man-7-5hp-JM138.png"
 ]
+
+export const BSRG63PRO = [
+  "https://i.postimg.cc/yY6Qy9KZ/May-op-lat-gach-BOSHUN-BS-RG63PRO.png"
+]
