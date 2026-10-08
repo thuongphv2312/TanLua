@@ -1531,3 +1531,7 @@ export const JM138 = [
 export const BSRG63PRO = [
   "https://i.postimg.cc/yY6Qy9KZ/May-op-lat-gach-BOSHUN-BS-RG63PRO.png"
 ]
+
+export const MAYCATGACHG2MC6961 = [
+  "https://i.postimg.cc/rp1Db3T2/May-cat-gach-Hukan-G2-MC6961.png"
+]
