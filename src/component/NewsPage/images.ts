@@ -1535,3 +1535,7 @@ export const BSRG63PRO = [
 export const MAYCATGACHG2MC6961 = [
   "https://i.postimg.cc/rp1Db3T2/May-cat-gach-Hukan-G2-MC6961.png"
 ]
+
+export const DAYXITTANGAPHANKOOK = [
+  "https://i.postimg.cc/3JgHD796/Chuong-trinh-khuyen-mai-day-xit-Hankook-8-5mm.png"
+]
