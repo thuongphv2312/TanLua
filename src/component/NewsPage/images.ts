@@ -1539,3 +1539,9 @@ export const MAYCATGACHG2MC6961 = [
 export const DAYXITTANGAPHANKOOK = [
   "https://i.postimg.cc/3JgHD796/Chuong-trinh-khuyen-mai-day-xit-Hankook-8-5mm.png"
 ]
+
+export const DAYXITTANGAPANOVIDAULIEN250 = [
+  "https://i.postimg.cc/zG4LYzR6/Chuong-trinh-khuyen-mai-day-xit-anovi-250Bar-10m.png",
+  "https://i.postimg.cc/jSBWYx7t/Chuong-trinh-khuyen-mai-day-xit-anovi-250Bar-15m.png",
+  "https://i.postimg.cc/y82JC1ZB/Chuong-trinh-khuyen-mai-day-xit-anovi-250Bar-20m.png",
+]
