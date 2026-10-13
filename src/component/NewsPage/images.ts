@@ -1545,3 +1545,23 @@ export const DAYXITTANGAPANOVIDAULIEN250 = [
   "https://i.postimg.cc/jSBWYx7t/Chuong-trinh-khuyen-mai-day-xit-anovi-250Bar-15m.png",
   "https://i.postimg.cc/y82JC1ZB/Chuong-trinh-khuyen-mai-day-xit-anovi-250Bar-20m.png",
 ]
+
+export const KSD10 = [
+  "https://i.postimg.cc/3NmmJfn8/Mui-khoan-dat-Kamastsu-KSD10.png"
+]
+
+export const KSD15 = [
+  "https://i.postimg.cc/XYVd485P/Mui-khoan-dat-Kamastsu-KSD15.png"
+]
+
+export const KHUNGTOIPHANHDAYCUROA = [
+  "https://i.postimg.cc/prsx8R07/Khung-toi-phanh-day-curoa.png"
+]
+
+export const KHUNGTOIPHANHXEMAY = [
+  "https://i.postimg.cc/5y0Thv3N/Khung-toi-phanh-xe-may.png"
+]
+
+export const KHUNGTOITHUNGTO = [
+  "https://i.postimg.cc/BQRkzj1c/Khung-toi-thung-to.png"
+]
