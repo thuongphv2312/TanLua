@@ -570,6 +570,8 @@ export const AG6101J = [
 
 export const TLP35 = [
   "https://i.ibb.co/yc523gD7/M-y-phun-h-t-1.png",
+  "https://i.postimg.cc/bwjdw3SZ/May-phun-xa-hat-TLP35-xanh.png",
+  "https://i.postimg.cc/mgGhg81b/May-phun-xa-hat-TLP35-do.png",
   "https://i.ibb.co/BKSRWFwC/M-y-phun-h-t-2.png",
   "https://i.ibb.co/BKSRWFwC/M-y-phun-h-t-2.png",
   "https://i.ibb.co/HTFGygMq/M-y-phun-h-t-4.png",
