@@ -1567,3 +1567,25 @@ export const KHUNGTOIPHANHXEMAY = [
 export const KHUNGTOITHUNGTO = [
   "https://i.postimg.cc/BQRkzj1c/Khung-toi-thung-to.png"
 ]
+
+export const KHOANDATOSM2P52CC2THI = [
+  "https://i.postimg.cc/qRxzvfXH/Khoan-dat-OSM-2P-52cc-do-2-thi.png",
+  "https://i.postimg.cc/j54LSVQW/Than-Khoan-dat-OSM-2P-52cc-do-2-thi-khong-mui.png"
+]
+
+export const KHOANDATOSM2PS68CC2THI = [
+  "https://i.postimg.cc/fyFZw5FD/Khoan-dat-OSHIMA-2PS-68cc-do-2-thi.png",
+  "https://i.postimg.cc/Rhq452P5/Khoan-dat-OSHIMA-2PS-68cc-do-2-thi-khong-kem-mui.png"
+]
+
+export const KHOANDATMIT2PSMUIDONXOAN = [
+  "https://i.postimg.cc/MGWkJhTr/Khoan-dat-OSHIMA-2PS-68cc-do-2-thi.png"
+]
+
+export const KHOANDATMIT2PSMUIDOIXOAN300800 = [
+  "https://i.postimg.cc/MTnqghPP/Khoan-dat-OSHIMA-2PS-68cc-do-2-thi.png"
+]
+
+export const KHOANDATMIT2PSMUIDOIXOAN250800 = [
+  "https://i.postimg.cc/MGTSjCSp/Khoan-dat-OSHIMA-2PS-68cc-do-2-thi.png"
+]
