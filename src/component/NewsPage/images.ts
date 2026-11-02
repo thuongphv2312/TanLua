@@ -414,6 +414,7 @@ export const MAYCANMUCCM5XCS = [
 ]
 
 export const MAYCANMUCCM5XSPX = [
+  "https://i.postimg.cc/25QBV4zX/Chuong-trinh-khuyen-mai-CM5X-SP-X.png",
   "https://i.ibb.co/FLR7QM1b/M-y-c-n-m-c-CM5-X-SP-X-1.png",
   "https://i.ibb.co/KxCwtq1R/M-y-c-n-m-c-CM5-X-SP-X-5.png",
   "https://i.ibb.co/JWxvS3f3/M-y-c-n-m-c-CM5-X-SP-X-media.png",
@@ -624,6 +625,7 @@ export const MAYRUAXE151801 = [
 ]
 
 export const MAYRUAXE0812K2 = [
+  "https://i.postimg.cc/2ycWCrzq/May-rua-xe-0812.png",
   "https://i.ibb.co/Fq0C23xd/M-y-r-a-xe-Cali-0812-k2-1.png",
   "https://i.postimg.cc/DZ0FVzsr/Chuong-trinh-hang-moi-ve-0812.png",
   "https://i.ibb.co/HDk5MvmF/M-y-r-a-xe-Cali-0812-k2-2.png",
@@ -675,6 +677,7 @@ export const MAYRUAXEMXR1215C2 = [
 ]
 
 export const MAYRUAXEMXR1418C1 = [
+  "https://i.postimg.cc/PxMZF19m/May-rua-xe-1418.png",
   "https://i.ibb.co/Tq0M3nWQ/M-y-r-a-xe-oshima-1418-C1.png",
   "https://i.ibb.co/jkbPMx3D/M-y-r-a-xe-oshima-1418-C1-1.png",
   "https://i.ibb.co/7NRjXxrW/M-y-r-a-xe-oshima-1418-C1-2.png",
