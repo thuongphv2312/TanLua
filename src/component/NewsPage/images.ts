@@ -402,7 +402,7 @@ export const MAYCANMUCCM5XSS = [
 ]
 
 export const MAYCANMUCCM5XCS = [
-  "https://i.postimg.cc/TYwbkjpr/Chuong-trinh-khuyen-mai-CM5X-CS.png"
+  "https://i.postimg.cc/TYwbkjpr/Chuong-trinh-khuyen-mai-CM5X-CS.png",
   "https://i.postimg.cc/NF737fyN/May-can-muc-CM5X-CS-1-TT.png",
   "https://i.postimg.cc/1Xckc5gj/May-can-muc-CM5X-CS-2-TT.png",
   "https://i.postimg.cc/XqcRc7ZP/May-can-muc-CM5X-CS-3-TT.png",
