@@ -182,12 +182,12 @@ export const DAMDUIPINDV01 = [
 ]
 
 export const DAMTHUOCDIENTALDTD220 = [
+  "https://i.postimg.cc/02jPvDhV/Dam-thuoc-dien-TAL-DTD-220-kem-thuoc.png",
   "https://i.postimg.cc/rFsMTx7n/Dam-thuoc-dien-TAL-DTD-220.png",
   "https://i.postimg.cc/PrJTHY0F/Dam-thuoc-dien-TAL-DTD-220-1.png",
   "https://i.postimg.cc/4NysGVj8/Dam-thuoc-dien-TAL-DTD-220-2.png",
   "https://i.postimg.cc/fTyDsm1q/Dam-thuoc-dien-TAL-DTD-220-3.png",
   "https://i.postimg.cc/15XsSwbT/Dam-thuoc-dien-TAL-DTD-220-4.png",
-  "https://i.postimg.cc/02jPvDhV/Dam-thuoc-dien-TAL-DTD-220-kem-thuoc.png",
 ]
 
 export const DAMTHUOCXANGDTXT35PRO = [
