@@ -65,19 +65,19 @@ export const CS226 = [
 ];
 
 export const TL226 = [
-  "https://i.postimg.cc/MHxHtHGg/226.png"
+  "https://i.postimg.cc/T2yfPbYq/226.png"
 ];
 
 export const TL260 = [
-  "https://i.postimg.cc/T19wsxLg/260.png"
+  "https://i.postimg.cc/BZdsPvXY/260.png"
 ]
 
 export const TL330 = [
-  "https://i.postimg.cc/7YHb25d1/330.png"
+  "https://i.postimg.cc/dtrF2KCY/330.png"
 ]
 
 export const TL541 = [
-  "https://i.postimg.cc/dt53mqcS/541.png"
+  "https://i.postimg.cc/4NVG6Tc6/541.png"
 ]
 
 
@@ -110,16 +110,6 @@ export const COMBOPIN0805 = [
   "https://i.postimg.cc/pLJ7QFKg/main-9.jpg",
 ]
 
-export const COMBOPIN4505 = [
-  "https://i.postimg.cc/PqwqjYvk/4505-1-41966164-300x300.jpg",
-  "https://i.postimg.cc/KYMY2BkC/4505-22095-300x300.jpg",
-  "https://i.postimg.cc/QMTM319R/4505-3-5907193-300x300.jpg",
-  "https://i.postimg.cc/QMTM3192/4505-4-58590629-300x300.jpg",
-  "https://i.postimg.cc/8C6CSMf8/4505-5-90874557-300x300.jpg",
-  "https://i.postimg.cc/hGdGBTQR/4505-80811861-300x300.jpg",
-
-]
-
 export const COMBOCVHM21G2CVX230N = [
   "https://i.postimg.cc/CLYsG6JY/bo-2-pin-1-sac.jpg",
   "https://i.postimg.cc/gkdHVB4r/main-2.jpg",
@@ -145,12 +135,9 @@ export const SV21VNG230ND1 = [
 ]
 
 export const DAMDUIDIEN7508501000W = [
-  "https://i.postimg.cc/SN1QYDWW/TALU-1000-ylw.png",
-  "https://i.postimg.cc/VkSfqnRj/TALU-1000-ylw-2.png",
-  "https://i.postimg.cc/65b64Yd5/TALU-750-ORA.png",
-  "https://i.postimg.cc/W1DNGgnh/TALU-750-ORA-2.png",
-  "https://i.postimg.cc/P5LXWY4N/TALU-850-BLU.png",
-  "https://i.postimg.cc/XYZjfd8q/TALU-850-BLU-2.png",
+  "https://i.postimg.cc/vTnJtWcK/TALU-1000-ylw.png",
+  "https://i.postimg.cc/WzZBwMhf/TALU-750-ORA.png",
+  "https://i.postimg.cc/2yWs74VK/TALU-850-BLU-2.png",
 ]
 
 export const DAYXITTANGAP10M = [
@@ -182,20 +169,11 @@ export const DAMDUIPINDV01 = [
 ]
 
 export const DAMTHUOCDIENTALDTD220 = [
-  "https://i.postimg.cc/02jPvDhV/Dam-thuoc-dien-TAL-DTD-220-kem-thuoc.png",
-  "https://i.postimg.cc/rFsMTx7n/Dam-thuoc-dien-TAL-DTD-220.png",
-  "https://i.postimg.cc/PrJTHY0F/Dam-thuoc-dien-TAL-DTD-220-1.png",
-  "https://i.postimg.cc/4NysGVj8/Dam-thuoc-dien-TAL-DTD-220-2.png",
-  "https://i.postimg.cc/fTyDsm1q/Dam-thuoc-dien-TAL-DTD-220-3.png",
-  "https://i.postimg.cc/15XsSwbT/Dam-thuoc-dien-TAL-DTD-220-4.png",
+  "https://i.postimg.cc/yN98WSPz/Dam-thuoc-dien-DTD220-V2.png"
 ]
 
 export const DAMTHUOCXANGDTXT35PRO = [
-  "https://i.postimg.cc/52FJY143/Dam-thuoc-xang-TAL-DTX-T35PRO.png",
-  "https://i.postimg.cc/x1bQJYfx/Dam-thuoc-xang-TAL-DTX-T35PRO-1.png",
-  "https://i.postimg.cc/4xhG7Zf8/Dam-thuoc-xang-TAL-DTX-T35PRO-2.png",
-  "https://i.postimg.cc/4xhG7ZfS/Dam-thuoc-xang-TAL-DTX-T35PRO-3.png",
-  "https://i.postimg.cc/qvCrh0JF/Dam-thuoc-xang-TAL-DTX-T35PRO-4.png",
+  "https://i.postimg.cc/L4VhzLMH/Dam-thuoc-xang-TAL-DTX-T35PRO.png"
 ]
 
 export const DAUXITTL22STH = [
@@ -212,39 +190,13 @@ export const DAUXITA2230TH = [
 ]
 
 export const DAUXITTL30STH = [
-  "https://i.postimg.cc/nrzbHfSD/TL30S-TH-2.png",
-  "https://i.postimg.cc/ZRjzt5Hr/TL30S-TH-1.png",
-  "https://i.postimg.cc/cCHysGkw/TL30S-TH-3.png",
-  "https://i.postimg.cc/1Xth9178/TL30S-TH-4.png",
-  "https://i.postimg.cc/KjzSZhpg/TL30S-TH-5.png",
-  "https://i.postimg.cc/QCtGXZYQ/TL30S-TH-6.png",
+  "https://i.postimg.cc/s2zt9Qrp/TL30S-TH-2.png"
 ]
 
 export const DAUXITTL22TH = [
-  "https://i.postimg.cc/TYBMXSVk/TL22-TH-1.png",
-  "https://i.postimg.cc/hj26Z34K/TL22-TH-2.png",
-  "https://i.postimg.cc/gjr5Cqn9/TL22-TH-3.png",
-  "https://i.postimg.cc/qqYY4h3V/TL22-TH-4.png",
-  "https://i.postimg.cc/D0DDnJX0/TL22-TH-5.png",
-  "https://i.postimg.cc/bYF4QMBX/TL22-TH-6.png",
-]
-
-export const DAUXITTL22T = [
-  "https://i.postimg.cc/wBHrqd7H/TL22T-1HP-1.png",
-  "https://i.postimg.cc/DzgMmYXX/TL22T-1HP-2.png",
-  "https://i.postimg.cc/k5cpDhbN/TL22T-1HP-3.png",
-  "https://i.postimg.cc/43Z0fTmw/TL22T-1HP-4.png",
-  "https://i.postimg.cc/vmzNDSVr/TL22T-1HP-5.png",
-  "https://i.postimg.cc/hGr5h3dM/TL22T-1HP-6.png",
-]
-
-export const DAUXITTL30T = [
-  "https://i.postimg.cc/pTccJhk1/TL30T-2HP-1.png",
-  "https://i.postimg.cc/0jLthTLT/TL30T-2HP-2.png",
-  "https://i.postimg.cc/J0y66r27/TL30T-2HP-3.png",
-  "https://i.postimg.cc/j2G8BppV/TL30T-2HP-4.png",
-  "https://i.postimg.cc/HnfSFqqD/TL30T-2HP-5.png",
-  "https://i.postimg.cc/vTpPCJJs/TL30T-2HP-6.png",
+  "https://i.postimg.cc/rwZr5Wxw/TL22-TH-4.png",
+  "https://i.postimg.cc/dVNyGdr0/TL22-TH-5.png",
+  "https://i.postimg.cc/JzYkjJZ7/TL22-TH-6.png",
 ]
 
 export const DAUXITTL30TH = [
@@ -271,12 +223,6 @@ export const THANMAYKHOANG1D55 = [
 
 ]
 
-export const THANMAYKHOANGG2Z1300 = [
-  "https://i.postimg.cc/59wntrWv/vn-11134201-81ztc-ms5exge6uww14f.webp",
-  "https://i.postimg.cc/bYQ3v5fm/vn-11134207-81ztc-mni8lokzeosic0.webp",
-  "https://i.postimg.cc/v8W3mKw2/vn-11134207-81ztc-mni8lol7u3gm81.webp",
-]
-
 export const GIABATCOBANHXE = [
   "https://i.postimg.cc/D0dG8nbH/Giabatcobanhxe.png"
 ]
@@ -291,19 +237,11 @@ export const HANCOHK30ST2HP = [
 ]
 
 export const KHOANBETONGK90 = [
-  "https://i.postimg.cc/NMR75KSr/May-khoan-be-tong-HUKAN-K90.png"
+  "https://i.postimg.cc/RCty8LZX/main-1.jpg"
 ]
 
 export const KHOANBETONGK96 = [
-  "https://i.postimg.cc/50W8dx0K/May-khoan-be-tong-K96.png",
-  "https://i.postimg.cc/LXFjKH5M/May-khoan-be-tong-K96-1.png",
-  "https://i.postimg.cc/hjRVWSj6/May-khoan-be-tong-K96-2.png",
-  "https://i.postimg.cc/KzhtSZjb/May-khoan-be-tong-K96-3.png",
-  "https://i.postimg.cc/vBw5FQTb/May-khoan-be-tong-K96-4.png",
-  "https://i.postimg.cc/G2nvwctc/May-khoan-be-tong-K96-5.png",
-  "https://i.postimg.cc/TwvnMR1d/May-khoan-be-tong-K96-6.png",
-  "https://i.postimg.cc/mDW7fbkZ/May-khoan-be-tong-K96-7.png",
-  "https://i.postimg.cc/4dRpkJyN/May-khoan-be-tong-K96-8.png",
+  "https://i.postimg.cc/yYX5669h/z5966709113773-0c22cb6d1b598dad04bc4efea8cc2b2f-600x600.jpg"
 ]
 
 export const MAYBOMTANGAPMINIG1B001TB = [
@@ -337,11 +275,7 @@ export const MAYMAIAG5055CT = [
 ]
 
 export const MAYCATSATBAN2400S = [
-  "https://i.postimg.cc/gjXpVPyF/Maycatluoi355-1.png",
-  "https://i.postimg.cc/ZnBm8hPY/Maycatluoi355-2.png",
-  "https://i.postimg.cc/tJZb3Hdq/Maycatluoi355-3.png",
-  "https://i.postimg.cc/wMyzXd5T/Maycatluoi355-4.png",
-  "https://i.postimg.cc/vTgyrd7m/Maycatluoi355-5.png",
+  "https://i.postimg.cc/gjtt6syt/Maycatluoi355-1.png"
 ]
 
 export const MAYCATSATBANOS2000 = [
@@ -370,39 +304,19 @@ export const MAYCANMUCCM5X1 = [
 ]
 
 export const MAYCANMUCCM5X2 = [
-  "https://i.postimg.cc/7LZZ5dRT/May-can-muc-CM5X-2-1.png",
-  "https://i.postimg.cc/s2ggMqLf/May-can-muc-CM5X-2.png",
-  "https://i.postimg.cc/pdLLm4S5/May-can-muc-CM5X-2-2.png",
-  "https://i.postimg.cc/jjSSDm1w/May-can-muc-CM5X-2-3.png",
-  "https://i.postimg.cc/xd11XhZz/May-can-muc-CM5X-2-4.png",
-  "https://i.postimg.cc/DzwwSHNL/May-can-muc-CM5X-2-5.png",
+  "https://i.postimg.cc/6ppH9rBp/May-can-muc-CM5X-2-1.png"
 ]
 
 export const MAYCANMUCCM5X2LS = [
-  "https://i.postimg.cc/zfvqzWLz/May-can-muc-CM5X-2LS-1.png",
-  "https://i.postimg.cc/rwQ82gpd/May-can-muc-CM5X-2LS.png",
-  "https://i.postimg.cc/GptbLYB3/May-can-muc-CM5X-2LS-2.png",
-  "https://i.postimg.cc/KYjmGLKZ/May-can-muc-CM5X-2LS-3.png",
-  "https://i.postimg.cc/VNvzfMSz/May-can-muc-CM5X-2LS-4.png",
-  "https://i.postimg.cc/cJCdxYKv/May-can-muc-CM5X-2LS-5.png",
-  "https://i.postimg.cc/Dz07vsW8/May-can-muc-CM5X-2LS-6.png",
-  "https://i.postimg.cc/mrkTLMcc/May-can-muc-CM5X-2LS-7.png",
+  "https://i.postimg.cc/W1Y5td4g/May-can-muc-CM5X-2LS-1.png"
 ]
 
 export const MAYCANMUCCM5XLS = [
-  "https://i.postimg.cc/9QFhbTYv/May-can-muc-CM5X-LS-1.png",
-  "https://i.postimg.cc/Jz4LxJ56/May-can-muc-CM5X-LS.png",
-  "https://i.postimg.cc/Z5KSH3xX/May-can-muc-CM5X-LS-2.png",
-  "https://i.postimg.cc/wjTp2JQC/May-can-muc-CM5X-LS-3.png",
-  "https://i.postimg.cc/pLXHC8BN/May-can-muc-CM5X-LS-4.png",
+  "https://i.postimg.cc/KYdQrCLW/May-can-muc-CM5X-LS-1.png"
 ]
 
 export const MAYCANMUCCM5XSS = [
-  "https://i.postimg.cc/pdmtbH7q/May-can-muc-CM5X-SS.png",
-  "https://i.postimg.cc/LsGFmWK3/May-can-muc-CM5X-SS-1.png",
-  "https://i.postimg.cc/YSvwKHVV/May-can-muc-CM5X-SS-2.png",
-  "https://i.postimg.cc/tg8G9cQz/May-can-muc-CM5X-SS-3.png",
-  "https://i.postimg.cc/W4dPLvKy/May-can-muc-CM5X-SS-4.png",
+  "https://i.postimg.cc/3Rm1L9F2/May-can-muc-CM5X-SS.png"
 ]
 
 export const MAYCANMUCCM5XCS = [
@@ -532,14 +446,7 @@ export const K2626P = [
 ]
 
 export const RH2066X = [
-  "https://i.postimg.cc/Wb5K2y0n/May-khoan-be-tong-G2-RH2066X.png",
-  "https://i.postimg.cc/Hs6KpNbS/May-khoan-be-tong-G2-RH2066X-1.png",
-  "https://i.postimg.cc/QxfPXzcf/May-khoan-be-tong-G2-RH2066X-2.png",
-  "https://i.postimg.cc/FsTq960q/May-khoan-be-tong-G2-RH2066X-3.png",
-  "https://i.postimg.cc/280JztnX/May-khoan-be-tong-G2-RH2066X-4.png",
-  "https://i.postimg.cc/gkg5Y731/May-khoan-be-tong-G2-RH2066X-5.png",
-  "https://i.postimg.cc/vH0jQK5p/May-khoan-be-tong-G2-RH2066X-6.png",
-  "https://i.postimg.cc/5NsGxrwW/May-khoan-be-tong-G2-RH2066X-7.png",
+  "https://i.postimg.cc/7ZKW7BK3/z5718238226924-96781c5389eaa16c5814410caac5dbfc-1-600x600.jpg"
 ]
 
 export const RH2900BL = [
@@ -575,13 +482,7 @@ export const TLP35 = [
 ]
 
 export const PHUNXA3WF3A43 = [
-  "https://i.postimg.cc/XYygT1LN/May-phun-hat-2-thi.png",
-  "https://i.postimg.cc/vZ6vp2hm/May-phun-hat-2-thi-1.png",
-  "https://i.postimg.cc/g26Kftsn/May-phun-hat-2-thi-2.png",
-  "https://i.postimg.cc/bw2RKVgd/May-phun-hat-2-thi-4.png",
-  "https://i.postimg.cc/3xDZPf1N/May-phun-hat-2-thi-5.png",
-  "https://i.postimg.cc/T3WcZN0L/May-phun-hat-2-thi-6.png",
-  "https://i.postimg.cc/kgtykYsb/May-phun-hat-2-thi-8.png",
+  "https://i.postimg.cc/t43cTqxc/May-phun-hat-2-thi.png"
 ]
 
 export const MAYRUAXE1215C1 = [
@@ -650,27 +551,11 @@ export const MAYRUAXEJZ900A2 = [
 ]
 
 export const MAYRUAXEMXR1213K1 = [
-  "https://i.postimg.cc/rFDGrZvN/May-rua-xe-oshima-1213-K1.png",
-  "https://i.postimg.cc/5NX5CKZp/May-rua-xe-oshima-1213-K1-1.png",
-  "https://i.postimg.cc/m2P3Hp0j/May-rua-xe-oshima-1213-K1-2.png",
-  "https://i.postimg.cc/YqvNWDJd/May-rua-xe-oshima-1213-K1-3.png",
-  "https://i.postimg.cc/rFDGrZvQ/May-rua-xe-oshima-1213-K1-4.png",
-  "https://i.postimg.cc/NfK8HCWN/May-rua-xe-oshima-1213-K1-5.png",
-  "https://i.postimg.cc/zXywg29M/May-rua-xe-oshima-1213-K1-6.png",
-  "https://i.postimg.cc/tCsdxvLw/May-rua-xe-oshima-1213-K1-7.png",
-  "https://i.postimg.cc/RVW1Hpj2/May-rua-xe-oshima-1213-K1-8.png",
-  "https://i.postimg.cc/zXywg2sm/May-rua-xe-oshima-1213-K1-9.png"
+  "https://i.postimg.cc/vBhM67xt/May-rua-xe-oshima-1213-K1.png"
 ]
 
 export const MAYRUAXEMXR1215C2 = [
-  "https://i.postimg.cc/W4w0vBkr/May-rua-xe-Cali-1215-C2.png",
-  "https://i.postimg.cc/MTZVK97B/May-rua-xe-Cali-1215-C2-1.png",
-  "https://i.postimg.cc/vB8fH0rV/May-rua-xe-Cali-1215-C2-2.png",
-  "https://i.postimg.cc/KzcBv0Pg/May-rua-xe-Cali-1215-C2-3.png",
-  "https://i.postimg.cc/Tw2gYtVm/May-rua-xe-Cali-1215-C2-4.png",
-  "https://i.postimg.cc/G23GhXFk/May-rua-xe-Cali-1215-C2-5.png",
-  "https://i.postimg.cc/C1MkLcGG/May-rua-xe-Cali-1215-C2-6.png",
-  "https://i.postimg.cc/nzVBc34Y/May-rua-xe-Cali-1215-C2-7.png",
+  "https://i.postimg.cc/k5XdP6pQ/May-rua-xe-Cali-1215-C2.png"
 ]
 
 export const MAYRUAXEMXR1418C1 = [
@@ -718,15 +603,6 @@ export const MAYXOIDATXDX18 = [
 
 export const NHOT2THI = [
   "https://i.postimg.cc/t4ZQ6DCT/Nhot-2T-Oshima.png",
-]
-
-export const PINCBP605020CELL = [
-  "https://i.postimg.cc/C5BZzXzq/Pin-G1-CBP6050-1.png",
-  "https://i.postimg.cc/fyt3JpJV/Pin-G1-CBP6050.png",
-  "https://i.postimg.cc/nrjsCgCm/Pin-G1-CBP6050-2.png",
-  "https://i.postimg.cc/Gt8BHVHs/Pin-G1-CBP6050-3.png",
-  "https://i.postimg.cc/D0JW8H8s/Pin-G1-CBP6050-4.png",
-  "https://i.postimg.cc/D0JW8H8L/Pin-G1-CBP6050-5.png",
 ]
 
 export const PHUKIENMAYCATCO = [
