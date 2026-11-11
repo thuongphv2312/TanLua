@@ -293,6 +293,10 @@ export const MAYCATSATBANOS2000 = [
 
 ]
 
+export const ANOVI2500SU1812 = [
+  "https://i.postimg.cc/gj8hRqZZ/Dau-rua-cao-ap-Anovi-2500-SU1812-No-Price.png"
+]
+
 export const MAYCANMUCCM5X1 = [
   "https://i.postimg.cc/sfkxTnM0/May-can-muc-CM5X-1.png",
   "https://i.postimg.cc/dQb35W7K/May-can-muc-CM5X-1-1.png",
