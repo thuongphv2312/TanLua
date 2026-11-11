@@ -207,6 +207,10 @@ export const DAUXITTL22STH = [
   "https://i.postimg.cc/8PDSgNkf/TL22S-TH-5.png",
 ]
 
+export const DAUXITA2230TH = [
+  "https://i.postimg.cc/442BNKF4/Bao-gia-TA22-TH-TA30-TH-No-Price.png"
+]
+
 export const DAUXITTL30STH = [
   "https://i.postimg.cc/nrzbHfSD/TL30S-TH-2.png",
   "https://i.postimg.cc/ZRjzt5Hr/TL30S-TH-1.png",
