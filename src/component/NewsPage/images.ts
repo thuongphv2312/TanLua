@@ -1330,3 +1330,15 @@ export const KHOANDATMIT2PSMUIDOIXOAN300800 = [
 export const KHOANDATMIT2PSMUIDOIXOAN250800 = [
   "https://i.postimg.cc/MGTSjCSp/Khoan-dat-OSHIMA-2PS-68cc-do-2-thi.png"
 ]
+
+export const MAYNENKHI50LCODAUHUKANG3NCD50L = [
+  "https://i.postimg.cc/QCjjfKH4/May-nen-khi-co-dau-50L-Hukan-Model-G3-NCD50L.png"
+]
+
+export const PIN15CELLG3HEL15FRL60 = [
+  "https://i.postimg.cc/kX4mDm8W/PIN-LITHIUM-ION-HUKAN-21V-MAX-6-0AH-G3-HEL15FR-L60.png"
+]
+
+export const PIN15CELLG3HEL15FRL75 = [
+  "https://i.postimg.cc/D0wtWrWQ/PIN-LITHIUM-ION-HUKAN-21V-MAX-7-5AH-G3-HEL15FR-L75.png"
+]
