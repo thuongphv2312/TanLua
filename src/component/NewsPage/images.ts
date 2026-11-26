@@ -1342,3 +1342,7 @@ export const PIN15CELLG3HEL15FRL60 = [
 export const PIN15CELLG3HEL15FRL75 = [
   "https://i.postimg.cc/D0wtWrWQ/PIN-LITHIUM-ION-HUKAN-21V-MAX-7-5AH-G3-HEL15FR-L75.png"
 ]
+
+export const HT230 = [
+  "https://i.postimg.cc/Qx41SfK6/May-cat-tia-hang-rao-HT230.png"
+]
